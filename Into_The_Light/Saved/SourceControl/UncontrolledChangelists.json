@@ -1,0 +1,16 @@
+{
+	"version": 1,
+	"changelists": [
+		{
+			"guid": "00000000000000000000000000000000",
+			"description": "Default Uncontrolled Changelist",
+			"files": [
+				"D:/Github-EkenLof-Games/ITL-2.0/Into_The_Light/Content/Levels/Interior_LAB.umap",
+				"D:/Github-EkenLof-Games/ITL-2.0/Into_The_Light/Content/3D-Objects/ITL-Interior_Floor.uasset",
+				"D:/Github-EkenLof-Games/ITL-2.0/Into_The_Light/Content/3D-Objects/ITL-Interior_Roof.uasset",
+				"D:/Github-EkenLof-Games/ITL-2.0/Into_The_Light/Content/3D-Objects/ITL-Interior_Walls.uasset",
+				"D:/Github-EkenLof-Games/ITL-2.0/Into_The_Light/Content/3D-Objects/Material.uasset"
+			]
+		}
+	]
+}
