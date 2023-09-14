@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "Into_The_Light",
+			"Path": "..\\Source\\Into_The_Light.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "Into_The_LightEditor",
+			"Path": "..\\Source\\Into_The_LightEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}
