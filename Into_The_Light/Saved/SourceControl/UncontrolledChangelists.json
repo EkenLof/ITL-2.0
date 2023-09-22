@@ -5,6 +5,12 @@
 			"guid": "00000000000000000000000000000000",
 			"description": "Default Uncontrolled Changelist",
 			"files": [
+				"D:/Github-EkenLof-Games/ITL-2.0/Into_The_Light/Content/Levels/Interior_LAB.umap",
+				"D:/Github-EkenLof-Games/ITL-2.0/Into_The_Light/Content/3D-Objects/ITL-Interior_Floor.uasset",
+				"D:/Github-EkenLof-Games/ITL-2.0/Into_The_Light/Content/3D-Objects/ITL-Interior_Roof.uasset",
+				"D:/Github-EkenLof-Games/ITL-2.0/Into_The_Light/Content/3D-Objects/ITL-Interior_Walls.uasset",
+				"D:/Github-EkenLof-Games/ITL-2.0/Into_The_Light/Content/3D-Objects/Material.uasset",
+				"D:/Github-EkenLof-Games/ITL-2.0/Into_The_Light/Content/BasicOffice/Meshes/Cable/SM_SplineCable.uasset",
 				"C:/Users/Sebas/OneDrive/Dokument/GitHub/ITL-2.0/Into_The_Light/Content/Levels/Interior_LAB.umap",
 				"C:/Users/Sebas/OneDrive/Dokument/GitHub/ITL-2.0/Into_The_Light/Content/unity_material/Flashlight/Textures/Flashlight_Normal__.uasset",
 				"C:/Users/Sebas/OneDrive/Dokument/GitHub/ITL-2.0/Into_The_Light/Content/unity_material/Flashlight/Textures/Flashlight_OcclusionRoughnessMetallic.uasset",
@@ -816,12 +822,7 @@
 				"C:/Users/Sebas/OneDrive/Dokument/GitHub/ITL-2.0/Into_The_Light/Content/Characters/cole/Face/T_BakedNormal_LOD5.uasset",
 				"C:/Users/Sebas/OneDrive/Dokument/GitHub/ITL-2.0/Into_The_Light/Content/Characters/cole/Body/BodyBaseColor.uasset",
 				"C:/Users/Sebas/OneDrive/Dokument/GitHub/ITL-2.0/Into_The_Light/Content/Characters/cole/BP_NewMetaHumanIdentity.uasset",
-				"C:/Users/Sebas/OneDrive/Dokument/GitHub/ITL-2.0/Into_The_Light/Content/Characters/Michael/BP_michaeltest.uasset",
-				"D:/Github-EkenLof-Games/ITL-2.0/Into_The_Light/Content/Levels/Interior_LAB.umap",
-				"D:/Github-EkenLof-Games/ITL-2.0/Into_The_Light/Content/3D-Objects/ITL-Interior_Floor.uasset",
-				"D:/Github-EkenLof-Games/ITL-2.0/Into_The_Light/Content/3D-Objects/ITL-Interior_Roof.uasset",
-				"D:/Github-EkenLof-Games/ITL-2.0/Into_The_Light/Content/3D-Objects/ITL-Interior_Walls.uasset",
-				"D:/Github-EkenLof-Games/ITL-2.0/Into_The_Light/Content/3D-Objects/Material.uasset"
+				"C:/Users/Sebas/OneDrive/Dokument/GitHub/ITL-2.0/Into_The_Light/Content/Characters/Michael/BP_michaeltest.uasset"
 			]
 		}
 	]
