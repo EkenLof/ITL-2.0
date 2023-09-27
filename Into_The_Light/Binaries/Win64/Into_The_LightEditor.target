@@ -250,6 +250,10 @@
 			"Type": "DynamicLibrary"
 		},
 		{
+			"Path": "$(EngineDir)/Binaries/Win64/UnrealEditor-AugmentedReality.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
 			"Path": "$(EngineDir)/Binaries/Win64/UnrealEditor-AutomationController.dll",
 			"Type": "DynamicLibrary"
 		},
@@ -830,7 +834,15 @@
 			"Type": "DynamicLibrary"
 		},
 		{
+			"Path": "$(EngineDir)/Binaries/Win64/UnrealEditor-LiveLinkAnimationCore.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
 			"Path": "$(EngineDir)/Binaries/Win64/UnrealEditor-LiveLinkInterface.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Binaries/Win64/UnrealEditor-LiveLinkMessageBusFramework.dll",
 			"Type": "DynamicLibrary"
 		},
 		{
@@ -1838,6 +1850,26 @@
 			"Type": "RequiredResource"
 		},
 		{
+			"Path": "$(EngineDir)/Plugins/Animation/DeformerGraph/Binaries/Win64/UnrealEditor-OptimusCore.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Animation/DeformerGraph/Binaries/Win64/UnrealEditor-OptimusDeveloper.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Animation/DeformerGraph/Binaries/Win64/UnrealEditor-OptimusEditor.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Animation/DeformerGraph/Binaries/Win64/UnrealEditor-OptimusSettings.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Animation/DeformerGraph/Binaries/Win64/UnrealEditor.modules",
+			"Type": "RequiredResource"
+		},
+		{
 			"Path": "$(EngineDir)/Plugins/Animation/IKRig/Binaries/Win64/UnrealEditor-IKRig.dll",
 			"Type": "DynamicLibrary"
 		},
@@ -1851,6 +1883,62 @@
 		},
 		{
 			"Path": "$(EngineDir)/Plugins/Animation/IKRig/Binaries/Win64/UnrealEditor.modules",
+			"Type": "RequiredResource"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Animation/LiveLink/Binaries/Win64/UnrealEditor-LiveLink.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Animation/LiveLink/Binaries/Win64/UnrealEditor-LiveLinkComponents.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Animation/LiveLink/Binaries/Win64/UnrealEditor-LiveLinkEditor.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Animation/LiveLink/Binaries/Win64/UnrealEditor-LiveLinkGraphNode.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Animation/LiveLink/Binaries/Win64/UnrealEditor-LiveLinkMovieScene.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Animation/LiveLink/Binaries/Win64/UnrealEditor-LiveLinkMultiUser.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Animation/LiveLink/Binaries/Win64/UnrealEditor-LiveLinkSequencer.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Animation/LiveLink/Binaries/Win64/UnrealEditor.modules",
+			"Type": "RequiredResource"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Animation/RigLogic/Binaries/Win64/UnrealEditor-RigLogicDeveloper.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Animation/RigLogic/Binaries/Win64/UnrealEditor-RigLogicEditor.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Animation/RigLogic/Binaries/Win64/UnrealEditor-RigLogicLib.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Animation/RigLogic/Binaries/Win64/UnrealEditor-RigLogicLibTest.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Animation/RigLogic/Binaries/Win64/UnrealEditor-RigLogicModule.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Animation/RigLogic/Binaries/Win64/UnrealEditor.modules",
 			"Type": "RequiredResource"
 		},
 		{
@@ -1915,6 +2003,42 @@
 		},
 		{
 			"Path": "$(EngineDir)/Plugins/Developer/CLionSourceCodeAccess/Binaries/Win64/UnrealEditor.modules",
+			"Type": "RequiredResource"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Developer/Concert/ConcertMain/Binaries/Win64/UnrealEditor-Concert.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Developer/Concert/ConcertMain/Binaries/Win64/UnrealEditor-ConcertClient.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Developer/Concert/ConcertMain/Binaries/Win64/UnrealEditor-ConcertServer.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Developer/Concert/ConcertMain/Binaries/Win64/UnrealEditor-ConcertTransport.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Developer/Concert/ConcertMain/Binaries/Win64/UnrealEditor.modules",
+			"Type": "RequiredResource"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Developer/Concert/ConcertSync/ConcertSyncClient/Binaries/Win64/UnrealEditor-ConcertSyncClient.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Developer/Concert/ConcertSync/ConcertSyncClient/Binaries/Win64/UnrealEditor.modules",
+			"Type": "RequiredResource"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Developer/Concert/ConcertSync/ConcertSyncCore/Binaries/Win64/UnrealEditor-ConcertSyncCore.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Developer/Concert/ConcertSync/ConcertSyncCore/Binaries/Win64/UnrealEditor.modules",
 			"Type": "RequiredResource"
 		},
 		{
@@ -2494,6 +2618,14 @@
 			"Type": "RequiredResource"
 		},
 		{
+			"Path": "$(EngineDir)/Plugins/Experimental/LiveLinkControlRig/Binaries/Win64/UnrealEditor-LiveLinkControlRig.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Experimental/LiveLinkControlRig/Binaries/Win64/UnrealEditor.modules",
+			"Type": "RequiredResource"
+		},
+		{
 			"Path": "$(EngineDir)/Plugins/Experimental/LocalizableMessage/Binaries/Win64/UnrealEditor-LocalizableMessage.dll",
 			"Type": "DynamicLibrary"
 		},
@@ -2746,6 +2878,18 @@
 			"Type": "RequiredResource"
 		},
 		{
+			"Path": "$(EngineDir)/Plugins/Marketplace/VisualStudioTools/Binaries/Win64/UnrealEditor-VisualStudioTools.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Marketplace/VisualStudioTools/Binaries/Win64/UnrealEditor-VisualStudioTools.pdb",
+			"Type": "SymbolFile"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Marketplace/VisualStudioTools/Binaries/Win64/UnrealEditor.modules",
+			"Type": "RequiredResource"
+		},
+		{
 			"Path": "$(EngineDir)/Plugins/Media/AndroidMedia/Binaries/Win64/UnrealEditor-AndroidMediaEditor.dll",
 			"Type": "DynamicLibrary"
 		},
@@ -2994,6 +3138,34 @@
 			"Type": "RequiredResource"
 		},
 		{
+			"Path": "$(EngineDir)/Plugins/Runtime/AR/ARUtilities/Binaries/Win64/UnrealEditor-ARUtilities.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Runtime/AR/ARUtilities/Binaries/Win64/UnrealEditor.modules",
+			"Type": "RequiredResource"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Runtime/AR/AppleAR/AppleARKitFaceSupport/Binaries/Win64/UnrealEditor-AppleARKitFaceSupport.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Runtime/AR/AppleAR/AppleARKitFaceSupport/Binaries/Win64/UnrealEditor.modules",
+			"Type": "RequiredResource"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Runtime/AR/AppleAR/AppleARKit/Binaries/Win64/UnrealEditor-AppleARKit.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Runtime/AR/AppleAR/AppleARKit/Binaries/Win64/UnrealEditor-AppleARKitPoseTrackingLiveLink.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Runtime/AR/AppleAR/AppleARKit/Binaries/Win64/UnrealEditor.modules",
+			"Type": "RequiredResource"
+		},
+		{
 			"Path": "$(EngineDir)/Plugins/Runtime/ActorLayerUtilities/Binaries/Win64/UnrealEditor-ActorLayerUtilities.dll",
 			"Type": "DynamicLibrary"
 		},
@@ -3118,11 +3290,31 @@
 			"Type": "RequiredResource"
 		},
 		{
+			"Path": "$(EngineDir)/Plugins/Runtime/ComputeFramework/Binaries/Win64/UnrealEditor-ComputeFramework.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Runtime/ComputeFramework/Binaries/Win64/UnrealEditor-ComputeFrameworkEditor.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Runtime/ComputeFramework/Binaries/Win64/UnrealEditor.modules",
+			"Type": "RequiredResource"
+		},
+		{
 			"Path": "$(EngineDir)/Plugins/Runtime/CustomMeshComponent/Binaries/Win64/UnrealEditor-CustomMeshComponent.dll",
 			"Type": "DynamicLibrary"
 		},
 		{
 			"Path": "$(EngineDir)/Plugins/Runtime/CustomMeshComponent/Binaries/Win64/UnrealEditor.modules",
+			"Type": "RequiredResource"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Runtime/Database/SQLiteCore/Binaries/Win64/UnrealEditor-SQLiteCore.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Runtime/Database/SQLiteCore/Binaries/Win64/UnrealEditor.modules",
 			"Type": "RequiredResource"
 		},
 		{
@@ -3179,6 +3371,26 @@
 		},
 		{
 			"Path": "$(EngineDir)/Plugins/Runtime/GooglePAD/Binaries/Win64/UnrealEditor.modules",
+			"Type": "RequiredResource"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Runtime/HairStrands/Binaries/Win64/UnrealEditor-HairCardGeneratorFramework.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Runtime/HairStrands/Binaries/Win64/UnrealEditor-HairStrandsCore.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Runtime/HairStrands/Binaries/Win64/UnrealEditor-HairStrandsEditor.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Runtime/HairStrands/Binaries/Win64/UnrealEditor-HairStrandsRuntime.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Runtime/HairStrands/Binaries/Win64/UnrealEditor.modules",
 			"Type": "RequiredResource"
 		},
 		{
@@ -3387,6 +3599,18 @@
 		},
 		{
 			"Path": "$(EngineDir)/Plugins/Runtime/WindowsMoviePlayer/Binaries/Win64/UnrealEditor.modules",
+			"Type": "RequiredResource"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Runtime/XRBase/Binaries/Win64/UnrealEditor-XRBase.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Runtime/XRBase/Binaries/Win64/UnrealEditor-XRBaseEditor.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Runtime/XRBase/Binaries/Win64/UnrealEditor.modules",
 			"Type": "RequiredResource"
 		},
 		{
@@ -24164,7 +24388,19 @@
 			"Type": "UFS"
 		},
 		{
+			"Path": "$(EngineDir)/Plugins/Animation/DeformerGraph/DeformerGraph.uplugin",
+			"Type": "UFS"
+		},
+		{
 			"Path": "$(EngineDir)/Plugins/Animation/IKRig/IKRig.uplugin",
+			"Type": "UFS"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Animation/LiveLink/LiveLink.uplugin",
+			"Type": "UFS"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Animation/RigLogic/RigLogic.uplugin",
 			"Type": "UFS"
 		},
 		{
@@ -24189,6 +24425,18 @@
 		},
 		{
 			"Path": "$(EngineDir)/Plugins/Developer/CLionSourceCodeAccess/CLionSourceCodeAccess.uplugin",
+			"Type": "UFS"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Developer/Concert/ConcertMain/ConcertMain.uplugin",
+			"Type": "UFS"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Developer/Concert/ConcertSync/ConcertSyncClient/ConcertSyncClient.uplugin",
+			"Type": "UFS"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Developer/Concert/ConcertSync/ConcertSyncCore/ConcertSyncCore.uplugin",
 			"Type": "UFS"
 		},
 		{
@@ -24440,6 +24688,10 @@
 			"Type": "UFS"
 		},
 		{
+			"Path": "$(EngineDir)/Plugins/Experimental/LiveLinkControlRig/LiveLinkControlRig.uplugin",
+			"Type": "UFS"
+		},
+		{
 			"Path": "$(EngineDir)/Plugins/Experimental/LocalizableMessage/LocalizableMessage.uplugin",
 			"Type": "UFS"
 		},
@@ -24501,6 +24753,10 @@
 		},
 		{
 			"Path": "$(EngineDir)/Plugins/Interchange/Runtime/Interchange.uplugin",
+			"Type": "UFS"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Marketplace/VisualStudioTools/VisualStudioTools.uplugin",
 			"Type": "UFS"
 		},
 		{
@@ -24596,6 +24852,18 @@
 			"Type": "UFS"
 		},
 		{
+			"Path": "$(EngineDir)/Plugins/Runtime/AR/ARUtilities/ARUtilities.uplugin",
+			"Type": "UFS"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Runtime/AR/AppleAR/AppleARKitFaceSupport/AppleARKitFaceSupport.uplugin",
+			"Type": "UFS"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Runtime/AR/AppleAR/AppleARKit/AppleARKit.uplugin",
+			"Type": "UFS"
+		},
+		{
 			"Path": "$(EngineDir)/Plugins/Runtime/ActorLayerUtilities/ActorLayerUtilities.uplugin",
 			"Type": "UFS"
 		},
@@ -24644,7 +24912,15 @@
 			"Type": "UFS"
 		},
 		{
+			"Path": "$(EngineDir)/Plugins/Runtime/ComputeFramework/ComputeFramework.uplugin",
+			"Type": "UFS"
+		},
+		{
 			"Path": "$(EngineDir)/Plugins/Runtime/CustomMeshComponent/CustomMeshComponent.uplugin",
+			"Type": "UFS"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Runtime/Database/SQLiteCore/SQLiteCore.uplugin",
 			"Type": "UFS"
 		},
 		{
@@ -24661,6 +24937,10 @@
 		},
 		{
 			"Path": "$(EngineDir)/Plugins/Runtime/GooglePAD/GooglePAD.uplugin",
+			"Type": "UFS"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Runtime/HairStrands/HairStrands.uplugin",
 			"Type": "UFS"
 		},
 		{
@@ -24729,6 +25009,10 @@
 		},
 		{
 			"Path": "$(EngineDir)/Plugins/Runtime/WindowsMoviePlayer/WindowsMoviePlayer.uplugin",
+			"Type": "UFS"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Runtime/XRBase/XRBase.uplugin",
 			"Type": "UFS"
 		},
 		{

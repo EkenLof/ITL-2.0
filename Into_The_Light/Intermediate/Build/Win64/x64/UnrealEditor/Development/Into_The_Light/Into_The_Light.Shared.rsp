@@ -258,6 +258,8 @@
 /I "Developer\WidgetRegistration\Public"
 /I "D:\Github-EkenLof-Games\ITL-2.0\Into_The_Light\Intermediate\Build\Win64\UnrealEditor\Inc\Into_The_Light\UHT"
 /I "D:\Github-EkenLof-Games\ITL-2.0\Into_The_Light\Source"
+/I "..\Plugins\EnhancedInput\Intermediate\Build\Win64\UnrealEditor\Inc\EnhancedInput\UHT"
+/I "..\Plugins\EnhancedInput\Source\EnhancedInput\Public"
 /external:W0
 /external:I "ThirdParty\mimalloc\include"
 /external:I "ThirdParty\LibTiff\Source\Win64"

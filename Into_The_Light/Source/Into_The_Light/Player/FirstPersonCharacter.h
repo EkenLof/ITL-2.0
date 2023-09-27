@@ -13,17 +13,28 @@ class INTO_THE_LIGHT_API AFirstPersonCharacter : public ACharacter
 
 public:
 	// Sets default values for this character's properties
-	AFirstPersonCharacter();
+	AFirstPersonCharacter();                                                                           // Calls constructor (AFirstPersonController) in CPP
 
 protected:
 	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
+	virtual void BeginPlay() override;                                                                 // Calls BeginPlay in CPP
 
 public:	
 	// Called every frame
-	virtual void Tick(float DeltaTime) override;
+	virtual void Tick(float DeltaTime) override;                                                       // Calls Tick in CPP
 
 	// Called to bind functionality to input
-	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;      // Calls SetupPlayerInputComponent in CPP
 
+
+protected:
+
+	UPROPERTY(EditAnywhere)
+	class UCameraComponent* Camera;
+
+	void MoveForward(float InputValue);
+	void MoveSide(float InputValue);
+
+	void CamTurn(float InputValue);
+	void CamLookUp(float InputValue);
 };
