@@ -11,6 +11,7 @@
     <None Include="..\..\Source\Into_The_LightEditor.Target.cs">
       <Filter>Source</Filter>
     </None>
+    <None Include="..\..\.vsconfig" />
     <Filter Include="Config">
       <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
     </Filter>
@@ -37,6 +38,15 @@
     </ClCompile>
     <ClInclude Include="..\..\Source\Into_The_Light\Into_The_Light.h">
       <Filter>Source\Into_The_Light</Filter>
+    </ClInclude>
+    <Filter Include="Source\Into_The_Light\Player">
+      <UniqueIdentifier>{43B103EA-9971-3332-B214-FA4F05EFACAA}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\Into_The_Light\Player\FirstPersonCharacter.cpp">
+      <Filter>Source\Into_The_Light\Player</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Into_The_Light\Player\FirstPersonCharacter.h">
+      <Filter>Source\Into_The_Light\Player</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
