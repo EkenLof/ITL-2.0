@@ -3,6 +3,7 @@
 
 #include "FirstPersonCharacter.h"
 #include "Camera/CameraComponent.h"
+#include "Components/StaticMeshComponent.h"
 
 // Sets default values                            // Called when Engine Starts
 AFirstPersonCharacter::AFirstPersonCharacter()
@@ -14,6 +15,9 @@ AFirstPersonCharacter::AFirstPersonCharacter()
 	Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("PlayerCamera"));
 	Camera->SetupAttachment(RootComponent);
 	Camera->bUsePawnControlRotation = true;
+
+	FlashlightMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("FlashlightMesh"));
+	FlashlightMesh->SetupAttachment(GetMesh(), FName("Light-Holder"));
 }
 
 // Called when the game starts or when spawned    // Called when Game Starts
@@ -41,12 +45,23 @@ void AFirstPersonCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInp
 
 	PlayerInputComponent->BindAxis("CameraTurn", this, &AFirstPersonCharacter::CamTurn);
 	PlayerInputComponent->BindAxis("CameraLookUp", this, &AFirstPersonCharacter::CamLookUp);
+
+	PlayerInputComponent->BindAction("Flashlight", IE_Pressed, this, &AFirstPersonCharacter::UseFlashlight);
 }
 
 void AFirstPersonCharacter::MoveForward(float InputValue)
 {
 	FVector ForwardDirection = GetActorForwardVector();
 	AddMovementInput(ForwardDirection, InputValue);
+
+	if (InputValue > 0 && WalkForwardAnim)
+	{
+		GetMesh()->PlayAnimation(WalkForwardAnim, true);
+	}
+	else if (InputValue < 0 && WalkBackwardAnim)
+	{
+		GetMesh()->PlayAnimation(WalkBackwardAnim, true);
+	}
 }
 
 void AFirstPersonCharacter::MoveSide(float InputValue)
@@ -63,5 +78,13 @@ void AFirstPersonCharacter::CamTurn(float InputValue)
 void AFirstPersonCharacter::CamLookUp(float InputValue)
 {
 	AddControllerPitchInput(InputValue);
+}
+
+void AFirstPersonCharacter::UseFlashlight()
+{
+	if (UseFlashlightAnim)
+	{
+		GetMesh()->PlayAnimation(UseFlashlightAnim, false);
+	}
 }
 

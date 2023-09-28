@@ -32,9 +32,36 @@ protected:
 	UPROPERTY(EditAnywhere)
 	class UCameraComponent* Camera;
 
+	UPROPERTY(EditAnywhere)
+	class UStaticMeshComponent* FlashlightMesh;
+
+	UPROPERTY(EditAnyWhere)
+	class UAnimSequence* UseFlashlightAnim;
+
+	UPROPERTY(EditAnyWhere)
+	class UAnimSequence* WalkForwardAnim;
+
+	UPROPERTY(EditAnyWhere)
+	class UAnimSequence* WalkBackwardAnim;
+
 	void MoveForward(float InputValue);
 	void MoveSide(float InputValue);
 
 	void CamTurn(float InputValue);
 	void CamLookUp(float InputValue);
+
+	// Flashlight
+	void UseFlashlight();
+
+
+public:
+
+	bool isFlashlightEquiped;
+
+	bool isWalkingForward;
+	bool isWalkingBackward;
+
 };
+
+
+
