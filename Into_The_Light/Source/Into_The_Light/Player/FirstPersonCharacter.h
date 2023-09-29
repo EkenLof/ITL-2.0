@@ -33,6 +33,9 @@ protected:
 	class UCameraComponent* Camera;
 
 	UPROPERTY(EditAnywhere)
+	class UCharacterMovementComponent* PlayerMovementsValues = GetCharacterMovement();
+
+	UPROPERTY(EditAnywhere)
 	class UStaticMeshComponent* FlashlightMesh;
 
 	UPROPERTY(EditAnyWhere)
@@ -46,6 +49,9 @@ protected:
 
 	void MoveForward(float InputValue);
 	void MoveSide(float InputValue);
+
+	void Run();
+	void Walk();
 
 	void CamTurn(float InputValue);
 	void CamLookUp(float InputValue);
@@ -61,6 +67,8 @@ public:
 	bool isWalkingForward;
 	bool isWalkingBackward;
 
+	float WalkSpeed;
+	float RunSpeed;
 };
 
 
