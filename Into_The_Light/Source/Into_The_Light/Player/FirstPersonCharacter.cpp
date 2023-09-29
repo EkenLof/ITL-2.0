@@ -64,19 +64,6 @@ void AFirstPersonCharacter::MoveForward(float InputValue)
 {
 	FVector ForwardDirection = GetActorForwardVector();
 	AddMovementInput(ForwardDirection, InputValue);
-	
-	if (InputValue > 0 && WalkForwardAnim)
-	{
-		isWalkingBackward = false;
-
-		isWalkingForward = true;
-	}
-	else if (InputValue < 0 && WalkBackwardAnim)
-	{
-		isWalkingForward = false;
-
-		isWalkingBackward = true;
-	}
 }
 
 void AFirstPersonCharacter::MoveSide(float InputValue)
@@ -109,8 +96,8 @@ void AFirstPersonCharacter::UseFlashlight()
 {
 	if (UseFlashlightAnim)
 	{
-
-		//GetMesh()->PlayAnimation(UseFlashlightAnim, false);
+		//GetMesh()->PlayAnimation(UseFlashlightAnim, true);
 	}
+	
 }
 
