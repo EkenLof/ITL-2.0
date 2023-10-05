@@ -39,6 +39,15 @@
     <ClInclude Include="..\..\Source\Into_The_Light\Into_The_Light.h">
       <Filter>Source\Into_The_Light</Filter>
     </ClInclude>
+    <Filter Include="Source\Into_The_Light\Doors_Objects">
+      <UniqueIdentifier>{D7334750-F9B6-3F14-97CE-AE4C788D5FF5}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\Into_The_Light\Doors_Objects\DoorSystem.cpp">
+      <Filter>Source\Into_The_Light\Doors_Objects</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Into_The_Light\Doors_Objects\DoorSystem.h">
+      <Filter>Source\Into_The_Light\Doors_Objects</Filter>
+    </ClInclude>
     <Filter Include="Source\Into_The_Light\Player">
       <UniqueIdentifier>{43B103EA-9971-3332-B214-FA4F05EFACAA}</UniqueIdentifier>
     </Filter>
