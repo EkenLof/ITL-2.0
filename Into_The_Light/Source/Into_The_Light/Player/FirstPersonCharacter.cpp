@@ -94,10 +94,15 @@ void AFirstPersonCharacter::CamLookUp(float InputValue)
 
 void AFirstPersonCharacter::UseFlashlight()
 {
-	if (UseFlashlightAnim)
+	if (!isFlashlightEquiped)
 	{
-		//GetMesh()->PlayAnimation(UseFlashlightAnim, true);
+		//FlashlightMesh->bHiddenInGame = false;
+		isFlashlightEquiped = true;
 	}
-	
+	else if (isFlashlightEquiped)
+	{
+		//FlashlightMesh->bHiddenInGame = true;
+		isFlashlightEquiped = false;
+	}
 }
 

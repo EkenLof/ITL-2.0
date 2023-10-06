@@ -23,16 +23,16 @@ void ADoorSystem::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	OpenRotation = GetActorRotation();
+	ClosedRotation = GetActorRotation();
+	OpenRotation.Yaw += 90 * DeltaTime;
+	ClosedRotation.Yaw -= 90 * DeltaTime;
+
 }
 
 void ADoorSystem::DoorOpen(bool isOpenDoor)
 {
 	isOpenDoor = isDoorOpenClosed;
-
-	FRotator OpenRotation = GetActorRotation();
-	FRotator ClosedRotation = GetActorRotation();
-	OpenRotation.Yaw += 90;
-	ClosedRotation.Yaw -= 90;
 
 	if (!isOpenDoor)
 	{

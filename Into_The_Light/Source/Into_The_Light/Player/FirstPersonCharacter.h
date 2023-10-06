@@ -35,11 +35,8 @@ protected:
 	UPROPERTY(EditAnywhere)
 	class UCharacterMovementComponent* PlayerMovementsValues = GetCharacterMovement();
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	class UStaticMeshComponent* FlashlightMesh;
-
-	UPROPERTY(EditAnyWhere)
-	class UAnimSequence* UseFlashlightAnim;
 
 	UPROPERTY(EditAnyWhere)
 	class UAnimSequence* WalkForwardAnim;

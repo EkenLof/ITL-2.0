@@ -33,4 +33,6 @@ public:
 
 	bool isDoorOpenClosed;
 
+	FRotator OpenRotation;
+	FRotator ClosedRotation;
 };
