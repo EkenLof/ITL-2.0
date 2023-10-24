@@ -1,0 +1,22 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "d:\\github-ekenlof-games\\itl-2.0\\into_the_light\\source\\into_the_light\\private\\items\\itembase.cpp",
+        "ProvidedModule": "",
+        "PCH": "d:\\github-ekenlof-games\\itl-2.0\\into_the_light\\intermediate\\build\\win64\\x64\\into_the_lighteditor\\development\\engine\\sharedpch.engine.cpp20.h.pch",
+        "Includes": [
+            "d:\\github-ekenlof-games\\itl-2.0\\into_the_light\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\into_the_light\\definitions.into_the_light.h",
+            "d:\\github-ekenlof-games\\itl-2.0\\into_the_light\\source\\into_the_light\\public\\items\\itembase.h",
+            "d:\\dokument\\ue_5.3\\engine\\source\\runtime\\coreuobject\\public\\uobject\\noexporttypes.h",
+            "d:\\dokument\\ue_5.3\\engine\\source\\runtime\\coreuobject\\public\\uobject\\propertyaccessutil.h",
+            "d:\\dokument\\ue_5.3\\engine\\source\\runtime\\coreuobject\\public\\serialization\\testundeclaredscriptstructobjectreferences.h",
+            "d:\\dokument\\ue_5.3\\engine\\source\\runtime\\core\\public\\math\\unitconversion.h",
+            "d:\\dokument\\ue_5.3\\engine\\source\\runtime\\core\\public\\math\\unitconversion.inl",
+            "d:\\dokument\\ue_5.3\\engine\\source\\runtime\\core\\public\\internationalization\\polyglottextdata.h",
+            "d:\\dokument\\ue_5.3\\engine\\source\\runtime\\coreuobject\\public\\assetregistry\\arfilter.h",
+            "d:\\github-ekenlof-games\\itl-2.0\\into_the_light\\intermediate\\build\\win64\\unrealeditor\\inc\\into_the_light\\uht\\itembase.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}
