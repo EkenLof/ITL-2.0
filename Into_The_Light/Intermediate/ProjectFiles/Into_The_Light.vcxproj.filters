@@ -66,20 +66,44 @@
     <Filter Include="Source\Into_The_Light\Private">
       <UniqueIdentifier>{4BC6348E-E192-39F4-8DFA-468EE1A8C86C}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Into_The_Light\Private\Interfaces">
+      <UniqueIdentifier>{B3C26D51-CD0C-3573-896E-7632DDAC7D3E}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\Into_The_Light\Private\Interfaces\InteractionInterface.cpp">
+      <Filter>Source\Into_The_Light\Private\Interfaces</Filter>
+    </ClCompile>
     <Filter Include="Source\Into_The_Light\Private\Items">
       <UniqueIdentifier>{03326219-5CC4-31C9-9061-D1A8B5611B6C}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\Into_The_Light\Private\Items\ItemBase.cpp">
       <Filter>Source\Into_The_Light\Private\Items</Filter>
     </ClCompile>
+    <Filter Include="Source\Into_The_Light\Private\World">
+      <UniqueIdentifier>{88E8957D-BA5C-3AB7-A0C2-60C2B9BA3025}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\Into_The_Light\Private\World\InterfaceActorT.cpp">
+      <Filter>Source\Into_The_Light\Private\World</Filter>
+    </ClCompile>
     <Filter Include="Source\Into_The_Light\Public">
       <UniqueIdentifier>{98546B91-01CE-38BD-8223-89E9159DF152}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Into_The_Light\Public\Interfaces">
+      <UniqueIdentifier>{66CDA4EE-40DE-33F3-AAE4-E4CB65D8CEA5}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\Into_The_Light\Public\Interfaces\InteractionInterface.h">
+      <Filter>Source\Into_The_Light\Public\Interfaces</Filter>
+    </ClInclude>
     <Filter Include="Source\Into_The_Light\Public\Items">
       <UniqueIdentifier>{B62E647C-6E9A-3AEF-A86C-D214A72D2167}</UniqueIdentifier>
     </Filter>
     <ClInclude Include="..\..\Source\Into_The_Light\Public\Items\ItemBase.h">
       <Filter>Source\Into_The_Light\Public\Items</Filter>
+    </ClInclude>
+    <Filter Include="Source\Into_The_Light\Public\World">
+      <UniqueIdentifier>{8331D2D5-CCF6-3B1B-84A8-5AB0ABB9C809}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\Into_The_Light\Public\World\InterfaceActorT.h">
+      <Filter>Source\Into_The_Light\Public\World</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

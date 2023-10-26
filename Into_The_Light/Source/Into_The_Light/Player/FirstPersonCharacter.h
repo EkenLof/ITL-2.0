@@ -4,7 +4,25 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "Interfaces/InteractionInterface.h"
 #include "FirstPersonCharacter.generated.h"
+
+USTRUCT()
+struct FInteractionData
+{
+	GENERATED_USTRUCT_BODY()
+
+	FInteractionData() : CurrentInteractable(nullptr), LastInteractionCheckTime(0.0f)
+	{
+
+	};
+
+	UPROPERTY()
+	AActor* CurrentInteractable;
+
+	UPROPERTY()
+	float LastInteractionCheckTime;
+};
 
 UCLASS()
 class INTO_THE_LIGHT_API AFirstPersonCharacter : public ACharacter
@@ -56,8 +74,30 @@ protected:
 	// Flashlight
 	void UseFlashlight();
 
+	//---- Inventory - Item - Interaction **Systems** ----
+	// --- VARIBLES ---
+	UPROPERTY(VisibleAnywhere, Category = "Character | Interaction")
+	TScriptInterface<IInteractionInterface> TargetInteractable;
+
+	float InteractionCheckFrequency;
+
+	float InteractionCheckDistance;
+
+	FTimerHandle TimerHandle_Interaction;
+
+	FInteractionData InteractionData;
+
+	// --- FUNCTIONS ---
+	void PerformInteractionCheck();
+	void FoundInteractable(AActor* NewInteractable);
+	void NoInteractableFound();
+	void BeginInteract();
+	void EndInteract();
+	void Interact();
 
 public:
+
+	FORCEINLINE bool IsInteracting() const { return GetWorldTimerManager().IsTimerActive(TimerHandle_Interaction); };
 
 	bool isFlashlightEquiped;
 

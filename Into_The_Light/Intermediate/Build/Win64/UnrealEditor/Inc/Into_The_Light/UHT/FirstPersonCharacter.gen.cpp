@@ -9,6 +9,7 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeFirstPersonCharacter() {}
 // Cross Module References
+	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_ACharacter();
 	ENGINE_API UClass* Z_Construct_UClass_UAnimSequence_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UCameraComponent_NoRegister();
@@ -16,8 +17,87 @@ void EmptyLinkFunctionForGeneratedCodeFirstPersonCharacter() {}
 	ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
 	INTO_THE_LIGHT_API UClass* Z_Construct_UClass_AFirstPersonCharacter();
 	INTO_THE_LIGHT_API UClass* Z_Construct_UClass_AFirstPersonCharacter_NoRegister();
+	INTO_THE_LIGHT_API UClass* Z_Construct_UClass_UInteractionInterface_NoRegister();
+	INTO_THE_LIGHT_API UScriptStruct* Z_Construct_UScriptStruct_FInteractionData();
 	UPackage* Z_Construct_UPackage__Script_Into_The_Light();
 // End Cross Module References
+	static FStructRegistrationInfo Z_Registration_Info_UScriptStruct_InteractionData;
+class UScriptStruct* FInteractionData::StaticStruct()
+{
+	if (!Z_Registration_Info_UScriptStruct_InteractionData.OuterSingleton)
+	{
+		Z_Registration_Info_UScriptStruct_InteractionData.OuterSingleton = GetStaticStruct(Z_Construct_UScriptStruct_FInteractionData, (UObject*)Z_Construct_UPackage__Script_Into_The_Light(), TEXT("InteractionData"));
+	}
+	return Z_Registration_Info_UScriptStruct_InteractionData.OuterSingleton;
+}
+template<> INTO_THE_LIGHT_API UScriptStruct* StaticStruct<FInteractionData>()
+{
+	return FInteractionData::StaticStruct();
+}
+	struct Z_Construct_UScriptStruct_FInteractionData_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Struct_MetaDataParams[];
+#endif
+		static void* NewStructOps();
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_CurrentInteractable_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_CurrentInteractable;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_LastInteractionCheckTime_MetaData[];
+#endif
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_LastInteractionCheckTime;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+		static const UECodeGen_Private::FStructParams ReturnStructParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FInteractionData_Statics::Struct_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Player/FirstPersonCharacter.h" },
+	};
+#endif
+	void* Z_Construct_UScriptStruct_FInteractionData_Statics::NewStructOps()
+	{
+		return (UScriptStruct::ICppStructOps*)new UScriptStruct::TCppStructOps<FInteractionData>();
+	}
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FInteractionData_Statics::NewProp_CurrentInteractable_MetaData[] = {
+		{ "ModuleRelativePath", "Player/FirstPersonCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UScriptStruct_FInteractionData_Statics::NewProp_CurrentInteractable = { "CurrentInteractable", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FInteractionData, CurrentInteractable), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FInteractionData_Statics::NewProp_CurrentInteractable_MetaData), Z_Construct_UScriptStruct_FInteractionData_Statics::NewProp_CurrentInteractable_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FInteractionData_Statics::NewProp_LastInteractionCheckTime_MetaData[] = {
+		{ "ModuleRelativePath", "Player/FirstPersonCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FInteractionData_Statics::NewProp_LastInteractionCheckTime = { "LastInteractionCheckTime", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FInteractionData, LastInteractionCheckTime), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FInteractionData_Statics::NewProp_LastInteractionCheckTime_MetaData), Z_Construct_UScriptStruct_FInteractionData_Statics::NewProp_LastInteractionCheckTime_MetaData) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FInteractionData_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FInteractionData_Statics::NewProp_CurrentInteractable,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FInteractionData_Statics::NewProp_LastInteractionCheckTime,
+	};
+	const UECodeGen_Private::FStructParams Z_Construct_UScriptStruct_FInteractionData_Statics::ReturnStructParams = {
+		(UObject* (*)())Z_Construct_UPackage__Script_Into_The_Light,
+		nullptr,
+		&NewStructOps,
+		"InteractionData",
+		Z_Construct_UScriptStruct_FInteractionData_Statics::PropPointers,
+		UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FInteractionData_Statics::PropPointers),
+		sizeof(FInteractionData),
+		alignof(FInteractionData),
+		RF_Public|RF_Transient|RF_MarkAsNative,
+		EStructFlags(0x00000001),
+		METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FInteractionData_Statics::Struct_MetaDataParams), Z_Construct_UScriptStruct_FInteractionData_Statics::Struct_MetaDataParams)
+	};
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FInteractionData_Statics::PropPointers) < 2048);
+	UScriptStruct* Z_Construct_UScriptStruct_FInteractionData()
+	{
+		if (!Z_Registration_Info_UScriptStruct_InteractionData.InnerSingleton)
+		{
+			UECodeGen_Private::ConstructUScriptStruct(Z_Registration_Info_UScriptStruct_InteractionData.InnerSingleton, Z_Construct_UScriptStruct_FInteractionData_Statics::ReturnStructParams);
+		}
+		return Z_Registration_Info_UScriptStruct_InteractionData.InnerSingleton;
+	}
 	void AFirstPersonCharacter::StaticRegisterNativesAFirstPersonCharacter()
 	{
 	}
@@ -52,6 +132,10 @@ void EmptyLinkFunctionForGeneratedCodeFirstPersonCharacter() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_WalkBackwardAnim_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_WalkBackwardAnim;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_TargetInteractable_MetaData[];
+#endif
+		static const UECodeGen_Private::FInterfacePropertyParams NewProp_TargetInteractable;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -106,12 +190,26 @@ void EmptyLinkFunctionForGeneratedCodeFirstPersonCharacter() {}
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_WalkBackwardAnim = { "WalkBackwardAnim", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFirstPersonCharacter, WalkBackwardAnim), Z_Construct_UClass_UAnimSequence_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_WalkBackwardAnim_MetaData), Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_WalkBackwardAnim_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_TargetInteractable_MetaData[] = {
+		{ "Category", "Character | Interaction" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "//---- Inventory - Item - Interaction **Systems** ----\n// --- VARIBLES ---\n" },
+#endif
+		{ "ModuleRelativePath", "Player/FirstPersonCharacter.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "---- Inventory - Item - Interaction **Systems** ----\n --- VARIBLES ---" },
+#endif
+	};
+#endif
+	const UECodeGen_Private::FInterfacePropertyParams Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_TargetInteractable = { "TargetInteractable", nullptr, (EPropertyFlags)0x0024080000020001, UECodeGen_Private::EPropertyGenFlags::Interface, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFirstPersonCharacter, TargetInteractable), Z_Construct_UClass_UInteractionInterface_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_TargetInteractable_MetaData), Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_TargetInteractable_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AFirstPersonCharacter_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_Camera,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_PlayerMovementsValues,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_FlashlightMesh,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_WalkForwardAnim,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_WalkBackwardAnim,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_TargetInteractable,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AFirstPersonCharacter_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AFirstPersonCharacter>::IsAbstract,
@@ -148,13 +246,17 @@ void EmptyLinkFunctionForGeneratedCodeFirstPersonCharacter() {}
 	AFirstPersonCharacter::~AFirstPersonCharacter() {}
 	struct Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Player_FirstPersonCharacter_h_Statics
 	{
+		static const FStructRegisterCompiledInInfo ScriptStructInfo[];
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Player_FirstPersonCharacter_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AFirstPersonCharacter, AFirstPersonCharacter::StaticClass, TEXT("AFirstPersonCharacter"), &Z_Registration_Info_UClass_AFirstPersonCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFirstPersonCharacter), 2111326601U) },
+	const FStructRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Player_FirstPersonCharacter_h_Statics::ScriptStructInfo[] = {
+		{ FInteractionData::StaticStruct, Z_Construct_UScriptStruct_FInteractionData_Statics::NewStructOps, TEXT("InteractionData"), &Z_Registration_Info_UScriptStruct_InteractionData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FInteractionData), 746018718U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Player_FirstPersonCharacter_h_830320051(TEXT("/Script/Into_The_Light"),
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Player_FirstPersonCharacter_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_AFirstPersonCharacter, AFirstPersonCharacter::StaticClass, TEXT("AFirstPersonCharacter"), &Z_Registration_Info_UClass_AFirstPersonCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFirstPersonCharacter), 1962101859U) },
+	};
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Player_FirstPersonCharacter_h_1901598366(TEXT("/Script/Into_The_Light"),
 		Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Player_FirstPersonCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Player_FirstPersonCharacter_h_Statics::ClassInfo),
-		nullptr, 0,
+		Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Player_FirstPersonCharacter_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Player_FirstPersonCharacter_h_Statics::ScriptStructInfo),
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

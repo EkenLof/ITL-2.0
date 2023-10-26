@@ -9,6 +9,8 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class AFirstPersonCharacter;
+class UItemBase;
 #ifdef INTO_THE_LIGHT_ItemBase_generated_h
 #error "ItemBase.generated.h already included, missing '#pragma once' in ItemBase.h"
 #endif
@@ -17,7 +19,16 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Items_ItemBase_h_15_SPARSE_DATA
 #define FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Items_ItemBase_h_15_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Items_ItemBase_h_15_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
-#define FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Items_ItemBase_h_15_RPC_WRAPPERS_NO_PURE_DECLS
+#define FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Items_ItemBase_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execUse); \
+	DECLARE_FUNCTION(execSetQuantity); \
+	DECLARE_FUNCTION(execIsFullItemStack); \
+	DECLARE_FUNCTION(execGetItemSingleWeight); \
+	DECLARE_FUNCTION(execGetItemStackWeight); \
+	DECLARE_FUNCTION(execCreateItemCopy);
+
+
 #define FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Items_ItemBase_h_15_ACCESSORS
 #define FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Items_ItemBase_h_15_INCLASS_NO_PURE_DECLS \
 private: \
@@ -29,8 +40,6 @@ public: \
 
 
 #define FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Items_ItemBase_h_15_ENHANCED_CONSTRUCTORS \
-	/** Standard constructor, called after all reflected properties have been initialized */ \
-	NO_API UItemBase(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API UItemBase(UItemBase&&); \
@@ -38,7 +47,7 @@ private: \
 public: \
 	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, UItemBase); \
 	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UItemBase); \
-	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UItemBase) \
+	DEFINE_DEFAULT_CONSTRUCTOR_CALL(UItemBase) \
 	NO_API virtual ~UItemBase();
 
 
