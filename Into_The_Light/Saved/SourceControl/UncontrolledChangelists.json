@@ -5,8 +5,6 @@
 			"guid": "00000000000000000000000000000000",
 			"description": "Default Uncontrolled Changelist",
 			"files": [
-				"D:/Github-EkenLof-Games/ITL-2.0/Into_The_Light/Content/Levels/Sublevels/PostProcess.umap",
-				"D:/Github-EkenLof-Games/ITL-2.0/Into_The_Light/Content/Blueprint/BP_InterfaceActorT.uasset",
 				"D:/Ekenlof/GIT/ITL-2.0/Into_The_Light/Content/Environment_Effects/LockerPlacer.uasset",
 				"D:/Ekenlof/GIT/ITL-2.0/Into_The_Light/Content/Levels/Hampus_Testing.umap",
 				"D:/Ekenlof/GIT/ITL-2.0/Into_The_Light/Content/Environment_Effects/BP_SplineLayoutTool_PCG.uasset",
@@ -14,19 +12,29 @@
 				"D:/Ekenlof/GIT/ITL-2.0/Into_The_Light/Content/Environment_Effects/BP_Flickering_Light.uasset",
 				"D:/Ekenlof/GIT/ITL-2.0/Into_The_Light/Content/Levels/Sublevels/LockerRoom.umap",
 				"D:/Ekenlof/GIT/ITL-2.0/Into_The_Light/Content/BasicOffice/Materials/Mi_Ceillamp.uasset",
-				"D:/Ekenlof/GIT/ITL-2.0/Into_The_Light/Content/3D-Assets/Locker/Mesh/StaticMesh.uasset",
 				"D:/Ekenlof/GIT/ITL-2.0/Into_The_Light/Content/3D-Assets/Locker/Mesh/Locker_Open.uasset",
 				"D:/Ekenlof/GIT/ITL-2.0/Into_The_Light/Content/3D-Assets/Locker/Mesh/Locker_Open1.uasset",
 				"D:/Ekenlof/GIT/ITL-2.0/Into_The_Light/Content/3D-Assets/Locker/Mesh/Locker_Open5.uasset",
-				"D:/Ekenlof/GIT/ITL-2.0/Into_The_Light/Content/3D-Assets/Locker/Mesh/Locker_Ope.uasset",
 				"D:/Ekenlof/GIT/ITL-2.0/Into_The_Light/Content/3D-Assets/Locker/Mesh/Locker_Open0.uasset",
 				"D:/Ekenlof/GIT/ITL-2.0/Into_The_Light/Content/3D-Assets/Locker/Mesh/Locker_Open3.uasset",
 				"D:/Ekenlof/GIT/ITL-2.0/Into_The_Light/Content/3D-Assets/Locker/Mesh/Locker_Closed1.uasset",
-				"D:/Ekenlof/GIT/ITL-2.0/Into_The_Light/Content/Environment_Effects/MeshSpawner.uasset",
 				"D:/Ekenlof/GIT/ITL-2.0/Into_The_Light/Content/Environment_Effects/PCG/MeshSpawner.uasset",
 				"D:/Ekenlof/GIT/ITL-2.0/Into_The_Light/Content/3D-Assets/Locker/Mesh/BP-Locker.uasset",
 				"D:/Ekenlof/GIT/ITL-2.0/Into_The_Light/Content/Environment_Effects/PCG/AssignMeshToPoints.uasset",
-				"D:/Ekenlof/GIT/ITL-2.0/Into_The_Light/Content/Levels/Sublevels/PostProcess.umap"
+				"D:/Ekenlof/GIT/ITL-2.0/Into_The_Light/Content/Levels/Sublevels/PostProcess.umap",
+				"D:/Ekenlof/GIT/ITL-2.0/Into_The_Light/Content/unity_material/Flashlight/Material/Flashlight.uasset",
+				"D:/Ekenlof/GIT/ITL-2.0/Into_The_Light/Content/Environment_Effects/PCG/PCGMeshSet.uasset",
+				"D:/Ekenlof/GIT/ITL-2.0/Into_The_Light/Content/Environment_Effects/PCG/S_PCGMesh.uasset",
+				"D:/Ekenlof/GIT/ITL-2.0/Into_The_Light/Content/Environment_Effects/PCG/S_PCGMeshSet.uasset",
+				"D:/Ekenlof/GIT/ITL-2.0/Into_The_Light/Content/Environment_Effects/PCG/AssignRandomMeshesFromSet.uasset",
+				"D:/Ekenlof/GIT/ITL-2.0/Into_The_Light/Content/Environment_Effects/FloatingMist.uasset",
+				"D:/Ekenlof/GIT/ITL-2.0/Into_The_Light/Content/Environment_Effects/LocalVolumetricFog.uasset",
+				"D:/Ekenlof/GIT/ITL-2.0/Into_The_Light/Content/Environment_Effects/LocalVolumetricFog_Inst.uasset",
+				"D:/Github-EkenLof-Games/ITL-2.0/Into_The_Light/Content/Levels/Sublevels/PostProcess.umap",
+				"D:/Github-EkenLof-Games/ITL-2.0/Into_The_Light/Content/Blueprint/BP_InterfaceActorT.uasset",
+				"D:/Ekenlof/GIT/ITL-2.0/Into_The_Light/Content/3D-Assets/Locker/Mesh/StaticMesh.uasset",
+				"D:/Ekenlof/GIT/ITL-2.0/Into_The_Light/Content/3D-Assets/Locker/Mesh/Locker_Ope.uasset",
+				"D:/Ekenlof/GIT/ITL-2.0/Into_The_Light/Content/Environment_Effects/MeshSpawner.uasset"
 			]
 		}
 	]
