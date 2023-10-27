@@ -8,10 +8,8 @@
 
 #include "DrawDebugHelpers.h"
 
-// Sets default values                            // Called when Engine Starts
 AFirstPersonCharacter::AFirstPersonCharacter()
 {
- 	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
 	//PlayerMovementsValues->MaxWalkSpeed = WalkSpeed;
@@ -35,15 +33,12 @@ AFirstPersonCharacter::AFirstPersonCharacter()
 	BaseEyeHeight = 74.0f;
 }
 
-
-// Called when the game starts or when spawned    // Called when Game Starts
 void AFirstPersonCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 
 }
 
-// Called every framev                            // This is just lick Cs Update
 void AFirstPersonCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
@@ -55,7 +50,6 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 	}
 }
 
-// Called to bind functionality to input
 void AFirstPersonCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
@@ -71,6 +65,9 @@ void AFirstPersonCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInp
 	PlayerInputComponent->BindAxis("CameraLookUp", this, &AFirstPersonCharacter::CamLookUp);
 
 	PlayerInputComponent->BindAction("Flashlight", IE_Pressed, this, &AFirstPersonCharacter::UseFlashlight);
+
+	PlayerInputComponent->BindAction("Interact", IE_Pressed, this, &AFirstPersonCharacter::BeginInteract);
+	PlayerInputComponent->BindAction("Interact", IE_Released, this, &AFirstPersonCharacter::EndInteract);
 }
 
 void AFirstPersonCharacter::MoveForward(float InputValue)
