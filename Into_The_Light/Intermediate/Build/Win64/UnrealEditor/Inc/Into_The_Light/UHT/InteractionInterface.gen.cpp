@@ -12,24 +12,24 @@ void EmptyLinkFunctionForGeneratedCodeInteractionInterface() {}
 	COREUOBJECT_API UClass* Z_Construct_UClass_UInterface();
 	INTO_THE_LIGHT_API UClass* Z_Construct_UClass_UInteractionInterface();
 	INTO_THE_LIGHT_API UClass* Z_Construct_UClass_UInteractionInterface_NoRegister();
-	INTO_THE_LIGHT_API UEnum* Z_Construct_UEnum_Into_The_Light_EInteractbleType();
+	INTO_THE_LIGHT_API UEnum* Z_Construct_UEnum_Into_The_Light_EInteractableType();
 	INTO_THE_LIGHT_API UScriptStruct* Z_Construct_UScriptStruct_FInteractableData();
 	UPackage* Z_Construct_UPackage__Script_Into_The_Light();
 // End Cross Module References
-	static FEnumRegistrationInfo Z_Registration_Info_UEnum_EInteractbleType;
-	static UEnum* EInteractbleType_StaticEnum()
+	static FEnumRegistrationInfo Z_Registration_Info_UEnum_EInteractableType;
+	static UEnum* EInteractableType_StaticEnum()
 	{
-		if (!Z_Registration_Info_UEnum_EInteractbleType.OuterSingleton)
+		if (!Z_Registration_Info_UEnum_EInteractableType.OuterSingleton)
 		{
-			Z_Registration_Info_UEnum_EInteractbleType.OuterSingleton = GetStaticEnum(Z_Construct_UEnum_Into_The_Light_EInteractbleType, (UObject*)Z_Construct_UPackage__Script_Into_The_Light(), TEXT("EInteractbleType"));
+			Z_Registration_Info_UEnum_EInteractableType.OuterSingleton = GetStaticEnum(Z_Construct_UEnum_Into_The_Light_EInteractableType, (UObject*)Z_Construct_UPackage__Script_Into_The_Light(), TEXT("EInteractableType"));
 		}
-		return Z_Registration_Info_UEnum_EInteractbleType.OuterSingleton;
+		return Z_Registration_Info_UEnum_EInteractableType.OuterSingleton;
 	}
-	template<> INTO_THE_LIGHT_API UEnum* StaticEnum<EInteractbleType>()
+	template<> INTO_THE_LIGHT_API UEnum* StaticEnum<EInteractableType>()
 	{
-		return EInteractbleType_StaticEnum();
+		return EInteractableType_StaticEnum();
 	}
-	struct Z_Construct_UEnum_Into_The_Light_EInteractbleType_Statics
+	struct Z_Construct_UEnum_Into_The_Light_EInteractableType_Statics
 	{
 		static const UECodeGen_Private::FEnumeratorParam Enumerators[];
 #if WITH_METADATA
@@ -37,55 +37,55 @@ void EmptyLinkFunctionForGeneratedCodeInteractionInterface() {}
 #endif
 		static const UECodeGen_Private::FEnumParams EnumParams;
 	};
-	const UECodeGen_Private::FEnumeratorParam Z_Construct_UEnum_Into_The_Light_EInteractbleType_Statics::Enumerators[] = {
-		{ "EInteractbleType::PickUp", (int64)EInteractbleType::PickUp },
-		{ "EInteractbleType::NonPlayerCharacter", (int64)EInteractbleType::NonPlayerCharacter },
-		{ "EInteractbleType::Object", (int64)EInteractbleType::Object },
-		{ "EInteractbleType::Toggle", (int64)EInteractbleType::Toggle },
-		{ "EInteractbleType::Container", (int64)EInteractbleType::Container },
+	const UECodeGen_Private::FEnumeratorParam Z_Construct_UEnum_Into_The_Light_EInteractableType_Statics::Enumerators[] = {
+		{ "EInteractableType::PickUp", (int64)EInteractableType::PickUp },
+		{ "EInteractableType::NonPlayerCharacter", (int64)EInteractableType::NonPlayerCharacter },
+		{ "EInteractableType::Object", (int64)EInteractableType::Object },
+		{ "EInteractableType::Toggle", (int64)EInteractableType::Toggle },
+		{ "EInteractableType::Container", (int64)EInteractableType::Container },
 	};
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UEnum_Into_The_Light_EInteractbleType_Statics::Enum_MetaDataParams[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UEnum_Into_The_Light_EInteractableType_Statics::Enum_MetaDataParams[] = {
 		{ "Container.Comment", "// Buttons switches + more\n" },
 		{ "Container.DisplayName", "Container" },
-		{ "Container.Name", "EInteractbleType::Container" },
+		{ "Container.Name", "EInteractableType::Container" },
 		{ "Container.ToolTip", "Buttons switches + more" },
 		{ "ModuleRelativePath", "Public/Interfaces/InteractionInterface.h" },
 		{ "NonPlayerCharacter.Comment", "// Items + more\n" },
 		{ "NonPlayerCharacter.DisplayName", "NonPlayerCharacter" },
-		{ "NonPlayerCharacter.Name", "EInteractbleType::NonPlayerCharacter" },
+		{ "NonPlayerCharacter.Name", "EInteractableType::NonPlayerCharacter" },
 		{ "NonPlayerCharacter.ToolTip", "Items + more" },
 		{ "Object.Comment", "// AI Cole + more\n" },
 		{ "Object.DisplayName", "Object" },
-		{ "Object.Name", "EInteractbleType::Object" },
+		{ "Object.Name", "EInteractableType::Object" },
 		{ "Object.ToolTip", "AI Cole + more" },
 		{ "PickUp.DisplayName", "PickUp" },
-		{ "PickUp.Name", "EInteractbleType::PickUp" },
+		{ "PickUp.Name", "EInteractableType::PickUp" },
 		{ "Toggle.Comment", "// Doors Objects + more\n" },
 		{ "Toggle.DisplayName", "Toggle" },
-		{ "Toggle.Name", "EInteractbleType::Toggle" },
+		{ "Toggle.Name", "EInteractableType::Toggle" },
 		{ "Toggle.ToolTip", "Doors Objects + more" },
 	};
 #endif
-	const UECodeGen_Private::FEnumParams Z_Construct_UEnum_Into_The_Light_EInteractbleType_Statics::EnumParams = {
+	const UECodeGen_Private::FEnumParams Z_Construct_UEnum_Into_The_Light_EInteractableType_Statics::EnumParams = {
 		(UObject*(*)())Z_Construct_UPackage__Script_Into_The_Light,
 		nullptr,
-		"EInteractbleType",
-		"EInteractbleType",
-		Z_Construct_UEnum_Into_The_Light_EInteractbleType_Statics::Enumerators,
+		"EInteractableType",
+		"EInteractableType",
+		Z_Construct_UEnum_Into_The_Light_EInteractableType_Statics::Enumerators,
 		RF_Public|RF_Transient|RF_MarkAsNative,
-		UE_ARRAY_COUNT(Z_Construct_UEnum_Into_The_Light_EInteractbleType_Statics::Enumerators),
+		UE_ARRAY_COUNT(Z_Construct_UEnum_Into_The_Light_EInteractableType_Statics::Enumerators),
 		EEnumFlags::None,
 		(uint8)UEnum::ECppForm::EnumClass,
-		METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UEnum_Into_The_Light_EInteractbleType_Statics::Enum_MetaDataParams), Z_Construct_UEnum_Into_The_Light_EInteractbleType_Statics::Enum_MetaDataParams)
+		METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UEnum_Into_The_Light_EInteractableType_Statics::Enum_MetaDataParams), Z_Construct_UEnum_Into_The_Light_EInteractableType_Statics::Enum_MetaDataParams)
 	};
-	UEnum* Z_Construct_UEnum_Into_The_Light_EInteractbleType()
+	UEnum* Z_Construct_UEnum_Into_The_Light_EInteractableType()
 	{
-		if (!Z_Registration_Info_UEnum_EInteractbleType.InnerSingleton)
+		if (!Z_Registration_Info_UEnum_EInteractableType.InnerSingleton)
 		{
-			UECodeGen_Private::ConstructUEnum(Z_Registration_Info_UEnum_EInteractbleType.InnerSingleton, Z_Construct_UEnum_Into_The_Light_EInteractbleType_Statics::EnumParams);
+			UECodeGen_Private::ConstructUEnum(Z_Registration_Info_UEnum_EInteractableType.InnerSingleton, Z_Construct_UEnum_Into_The_Light_EInteractableType_Statics::EnumParams);
 		}
-		return Z_Registration_Info_UEnum_EInteractbleType.InnerSingleton;
+		return Z_Registration_Info_UEnum_EInteractableType.InnerSingleton;
 	}
 	static FStructRegistrationInfo Z_Registration_Info_UScriptStruct_InteractableData;
 class UScriptStruct* FInteractableData::StaticStruct()
@@ -106,11 +106,11 @@ template<> INTO_THE_LIGHT_API UScriptStruct* StaticStruct<FInteractableData>()
 		static const UECodeGen_Private::FMetaDataPairParam Struct_MetaDataParams[];
 #endif
 		static void* NewStructOps();
-		static const UECodeGen_Private::FBytePropertyParams NewProp_InteractbleType_Underlying;
+		static const UECodeGen_Private::FBytePropertyParams NewProp_InteractableType_Underlying;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_InteractbleType_MetaData[];
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_InteractableType_MetaData[];
 #endif
-		static const UECodeGen_Private::FEnumPropertyParams NewProp_InteractbleType;
+		static const UECodeGen_Private::FEnumPropertyParams NewProp_InteractableType;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_Name_MetaData[];
 #endif
@@ -139,14 +139,14 @@ template<> INTO_THE_LIGHT_API UScriptStruct* StaticStruct<FInteractableData>()
 	{
 		return (UScriptStruct::ICppStructOps*)new UScriptStruct::TCppStructOps<FInteractableData>();
 	}
-	const UECodeGen_Private::FBytePropertyParams Z_Construct_UScriptStruct_FInteractableData_Statics::NewProp_InteractbleType_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, nullptr, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FBytePropertyParams Z_Construct_UScriptStruct_FInteractableData_Statics::NewProp_InteractableType_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, nullptr, METADATA_PARAMS(0, nullptr) };
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FInteractableData_Statics::NewProp_InteractbleType_MetaData[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FInteractableData_Statics::NewProp_InteractableType_MetaData[] = {
 		{ "Category", "InteractableData" },
 		{ "ModuleRelativePath", "Public/Interfaces/InteractionInterface.h" },
 	};
 #endif
-	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UScriptStruct_FInteractableData_Statics::NewProp_InteractbleType = { "InteractbleType", nullptr, (EPropertyFlags)0x0010000000000801, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FInteractableData, InteractbleType), Z_Construct_UEnum_Into_The_Light_EInteractbleType, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FInteractableData_Statics::NewProp_InteractbleType_MetaData), Z_Construct_UScriptStruct_FInteractableData_Statics::NewProp_InteractbleType_MetaData) }; // 1298969447
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UScriptStruct_FInteractableData_Statics::NewProp_InteractableType = { "InteractableType", nullptr, (EPropertyFlags)0x0010000000000801, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FInteractableData, InteractableType), Z_Construct_UEnum_Into_The_Light_EInteractableType, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FInteractableData_Statics::NewProp_InteractableType_MetaData), Z_Construct_UScriptStruct_FInteractableData_Statics::NewProp_InteractableType_MetaData) }; // 3993071681
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FInteractableData_Statics::NewProp_Name_MetaData[] = {
 		{ "Category", "InteractableData" },
@@ -188,8 +188,8 @@ template<> INTO_THE_LIGHT_API UScriptStruct* StaticStruct<FInteractableData>()
 #endif
 	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FInteractableData_Statics::NewProp_InteractionDuration = { "InteractionDuration", nullptr, (EPropertyFlags)0x0010000000000801, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FInteractableData, InteractionDuration), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FInteractableData_Statics::NewProp_InteractionDuration_MetaData), Z_Construct_UScriptStruct_FInteractableData_Statics::NewProp_InteractionDuration_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FInteractableData_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FInteractableData_Statics::NewProp_InteractbleType_Underlying,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FInteractableData_Statics::NewProp_InteractbleType,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FInteractableData_Statics::NewProp_InteractableType_Underlying,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FInteractableData_Statics::NewProp_InteractableType,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FInteractableData_Statics::NewProp_Name,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FInteractableData_Statics::NewProp_Action,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FInteractableData_Statics::NewProp_Quantity,
@@ -284,15 +284,15 @@ template<> INTO_THE_LIGHT_API UScriptStruct* StaticStruct<FInteractableData>()
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FEnumRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Interfaces_InteractionInterface_h_Statics::EnumInfo[] = {
-		{ EInteractbleType_StaticEnum, TEXT("EInteractbleType"), &Z_Registration_Info_UEnum_EInteractbleType, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 1298969447U) },
+		{ EInteractableType_StaticEnum, TEXT("EInteractableType"), &Z_Registration_Info_UEnum_EInteractableType, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3993071681U) },
 	};
 	const FStructRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Interfaces_InteractionInterface_h_Statics::ScriptStructInfo[] = {
-		{ FInteractableData::StaticStruct, Z_Construct_UScriptStruct_FInteractableData_Statics::NewStructOps, TEXT("InteractableData"), &Z_Registration_Info_UScriptStruct_InteractableData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FInteractableData), 4027674573U) },
+		{ FInteractableData::StaticStruct, Z_Construct_UScriptStruct_FInteractableData_Statics::NewStructOps, TEXT("InteractableData"), &Z_Registration_Info_UScriptStruct_InteractableData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FInteractableData), 3490317016U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Interfaces_InteractionInterface_h_Statics::ClassInfo[] = {
 		{ Z_Construct_UClass_UInteractionInterface, UInteractionInterface::StaticClass, TEXT("UInteractionInterface"), &Z_Registration_Info_UClass_UInteractionInterface, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UInteractionInterface), 1996588132U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Interfaces_InteractionInterface_h_1890936739(TEXT("/Script/Into_The_Light"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Interfaces_InteractionInterface_h_1024255848(TEXT("/Script/Into_The_Light"),
 		Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Interfaces_InteractionInterface_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Interfaces_InteractionInterface_h_Statics::ClassInfo),
 		Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Interfaces_InteractionInterface_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Interfaces_InteractionInterface_h_Statics::ScriptStructInfo),
 		Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Interfaces_InteractionInterface_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Interfaces_InteractionInterface_h_Statics::EnumInfo));

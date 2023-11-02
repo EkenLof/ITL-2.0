@@ -207,7 +207,7 @@ void AFirstPersonCharacter::BeginInteract()
 		{
 			TargetInteractable->BeginInteract();
 
-			if (FMath::IsNearlyZero(TargetInteractable->InteractebleData.InteractionDuration, 0.1f))
+			if (FMath::IsNearlyZero(TargetInteractable->InteractableData.InteractionDuration, 0.1f))
 			{
 				Interact();
 			}
@@ -217,7 +217,7 @@ void AFirstPersonCharacter::BeginInteract()
 					TimerHandle_Interaction,
 					this,
 					&AFirstPersonCharacter::Interact,
-					TargetInteractable->InteractebleData.InteractionDuration,
+					TargetInteractable->InteractableData.InteractionDuration,
 					false);
 			}
 		}

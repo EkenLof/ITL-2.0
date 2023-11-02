@@ -18,6 +18,7 @@ void AInterfaceActorT::BeginPlay()
 {
 	Super::BeginPlay();
 	
+	InteractableData = InstanceInteractiableData;
 }
 
 // Called every frame

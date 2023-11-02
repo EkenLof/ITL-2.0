@@ -9,7 +9,7 @@
 class AFirstPersonCharacter;
 
 UENUM()
-enum class EInteractbleType : uint8
+enum class EInteractableType : uint8
 {
 	PickUp UMETA(DisplayName = "PickUp"), // Items + more
 	NonPlayerCharacter UMETA(DisplayName = "NonPlayerCharacter"), // AI Cole + more
@@ -24,7 +24,7 @@ struct FInteractableData
 	GENERATED_USTRUCT_BODY()
 
 	FInteractableData() :
-		InteractbleType(EInteractbleType::PickUp),
+		InteractableType(EInteractableType::PickUp),
 		Name(FText::GetEmpty()),
 		Action(FText::GetEmpty()),
 		Quantity(0),
@@ -34,7 +34,7 @@ struct FInteractableData
 	};
 
 	UPROPERTY(EditInstanceOnly)
-	EInteractbleType InteractbleType;
+	EInteractableType InteractableType;
 
 	UPROPERTY(EditInstanceOnly)
 	FText Name;
@@ -68,5 +68,5 @@ public:
 	virtual void EndInteract();
 	virtual void Interact(AFirstPersonCharacter* PlayerCharacter);
 
-	FInteractableData InteractebleData;
+	FInteractableData InteractableData;
 };

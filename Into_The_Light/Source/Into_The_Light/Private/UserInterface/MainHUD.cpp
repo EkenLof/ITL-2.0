@@ -2,8 +2,8 @@
 
 
 #include "UserInterface/MainHUD.h"
-#include "UserInterface/MainMenu.h";
-#include "UserInterface/Interaction/InteractionWidget.h";
+#include "UserInterface/MainMenu.h"
+#include "UserInterface/Interaction/InteractionWidget.h"
 
 AMainHUD::AMainHUD()
 {

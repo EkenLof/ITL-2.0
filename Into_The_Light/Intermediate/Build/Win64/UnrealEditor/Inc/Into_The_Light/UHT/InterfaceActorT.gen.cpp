@@ -6,6 +6,7 @@
 
 #include "UObject/GeneratedCppIncludes.h"
 #include "Into_The_Light/Public/World/InterfaceActorT.h"
+#include "Into_The_Light/Public/Interfaces/InteractionInterface.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeInterfaceActorT() {}
 // Cross Module References
@@ -14,6 +15,7 @@ void EmptyLinkFunctionForGeneratedCodeInterfaceActorT() {}
 	INTO_THE_LIGHT_API UClass* Z_Construct_UClass_AInterfaceActorT();
 	INTO_THE_LIGHT_API UClass* Z_Construct_UClass_AInterfaceActorT_NoRegister();
 	INTO_THE_LIGHT_API UClass* Z_Construct_UClass_UInteractionInterface_NoRegister();
+	INTO_THE_LIGHT_API UScriptStruct* Z_Construct_UScriptStruct_FInteractableData();
 	UPackage* Z_Construct_UPackage__Script_Into_The_Light();
 // End Cross Module References
 	void AInterfaceActorT::StaticRegisterNativesAInterfaceActorT()
@@ -34,6 +36,10 @@ void EmptyLinkFunctionForGeneratedCodeInterfaceActorT() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_Mesh_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_Mesh;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_InstanceInteractiableData_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_InstanceInteractiableData;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const UECodeGen_Private::FImplementedInterfaceParams InterfaceParams[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
@@ -58,8 +64,16 @@ void EmptyLinkFunctionForGeneratedCodeInterfaceActorT() {}
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AInterfaceActorT_Statics::NewProp_Mesh = { "Mesh", nullptr, (EPropertyFlags)0x0020080000080009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AInterfaceActorT, Mesh), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AInterfaceActorT_Statics::NewProp_Mesh_MetaData), Z_Construct_UClass_AInterfaceActorT_Statics::NewProp_Mesh_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AInterfaceActorT_Statics::NewProp_InstanceInteractiableData_MetaData[] = {
+		{ "Category", "Test Actor" },
+		{ "ModuleRelativePath", "Public/World/InterfaceActorT.h" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_AInterfaceActorT_Statics::NewProp_InstanceInteractiableData = { "InstanceInteractiableData", nullptr, (EPropertyFlags)0x0020080000000801, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AInterfaceActorT, InstanceInteractiableData), Z_Construct_UScriptStruct_FInteractableData, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AInterfaceActorT_Statics::NewProp_InstanceInteractiableData_MetaData), Z_Construct_UClass_AInterfaceActorT_Statics::NewProp_InstanceInteractiableData_MetaData) }; // 3490317016
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AInterfaceActorT_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AInterfaceActorT_Statics::NewProp_Mesh,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AInterfaceActorT_Statics::NewProp_InstanceInteractiableData,
 	};
 		const UECodeGen_Private::FImplementedInterfaceParams Z_Construct_UClass_AInterfaceActorT_Statics::InterfaceParams[] = {
 			{ Z_Construct_UClass_UInteractionInterface_NoRegister, (int32)VTABLE_OFFSET(AInterfaceActorT, IInteractionInterface), false },  // 1996588132
@@ -103,9 +117,9 @@ void EmptyLinkFunctionForGeneratedCodeInterfaceActorT() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_World_InterfaceActorT_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AInterfaceActorT, AInterfaceActorT::StaticClass, TEXT("AInterfaceActorT"), &Z_Registration_Info_UClass_AInterfaceActorT, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AInterfaceActorT), 3079564400U) },
+		{ Z_Construct_UClass_AInterfaceActorT, AInterfaceActorT::StaticClass, TEXT("AInterfaceActorT"), &Z_Registration_Info_UClass_AInterfaceActorT, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AInterfaceActorT), 1425634990U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_World_InterfaceActorT_h_1165967526(TEXT("/Script/Into_The_Light"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_World_InterfaceActorT_h_4276083701(TEXT("/Script/Into_The_Light"),
 		Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_World_InterfaceActorT_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_World_InterfaceActorT_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

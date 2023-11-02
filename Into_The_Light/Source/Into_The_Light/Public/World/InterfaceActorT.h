@@ -1,5 +1,3 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
 #pragma once
 
 #include "CoreMinimal.h"
@@ -19,6 +17,9 @@ public:
 protected:
 	UPROPERTY(EditAnywhere, Category = "Test Actor")
 	UStaticMeshComponent* Mesh;
+
+	UPROPERTY(EditInstanceOnly, Category = "Test Actor")
+	FInteractableData InstanceInteractiableData;
 
 	virtual void BeginPlay() override;
 

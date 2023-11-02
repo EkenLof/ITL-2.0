@@ -86,15 +86,15 @@ template<> INTO_THE_LIGHT_API UClass* StaticClass<class UInteractionInterface>()
 #define CURRENT_FILE_ID FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Interfaces_InteractionInterface_h
 
 
-#define FOREACH_ENUM_EINTERACTBLETYPE(op) \
-	op(EInteractbleType::PickUp) \
-	op(EInteractbleType::NonPlayerCharacter) \
-	op(EInteractbleType::Object) \
-	op(EInteractbleType::Toggle) \
-	op(EInteractbleType::Container) 
+#define FOREACH_ENUM_EINTERACTABLETYPE(op) \
+	op(EInteractableType::PickUp) \
+	op(EInteractableType::NonPlayerCharacter) \
+	op(EInteractableType::Object) \
+	op(EInteractableType::Toggle) \
+	op(EInteractableType::Container) 
 
-enum class EInteractbleType : uint8;
-template<> struct TIsUEnumClass<EInteractbleType> { enum { Value = true }; };
-template<> INTO_THE_LIGHT_API UEnum* StaticEnum<EInteractbleType>();
+enum class EInteractableType : uint8;
+template<> struct TIsUEnumClass<EInteractableType> { enum { Value = true }; };
+template<> INTO_THE_LIGHT_API UEnum* StaticEnum<EInteractableType>();
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
