@@ -21,7 +21,7 @@ void UInteractionWidget::NativeConstruct()
 	CurrentInteractionDuration = 0.0f;
 }
 
-void UInteractionWidget::UpdateWidget(const FInteractableData* InteractableData)
+void UInteractionWidget::UpdateWidget(const FInteractableData* InteractableData) const
 {
 	switch (InteractableData->InteractableType)
 	{
@@ -39,8 +39,6 @@ void UInteractionWidget::UpdateWidget(const FInteractableData* InteractableData)
 				InteractableData->Quantity));
 			QuantityText->SetVisibility(ESlateVisibility::Visible);
 		}
-
-
 		break;
 
 	case EInteractableType::NonPlayerCharacter:
@@ -57,6 +55,9 @@ void UInteractionWidget::UpdateWidget(const FInteractableData* InteractableData)
 
 	default:;
 	}
+
+	ActionText->SetText(InteractableData->Action);
+	NameText->SetText(InteractableData->Name);
 }
 
 float UInteractionWidget::UpdateInteractionProgress()

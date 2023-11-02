@@ -1,10 +1,15 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-
 #include "FirstPersonCharacter.h"
+
 #include "Camera/CameraComponent.h"
+
 #include "Components/StaticMeshComponent.h"
+#include "Components/InputComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
+#include "GameFramework/SpringArmComponent.h"
+
+#include "UserInterface/MainHUD.h"
 
 #include "DrawDebugHelpers.h"
 
@@ -28,7 +33,7 @@ AFirstPersonCharacter::AFirstPersonCharacter()
 
 
 	InteractionCheckFrequency = 0.1;
-	InteractionCheckDistance = 180.0f;
+	InteractionCheckDistance = 155.0f;
 
 	BaseEyeHeight = 74.0f;
 }
@@ -37,6 +42,7 @@ void AFirstPersonCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 
+	HUD = Cast<AMainHUD>(GetWorld()->GetFirstPlayerController()->GetHUD());
 }
 
 void AFirstPersonCharacter::Tick(float DeltaTime)
@@ -172,6 +178,8 @@ void AFirstPersonCharacter::FoundInteractable(AActor* NewInteractable)
 	InteractionData.CurrentInteractable = NewInteractable;
 	TargetInteractable = NewInteractable;
 
+	HUD->UpdateInteractionWidget(&TargetInteractable->InteractableData);
+
 	TargetInteractable->BeginFocus();
 }
 
@@ -189,7 +197,7 @@ void AFirstPersonCharacter::NoInteractableFound()
 			TargetInteractable->EndFocus();
 		}
 
-		// Hide Interaction widget on the HUD
+		HUD->HideInteractionWidget();
 
 		InteractionData.CurrentInteractable = nullptr;
 		TargetInteractable = nullptr;

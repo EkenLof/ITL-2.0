@@ -5,6 +5,13 @@
 			"guid": "00000000000000000000000000000000",
 			"description": "Default Uncontrolled Changelist",
 			"files": [
+				"D:/Github-EkenLof-Games/ITL-2.0/Into_The_Light/Content/Levels/Sublevels/PostProcess.umap",
+				"D:/Github-EkenLof-Games/ITL-2.0/Into_The_Light/Content/Blueprint/BP_InterfaceActorT.uasset",
+				"D:/Github-EkenLof-Games/ITL-2.0/Into_The_Light/Content/UI/WBP_MainMenu.uasset",
+				"D:/Github-EkenLof-Games/ITL-2.0/Into_The_Light/Content/UI/WBP_InteractionWidget.uasset",
+				"D:/Github-EkenLof-Games/ITL-2.0/Into_The_Light/Content/Blueprint/BP_MainHUD.uasset",
+				"D:/Github-EkenLof-Games/ITL-2.0/Into_The_Light/Content/Blueprint/ITL_GameMode.uasset",
+				"D:/Github-EkenLof-Games/ITL-2.0/Into_The_Light/Content/UI/WBP_InventoryPanel.uasset",
 				"C:/Users/Sebas/Documents/GitHub/ITL-2.0/Into_The_Light/Content/Levels/Interior_LAB.umap",
 				"C:/Users/Sebas/Documents/GitHub/ITL-2.0/Into_The_Light/Content/HairtestSebbe/Colehair.uasset",
 				"C:/Users/Sebas/Documents/GitHub/ITL-2.0/Into_The_Light/Content/HairtestSebbe/Colehair+.uasset",
@@ -34,8 +41,6 @@
 				"D:/Ekenlof/GIT/ITL-2.0/Into_The_Light/Content/Environment_Effects/FloatingMist.uasset",
 				"D:/Ekenlof/GIT/ITL-2.0/Into_The_Light/Content/Environment_Effects/LocalVolumetricFog.uasset",
 				"D:/Ekenlof/GIT/ITL-2.0/Into_The_Light/Content/Environment_Effects/LocalVolumetricFog_Inst.uasset",
-				"D:/Github-EkenLof-Games/ITL-2.0/Into_The_Light/Content/Levels/Sublevels/PostProcess.umap",
-				"D:/Github-EkenLof-Games/ITL-2.0/Into_The_Light/Content/Blueprint/BP_InterfaceActorT.uasset",
 				"D:/Ekenlof/GIT/ITL-2.0/Into_The_Light/Content/3D-Assets/Locker/Mesh/StaticMesh.uasset",
 				"D:/Ekenlof/GIT/ITL-2.0/Into_The_Light/Content/3D-Assets/Locker/Mesh/Locker_Ope.uasset",
 				"D:/Ekenlof/GIT/ITL-2.0/Into_The_Light/Content/Environment_Effects/MeshSpawner.uasset"

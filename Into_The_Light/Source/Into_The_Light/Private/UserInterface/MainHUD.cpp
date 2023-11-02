@@ -47,7 +47,7 @@ void AMainHUD::HideMenu()
 	}
 }
 
-void AMainHUD::ShowInteractionWidget()
+void AMainHUD::ShowInteractionWidget() const
 {
 	if (InteractionWidget)
 	{
@@ -55,15 +55,15 @@ void AMainHUD::ShowInteractionWidget()
 	}
 }
 
-void AMainHUD::HideInteractionWidget()
+void AMainHUD::HideInteractionWidget() const
 {
 	if (InteractionWidget)
 	{
-		InteractionWidget->SetVisibility(ESlateVisibility::Visible);
+		InteractionWidget->SetVisibility(ESlateVisibility::Collapsed);
 	}
 }
 
-void AMainHUD::UpdateInteractionWidget(const FInteractableData* InteractableData)
+void AMainHUD::UpdateInteractionWidget(const FInteractableData* InteractableData) const
 {
 	if (InteractionWidget) // Showing the widget
 	{
@@ -72,6 +72,6 @@ void AMainHUD::UpdateInteractionWidget(const FInteractableData* InteractableData
 			InteractionWidget->SetVisibility(ESlateVisibility::Visible);
 		}
 
-		// InteractionWidget->UpdateWidget()InteractableData;
+		InteractionWidget->UpdateWidget(InteractableData);
 	}
 }
