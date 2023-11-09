@@ -6,16 +6,14 @@
 #include "FirstPersonCharacter.generated.h"
 
 class AMainHUD;
+class UInventoryComponent;
 
 USTRUCT()
 struct FInteractionData
 {
 	GENERATED_USTRUCT_BODY()
 
-	FInteractionData() : CurrentInteractable(nullptr), LastInteractionCheckTime(0.0f)
-	{
-
-	};
+	FInteractionData() : CurrentInteractable(nullptr), LastInteractionCheckTime(0.0f) {};
 
 	UPROPERTY()
 	AActor* CurrentInteractable;
@@ -30,25 +28,32 @@ class INTO_THE_LIGHT_API AFirstPersonCharacter : public ACharacter
 	GENERATED_BODY()
 
 public:
-	// Sets default values for this character's properties
-	AFirstPersonCharacter();                                                                           // Calls constructor (AFirstPersonController) in CPP
+	AFirstPersonCharacter();
 
-protected:
-	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;                                                                 // Calls BeginPlay in CPP
+	FORCEINLINE bool IsInteracting() const { return GetWorldTimerManager().IsTimerActive(TimerHandle_Interaction); };
 
-public:	
-	// Called every frame
+	FORCEINLINE UInventoryComponent* GetInventory() const { return PlayerInventory; };
+
+	void UpdateInteractionWidget() const;
+
+	bool isFlashlightEquiped;
+
+	bool isWalkingForward;
+	bool isWalkingBackward;
+
+	float WalkSpeed;
+	float RunSpeed;                                                                          // Calls constructor (AFirstPersonController) in CPP
+
 	virtual void Tick(float DeltaTime) override;                                                       // Calls Tick in CPP
 
-	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;      // Calls SetupPlayerInputComponent in CPP
 
-
 protected:
-
+	virtual void BeginPlay() override;                                                                 // Calls BeginPlay in CPP
+	
 	AMainHUD* HUD;
 
+	// --- Player + Movment ---
 	UPROPERTY(EditAnywhere)
 	class UCameraComponent* Camera;
 
@@ -72,6 +77,7 @@ protected:
 
 	void CamTurn(float InputValue);
 	void CamLookUp(float InputValue);
+	// --- Player + Movment ---
 
 	// Flashlight
 	void UseFlashlight();
@@ -80,6 +86,9 @@ protected:
 	// --- VARIBLES ---
 	UPROPERTY(VisibleAnywhere, Category = "Character | Interaction")
 	TScriptInterface<IInteractionInterface> TargetInteractable;
+
+	UPROPERTY(VisibleAnywhere, Category = "Character | Inventory")
+	UInventoryComponent* PlayerInventory;
 
 	float InteractionCheckFrequency;
 
@@ -96,18 +105,6 @@ protected:
 	void BeginInteract();
 	void EndInteract();
 	void Interact();
-
-public:
-
-	FORCEINLINE bool IsInteracting() const { return GetWorldTimerManager().IsTimerActive(TimerHandle_Interaction); };
-
-	bool isFlashlightEquiped;
-
-	bool isWalkingForward;
-	bool isWalkingBackward;
-
-	float WalkSpeed;
-	float RunSpeed;
 };
 
 

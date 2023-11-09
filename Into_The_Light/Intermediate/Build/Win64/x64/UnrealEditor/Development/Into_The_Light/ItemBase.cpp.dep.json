@@ -21,7 +21,9 @@
             "d:\\github-ekenlof-games\\itl-2.0\\into_the_light\\source\\into_the_light\\public\\interfaces\\interactioninterface.h",
             "d:\\github-ekenlof-games\\itl-2.0\\into_the_light\\intermediate\\build\\win64\\unrealeditor\\inc\\into_the_light\\uht\\interactioninterface.generated.h",
             "d:\\github-ekenlof-games\\itl-2.0\\into_the_light\\intermediate\\build\\win64\\unrealeditor\\inc\\into_the_light\\uht\\firstpersoncharacter.generated.h",
-            "d:\\github-ekenlof-games\\itl-2.0\\into_the_light\\intermediate\\build\\win64\\unrealeditor\\inc\\into_the_light\\uht\\itembase.generated.h"
+            "d:\\github-ekenlof-games\\itl-2.0\\into_the_light\\intermediate\\build\\win64\\unrealeditor\\inc\\into_the_light\\uht\\itembase.generated.h",
+            "d:\\github-ekenlof-games\\itl-2.0\\into_the_light\\source\\into_the_light\\public\\components\\inventorycomponent.h",
+            "d:\\github-ekenlof-games\\itl-2.0\\into_the_light\\intermediate\\build\\win64\\unrealeditor\\inc\\into_the_light\\uht\\inventorycomponent.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

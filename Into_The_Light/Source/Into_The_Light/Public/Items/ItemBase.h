@@ -7,8 +7,8 @@
 #include "..\Player/FirstPersonCharacter.h"
 #include "ItemBase.generated.h"
 
-/**
- */
+class UInventoryComponent;
+
 UCLASS()
 class INTO_THE_LIGHT_API UItemBase : public UObject
 {
@@ -19,8 +19,8 @@ public:
 	//            VARIBLES & PROPERTIES
 	//**********************************************
 
-	//UPROPERTY()
-	//UInventoryComponent* OwningInventory;
+	UPROPERTY()
+	UInventoryComponent* OwningInventory;
 
 	UPROPERTY(VisibleAnywhere, Category = "Item")
 	int32 Quantity;
@@ -46,11 +46,16 @@ public:
 	UPROPERTY(VisibleAnywhere, Category = "Item")
 	FItemAssetData ItemAssetData;
 
+	bool bIsCopy;
+	bool bIsPickup;
+
 	//**********************************************
 	//                 FUNCTIONS
 	//**********************************************
 
 	UItemBase();
+
+	void ResetItemFlags();
 
 	UFUNCTION(Category = "Item")
 	UItemBase* CreateItemCopy() const;

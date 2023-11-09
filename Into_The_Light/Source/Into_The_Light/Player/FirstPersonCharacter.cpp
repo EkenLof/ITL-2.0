@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "FirstPersonCharacter.h"
-
+#include "Components/InventoryComponent.h"
 #include "Camera/CameraComponent.h"
 
 #include "Components/StaticMeshComponent.h"
@@ -31,6 +31,9 @@ AFirstPersonCharacter::AFirstPersonCharacter()
 	FlashlightMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("FlashlightMesh"));
 	FlashlightMesh->SetupAttachment(GetMesh(), FName("Light-Holder"));
 
+	PlayerInventory = CreateDefaultSubobject<UInventoryComponent>(TEXT("PlayerInventory"));
+	PlayerInventory->SetSlotsCapacity(25); // 20 YT
+	PlayerInventory->SetWeightCapacity(80.0f); // 50 YT
 
 	InteractionCheckFrequency = 0.1;
 	InteractionCheckDistance = 155.0f;
@@ -249,6 +252,14 @@ void AFirstPersonCharacter::Interact()
 	if (IsValid(TargetInteractable.GetObject()))
 	{
 		TargetInteractable->Interact(this);
+	}
+}
+
+void AFirstPersonCharacter::UpdateInteractionWidget() const
+{
+	if (IsValid(TargetInteractable.GetObject()))
+	{
+		HUD->UpdateInteractionWidget(&TargetInteractable->InteractableData);
 	}
 }
 

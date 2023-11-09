@@ -12,6 +12,7 @@ void EmptyLinkFunctionForGeneratedCodeItemBase() {}
 // Cross Module References
 	COREUOBJECT_API UClass* Z_Construct_UClass_UObject();
 	INTO_THE_LIGHT_API UClass* Z_Construct_UClass_AFirstPersonCharacter_NoRegister();
+	INTO_THE_LIGHT_API UClass* Z_Construct_UClass_UInventoryComponent_NoRegister();
 	INTO_THE_LIGHT_API UClass* Z_Construct_UClass_UItemBase();
 	INTO_THE_LIGHT_API UClass* Z_Construct_UClass_UItemBase_NoRegister();
 	INTO_THE_LIGHT_API UEnum* Z_Construct_UEnum_Into_The_Light_EItemCategory();
@@ -315,6 +316,10 @@ void EmptyLinkFunctionForGeneratedCodeItemBase() {}
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_OwningInventory_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_OwningInventory;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_Quantity_MetaData[];
 #endif
 		static const UECodeGen_Private::FIntPropertyParams NewProp_Quantity;
@@ -368,23 +373,27 @@ void EmptyLinkFunctionForGeneratedCodeItemBase() {}
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UItemBase_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UItemBase_Statics::Class_MetaDataParams[] = {
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "/**\n */" },
-#endif
 		{ "IncludePath", "Items/ItemBase.h" },
 		{ "ModuleRelativePath", "Public/Items/ItemBase.h" },
 	};
 #endif
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UItemBase_Statics::NewProp_Quantity_MetaData[] = {
-		{ "Category", "Item" },
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UItemBase_Statics::NewProp_OwningInventory_MetaData[] = {
 #if !UE_BUILD_SHIPPING
-		{ "Comment", "//UPROPERTY()\n//UInventoryComponent* OwningInventory;\n" },
+		{ "Comment", "//**********************************************\n//            VARIBLES & PROPERTIES\n//**********************************************\n" },
 #endif
+		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Public/Items/ItemBase.h" },
 #if !UE_BUILD_SHIPPING
-		{ "ToolTip", "UPROPERTY()\nUInventoryComponent* OwningInventory;" },
+		{ "ToolTip", "VARIBLES & PROPERTIES" },
 #endif
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UItemBase_Statics::NewProp_OwningInventory = { "OwningInventory", nullptr, (EPropertyFlags)0x0010000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UItemBase, OwningInventory), Z_Construct_UClass_UInventoryComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UItemBase_Statics::NewProp_OwningInventory_MetaData), Z_Construct_UClass_UItemBase_Statics::NewProp_OwningInventory_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UItemBase_Statics::NewProp_Quantity_MetaData[] = {
+		{ "Category", "Item" },
+		{ "ModuleRelativePath", "Public/Items/ItemBase.h" },
 	};
 #endif
 	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_UItemBase_Statics::NewProp_Quantity = { "Quantity", nullptr, (EPropertyFlags)0x0010000000020001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UItemBase, Quantity), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UItemBase_Statics::NewProp_Quantity_MetaData), Z_Construct_UClass_UItemBase_Statics::NewProp_Quantity_MetaData) };
@@ -440,6 +449,7 @@ void EmptyLinkFunctionForGeneratedCodeItemBase() {}
 #endif
 	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UItemBase_Statics::NewProp_ItemAssetData = { "ItemAssetData", nullptr, (EPropertyFlags)0x0010000000020001, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UItemBase, ItemAssetData), Z_Construct_UScriptStruct_FItemAssetData, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UItemBase_Statics::NewProp_ItemAssetData_MetaData), Z_Construct_UClass_UItemBase_Statics::NewProp_ItemAssetData_MetaData) }; // 50173059
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UItemBase_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UItemBase_Statics::NewProp_OwningInventory,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UItemBase_Statics::NewProp_Quantity,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UItemBase_Statics::NewProp_ID,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UItemBase_Statics::NewProp_ItemCatagory_Underlying,
@@ -466,7 +476,7 @@ void EmptyLinkFunctionForGeneratedCodeItemBase() {}
 		UE_ARRAY_COUNT(FuncInfo),
 		UE_ARRAY_COUNT(Z_Construct_UClass_UItemBase_Statics::PropPointers),
 		0,
-		0x001000A0u,
+		0x009000A0u,
 		METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UItemBase_Statics::Class_MetaDataParams), Z_Construct_UClass_UItemBase_Statics::Class_MetaDataParams)
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UItemBase_Statics::PropPointers) < 2048);
@@ -489,9 +499,9 @@ void EmptyLinkFunctionForGeneratedCodeItemBase() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Items_ItemBase_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UItemBase, UItemBase::StaticClass, TEXT("UItemBase"), &Z_Registration_Info_UClass_UItemBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UItemBase), 691228753U) },
+		{ Z_Construct_UClass_UItemBase, UItemBase::StaticClass, TEXT("UItemBase"), &Z_Registration_Info_UClass_UItemBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UItemBase), 2235195040U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Items_ItemBase_h_3818115296(TEXT("/Script/Into_The_Light"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Items_ItemBase_h_3060906000(TEXT("/Script/Into_The_Light"),
 		Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Items_ItemBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Items_ItemBase_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

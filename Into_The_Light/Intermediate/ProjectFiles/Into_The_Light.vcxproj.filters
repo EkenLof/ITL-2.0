@@ -66,6 +66,12 @@
     <Filter Include="Source\Into_The_Light\Private">
       <UniqueIdentifier>{4BC6348E-E192-39F4-8DFA-468EE1A8C86C}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Into_The_Light\Private\Components">
+      <UniqueIdentifier>{2C75BD5F-6696-3D7D-A9F0-C92288FAC6C7}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\Into_The_Light\Private\Components\InventoryComponent.cpp">
+      <Filter>Source\Into_The_Light\Private\Components</Filter>
+    </ClCompile>
     <Filter Include="Source\Into_The_Light\Private\Interfaces">
       <UniqueIdentifier>{B3C26D51-CD0C-3573-896E-7632DDAC7D3E}</UniqueIdentifier>
     </Filter>
@@ -105,9 +111,18 @@
     <ClCompile Include="..\..\Source\Into_The_Light\Private\World\InterfaceActorT.cpp">
       <Filter>Source\Into_The_Light\Private\World</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\Into_The_Light\Private\World\PickUp.cpp">
+      <Filter>Source\Into_The_Light\Private\World</Filter>
+    </ClCompile>
     <Filter Include="Source\Into_The_Light\Public">
       <UniqueIdentifier>{98546B91-01CE-38BD-8223-89E9159DF152}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Into_The_Light\Public\Components">
+      <UniqueIdentifier>{484C4C21-4E03-3186-B044-DCE3BC0B9EC1}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\Into_The_Light\Public\Components\InventoryComponent.h">
+      <Filter>Source\Into_The_Light\Public\Components</Filter>
+    </ClInclude>
     <Filter Include="Source\Into_The_Light\Public\Interfaces">
       <UniqueIdentifier>{66CDA4EE-40DE-33F3-AAE4-E4CB65D8CEA5}</UniqueIdentifier>
     </Filter>
@@ -145,6 +160,9 @@
       <UniqueIdentifier>{8331D2D5-CCF6-3B1B-84A8-5AB0ABB9C809}</UniqueIdentifier>
     </Filter>
     <ClInclude Include="..\..\Source\Into_The_Light\Public\World\InterfaceActorT.h">
+      <Filter>Source\Into_The_Light\Public\World</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Into_The_Light\Public\World\PickUp.h">
       <Filter>Source\Into_The_Light\Public\World</Filter>
     </ClInclude>
   </ItemGroup>
