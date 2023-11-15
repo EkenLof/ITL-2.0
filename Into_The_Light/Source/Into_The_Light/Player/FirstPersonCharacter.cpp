@@ -32,7 +32,7 @@ AFirstPersonCharacter::AFirstPersonCharacter()
 	FlashlightMesh->SetupAttachment(GetMesh(), FName("Light-Holder"));
 
 	PlayerInventory = CreateDefaultSubobject<UInventoryComponent>(TEXT("PlayerInventory"));
-	PlayerInventory->SetSlotsCapacity(25); // 20 YT
+	PlayerInventory->SetSlotsCapacity(30); // 20 YT
 	PlayerInventory->SetWeightCapacity(80.0f); // 50 YT
 
 	InteractionCheckFrequency = 0.1;

@@ -44,7 +44,7 @@ void UInventoryTooltip::NativeConstruct()
 		break;
 
 	case EItemType::Item:
-		ItemType->SetText(FText::FromString("Key Item"));
+		ItemType->SetText(FText::FromString("Item"));
 		ItemType->SetColorAndOpacity(FLinearColor(0.175f, 0.0f, 0.0f, 0.75f)); // Red-ish //R,G,B,A
 		HealthPillsRestorationAmount->SetVisibility(ESlateVisibility::Collapsed);
 		HealthPillsRestorationAmountText->SetVisibility(ESlateVisibility::Collapsed);
