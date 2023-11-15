@@ -206,7 +206,13 @@ template<> INTO_THE_LIGHT_API UScriptStruct* StaticStruct<FItemStats>()
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FItemStats_Statics::NewProp_HealthPillsRestorationAmount_MetaData[] = {
 		{ "Category", "ItemStats" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "//UPROPERTY(EditAnywhere)\n//float HealthDamageAmount;\n" },
+#endif
 		{ "ModuleRelativePath", "Data/ItemDataSystem.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "UPROPERTY(EditAnywhere)\nfloat HealthDamageAmount;" },
+#endif
 	};
 #endif
 	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FItemStats_Statics::NewProp_HealthPillsRestorationAmount = { "HealthPillsRestorationAmount", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FItemStats, HealthPillsRestorationAmount), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FItemStats_Statics::NewProp_HealthPillsRestorationAmount_MetaData), Z_Construct_UScriptStruct_FItemStats_Statics::NewProp_HealthPillsRestorationAmount_MetaData) };
@@ -613,7 +619,7 @@ template<> INTO_THE_LIGHT_API UScriptStruct* StaticStruct<FItemData>()
 		{ "ModuleRelativePath", "Data/ItemDataSystem.h" },
 	};
 #endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UScriptStruct_FItemData_Statics::NewProp_ItemStats = { "ItemStats", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FItemData, ItemStats), Z_Construct_UScriptStruct_FItemStats, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FItemData_Statics::NewProp_ItemStats_MetaData), Z_Construct_UScriptStruct_FItemData_Statics::NewProp_ItemStats_MetaData) }; // 1804664930
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UScriptStruct_FItemData_Statics::NewProp_ItemStats = { "ItemStats", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FItemData, ItemStats), Z_Construct_UScriptStruct_FItemStats, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FItemData_Statics::NewProp_ItemStats_MetaData), Z_Construct_UScriptStruct_FItemData_Statics::NewProp_ItemStats_MetaData) }; // 3645473652
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FItemData_Statics::NewProp_ItemTextData_MetaData[] = {
 		{ "Category", "Item Data" },
@@ -678,13 +684,13 @@ template<> INTO_THE_LIGHT_API UScriptStruct* StaticStruct<FItemData>()
 		{ EItemType_StaticEnum, TEXT("EItemType"), &Z_Registration_Info_UEnum_EItemType, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 172931227U) },
 	};
 	const FStructRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Data_ItemDataSystem_h_Statics::ScriptStructInfo[] = {
-		{ FItemStats::StaticStruct, Z_Construct_UScriptStruct_FItemStats_Statics::NewStructOps, TEXT("ItemStats"), &Z_Registration_Info_UScriptStruct_ItemStats, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FItemStats), 1804664930U) },
+		{ FItemStats::StaticStruct, Z_Construct_UScriptStruct_FItemStats_Statics::NewStructOps, TEXT("ItemStats"), &Z_Registration_Info_UScriptStruct_ItemStats, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FItemStats), 3645473652U) },
 		{ FItemTextData::StaticStruct, Z_Construct_UScriptStruct_FItemTextData_Statics::NewStructOps, TEXT("ItemTextData"), &Z_Registration_Info_UScriptStruct_ItemTextData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FItemTextData), 2851892142U) },
 		{ FItemNumericData::StaticStruct, Z_Construct_UScriptStruct_FItemNumericData_Statics::NewStructOps, TEXT("ItemNumericData"), &Z_Registration_Info_UScriptStruct_ItemNumericData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FItemNumericData), 1343459375U) },
 		{ FItemAssetData::StaticStruct, Z_Construct_UScriptStruct_FItemAssetData_Statics::NewStructOps, TEXT("ItemAssetData"), &Z_Registration_Info_UScriptStruct_ItemAssetData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FItemAssetData), 50173059U) },
-		{ FItemData::StaticStruct, Z_Construct_UScriptStruct_FItemData_Statics::NewStructOps, TEXT("ItemData"), &Z_Registration_Info_UScriptStruct_ItemData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FItemData), 410290542U) },
+		{ FItemData::StaticStruct, Z_Construct_UScriptStruct_FItemData_Statics::NewStructOps, TEXT("ItemData"), &Z_Registration_Info_UScriptStruct_ItemData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FItemData), 3506197105U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Data_ItemDataSystem_h_456490004(TEXT("/Script/Into_The_Light"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Data_ItemDataSystem_h_1724752638(TEXT("/Script/Into_The_Light"),
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Data_ItemDataSystem_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Data_ItemDataSystem_h_Statics::ScriptStructInfo),
 		Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Data_ItemDataSystem_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Data_ItemDataSystem_h_Statics::EnumInfo));

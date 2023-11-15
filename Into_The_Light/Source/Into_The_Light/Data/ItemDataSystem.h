@@ -32,6 +32,9 @@ struct FItemStats
 	UPROPERTY(EditAnywhere)
 	float FlashlightBattery;
 
+	//UPROPERTY(EditAnywhere)
+	//float HealthDamageAmount;
+
 	UPROPERTY(EditAnywhere)
 	float HealthPillsRestorationAmount;
 };

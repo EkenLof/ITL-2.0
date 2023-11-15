@@ -29,9 +29,10 @@ class INTO_THE_LIGHT_API AFirstPersonCharacter : public ACharacter
 
 public:
 	AFirstPersonCharacter();
+	virtual void Tick(float DeltaTime) override;
+	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 	FORCEINLINE bool IsInteracting() const { return GetWorldTimerManager().IsTimerActive(TimerHandle_Interaction); };
-
 	FORCEINLINE UInventoryComponent* GetInventory() const { return PlayerInventory; };
 
 	void UpdateInteractionWidget() const;
@@ -42,14 +43,10 @@ public:
 	bool isWalkingBackward;
 
 	float WalkSpeed;
-	float RunSpeed;                                                                          // Calls constructor (AFirstPersonController) in CPP
-
-	virtual void Tick(float DeltaTime) override;                                                       // Calls Tick in CPP
-
-	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;      // Calls SetupPlayerInputComponent in CPP
+	float RunSpeed;
 
 protected:
-	virtual void BeginPlay() override;                                                                 // Calls BeginPlay in CPP
+	virtual void BeginPlay() override;
 	
 	AMainHUD* HUD;
 
@@ -91,14 +88,14 @@ protected:
 	UInventoryComponent* PlayerInventory;
 
 	float InteractionCheckFrequency;
-
 	float InteractionCheckDistance;
 
 	FTimerHandle TimerHandle_Interaction;
-
 	FInteractionData InteractionData;
 
 	// --- FUNCTIONS ---
+	void ToggleMenu();
+
 	void PerformInteractionCheck();
 	void FoundInteractable(AActor* NewInteractable);
 	void NoInteractableFound();

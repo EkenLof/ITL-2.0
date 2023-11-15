@@ -426,7 +426,7 @@ void EmptyLinkFunctionForGeneratedCodeItemBase() {}
 		{ "ModuleRelativePath", "Public/Items/ItemBase.h" },
 	};
 #endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UItemBase_Statics::NewProp_ItemStats = { "ItemStats", nullptr, (EPropertyFlags)0x0010000000020001, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UItemBase, ItemStats), Z_Construct_UScriptStruct_FItemStats, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UItemBase_Statics::NewProp_ItemStats_MetaData), Z_Construct_UClass_UItemBase_Statics::NewProp_ItemStats_MetaData) }; // 1804664930
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UItemBase_Statics::NewProp_ItemStats = { "ItemStats", nullptr, (EPropertyFlags)0x0010000000020001, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UItemBase, ItemStats), Z_Construct_UScriptStruct_FItemStats, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UItemBase_Statics::NewProp_ItemStats_MetaData), Z_Construct_UClass_UItemBase_Statics::NewProp_ItemStats_MetaData) }; // 3645473652
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UItemBase_Statics::NewProp_ItemTextData_MetaData[] = {
 		{ "Category", "Item" },
@@ -499,9 +499,9 @@ void EmptyLinkFunctionForGeneratedCodeItemBase() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Items_ItemBase_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UItemBase, UItemBase::StaticClass, TEXT("UItemBase"), &Z_Registration_Info_UClass_UItemBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UItemBase), 2235195040U) },
+		{ Z_Construct_UClass_UItemBase, UItemBase::StaticClass, TEXT("UItemBase"), &Z_Registration_Info_UClass_UItemBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UItemBase), 1065400912U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Items_ItemBase_h_3060906000(TEXT("/Script/Into_The_Light"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Items_ItemBase_h_4132799463(TEXT("/Script/Into_The_Light"),
 		Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Items_ItemBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Items_ItemBase_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

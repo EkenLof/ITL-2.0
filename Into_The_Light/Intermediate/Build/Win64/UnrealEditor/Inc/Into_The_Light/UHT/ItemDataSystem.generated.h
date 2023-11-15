@@ -21,28 +21,28 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
 template<> INTO_THE_LIGHT_API UScriptStruct* StaticStruct<struct FItemStats>();
 
-#define FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Data_ItemDataSystem_h_42_GENERATED_BODY \
+#define FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Data_ItemDataSystem_h_45_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FItemTextData_Statics; \
 	INTO_THE_LIGHT_API static class UScriptStruct* StaticStruct();
 
 
 template<> INTO_THE_LIGHT_API UScriptStruct* StaticStruct<struct FItemTextData>();
 
-#define FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Data_ItemDataSystem_h_60_GENERATED_BODY \
+#define FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Data_ItemDataSystem_h_63_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FItemNumericData_Statics; \
 	INTO_THE_LIGHT_API static class UScriptStruct* StaticStruct();
 
 
 template<> INTO_THE_LIGHT_API UScriptStruct* StaticStruct<struct FItemNumericData>();
 
-#define FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Data_ItemDataSystem_h_75_GENERATED_BODY \
+#define FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Data_ItemDataSystem_h_78_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FItemAssetData_Statics; \
 	INTO_THE_LIGHT_API static class UScriptStruct* StaticStruct();
 
 
 template<> INTO_THE_LIGHT_API UScriptStruct* StaticStruct<struct FItemAssetData>();
 
-#define FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Data_ItemDataSystem_h_90_GENERATED_BODY \
+#define FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Data_ItemDataSystem_h_93_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FItemData_Statics; \
 	INTO_THE_LIGHT_API static class UScriptStruct* StaticStruct(); \
 	typedef FTableRowBase Super;

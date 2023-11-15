@@ -77,6 +77,8 @@ void AFirstPersonCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInp
 
 	PlayerInputComponent->BindAction("Interact", IE_Pressed, this, &AFirstPersonCharacter::BeginInteract);
 	PlayerInputComponent->BindAction("Interact", IE_Released, this, &AFirstPersonCharacter::EndInteract);
+
+	PlayerInputComponent->BindAction("ToggleMenu", IE_Pressed, this, &AFirstPersonCharacter::ToggleMenu);
 }
 
 void AFirstPersonCharacter::MoveForward(float InputValue)
@@ -263,3 +265,7 @@ void AFirstPersonCharacter::UpdateInteractionWidget() const
 	}
 }
 
+void AFirstPersonCharacter::ToggleMenu()
+{
+	HUD->ToggleMenu();
+}

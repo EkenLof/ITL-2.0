@@ -102,7 +102,19 @@
     <Filter Include="Source\Into_The_Light\Private\UserInterface\Inventory">
       <UniqueIdentifier>{4A4C025A-3597-3E74-A76B-B1C32CE6C095}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\Into_The_Light\Private\UserInterface\Inventory\DragItemVisual.cpp">
+      <Filter>Source\Into_The_Light\Private\UserInterface\Inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Into_The_Light\Private\UserInterface\Inventory\InventoryItemSlot.cpp">
+      <Filter>Source\Into_The_Light\Private\UserInterface\Inventory</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\Into_The_Light\Private\UserInterface\Inventory\InventoryPanel.cpp">
+      <Filter>Source\Into_The_Light\Private\UserInterface\Inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Into_The_Light\Private\UserInterface\Inventory\InventoryTooltip.cpp">
+      <Filter>Source\Into_The_Light\Private\UserInterface\Inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Into_The_Light\Private\UserInterface\Inventory\ItemDragDropOperation.cpp">
       <Filter>Source\Into_The_Light\Private\UserInterface\Inventory</Filter>
     </ClCompile>
     <Filter Include="Source\Into_The_Light\Private\World">
@@ -153,7 +165,19 @@
     <Filter Include="Source\Into_The_Light\Public\UserInterface\Inventory">
       <UniqueIdentifier>{C3FB3BAF-6CD6-3941-9545-37AED182A166}</UniqueIdentifier>
     </Filter>
+    <ClInclude Include="..\..\Source\Into_The_Light\Public\UserInterface\Inventory\DragItemVisual.h">
+      <Filter>Source\Into_The_Light\Public\UserInterface\Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Into_The_Light\Public\UserInterface\Inventory\InventoryItemSlot.h">
+      <Filter>Source\Into_The_Light\Public\UserInterface\Inventory</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\Into_The_Light\Public\UserInterface\Inventory\InventoryPanel.h">
+      <Filter>Source\Into_The_Light\Public\UserInterface\Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Into_The_Light\Public\UserInterface\Inventory\InventoryTooltip.h">
+      <Filter>Source\Into_The_Light\Public\UserInterface\Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Into_The_Light\Public\UserInterface\Inventory\ItemDragDropOperation.h">
       <Filter>Source\Into_The_Light\Public\UserInterface\Inventory</Filter>
     </ClInclude>
     <Filter Include="Source\Into_The_Light\Public\World">

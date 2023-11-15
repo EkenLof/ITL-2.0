@@ -47,6 +47,26 @@ void AMainHUD::HideMenu()
 	}
 }
 
+void AMainHUD::ToggleMenu()
+{
+	if (bIsMenuVisible) // In Game & No visable Game Menu...
+	{
+		HideMenu();
+
+		const FInputModeGameOnly InputMode;
+		GetOwningPlayerController()->SetInputMode(InputMode);
+		GetOwningPlayerController()->SetShowMouseCursor(false);
+	}
+	else // Game Menu Open (Maybe set pause function...)
+	{
+		DisplayMenu();
+
+		const FInputModeGameAndUI InputMode;
+		GetOwningPlayerController()->SetInputMode(InputMode);
+		GetOwningPlayerController()->SetShowMouseCursor(true);
+	}
+}
+
 void AMainHUD::ShowInteractionWidget() const
 {
 	if (InteractionWidget)

@@ -164,7 +164,27 @@
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
       <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
     </ClCompile>
+    <ClCompile Include="..\..\Source\Into_The_Light\Private\UserInterface\Inventory\DragItemVisual.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Into_The_Light\Private\UserInterface\Inventory\InventoryItemSlot.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
     <ClCompile Include="..\..\Source\Into_The_Light\Private\UserInterface\Inventory\InventoryPanel.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Into_The_Light\Private\UserInterface\Inventory\InventoryTooltip.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
+      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Into_The_Light\Private\UserInterface\Inventory\ItemDragDropOperation.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
       <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
@@ -185,7 +205,11 @@
     <ClInclude Include="..\..\Source\Into_The_Light\Public\UserInterface\MainHUD.h"/>
     <ClInclude Include="..\..\Source\Into_The_Light\Public\UserInterface\MainMenu.h"/>
     <ClInclude Include="..\..\Source\Into_The_Light\Public\UserInterface\Interaction\InteractionWidget.h"/>
+    <ClInclude Include="..\..\Source\Into_The_Light\Public\UserInterface\Inventory\DragItemVisual.h"/>
+    <ClInclude Include="..\..\Source\Into_The_Light\Public\UserInterface\Inventory\InventoryItemSlot.h"/>
     <ClInclude Include="..\..\Source\Into_The_Light\Public\UserInterface\Inventory\InventoryPanel.h"/>
+    <ClInclude Include="..\..\Source\Into_The_Light\Public\UserInterface\Inventory\InventoryTooltip.h"/>
+    <ClInclude Include="..\..\Source\Into_The_Light\Public\UserInterface\Inventory\ItemDragDropOperation.h"/>
     <ClInclude Include="..\..\Source\Into_The_Light\Public\World\InterfaceActorT.h"/>
     <ClInclude Include="..\..\Source\Into_The_Light\Public\World\PickUp.h"/>
   </ItemGroup>
