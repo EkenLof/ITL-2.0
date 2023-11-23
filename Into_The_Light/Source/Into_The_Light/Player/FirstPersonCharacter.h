@@ -7,6 +7,7 @@
 
 class AMainHUD;
 class UInventoryComponent;
+class UItemBase;
 
 USTRUCT()
 struct FInteractionData
@@ -36,6 +37,8 @@ public:
 	FORCEINLINE UInventoryComponent* GetInventory() const { return PlayerInventory; };
 
 	void UpdateInteractionWidget() const;
+
+	void DropItem(UItemBase* ItemToDrop, const int32 QuantityToDrop);
 
 	bool isFlashlightEquiped;
 

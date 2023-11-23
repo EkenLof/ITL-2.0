@@ -35,6 +35,9 @@
             "d:\\dokument\\ue_5.3\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\umg\\uht\\widgetanimationevents.generated.h",
             "d:\\dokument\\ue_5.3\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\umg\\uht\\userwidget.generated.h",
             "d:\\github-ekenlof-games\\itl-2.0\\into_the_light\\intermediate\\build\\win64\\unrealeditor\\inc\\into_the_light\\uht\\mainmenu.generated.h",
+            "d:\\github-ekenlof-games\\itl-2.0\\into_the_light\\source\\into_the_light\\public\\items\\itembase.h",
+            "d:\\github-ekenlof-games\\itl-2.0\\into_the_light\\source\\into_the_light\\data\\itemdatasystem.h",
+            "d:\\github-ekenlof-games\\itl-2.0\\into_the_light\\intermediate\\build\\win64\\unrealeditor\\inc\\into_the_light\\uht\\itemdatasystem.generated.h",
             "d:\\github-ekenlof-games\\itl-2.0\\into_the_light\\source\\into_the_light\\player\\firstpersoncharacter.h",
             "d:\\dokument\\ue_5.3\\engine\\source\\runtime\\engine\\classes\\gameframework\\character.h",
             "d:\\dokument\\ue_5.3\\engine\\source\\runtime\\engine\\classes\\gameframework\\charactermovementreplication.h",
@@ -46,7 +49,12 @@
             "d:\\dokument\\ue_5.3\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\character.generated.h",
             "d:\\github-ekenlof-games\\itl-2.0\\into_the_light\\source\\into_the_light\\public\\interfaces\\interactioninterface.h",
             "d:\\github-ekenlof-games\\itl-2.0\\into_the_light\\intermediate\\build\\win64\\unrealeditor\\inc\\into_the_light\\uht\\interactioninterface.generated.h",
-            "d:\\github-ekenlof-games\\itl-2.0\\into_the_light\\intermediate\\build\\win64\\unrealeditor\\inc\\into_the_light\\uht\\firstpersoncharacter.generated.h"
+            "d:\\github-ekenlof-games\\itl-2.0\\into_the_light\\intermediate\\build\\win64\\unrealeditor\\inc\\into_the_light\\uht\\firstpersoncharacter.generated.h",
+            "d:\\github-ekenlof-games\\itl-2.0\\into_the_light\\intermediate\\build\\win64\\unrealeditor\\inc\\into_the_light\\uht\\itembase.generated.h",
+            "d:\\github-ekenlof-games\\itl-2.0\\into_the_light\\source\\into_the_light\\public\\userinterface\\inventory\\itemdragdropoperation.h",
+            "d:\\dokument\\ue_5.3\\engine\\source\\runtime\\umg\\public\\blueprint\\dragdropoperation.h",
+            "d:\\dokument\\ue_5.3\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\umg\\uht\\dragdropoperation.generated.h",
+            "d:\\github-ekenlof-games\\itl-2.0\\into_the_light\\intermediate\\build\\win64\\unrealeditor\\inc\\into_the_light\\uht\\itemdragdropoperation.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

@@ -1,6 +1,9 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "UserInterface/MainMenu.h"
+
+#include "Items/ItemBase.h"
+#include "UserInterface/Inventory/ItemDragDropOperation.h"
 #include "..\Player/FirstPersonCharacter.h"
 
 void UMainMenu::NativeOnInitialized()
@@ -17,7 +20,12 @@ void UMainMenu::NativeConstruct()
 
 bool UMainMenu::NativeOnDrop(const FGeometry& InGeometry, const FDragDropEvent& InDragDropEvent, UDragDropOperation* InOperation)
 {
-	return false;
+	const UItemDragDropOperation* ItemDragDrop = Cast<UItemDragDropOperation>(InOperation);
 
-	// Cast to Item Drag drop, Check if player is valid, Call Item drop in player
+	if (PlayerCharacter && ItemDragDrop->SourceItem)
+	{
+		PlayerCharacter->DropItem(ItemDragDrop->SourceItem, ItemDragDrop->SourceItem->Quantity);
+		return true;
+	}
+	return false;
 }

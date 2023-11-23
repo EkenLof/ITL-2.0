@@ -3,6 +3,7 @@
 #include "FirstPersonCharacter.h"
 #include "Components/InventoryComponent.h"
 #include "Camera/CameraComponent.h"
+#include "World/PickUp.h"
 
 #include "Components/StaticMeshComponent.h"
 #include "Components/InputComponent.h"
@@ -268,4 +269,31 @@ void AFirstPersonCharacter::UpdateInteractionWidget() const
 void AFirstPersonCharacter::ToggleMenu()
 {
 	HUD->ToggleMenu();
+}
+
+void AFirstPersonCharacter::DropItem(UItemBase* ItemToDrop, const int32 QuantityToDrop)
+{
+	if (PlayerInventory->FindMatchingItem(ItemToDrop))
+	{
+		FActorSpawnParameters SpawnParams;
+		SpawnParams.Owner = this;
+		SpawnParams.bNoFail = true;
+		SpawnParams.SpawnCollisionHandlingOverride 
+			= ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButAlwaysSpawn;
+
+		const FVector SpawnLocation	{ GetActorLocation() + (GetActorForwardVector() * 55.0f) }; // Distance of drop
+		const FTransform SpawnTransform(GetActorRotation(), SpawnLocation);
+
+		const int32 RemovedQuantity 
+			= PlayerInventory->RemoveAmountOfItem(ItemToDrop, QuantityToDrop);
+
+		APickUp* PickUp 
+			= GetWorld()->SpawnActor<APickUp>(APickUp::StaticClass(), SpawnTransform, SpawnParams);
+
+		PickUp->InitializeDrop(ItemToDrop, RemovedQuantity);
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Item to Drop was somehow NULL"));
+	}
 }

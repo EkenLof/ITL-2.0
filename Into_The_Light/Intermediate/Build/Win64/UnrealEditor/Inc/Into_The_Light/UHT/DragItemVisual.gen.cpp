@@ -66,7 +66,7 @@ void EmptyLinkFunctionForGeneratedCodeDragItemVisual() {}
 		{ "ModuleRelativePath", "Public/UserInterface/Inventory/DragItemVisual.h" },
 	};
 #endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UDragItemVisual_Statics::NewProp_ItemBorder = { "ItemBorder", nullptr, (EPropertyFlags)0x00200800000a0009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UDragItemVisual, ItemBorder), Z_Construct_UClass_UBorder_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UDragItemVisual_Statics::NewProp_ItemBorder_MetaData), Z_Construct_UClass_UDragItemVisual_Statics::NewProp_ItemBorder_MetaData) };
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UDragItemVisual_Statics::NewProp_ItemBorder = { "ItemBorder", nullptr, (EPropertyFlags)0x00100000000a0009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UDragItemVisual, ItemBorder), Z_Construct_UClass_UBorder_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UDragItemVisual_Statics::NewProp_ItemBorder_MetaData), Z_Construct_UClass_UDragItemVisual_Statics::NewProp_ItemBorder_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UDragItemVisual_Statics::NewProp_ItemIcon_MetaData[] = {
 		{ "BindWidget", "" },
@@ -75,7 +75,7 @@ void EmptyLinkFunctionForGeneratedCodeDragItemVisual() {}
 		{ "ModuleRelativePath", "Public/UserInterface/Inventory/DragItemVisual.h" },
 	};
 #endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UDragItemVisual_Statics::NewProp_ItemIcon = { "ItemIcon", nullptr, (EPropertyFlags)0x00200800000a0009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UDragItemVisual, ItemIcon), Z_Construct_UClass_UImage_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UDragItemVisual_Statics::NewProp_ItemIcon_MetaData), Z_Construct_UClass_UDragItemVisual_Statics::NewProp_ItemIcon_MetaData) };
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UDragItemVisual_Statics::NewProp_ItemIcon = { "ItemIcon", nullptr, (EPropertyFlags)0x00100000000a0009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UDragItemVisual, ItemIcon), Z_Construct_UClass_UImage_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UDragItemVisual_Statics::NewProp_ItemIcon_MetaData), Z_Construct_UClass_UDragItemVisual_Statics::NewProp_ItemIcon_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UDragItemVisual_Statics::NewProp_ItemQuantity_MetaData[] = {
 		{ "BindWidget", "" },
@@ -84,7 +84,7 @@ void EmptyLinkFunctionForGeneratedCodeDragItemVisual() {}
 		{ "ModuleRelativePath", "Public/UserInterface/Inventory/DragItemVisual.h" },
 	};
 #endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UDragItemVisual_Statics::NewProp_ItemQuantity = { "ItemQuantity", nullptr, (EPropertyFlags)0x00200800000a0009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UDragItemVisual, ItemQuantity), Z_Construct_UClass_UTextBlock_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UDragItemVisual_Statics::NewProp_ItemQuantity_MetaData), Z_Construct_UClass_UDragItemVisual_Statics::NewProp_ItemQuantity_MetaData) };
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UDragItemVisual_Statics::NewProp_ItemQuantity = { "ItemQuantity", nullptr, (EPropertyFlags)0x00100000000a0009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UDragItemVisual, ItemQuantity), Z_Construct_UClass_UTextBlock_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UDragItemVisual_Statics::NewProp_ItemQuantity_MetaData), Z_Construct_UClass_UDragItemVisual_Statics::NewProp_ItemQuantity_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UDragItemVisual_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UDragItemVisual_Statics::NewProp_ItemBorder,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UDragItemVisual_Statics::NewProp_ItemIcon,
@@ -129,9 +129,9 @@ void EmptyLinkFunctionForGeneratedCodeDragItemVisual() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_UserInterface_Inventory_DragItemVisual_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UDragItemVisual, UDragItemVisual::StaticClass, TEXT("UDragItemVisual"), &Z_Registration_Info_UClass_UDragItemVisual, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UDragItemVisual), 2068372927U) },
+		{ Z_Construct_UClass_UDragItemVisual, UDragItemVisual::StaticClass, TEXT("UDragItemVisual"), &Z_Registration_Info_UClass_UDragItemVisual, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UDragItemVisual), 2988604656U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_UserInterface_Inventory_DragItemVisual_h_3381017470(TEXT("/Script/Into_The_Light"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_UserInterface_Inventory_DragItemVisual_h_3710351713(TEXT("/Script/Into_The_Light"),
 		Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_UserInterface_Inventory_DragItemVisual_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_UserInterface_Inventory_DragItemVisual_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
