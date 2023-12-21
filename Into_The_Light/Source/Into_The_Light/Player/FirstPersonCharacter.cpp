@@ -139,7 +139,8 @@ void AFirstPersonCharacter::PerformInteractionCheck()
 
 	if (LookDirection > 0)
 	{
-		DrawDebugLine(GetWorld(), TraceStart, TraceEnd, FColor::Green, false, 0.25f, 0, 0.5f); // Test DrawLine
+		// ToDo: Fix Cursor so interaxtion middle is visable. 
+		//DrawDebugLine(GetWorld(), TraceStart, TraceEnd, FColor::Green, false, 0.25f, 0, 0.5f); // Test DrawLine
 
 		FCollisionQueryParams QueryParams;
 		QueryParams.AddIgnoredActor(this);

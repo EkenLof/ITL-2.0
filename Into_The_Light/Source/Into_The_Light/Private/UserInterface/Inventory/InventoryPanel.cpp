@@ -1,6 +1,7 @@
 // Game
 #include "UserInterface/Inventory/InventoryPanel.h"
 #include "UserInterface/Inventory/InventoryItemSlot.h"
+#include "UserInterface/Inventory/ItemDragDropOperation.h"
 #include "..\Player/FirstPersonCharacter.h"
 #include "Components/InventoryComponent.h"
 // Engine
@@ -53,5 +54,15 @@ void UInventoryPanel::RefreshInventory()
 
 bool UInventoryPanel::NativeOnDrop(const FGeometry& InGeometry, const FDragDropEvent& InDragDropEvent, UDragDropOperation* InOperation)
 {
-	return Super::NativeOnDrop(InGeometry, InDragDropEvent, InOperation);
+	const UItemDragDropOperation* ItemDragDrop = Cast<UItemDragDropOperation>(InOperation);
+
+	if (ItemDragDrop->SourceItem && InventoryReferance)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Detected an Item drop on InventoryPanel."))
+
+			// returning true will stop the drop operation at this widget.
+			return true;
+	}
+	// Returning false will cause the drop operation to fall through the underlying widget (IF ANY).
+	return false;
 }
