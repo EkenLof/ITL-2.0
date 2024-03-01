@@ -40,8 +40,6 @@ public:
 
 	void DropItem(UItemBase* ItemToDrop, const int32 QuantityToDrop);
 
-	bool isFlashlightEquiped;
-
 	bool isWalkingForward;
 	bool isWalkingBackward;
 
@@ -54,7 +52,7 @@ protected:
 	AMainHUD* HUD;
 
 	// --- Player + Movment ---
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FirstPersonCharacter | Camera")
 	class UCameraComponent* Camera;
 
 	UPROPERTY(EditAnywhere)
@@ -81,6 +79,16 @@ protected:
 
 	// Flashlight
 	void UseFlashlight();
+
+	// Item Logic
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FirstPersonCharacter | ItemLogic")
+	bool isFlashlightInInventory;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FirstPersonCharacter | ItemLogic")
+	bool isFlashlightEquiped;
+
+	//UItemBase* Item;
+	//void ItemHandeling();
+
 
 	//---- Inventory - Item - Interaction **Systems** ----
 	// --- VARIBLES ---

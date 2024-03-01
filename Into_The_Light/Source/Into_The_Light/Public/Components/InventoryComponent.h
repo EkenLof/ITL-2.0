@@ -99,6 +99,7 @@ public:
 	FORCEINLINE float GetWeightCapacity() const { return InventoryWeightCapacity; };
 	UFUNCTION(Category = "Inventory")
 	FORCEINLINE int32 GetSlotCapacity() const { return InventorySlotsCapacity; };
+
 	UFUNCTION(Category = "Inventory")
 	FORCEINLINE TArray<UItemBase*> GetInventoryContents() const { return InventoryContents; };
 

@@ -4,6 +4,7 @@
 #include "Components/InventoryComponent.h"
 #include "Camera/CameraComponent.h"
 #include "World/PickUp.h"
+#include "Items/ItemBase.h" // Test for witch item is picked up
 
 #include "Components/StaticMeshComponent.h"
 #include "Components/InputComponent.h"
@@ -40,6 +41,9 @@ AFirstPersonCharacter::AFirstPersonCharacter()
 	InteractionCheckDistance = 155.0f;
 
 	BaseEyeHeight = 74.0f;
+
+	// TEMP
+	isFlashlightInInventory = true;
 }
 
 void AFirstPersonCharacter::BeginPlay()
@@ -53,6 +57,7 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	//ItemHandeling();
 
 	if (GetWorld()->TimeSince(InteractionData.LastInteractionCheckTime) > InteractionCheckFrequency)
 	{
@@ -113,17 +118,51 @@ void AFirstPersonCharacter::CamLookUp(float InputValue)
 {
 	AddControllerPitchInput(InputValue);
 }
-
-void AFirstPersonCharacter::UseFlashlight()
+/*
+void AFirstPersonCharacter::ItemHandeling()
 {
-	if (!isFlashlightEquiped)
+	UItemBase* CurrentItem;
+	CurrentItem = NULL;
+
+	if (PlayerInventory->FindMatchingItem(Item) == CurrentItem)
+	{
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("Is IF!"));
+		CurrentItem = Item;
+	}
+	else 
+	{
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("Is ELSE!"));
+	}
+
+	if (Item->ID != CurrentItem->ID) // False
+	{
+		isFlashlightInInventory = false;
+
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("Is False!"));
+	}
+	else // True
+	{
+		isFlashlightInInventory = true;
+
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("Is True!"));
+		CurrentItem->ResetItemFlags();
+	}
+	
+	//if(PlayerInventory->FindMatchingItem(Item)) 
+}
+*/
+void AFirstPersonCharacter::UseFlashlight() // FLashlight LOGIC
+{
+	if (!isFlashlightEquiped && isFlashlightInInventory)
 	{
 		//FlashlightMesh->bHiddenInGame = false;
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("Is False turns TRUE!"));
 		isFlashlightEquiped = true;
 	}
-	else if (isFlashlightEquiped)
+	else if (isFlashlightEquiped && isFlashlightInInventory)
 	{
 		//FlashlightMesh->bHiddenInGame = true;
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("Is TRUE turns False!"));
 		isFlashlightEquiped = false;
 	}
 }
@@ -282,7 +321,7 @@ void AFirstPersonCharacter::DropItem(UItemBase* ItemToDrop, const int32 Quantity
 		SpawnParams.SpawnCollisionHandlingOverride 
 			= ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButAlwaysSpawn;
 
-		const FVector SpawnLocation	{ GetActorLocation() + (GetActorForwardVector() * 55.0f) }; // Distance of drop
+		const FVector SpawnLocation	{ GetActorLocation() + (GetActorForwardVector() * 75.0f) }; // Distance of drop
 		const FTransform SpawnTransform(GetActorRotation(), SpawnLocation);
 
 		const int32 RemovedQuantity 

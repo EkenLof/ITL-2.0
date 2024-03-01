@@ -72,6 +72,12 @@
     <ClCompile Include="..\..\Source\Into_The_Light\Private\Components\InventoryComponent.cpp">
       <Filter>Source\Into_The_Light\Private\Components</Filter>
     </ClCompile>
+    <Filter Include="Source\Into_The_Light\Private\Gameplay">
+      <UniqueIdentifier>{68BD4E67-10A7-36D6-9FB1-40E0D471ED74}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\Into_The_Light\Private\Gameplay\GameplayEvents.cpp">
+      <Filter>Source\Into_The_Light\Private\Gameplay</Filter>
+    </ClCompile>
     <Filter Include="Source\Into_The_Light\Private\Interfaces">
       <UniqueIdentifier>{B3C26D51-CD0C-3573-896E-7632DDAC7D3E}</UniqueIdentifier>
     </Filter>
@@ -134,6 +140,12 @@
     </Filter>
     <ClInclude Include="..\..\Source\Into_The_Light\Public\Components\InventoryComponent.h">
       <Filter>Source\Into_The_Light\Public\Components</Filter>
+    </ClInclude>
+    <Filter Include="Source\Into_The_Light\Public\Gameplay">
+      <UniqueIdentifier>{ED60F363-BC38-31BD-A011-67848F8553E8}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\Into_The_Light\Public\Gameplay\GameplayEvents.h">
+      <Filter>Source\Into_The_Light\Public\Gameplay</Filter>
     </ClInclude>
     <Filter Include="Source\Into_The_Light\Public\Interfaces">
       <UniqueIdentifier>{66CDA4EE-40DE-33F3-AAE4-E4CB65D8CEA5}</UniqueIdentifier>
