@@ -4,9 +4,12 @@
 		"Module.Into_The_Light.cpp.obj": [
 			"DoorSystem.gen.cpp.obj",
 			"DragItemVisual.gen.cpp.obj",
+			"FirstPersonCharacter.gen.cpp.obj",
+			"GameplayEvents.gen.cpp.obj",
 			"InteractionInterface.gen.cpp.obj",
 			"InteractionWidget.gen.cpp.obj",
 			"InterfaceActorT.gen.cpp.obj",
+			"Into_The_Light.init.gen.cpp.obj",
 			"InventoryComponent.gen.cpp.obj",
 			"InventoryItemSlot.gen.cpp.obj",
 			"InventoryPanel.gen.cpp.obj",
@@ -19,6 +22,8 @@
 			"PickUp.gen.cpp.obj",
 			"DoorSystem.cpp.obj",
 			"Into_The_Light.cpp.obj",
+			"FirstPersonCharacter.cpp.obj",
+			"InventoryComponent.cpp.obj",
 			"InteractionInterface.cpp.obj",
 			"ItemBase.cpp.obj",
 			"InteractionWidget.cpp.obj",
@@ -31,10 +36,6 @@
 			"MainMenu.cpp.obj",
 			"InterfaceActorT.cpp.obj",
 			"PickUp.cpp.obj",
-			"FirstPersonCharacter.gen.cpp.obj",
-			"Into_The_Light.init.gen.cpp.obj",
-			"FirstPersonCharacter.cpp.obj",
-			"InventoryComponent.cpp.obj",
 			"GameplayEvents.cpp.obj"
 		]
 	}
