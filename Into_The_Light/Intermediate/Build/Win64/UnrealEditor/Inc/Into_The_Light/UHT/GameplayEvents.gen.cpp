@@ -219,9 +219,12 @@ void EmptyLinkFunctionForGeneratedCodeGameplayEvents() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AGameplayEvents_Step4_Statics::Function_MetaDataParams[] = {
 #if !UE_BUILD_SHIPPING
-		{ "Comment", "// \n" },
+		{ "Comment", "// Fixing the lights (10A fuse)\n" },
 #endif
 		{ "ModuleRelativePath", "Public/Gameplay/GameplayEvents.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Fixing the lights (10A fuse)" },
+#endif
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AGameplayEvents_Step4_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AGameplayEvents, nullptr, "Step4", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00040401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AGameplayEvents_Step4_Statics::Function_MetaDataParams), Z_Construct_UFunction_AGameplayEvents_Step4_Statics::Function_MetaDataParams) };
@@ -260,7 +263,7 @@ void EmptyLinkFunctionForGeneratedCodeGameplayEvents() {}
 		{ &Z_Construct_UFunction_AGameplayEvents_Step1, "Step1" }, // 632113964
 		{ &Z_Construct_UFunction_AGameplayEvents_Step2, "Step2" }, // 326460445
 		{ &Z_Construct_UFunction_AGameplayEvents_Step3, "Step3" }, // 1826136709
-		{ &Z_Construct_UFunction_AGameplayEvents_Step4, "Step4" }, // 2552529891
+		{ &Z_Construct_UFunction_AGameplayEvents_Step4, "Step4" }, // 3506543786
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AGameplayEvents_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
@@ -306,9 +309,9 @@ void EmptyLinkFunctionForGeneratedCodeGameplayEvents() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_GameplayEvents_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AGameplayEvents, AGameplayEvents::StaticClass, TEXT("AGameplayEvents"), &Z_Registration_Info_UClass_AGameplayEvents, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AGameplayEvents), 2627135381U) },
+		{ Z_Construct_UClass_AGameplayEvents, AGameplayEvents::StaticClass, TEXT("AGameplayEvents"), &Z_Registration_Info_UClass_AGameplayEvents, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AGameplayEvents), 3183497925U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_GameplayEvents_h_3682465916(TEXT("/Script/Into_The_Light"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_GameplayEvents_h_3252080810(TEXT("/Script/Into_The_Light"),
 		Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_GameplayEvents_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_GameplayEvents_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
