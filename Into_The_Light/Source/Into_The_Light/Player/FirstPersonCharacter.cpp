@@ -173,54 +173,48 @@ void AFirstPersonCharacter::PerformInteractionCheck()
 {
 	InteractionData.LastInteractionCheckTime = GetWorld()->GetTimeSeconds();
 
-	//FVector TraceStart{GetPawnViewLocation()}; // Eyes ("BaseEyeHeight" Comes from "GetPawnViewLocation")
+	//////////////////////////////////////////////////////////////////////////////
+	// 
+	FVector TraceStart{ FVector::ZeroVector };
+	TraceStart = Camera->GetComponentLocation(); // Location where the Mouse-Pointer comes from.
+	FVector TraceEnd{ TraceStart + (GetViewRotation().Vector() * InteractionCheckDistance) }; // Interaction distance from view.
+	// 
+	//////////////////////////////////////////////////////////////////////////////
 
-	if (InteractionPointer)
+	float LookDirection = FVector::DotProduct(GetActorForwardVector(), GetViewRotation().Vector()); // Related to character and body facing view (Best for 3rd person)
+
+	if (LookDirection > 0) // If camera could be angled behind head it would stop (Best for 3rd prerson)
 	{
-		//Eyes = InteractionPointer;
-		//InteractionPointer = CreateDefaultSubobject<UCapsuleComponent>(TEXT("ActionCollision"));
+		//////////////////////////////////////////////////////////////////////////
+		//DrawDebugLine(GetWorld(), TraceStart, TraceEnd, FColor::Green, false, 0.25f, 0, 0.5f); // Test DrawLine
+		//////////////////////////////////////////////////////////////////////////
 
-		Eyes = InteractionPointer->GetTransform();
+		FCollisionQueryParams QueryParams;
+		QueryParams.AddIgnoredActor(this);
+		FHitResult TraceHit;
 
-		FVector TraceStart = Eyes.GetTranslation();
-
-		FVector TraceEnd{ TraceStart + (GetViewRotation().Vector() * InteractionCheckDistance) }; // Interaction distance from view.
-	
-		float LookDirection = FVector::DotProduct(GetActorForwardVector(), GetViewRotation().Vector()); // Related to character and body facing view (Best for 3rd person)
-		if (LookDirection > 0) // If camera could be angled behind head it would stop (Best for 3rd prerson)
+		if (GetWorld()->LineTraceSingleByChannel(TraceHit, TraceStart, TraceEnd, ECC_Visibility, QueryParams))
 		{
-			//////////////////////////////////////////////////////////////////////////
-			DrawDebugLine(GetWorld(), TraceStart, TraceEnd, FColor::Green, false, 0.25f, 0, 0.5f); // Test DrawLine
-			//////////////////////////////////////////////////////////////////////////
-
-			FCollisionQueryParams QueryParams;
-			QueryParams.AddIgnoredActor(this);
-
-			FHitResult TraceHit;
-
-			if (GetWorld()->LineTraceSingleByChannel(TraceHit, TraceStart, TraceEnd, ECC_Visibility, QueryParams))
+			if (TraceHit.GetActor()->GetClass()->ImplementsInterface(UInteractionInterface::StaticClass()))
 			{
-				if (TraceHit.GetActor()->GetClass()->ImplementsInterface(UInteractionInterface::StaticClass()))
+				//
+				//const float Distance = (TraceStart - TraceHit.ImpactPoint).Size();
+				//if (TraceHit.GetActor() != InteractionData.CurrentInteractable && Distance <= InteractionCheckDistance)
+
+
+				if (TraceHit.GetActor() != InteractionData.CurrentInteractable)
 				{
-					//
-					//const float Distance = (TraceStart - TraceHit.ImpactPoint).Size();
-					//if (TraceHit.GetActor() != InteractionData.CurrentInteractable && Distance <= InteractionCheckDistance)
-
-
-					if (TraceHit.GetActor() != InteractionData.CurrentInteractable)
-					{
-						FoundInteractable(TraceHit.GetActor());
-						return;
-					}
-					if (TraceHit.GetActor() == InteractionData.CurrentInteractable)
-					{
-						return;
-					}
+					FoundInteractable(TraceHit.GetActor());
+					return;
+				}
+				if (TraceHit.GetActor() == InteractionData.CurrentInteractable)
+				{
+					return;
 				}
 			}
 		}
-		NoInteractableFound();
 	}
+	NoInteractableFound();
 }
 
 void AFirstPersonCharacter::FoundInteractable(AActor* NewInteractable)

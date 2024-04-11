@@ -46,12 +46,6 @@ public:
 	float WalkSpeed;
 	float RunSpeed;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "UiInteractions | Eyes")
-	FTransform Eyes;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "UiInteractions | Eyes")
-	//UCapsuleComponent* InteractionPointer;
-	AActor* InteractionPointer;
-
 protected:
 	virtual void BeginPlay() override;
 	
