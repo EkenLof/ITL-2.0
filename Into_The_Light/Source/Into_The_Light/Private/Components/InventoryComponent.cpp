@@ -5,7 +5,11 @@
 UInventoryComponent::UInventoryComponent()
 {
 	PrimaryComponentTick.bCanEverTick = true;
-
+	IsFlshlight = false;
+	IsLighter = false;
+	IsBattery = false;
+	IsFuse10a = false;
+	IsColeKeycard = false;
 	// ...
 }
 
@@ -16,7 +20,46 @@ void UInventoryComponent::BeginPlay()
 	// ...
 }
 
-UItemBase* UInventoryComponent::FindMatchingItem(UItemBase* ItemIn) const
+//////////////////////////////////////////////////////////////////// 14-4-2024
+
+void UInventoryComponent::ExposeItem(UItemBase* ItemOut)
+{
+	FString ItemInTemp = ItemOut->ItemTextData.Name.ToString();
+
+	if (ItemInTemp == Flashlight)
+	{
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Purple, TEXT("Flaslight Pick-Up-List is ---TRUE---"));
+		IsFlshlight = true;
+	}
+	else if (ItemInTemp == Lighter)
+	{
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Purple, TEXT("Lighter Pick-Up-List is ---TRUE---"));
+		IsLighter = true;
+	}
+	else if (ItemInTemp == Battery)
+	{
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Purple, TEXT("Battery Pick-Up-List is ---TRUE---"));
+		IsBattery = true;
+	}
+	else if (ItemInTemp == Fuse10a)
+	{
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Purple, TEXT("Battery Pick-Up-List is ---TRUE---"));
+		IsFuse10a = true;
+	}
+	else if (ItemInTemp == ColeKeycard)
+	{
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Purple, TEXT("ColeKeycard Pick-Up-List is ---TRUE---"));
+		IsColeKeycard = true;
+	}
+	else
+	{
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Purple, TEXT("NONE Pick-Up-List is ---FALSE---"));
+	}
+}
+
+//////////////////////////////////////////////////////////////////// 14-4-2024
+
+UItemBase* UInventoryComponent::FindMatchingItem(UItemBase* ItemIn) const // 14-4-2024
 {
 	if (ItemIn)
 	{
@@ -28,7 +71,7 @@ UItemBase* UInventoryComponent::FindMatchingItem(UItemBase* ItemIn) const
 	return nullptr;
 }
 
-UItemBase* UInventoryComponent::FindNextItemByID(UItemBase* ItemIn) const
+UItemBase* UInventoryComponent::FindNextItemByID(UItemBase* ItemIn) const // 14-4-2024
 {
 	if (ItemIn)
 	{
@@ -265,6 +308,10 @@ FItemAddResult UInventoryComponent::HandleAddItem(UItemBase* InputItem)
 void UInventoryComponent::AddNewItem(UItemBase* Item, const int32 AmountToAdd)
 {
 	UItemBase* NewItem;
+
+	//////////////////////////////////////////////////////////////////// 14-4-2024
+	ExposeItem(Item); // ACTIVE On PickUp
+	//////////////////////////////////////////////////////////////////// 14-4-2024
 
 	if (Item->bIsCopy || Item->bIsPickup)
 	{

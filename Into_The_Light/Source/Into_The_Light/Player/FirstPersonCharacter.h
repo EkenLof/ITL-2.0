@@ -82,8 +82,6 @@ protected:
 
 	// Item Logic
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FirstPersonCharacter | ItemLogic")
-	bool isFlashlightInInventory;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FirstPersonCharacter | ItemLogic")
 	bool isFlashlightEquiped;
 
 	//UItemBase* Item;

@@ -43,9 +43,6 @@ AFirstPersonCharacter::AFirstPersonCharacter()
 	InteractionCheckDistance = 155.0f;
 
 	//BaseEyeHeight = 75.0f;
-
-	// TEMP
-	isFlashlightInInventory = true;
 }
 
 void AFirstPersonCharacter::BeginPlay()
@@ -155,16 +152,16 @@ void AFirstPersonCharacter::ItemHandeling()
 */
 void AFirstPersonCharacter::UseFlashlight() // FLashlight LOGIC
 {
-	if (!isFlashlightEquiped && isFlashlightInInventory)
+	if (!isFlashlightEquiped && PlayerInventory->IsFlshlight)
 	{
 		//FlashlightMesh->bHiddenInGame = false;
-		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("Is False turns TRUE!"));
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("Equip Flishlight TRUE!"));
 		isFlashlightEquiped = true;
 	}
-	else if (isFlashlightEquiped && isFlashlightInInventory)
+	else if (isFlashlightEquiped)
 	{
 		//FlashlightMesh->bHiddenInGame = true;
-		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("Is TRUE turns False!"));
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("Equip Flashlight False!"));
 		isFlashlightEquiped = false;
 	}
 }
@@ -320,7 +317,7 @@ void AFirstPersonCharacter::ToggleMenu()
 	HUD->ToggleMenu();
 }
 
-void AFirstPersonCharacter::DropItem(UItemBase* ItemToDrop, const int32 QuantityToDrop)
+void AFirstPersonCharacter::DropItem(UItemBase* ItemToDrop, const int32 QuantityToDrop) // FIX FOR KEY-ITEMS NOT-DROPABLE
 {
 	if (PlayerInventory->FindMatchingItem(ItemToDrop))
 	{

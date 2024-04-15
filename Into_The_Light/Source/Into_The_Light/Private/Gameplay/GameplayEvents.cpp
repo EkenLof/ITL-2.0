@@ -40,8 +40,9 @@ void AGameplayEvents::NextStep()
 	}
 }
 
-void AGameplayEvents::Step0() // Beginning Lobby
+void AGameplayEvents::Step0() // Beginning Lobby 
 {
+	// SpawnPoint.
 	// Blacksceen StoryScene Before entering Buildning.
 	// Getting a message from Cole (With instructions of Flashlight and Where he is).
 }

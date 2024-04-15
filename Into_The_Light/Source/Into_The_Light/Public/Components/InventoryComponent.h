@@ -75,6 +75,56 @@ public:
 
 	UInventoryComponent();
 
+	//////////////////////////////---ITEM-MAIN-LOGIC---///////////////////////////////
+	UFUNCTION(Category = "Inventory | ItemID")
+	void ExposeItem(UItemBase* ItemOut);
+	//////////////////////////////---ITEM-MAIN-LOGIC---///////////////////////////////
+
+	//////////////////////////////////---ACTIVE---////////////////////////////////////
+	/// LEFT-HAND-ITEMS
+	UPROPERTY(EditAnywhere, Category = "Inventory | ItemID")
+	bool IsFlshlight;
+	UPROPERTY(EditAnywhere, Category = "Inventory | ItemID")
+	bool IsLighter;
+	/// LEFT-HAND-ITEMS
+
+	/// USABLE-ITEMS
+	UPROPERTY(EditAnywhere, Category = "Inventory | ItemID")
+	bool IsBattery;
+	/// USABLE-ITEMS
+
+	/// KEY-ITEMS (ITEMS)
+	UPROPERTY(EditAnywhere, Category = "Inventory | ItemID")
+	bool IsColeKeycard;
+	UPROPERTY(EditAnywhere, Category = "Inventory | ItemID")
+	bool IsFuse10a;
+	/// KEY-ITEMS (ITEMS)
+	//////////////////////////////////---ACTIVE---////////////////////////////////////
+
+	//////////////////////////////////---NAMES---/////////////////////////////////////
+	/// LEFT-HAND-ITEMS
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Inventory | ItemID")
+	FString Flashlight = "Flashlight";
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Inventory | ItemID")
+	FString Lighter = "Lighter";
+	/// LEFT-HAND-ITEMS
+
+	/// USABLE-ITEMS
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Inventory | ItemID")
+	FString Battery = "Battery";
+	/// USABLE-ITEMS
+
+	/// KEY-ITEMS (ITEMS)
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Inventory | ItemID")
+	FString ColeKeycard = "Cole's Keycard";
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Inventory | ItemID")
+	FString Fuse10a = "Fuse 10A";
+	/// KEY-ITEMS (ITEMS)
+	//////////////////////////////////---NAMES---/////////////////////////////////////
+
+	/////////////////////////////---INVENTORY-LOGIC---////////////////////////////////
 	UFUNCTION(Category = "Inventory")
 	FItemAddResult HandleAddItem(UItemBase* InputItem);
 
@@ -129,4 +179,5 @@ protected:
 	int32 CalculateNumberForFullStack(UItemBase* StackableItem, int32 InitioalRequestedAddAmount);
 
 	void AddNewItem(UItemBase* Item, const int32 AmountToAdd);
+	/////////////////////////////---INVENTORY-LOGIC---////////////////////////////////
 };

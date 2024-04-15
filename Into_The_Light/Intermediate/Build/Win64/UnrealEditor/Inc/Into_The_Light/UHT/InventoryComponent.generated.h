@@ -40,7 +40,8 @@ template<> INTO_THE_LIGHT_API UScriptStruct* StaticStruct<struct FItemAddResult>
 	DECLARE_FUNCTION(execFindNextPartialStack); \
 	DECLARE_FUNCTION(execFindNextItemByID); \
 	DECLARE_FUNCTION(execFindMatchingItem); \
-	DECLARE_FUNCTION(execHandleAddItem);
+	DECLARE_FUNCTION(execHandleAddItem); \
+	DECLARE_FUNCTION(execExposeItem);
 
 
 #define FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Components_InventoryComponent_h_70_ACCESSORS

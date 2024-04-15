@@ -134,11 +134,6 @@ template<> INTO_THE_LIGHT_API UScriptStruct* StaticStruct<FInteractionData>()
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_WalkBackwardAnim;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_isFlashlightInInventory_MetaData[];
-#endif
-		static void NewProp_isFlashlightInInventory_SetBit(void* Obj);
-		static const UECodeGen_Private::FBoolPropertyParams NewProp_isFlashlightInInventory;
-#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_isFlashlightEquiped_MetaData[];
 #endif
 		static void NewProp_isFlashlightEquiped_SetBit(void* Obj);
@@ -212,7 +207,7 @@ template<> INTO_THE_LIGHT_API UScriptStruct* StaticStruct<FInteractionData>()
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_WalkBackwardAnim = { "WalkBackwardAnim", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFirstPersonCharacter, WalkBackwardAnim), Z_Construct_UClass_UAnimSequence_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_WalkBackwardAnim_MetaData), Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_WalkBackwardAnim_MetaData) };
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_isFlashlightInInventory_MetaData[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_isFlashlightEquiped_MetaData[] = {
 		{ "Category", "FirstPersonCharacter | ItemLogic" },
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// Item Logic\n" },
@@ -221,17 +216,6 @@ template<> INTO_THE_LIGHT_API UScriptStruct* StaticStruct<FInteractionData>()
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Item Logic" },
 #endif
-	};
-#endif
-	void Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_isFlashlightInInventory_SetBit(void* Obj)
-	{
-		((AFirstPersonCharacter*)Obj)->isFlashlightInInventory = 1;
-	}
-	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_isFlashlightInInventory = { "isFlashlightInInventory", nullptr, (EPropertyFlags)0x0020080000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AFirstPersonCharacter), &Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_isFlashlightInInventory_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_isFlashlightInInventory_MetaData), Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_isFlashlightInInventory_MetaData) };
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_isFlashlightEquiped_MetaData[] = {
-		{ "Category", "FirstPersonCharacter | ItemLogic" },
-		{ "ModuleRelativePath", "Player/FirstPersonCharacter.h" },
 	};
 #endif
 	void Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_isFlashlightEquiped_SetBit(void* Obj)
@@ -266,7 +250,6 @@ template<> INTO_THE_LIGHT_API UScriptStruct* StaticStruct<FInteractionData>()
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_FlashlightMesh,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_WalkForwardAnim,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_WalkBackwardAnim,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_isFlashlightInInventory,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_isFlashlightEquiped,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_TargetInteractable,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_PlayerInventory,
@@ -313,9 +296,9 @@ template<> INTO_THE_LIGHT_API UScriptStruct* StaticStruct<FInteractionData>()
 		{ FInteractionData::StaticStruct, Z_Construct_UScriptStruct_FInteractionData_Statics::NewStructOps, TEXT("InteractionData"), &Z_Registration_Info_UScriptStruct_InteractionData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FInteractionData), 746018718U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Player_FirstPersonCharacter_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AFirstPersonCharacter, AFirstPersonCharacter::StaticClass, TEXT("AFirstPersonCharacter"), &Z_Registration_Info_UClass_AFirstPersonCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFirstPersonCharacter), 1813960577U) },
+		{ Z_Construct_UClass_AFirstPersonCharacter, AFirstPersonCharacter::StaticClass, TEXT("AFirstPersonCharacter"), &Z_Registration_Info_UClass_AFirstPersonCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFirstPersonCharacter), 2171752671U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Player_FirstPersonCharacter_h_1914269689(TEXT("/Script/Into_The_Light"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Player_FirstPersonCharacter_h_2393698070(TEXT("/Script/Into_The_Light"),
 		Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Player_FirstPersonCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Player_FirstPersonCharacter_h_Statics::ClassInfo),
 		Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Player_FirstPersonCharacter_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Player_FirstPersonCharacter_h_Statics::ScriptStructInfo),
 		nullptr, 0);
