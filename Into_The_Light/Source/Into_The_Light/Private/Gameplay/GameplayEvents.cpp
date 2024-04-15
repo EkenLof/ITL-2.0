@@ -1,5 +1,8 @@
 #include "Gameplay/GameplayEvents.h"
 
+#include "Components/InventoryComponent.h"
+#include "Triggers/BoxCollider.h"
+
 AGameplayEvents::AGameplayEvents()
 {
 	// Default Value 
@@ -40,33 +43,40 @@ void AGameplayEvents::NextStep()
 	}
 }
 
-void AGameplayEvents::Step0() // Beginning Lobby 
+void AGameplayEvents::Step0() // 
 {
 	// SpawnPoint.
 	// Blacksceen StoryScene Before entering Buildning.
 	// Getting a message from Cole (With instructions of Flashlight and Where he is).
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("Cutscene ended Game Started"));
 }
 
-void AGameplayEvents::Step1() // Picking up Flashlight
+void AGameplayEvents::Step1() // 
 {
-	// Picking Up Flashlight.
-	// Door Opens.
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("Step1 Active"));
+	// Door to Second floor is locked
+	if (PlayerInventory->IsFlshlight)
+	{
+		// Open Door to Second Floor
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("Lobbydoor to Second floor is Open"));
+	}
+
+	// Trigger Activates Cole-Meet & Jumps to Step 2
+	if (TriggerBox->IsMeetCole)
+	{
+		NextStep();
+	}
 }
 
-void AGameplayEvents::Step2() // Meeting Cole
+void AGameplayEvents::Step2() // 
 {
-	// Dialog with Cole.
-	// Getting 10A fuse.
+	// Trigger Activated, Cole-Meet started
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("Meeting Cole"));
 }
 
 void AGameplayEvents::Step3()
 {
-	// Using the 10A fuse in Cabinet.
-	// Everything lights up.
-	// Hearing Something breaking on the floor above.
-
-	// Seeing the Lantern on the floor, Cole is gone.
-	// Hears someone running somewhere in the building (Once)
+	// 
 }
 
 void AGameplayEvents::Step4()

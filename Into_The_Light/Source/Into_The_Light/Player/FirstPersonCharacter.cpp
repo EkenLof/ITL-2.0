@@ -40,7 +40,7 @@ AFirstPersonCharacter::AFirstPersonCharacter()
 	PlayerInventory->SetWeightCapacity(80.0f); // 50 YT
 
 	InteractionCheckFrequency = 0.1; // Interaction time update
-	InteractionCheckDistance = 155.0f;
+	InteractionCheckDistance = 200.0f;
 
 	//BaseEyeHeight = 75.0f;
 }

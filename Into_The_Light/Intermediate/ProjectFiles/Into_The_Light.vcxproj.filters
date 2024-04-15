@@ -90,6 +90,12 @@
     <ClCompile Include="..\..\Source\Into_The_Light\Private\Items\ItemBase.cpp">
       <Filter>Source\Into_The_Light\Private\Items</Filter>
     </ClCompile>
+    <Filter Include="Source\Into_The_Light\Private\Triggers">
+      <UniqueIdentifier>{C1061CCE-8E63-3D7E-8E25-219535C9E3BB}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\Into_The_Light\Private\Triggers\BoxCollider.cpp">
+      <Filter>Source\Into_The_Light\Private\Triggers</Filter>
+    </ClCompile>
     <Filter Include="Source\Into_The_Light\Private\UserInterface">
       <UniqueIdentifier>{D576AFB0-DE71-3029-9C8A-07CEFAD4F17B}</UniqueIdentifier>
     </Filter>
@@ -158,6 +164,12 @@
     </Filter>
     <ClInclude Include="..\..\Source\Into_The_Light\Public\Items\ItemBase.h">
       <Filter>Source\Into_The_Light\Public\Items</Filter>
+    </ClInclude>
+    <Filter Include="Source\Into_The_Light\Public\Triggers">
+      <UniqueIdentifier>{2E5E2580-E385-339E-88D5-C6733749E302}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\Into_The_Light\Public\Triggers\BoxCollider.h">
+      <Filter>Source\Into_The_Light\Public\Triggers</Filter>
     </ClInclude>
     <Filter Include="Source\Into_The_Light\Public\UserInterface">
       <UniqueIdentifier>{4DAE104B-2021-3F5E-B695-272BFD983D57}</UniqueIdentifier>

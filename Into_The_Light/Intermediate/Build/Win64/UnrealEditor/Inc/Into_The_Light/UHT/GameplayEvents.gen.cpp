@@ -12,6 +12,7 @@ void EmptyLinkFunctionForGeneratedCodeGameplayEvents() {}
 	ENGINE_API UClass* Z_Construct_UClass_AActor();
 	INTO_THE_LIGHT_API UClass* Z_Construct_UClass_AGameplayEvents();
 	INTO_THE_LIGHT_API UClass* Z_Construct_UClass_AGameplayEvents_NoRegister();
+	INTO_THE_LIGHT_API UClass* Z_Construct_UClass_UInventoryComponent_NoRegister();
 	UPackage* Z_Construct_UPackage__Script_Into_The_Light();
 // End Cross Module References
 	DEFINE_FUNCTION(AGameplayEvents::execStep4)
@@ -79,11 +80,11 @@ void EmptyLinkFunctionForGeneratedCodeGameplayEvents() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AGameplayEvents_NextStep_Statics::Function_MetaDataParams[] = {
 #if !UE_BUILD_SHIPPING
-		{ "Comment", "// NEXTSTEP ACTIVE\n" },
+		{ "Comment", "/////////////////////////////---NEXTSTEP ACTIVE---////////////////////////////////////\n" },
 #endif
 		{ "ModuleRelativePath", "Public/Gameplay/GameplayEvents.h" },
 #if !UE_BUILD_SHIPPING
-		{ "ToolTip", "NEXTSTEP ACTIVE" },
+		{ "ToolTip", "---NEXTSTEP ACTIVE---" },
 #endif
 	};
 #endif
@@ -135,12 +136,9 @@ void EmptyLinkFunctionForGeneratedCodeGameplayEvents() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AGameplayEvents_Step1_Statics::Function_MetaDataParams[] = {
 #if !UE_BUILD_SHIPPING
-		{ "Comment", "// Start Lobby\n" },
+		{ "Comment", "// \n" },
 #endif
 		{ "ModuleRelativePath", "Public/Gameplay/GameplayEvents.h" },
-#if !UE_BUILD_SHIPPING
-		{ "ToolTip", "Start Lobby" },
-#endif
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AGameplayEvents_Step1_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AGameplayEvents, nullptr, "Step1", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00040401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AGameplayEvents_Step1_Statics::Function_MetaDataParams), Z_Construct_UFunction_AGameplayEvents_Step1_Statics::Function_MetaDataParams) };
@@ -163,12 +161,9 @@ void EmptyLinkFunctionForGeneratedCodeGameplayEvents() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AGameplayEvents_Step2_Statics::Function_MetaDataParams[] = {
 #if !UE_BUILD_SHIPPING
-		{ "Comment", "// Picking up Flashlight\n" },
+		{ "Comment", "// \n" },
 #endif
 		{ "ModuleRelativePath", "Public/Gameplay/GameplayEvents.h" },
-#if !UE_BUILD_SHIPPING
-		{ "ToolTip", "Picking up Flashlight" },
-#endif
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AGameplayEvents_Step2_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AGameplayEvents, nullptr, "Step2", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00040401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AGameplayEvents_Step2_Statics::Function_MetaDataParams), Z_Construct_UFunction_AGameplayEvents_Step2_Statics::Function_MetaDataParams) };
@@ -191,12 +186,9 @@ void EmptyLinkFunctionForGeneratedCodeGameplayEvents() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AGameplayEvents_Step3_Statics::Function_MetaDataParams[] = {
 #if !UE_BUILD_SHIPPING
-		{ "Comment", "// Meeting Cole\n" },
+		{ "Comment", "// \n" },
 #endif
 		{ "ModuleRelativePath", "Public/Gameplay/GameplayEvents.h" },
-#if !UE_BUILD_SHIPPING
-		{ "ToolTip", "Meeting Cole" },
-#endif
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AGameplayEvents_Step3_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AGameplayEvents, nullptr, "Step3", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00040401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AGameplayEvents_Step3_Statics::Function_MetaDataParams), Z_Construct_UFunction_AGameplayEvents_Step3_Statics::Function_MetaDataParams) };
@@ -219,12 +211,9 @@ void EmptyLinkFunctionForGeneratedCodeGameplayEvents() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AGameplayEvents_Step4_Statics::Function_MetaDataParams[] = {
 #if !UE_BUILD_SHIPPING
-		{ "Comment", "// Fixing the lights (10A fuse)\n" },
+		{ "Comment", "// \n" },
 #endif
 		{ "ModuleRelativePath", "Public/Gameplay/GameplayEvents.h" },
-#if !UE_BUILD_SHIPPING
-		{ "ToolTip", "Fixing the lights (10A fuse)" },
-#endif
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AGameplayEvents_Step4_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AGameplayEvents, nullptr, "Step4", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00040401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AGameplayEvents_Step4_Statics::Function_MetaDataParams), Z_Construct_UFunction_AGameplayEvents_Step4_Statics::Function_MetaDataParams) };
@@ -249,6 +238,11 @@ void EmptyLinkFunctionForGeneratedCodeGameplayEvents() {}
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_PlayerInventory_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_PlayerInventory;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
 	};
@@ -258,12 +252,12 @@ void EmptyLinkFunctionForGeneratedCodeGameplayEvents() {}
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AGameplayEvents_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_AGameplayEvents_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_AGameplayEvents_NextStep, "NextStep" }, // 3893446957
+		{ &Z_Construct_UFunction_AGameplayEvents_NextStep, "NextStep" }, // 20192036
 		{ &Z_Construct_UFunction_AGameplayEvents_Step0, "Step0" }, // 2430110827
-		{ &Z_Construct_UFunction_AGameplayEvents_Step1, "Step1" }, // 632113964
-		{ &Z_Construct_UFunction_AGameplayEvents_Step2, "Step2" }, // 326460445
-		{ &Z_Construct_UFunction_AGameplayEvents_Step3, "Step3" }, // 1826136709
-		{ &Z_Construct_UFunction_AGameplayEvents_Step4, "Step4" }, // 3506543786
+		{ &Z_Construct_UFunction_AGameplayEvents_Step1, "Step1" }, // 1800076114
+		{ &Z_Construct_UFunction_AGameplayEvents_Step2, "Step2" }, // 3909825645
+		{ &Z_Construct_UFunction_AGameplayEvents_Step3, "Step3" }, // 3463231242
+		{ &Z_Construct_UFunction_AGameplayEvents_Step4, "Step4" }, // 2552529891
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AGameplayEvents_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
@@ -272,6 +266,23 @@ void EmptyLinkFunctionForGeneratedCodeGameplayEvents() {}
 		{ "ModuleRelativePath", "Public/Gameplay/GameplayEvents.h" },
 	};
 #endif
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGameplayEvents_Statics::NewProp_PlayerInventory_MetaData[] = {
+		{ "Category", "Character | Inventory" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "//////////////////////////---Inventory Base-Logic---//////////////////////////////////\n" },
+#endif
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Public/Gameplay/GameplayEvents.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "---Inventory Base-Logic---/" },
+#endif
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGameplayEvents_Statics::NewProp_PlayerInventory = { "PlayerInventory", nullptr, (EPropertyFlags)0x00400000000a0009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGameplayEvents, PlayerInventory), Z_Construct_UClass_UInventoryComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AGameplayEvents_Statics::NewProp_PlayerInventory_MetaData), Z_Construct_UClass_AGameplayEvents_Statics::NewProp_PlayerInventory_MetaData) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AGameplayEvents_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGameplayEvents_Statics::NewProp_PlayerInventory,
+	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AGameplayEvents_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AGameplayEvents>::IsAbstract,
 	};
@@ -281,15 +292,16 @@ void EmptyLinkFunctionForGeneratedCodeGameplayEvents() {}
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
 		FuncInfo,
-		nullptr,
+		Z_Construct_UClass_AGameplayEvents_Statics::PropPointers,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
 		UE_ARRAY_COUNT(FuncInfo),
-		0,
+		UE_ARRAY_COUNT(Z_Construct_UClass_AGameplayEvents_Statics::PropPointers),
 		0,
 		0x009000A4u,
 		METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AGameplayEvents_Statics::Class_MetaDataParams), Z_Construct_UClass_AGameplayEvents_Statics::Class_MetaDataParams)
 	};
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AGameplayEvents_Statics::PropPointers) < 2048);
 	UClass* Z_Construct_UClass_AGameplayEvents()
 	{
 		if (!Z_Registration_Info_UClass_AGameplayEvents.OuterSingleton)
@@ -309,9 +321,9 @@ void EmptyLinkFunctionForGeneratedCodeGameplayEvents() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_GameplayEvents_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AGameplayEvents, AGameplayEvents::StaticClass, TEXT("AGameplayEvents"), &Z_Registration_Info_UClass_AGameplayEvents, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AGameplayEvents), 3183497925U) },
+		{ Z_Construct_UClass_AGameplayEvents, AGameplayEvents::StaticClass, TEXT("AGameplayEvents"), &Z_Registration_Info_UClass_AGameplayEvents, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AGameplayEvents), 1707768750U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_GameplayEvents_h_3252080810(TEXT("/Script/Into_The_Light"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_GameplayEvents_h_2297040755(TEXT("/Script/Into_The_Light"),
 		Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_GameplayEvents_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_GameplayEvents_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

@@ -10,7 +10,7 @@ UInventoryComponent::UInventoryComponent()
 	IsBattery = false;
 	IsFuse10a = false;
 	IsColeKeycard = false;
-	// ...
+	IsElectricKey = false;
 }
 
 void UInventoryComponent::BeginPlay()
@@ -43,13 +43,18 @@ void UInventoryComponent::ExposeItem(UItemBase* ItemOut)
 	}
 	else if (ItemInTemp == Fuse10a)
 	{
-		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Purple, TEXT("Battery Pick-Up-List is ---TRUE---"));
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Purple, TEXT("Fuse10A Pick-Up-List is ---TRUE---"));
 		IsFuse10a = true;
 	}
 	else if (ItemInTemp == ColeKeycard)
 	{
 		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Purple, TEXT("ColeKeycard Pick-Up-List is ---TRUE---"));
 		IsColeKeycard = true;
+	}
+	else if (ItemInTemp == ElectricKey)
+	{
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Purple, TEXT("ColeKeycard Pick-Up-List is ---TRUE---"));
+		IsElectricKey = true;
 	}
 	else
 	{

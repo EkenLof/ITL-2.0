@@ -97,6 +97,8 @@ public:
 	UPROPERTY(EditAnywhere, Category = "Inventory | ItemID")
 	bool IsColeKeycard;
 	UPROPERTY(EditAnywhere, Category = "Inventory | ItemID")
+	bool IsElectricKey;
+	UPROPERTY(EditAnywhere, Category = "Inventory | ItemID")
 	bool IsFuse10a;
 	/// KEY-ITEMS (ITEMS)
 	//////////////////////////////////---ACTIVE---////////////////////////////////////
@@ -118,6 +120,9 @@ public:
 	/// KEY-ITEMS (ITEMS)
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Inventory | ItemID")
 	FString ColeKeycard = "Cole's Keycard";
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Inventory | ItemID")
+	FString ElectricKey = "Electic Key";
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Inventory | ItemID")
 	FString Fuse10a = "Fuse 10A";
