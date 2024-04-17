@@ -2,6 +2,8 @@
 #include "Components/BoxComponent.h"
 #include "Engine/Engine.h"
 
+#include "Gameplay/GameplayEvents.h"
+
 // Sets default values
 ABoxCollider::ABoxCollider()
 {
@@ -17,6 +19,8 @@ ABoxCollider::ABoxCollider()
 	CollisionBox->OnComponentEndOverlap.AddDynamic(this, &ABoxCollider::OnOverlapEnd);
 
 	IsMeetCole = false;
+
+	EventSteps = CreateDefaultSubobject<AGameplayEvents>(TEXT("EventSteps"));
 }
 
 // Called when the game starts or when spawned
@@ -35,8 +39,13 @@ void ABoxCollider::Tick(float DeltaTime)
 
 void ABoxCollider::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool BFromSweep, const FHitResult& SeepResult)
 {
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("Enter Trigger"));
-	IsMeetCole = true;
+	if (!IsMeetCole)
+	{
+		//if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("Enter Trigger"));
+		EventSteps->NextStep(3);
+		IsMeetCole = true;
+	}
+	
 }
 
 void ABoxCollider::OnOverlapEnd(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)

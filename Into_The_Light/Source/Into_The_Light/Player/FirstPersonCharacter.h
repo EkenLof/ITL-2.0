@@ -8,6 +8,7 @@
 class AMainHUD;
 class UInventoryComponent;
 class UItemBase;
+class AGameplayEvents;
 
 USTRUCT()
 struct FInteractionData
@@ -33,6 +34,7 @@ public:
 	virtual void Tick(float DeltaTime) override;
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+	FORCEINLINE AGameplayEvents* SetEventStep() const { return EventSteps; };
 	FORCEINLINE bool IsInteracting() const { return GetWorldTimerManager().IsTimerActive(TimerHandle_Interaction); };
 	FORCEINLINE UInventoryComponent* GetInventory() const { return PlayerInventory; };
 
@@ -50,6 +52,8 @@ protected:
 	virtual void BeginPlay() override;
 	
 	AMainHUD* HUD;
+
+	AGameplayEvents* EventSteps;
 
 	// --- Player + Movment ---
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FirstPersonCharacter | Camera")
@@ -98,6 +102,8 @@ protected:
 
 	float InteractionCheckFrequency;
 	float InteractionCheckDistance;
+
+	bool BIsStepActive;
 
 	FTimerHandle TimerHandle_Interaction;
 	FInteractionData InteractionData;

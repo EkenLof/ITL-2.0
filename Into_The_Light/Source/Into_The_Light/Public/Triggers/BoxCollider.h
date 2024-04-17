@@ -6,6 +6,8 @@
 #include "GameFramework/Actor.h"
 #include "BoxCollider.generated.h"
 
+class AGameplayEvents;
+
 UCLASS()
 class INTO_THE_LIGHT_API ABoxCollider : public AActor
 {
@@ -13,6 +15,10 @@ class INTO_THE_LIGHT_API ABoxCollider : public AActor
 	
 public:	
 	ABoxCollider();
+
+
+	FORCEINLINE AGameplayEvents* SetEventStep() const { return EventSteps; };
+
 
 	UPROPERTY(EditAnywhere, Category = "Event | Trigger")
 	bool IsMeetCole;
@@ -29,7 +35,10 @@ public:
 	void OnOverlapEnd(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
 
 protected:
-	// Called when the game starts or when spawned
+
+	UPROPERTY(EditAnywhere, Category = "Events | Steps")
+	AGameplayEvents* EventSteps;
+	
 	virtual void BeginPlay() override;
 
 };

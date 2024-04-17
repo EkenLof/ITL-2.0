@@ -17,6 +17,8 @@
 
 #include "DrawDebugHelpers.h"
 
+#include "Gameplay/GameplayEvents.h"
+
 AFirstPersonCharacter::AFirstPersonCharacter()
 {
 	PrimaryActorTick.bCanEverTick = true;
@@ -42,6 +44,10 @@ AFirstPersonCharacter::AFirstPersonCharacter()
 	InteractionCheckFrequency = 0.1; // Interaction time update
 	InteractionCheckDistance = 200.0f;
 
+	BIsStepActive = false;
+
+	EventSteps = CreateDefaultSubobject<AGameplayEvents>(TEXT("EventSteps"));
+
 	//BaseEyeHeight = 75.0f;
 }
 
@@ -62,6 +68,15 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 	{
 		PerformInteractionCheck();
 	}
+
+	///////////////////////////////////////////---TEMP---/////////////////////////////////////////////
+	if(PlayerInventory->IsFlshlight && !BIsStepActive) // TEMP OR FOR FLASHLIGHT PICK UP.
+	{
+		EventSteps->NextStep(2);
+		BIsStepActive = true;
+	}
+	///////////////////////////////////////////---TEMP---/////////////////////////////////////////////
+
 }
 
 void AFirstPersonCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
