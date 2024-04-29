@@ -17,16 +17,11 @@ struct FHitResult;
 #endif
 #define INTO_THE_LIGHT_BoxCollider_generated_h
 
-#define FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Triggers_BoxCollider_h_14_SPARSE_DATA
-#define FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Triggers_BoxCollider_h_14_SPARSE_DATA_PROPERTY_ACCESSORS
-#define FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Triggers_BoxCollider_h_14_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Triggers_BoxCollider_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
- \
 	DECLARE_FUNCTION(execOnOverlapEnd); \
 	DECLARE_FUNCTION(execOnOverlapBegin);
 
 
-#define FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Triggers_BoxCollider_h_14_ACCESSORS
 #define FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Triggers_BoxCollider_h_14_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesABoxCollider(); \
@@ -39,8 +34,8 @@ public: \
 #define FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Triggers_BoxCollider_h_14_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
-	NO_API ABoxCollider(ABoxCollider&&); \
-	NO_API ABoxCollider(const ABoxCollider&); \
+	ABoxCollider(ABoxCollider&&); \
+	ABoxCollider(const ABoxCollider&); \
 public: \
 	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, ABoxCollider); \
 	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ABoxCollider); \
@@ -52,11 +47,7 @@ public: \
 #define FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Triggers_BoxCollider_h_14_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Triggers_BoxCollider_h_14_SPARSE_DATA \
-	FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Triggers_BoxCollider_h_14_SPARSE_DATA_PROPERTY_ACCESSORS \
-	FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Triggers_BoxCollider_h_14_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS \
 	FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Triggers_BoxCollider_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Triggers_BoxCollider_h_14_ACCESSORS \
 	FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Triggers_BoxCollider_h_14_INCLASS_NO_PURE_DECLS \
 	FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Triggers_BoxCollider_h_14_ENHANCED_CONSTRUCTORS \
 private: \

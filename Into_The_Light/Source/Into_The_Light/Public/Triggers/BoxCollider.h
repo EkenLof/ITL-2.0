@@ -34,6 +34,8 @@ public:
 	bool bIsReceptionNoFlashlight;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Trigger")
 	bool bIsMeetCole;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Trigger")
+	bool bIsFuseBox;
 	////////////////////////////---ACTIVE STATE---////////////////////////////
 
 protected:

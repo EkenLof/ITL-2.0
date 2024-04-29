@@ -16,11 +16,7 @@ class UItemBase;
 #endif
 #define INTO_THE_LIGHT_ItemBase_generated_h
 
-#define FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Items_ItemBase_h_15_SPARSE_DATA
-#define FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Items_ItemBase_h_15_SPARSE_DATA_PROPERTY_ACCESSORS
-#define FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Items_ItemBase_h_15_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Items_ItemBase_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
- \
 	DECLARE_FUNCTION(execUse); \
 	DECLARE_FUNCTION(execSetQuantity); \
 	DECLARE_FUNCTION(execIsFullItemStack); \
@@ -29,7 +25,6 @@ class UItemBase;
 	DECLARE_FUNCTION(execCreateItemCopy);
 
 
-#define FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Items_ItemBase_h_15_ACCESSORS
 #define FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Items_ItemBase_h_15_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUItemBase(); \
@@ -42,8 +37,8 @@ public: \
 #define FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Items_ItemBase_h_15_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
-	NO_API UItemBase(UItemBase&&); \
-	NO_API UItemBase(const UItemBase&); \
+	UItemBase(UItemBase&&); \
+	UItemBase(const UItemBase&); \
 public: \
 	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, UItemBase); \
 	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UItemBase); \
@@ -55,11 +50,7 @@ public: \
 #define FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Items_ItemBase_h_15_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Items_ItemBase_h_15_SPARSE_DATA \
-	FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Items_ItemBase_h_15_SPARSE_DATA_PROPERTY_ACCESSORS \
-	FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Items_ItemBase_h_15_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS \
 	FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Items_ItemBase_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Items_ItemBase_h_15_ACCESSORS \
 	FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Items_ItemBase_h_15_INCLASS_NO_PURE_DECLS \
 	FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Items_ItemBase_h_15_ENHANCED_CONSTRUCTORS \
 private: \

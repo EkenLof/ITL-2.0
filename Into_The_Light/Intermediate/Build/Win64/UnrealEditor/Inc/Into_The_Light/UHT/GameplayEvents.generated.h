@@ -14,11 +14,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define INTO_THE_LIGHT_GameplayEvents_generated_h
 
-#define FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_GameplayEvents_h_14_SPARSE_DATA
-#define FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_GameplayEvents_h_14_SPARSE_DATA_PROPERTY_ACCESSORS
-#define FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_GameplayEvents_h_14_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_GameplayEvents_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
- \
 	DECLARE_FUNCTION(execStep4); \
 	DECLARE_FUNCTION(execStep3); \
 	DECLARE_FUNCTION(execStep2); \
@@ -27,7 +23,6 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 	DECLARE_FUNCTION(execNextStep);
 
 
-#define FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_GameplayEvents_h_14_ACCESSORS
 #define FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_GameplayEvents_h_14_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAGameplayEvents(); \
@@ -40,8 +35,8 @@ public: \
 #define FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_GameplayEvents_h_14_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
-	NO_API AGameplayEvents(AGameplayEvents&&); \
-	NO_API AGameplayEvents(const AGameplayEvents&); \
+	AGameplayEvents(AGameplayEvents&&); \
+	AGameplayEvents(const AGameplayEvents&); \
 public: \
 	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, AGameplayEvents); \
 	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AGameplayEvents); \
@@ -53,11 +48,7 @@ public: \
 #define FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_GameplayEvents_h_14_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_GameplayEvents_h_14_SPARSE_DATA \
-	FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_GameplayEvents_h_14_SPARSE_DATA_PROPERTY_ACCESSORS \
-	FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_GameplayEvents_h_14_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS \
 	FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_GameplayEvents_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_GameplayEvents_h_14_ACCESSORS \
 	FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_GameplayEvents_h_14_INCLASS_NO_PURE_DECLS \
 	FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_GameplayEvents_h_14_ENHANCED_CONSTRUCTORS \
 private: \

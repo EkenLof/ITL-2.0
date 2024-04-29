@@ -23,11 +23,7 @@ struct FItemAddResult;
 
 template<> INTO_THE_LIGHT_API UScriptStruct* StaticStruct<struct FItemAddResult>();
 
-#define FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Components_InventoryComponent_h_70_SPARSE_DATA
-#define FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Components_InventoryComponent_h_70_SPARSE_DATA_PROPERTY_ACCESSORS
-#define FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Components_InventoryComponent_h_70_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Components_InventoryComponent_h_70_RPC_WRAPPERS_NO_PURE_DECLS \
- \
 	DECLARE_FUNCTION(execSetWeightCapacity); \
 	DECLARE_FUNCTION(execSetSlotsCapacity); \
 	DECLARE_FUNCTION(execGetInventoryContents); \
@@ -44,7 +40,6 @@ template<> INTO_THE_LIGHT_API UScriptStruct* StaticStruct<struct FItemAddResult>
 	DECLARE_FUNCTION(execExposeItem);
 
 
-#define FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Components_InventoryComponent_h_70_ACCESSORS
 #define FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Components_InventoryComponent_h_70_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUInventoryComponent(); \
@@ -57,8 +52,8 @@ public: \
 #define FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Components_InventoryComponent_h_70_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
-	NO_API UInventoryComponent(UInventoryComponent&&); \
-	NO_API UInventoryComponent(const UInventoryComponent&); \
+	UInventoryComponent(UInventoryComponent&&); \
+	UInventoryComponent(const UInventoryComponent&); \
 public: \
 	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, UInventoryComponent); \
 	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UInventoryComponent); \
@@ -70,11 +65,7 @@ public: \
 #define FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Components_InventoryComponent_h_70_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Components_InventoryComponent_h_70_SPARSE_DATA \
-	FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Components_InventoryComponent_h_70_SPARSE_DATA_PROPERTY_ACCESSORS \
-	FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Components_InventoryComponent_h_70_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS \
 	FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Components_InventoryComponent_h_70_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Components_InventoryComponent_h_70_ACCESSORS \
 	FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Components_InventoryComponent_h_70_INCLASS_NO_PURE_DECLS \
 	FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Components_InventoryComponent_h_70_ENHANCED_CONSTRUCTORS \
 private: \

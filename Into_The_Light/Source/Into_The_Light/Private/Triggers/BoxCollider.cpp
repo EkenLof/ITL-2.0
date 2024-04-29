@@ -12,6 +12,7 @@ ABoxCollider::ABoxCollider()
 
 	bIsReceptionNoFlashlight = false;
 	bIsMeetCole = false;
+	bIsFuseBox = false;
 
 	CollisionBox = CreateDefaultSubobject<UBoxComponent>(TEXT("BoxComponent"));
 	CollisionBox->SetBoxExtent(FVector(32.f, 32.f, 32.f));

@@ -1,8 +1,8 @@
 "D:\Github-EkenLof-Games\ITL-2.0\Into_The_Light\Intermediate\Build\Win64\UnrealEditor\Inc\Into_The_Light\UHT\GameplayEvents.gen.cpp"
-/FI"D:\Github-EkenLof-Games\ITL-2.0\Into_The_Light\Intermediate\Build\Win64\x64\Into_The_LightEditor\Development\Engine\SharedPCH.Engine.Cpp20.h"
+/FI"D:\Github-EkenLof-Games\ITL-2.0\Into_The_Light\Intermediate\Build\Win64\x64\Into_The_LightEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.NoValFmtStr.ValApi.Cpp20.InclOrderUnreal5_3.h"
 /FI"D:\Github-EkenLof-Games\ITL-2.0\Into_The_Light\Intermediate\Build\Win64\x64\UnrealEditor\Development\Into_The_Light\Definitions.Into_The_Light.h"
-/Yu"D:\Github-EkenLof-Games\ITL-2.0\Into_The_Light\Intermediate\Build\Win64\x64\Into_The_LightEditor\Development\Engine\SharedPCH.Engine.Cpp20.h"
-/Fp"D:\Github-EkenLof-Games\ITL-2.0\Into_The_Light\Intermediate\Build\Win64\x64\Into_The_LightEditor\Development\Engine\SharedPCH.Engine.Cpp20.h.pch"
+/Yu"D:\Github-EkenLof-Games\ITL-2.0\Into_The_Light\Intermediate\Build\Win64\x64\Into_The_LightEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.NoValFmtStr.ValApi.Cpp20.InclOrderUnreal5_3.h"
+/Fp"D:\Github-EkenLof-Games\ITL-2.0\Into_The_Light\Intermediate\Build\Win64\x64\Into_The_LightEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.NoValFmtStr.ValApi.Cpp20.InclOrderUnreal5_3.h.pch"
 /Fo"D:\Github-EkenLof-Games\ITL-2.0\Into_The_Light\Intermediate\Build\Win64\x64\UnrealEditor\Development\Into_The_Light\GameplayEvents.gen.cpp.obj"
 /sourceDependencies "D:\Github-EkenLof-Games\ITL-2.0\Into_The_Light\Intermediate\Build\Win64\x64\UnrealEditor\Development\Into_The_Light\GameplayEvents.gen.cpp.dep.json"
 @"D:\Github-EkenLof-Games\ITL-2.0\Into_The_Light\Intermediate\Build\Win64\x64\UnrealEditor\Development\Into_The_Light\Into_The_Light.Shared.rsp"
@@ -24,6 +24,7 @@
 /D_WINDLL
 /D_DISABLE_EXTENDED_ALIGNED_STORAGE
 /Ob2
+/d2ExtendedWarningInfo
 /Ox
 /Ot
 /GF
