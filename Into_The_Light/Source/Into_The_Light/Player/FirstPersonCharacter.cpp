@@ -18,6 +18,7 @@
 #include "DrawDebugHelpers.h"
 
 #include "Gameplay/GameplayEvents.h"
+#include "Triggers/BoxCollider.h"
 
 AFirstPersonCharacter::AFirstPersonCharacter()
 {
@@ -47,6 +48,7 @@ AFirstPersonCharacter::AFirstPersonCharacter()
 	BIsStepActive = false;
 
 	EventSteps = CreateDefaultSubobject<AGameplayEvents>(TEXT("EventSteps"));
+	TriggerBox = CreateDefaultSubobject<ABoxCollider>(TEXT("TriggerBox"));
 
 	//BaseEyeHeight = 75.0f;
 }
@@ -73,6 +75,8 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 	if(PlayerInventory->IsFlshlight && !BIsStepActive) // TEMP OR FOR FLASHLIGHT PICK UP.
 	{
 		EventSteps->NextStep(2);
+		// HiddenWall Reception OFF.
+
 		BIsStepActive = true;
 	}
 	///////////////////////////////////////////---TEMP---/////////////////////////////////////////////

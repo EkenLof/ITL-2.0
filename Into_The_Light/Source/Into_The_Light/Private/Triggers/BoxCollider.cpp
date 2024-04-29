@@ -7,8 +7,11 @@
 // Sets default values
 ABoxCollider::ABoxCollider()
 {
- 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	PrimaryActorTick.bCanEverTick = true;
+ 	// Set this actor to call Tick() every frame. You can turn this off to improve performance if you don't need it.
+	PrimaryActorTick.bCanEverTick = false;
+
+	bIsReceptionNoFlashlight = false;
+	bIsMeetCole = false;
 
 	CollisionBox = CreateDefaultSubobject<UBoxComponent>(TEXT("BoxComponent"));
 	CollisionBox->SetBoxExtent(FVector(32.f, 32.f, 32.f));
@@ -17,8 +20,6 @@ ABoxCollider::ABoxCollider()
 
 	CollisionBox->OnComponentBeginOverlap.AddDynamic(this, &ABoxCollider::OnOverlapBegin);
 	CollisionBox->OnComponentEndOverlap.AddDynamic(this, &ABoxCollider::OnOverlapEnd);
-
-	IsMeetCole = false;
 
 	EventSteps = CreateDefaultSubobject<AGameplayEvents>(TEXT("EventSteps"));
 }
@@ -39,13 +40,16 @@ void ABoxCollider::Tick(float DeltaTime)
 
 void ABoxCollider::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool BFromSweep, const FHitResult& SeepResult)
 {
-	if (!IsMeetCole)
+	if (bIsReceptionNoFlashlight)
 	{
-		//if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("Enter Trigger"));
-		EventSteps->NextStep(3);
-		IsMeetCole = true;
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("OBJECTIVE: Get the Flashlight."));
 	}
-	
+
+	else if (bIsMeetCole)
+	{
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("OBJECTIVE: Talk to Cole."));
+		EventSteps->NextStep(3);
+	}
 }
 
 void ABoxCollider::OnOverlapEnd(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)

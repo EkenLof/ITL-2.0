@@ -10,6 +10,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeGameplayEvents() {}
 // Cross Module References
 	ENGINE_API UClass* Z_Construct_UClass_AActor();
+	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 	INTO_THE_LIGHT_API UClass* Z_Construct_UClass_AGameplayEvents();
 	INTO_THE_LIGHT_API UClass* Z_Construct_UClass_AGameplayEvents_NoRegister();
 	UPackage* Z_Construct_UPackage__Script_Into_The_Light();
@@ -251,6 +252,14 @@ void EmptyLinkFunctionForGeneratedCodeGameplayEvents() {}
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_ReceptionTriggerStart_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_ReceptionTriggerStart;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_ReceptionHiddenWall_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_ReceptionHiddenWall;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_LevelStep_MetaData[];
 #endif
 		static const UECodeGen_Private::FIntPropertyParams NewProp_LevelStep;
@@ -275,15 +284,41 @@ void EmptyLinkFunctionForGeneratedCodeGameplayEvents() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGameplayEvents_Statics::Class_MetaDataParams[] = {
 #if !UE_BUILD_SHIPPING
-		{ "Comment", "//class UInventoryComponent;                                                                 (FIX SET LATER)\n//class ABoxCollider;                                                                        (FIX SET LATER)\n" },
+		{ "Comment", "//class UInventoryComponent;                                                               //(FIX SET LATER)\n" },
 #endif
 		{ "IncludePath", "Gameplay/GameplayEvents.h" },
 		{ "ModuleRelativePath", "Public/Gameplay/GameplayEvents.h" },
 #if !UE_BUILD_SHIPPING
-		{ "ToolTip", "class UInventoryComponent;                                                                 (FIX SET LATER)\nclass ABoxCollider;                                                                        (FIX SET LATER)" },
+		{ "ToolTip", "class UInventoryComponent;                                                               (FIX SET LATER)" },
 #endif
 	};
 #endif
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGameplayEvents_Statics::NewProp_ReceptionTriggerStart_MetaData[] = {
+		{ "Category", "Event | Assign" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "////////////////////////////---ASSIGN---///////////////////////////\n// ---Triggers--- //\n" },
+#endif
+		{ "ModuleRelativePath", "Public/Gameplay/GameplayEvents.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "/---ASSIGN---\n ---Triggers---" },
+#endif
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGameplayEvents_Statics::NewProp_ReceptionTriggerStart = { "ReceptionTriggerStart", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGameplayEvents, ReceptionTriggerStart), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AGameplayEvents_Statics::NewProp_ReceptionTriggerStart_MetaData), Z_Construct_UClass_AGameplayEvents_Statics::NewProp_ReceptionTriggerStart_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGameplayEvents_Statics::NewProp_ReceptionHiddenWall_MetaData[] = {
+		{ "Category", "Event | Assign" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// ---HiddenWalls--- //\n" },
+#endif
+		{ "ModuleRelativePath", "Public/Gameplay/GameplayEvents.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "---HiddenWalls---" },
+#endif
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGameplayEvents_Statics::NewProp_ReceptionHiddenWall = { "ReceptionHiddenWall", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGameplayEvents, ReceptionHiddenWall), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AGameplayEvents_Statics::NewProp_ReceptionHiddenWall_MetaData), Z_Construct_UClass_AGameplayEvents_Statics::NewProp_ReceptionHiddenWall_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AGameplayEvents_Statics::NewProp_LevelStep_MetaData[] = {
 		{ "Category", "Character | Inventory" },
@@ -298,6 +333,8 @@ void EmptyLinkFunctionForGeneratedCodeGameplayEvents() {}
 #endif
 	const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AGameplayEvents_Statics::NewProp_LevelStep = { "LevelStep", nullptr, (EPropertyFlags)0x0040000000020001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGameplayEvents, LevelStep), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AGameplayEvents_Statics::NewProp_LevelStep_MetaData), Z_Construct_UClass_AGameplayEvents_Statics::NewProp_LevelStep_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AGameplayEvents_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGameplayEvents_Statics::NewProp_ReceptionTriggerStart,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGameplayEvents_Statics::NewProp_ReceptionHiddenWall,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGameplayEvents_Statics::NewProp_LevelStep,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AGameplayEvents_Statics::StaticCppClassTypeInfo = {
@@ -338,9 +375,9 @@ void EmptyLinkFunctionForGeneratedCodeGameplayEvents() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_GameplayEvents_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AGameplayEvents, AGameplayEvents::StaticClass, TEXT("AGameplayEvents"), &Z_Registration_Info_UClass_AGameplayEvents, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AGameplayEvents), 751737925U) },
+		{ Z_Construct_UClass_AGameplayEvents, AGameplayEvents::StaticClass, TEXT("AGameplayEvents"), &Z_Registration_Info_UClass_AGameplayEvents, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AGameplayEvents), 1548085586U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_GameplayEvents_h_2842513436(TEXT("/Script/Into_The_Light"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_GameplayEvents_h_836126511(TEXT("/Script/Into_The_Light"),
 		Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_GameplayEvents_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_GameplayEvents_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

@@ -1,9 +1,9 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
 #pragma once
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+
+
 #include "BoxCollider.generated.h"
 
 class AGameplayEvents;
@@ -16,12 +16,7 @@ class INTO_THE_LIGHT_API ABoxCollider : public AActor
 public:	
 	ABoxCollider();
 
-
 	FORCEINLINE AGameplayEvents* SetEventStep() const { return EventSteps; };
-
-
-	UPROPERTY(EditAnywhere, Category = "Event | Trigger")
-	bool IsMeetCole;
 
 	virtual void Tick(float DeltaTime) override;
 
@@ -33,6 +28,13 @@ public:
 
 	UFUNCTION() 
 	void OnOverlapEnd(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
+
+	////////////////////////////---ACTIVE STATE---////////////////////////////
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Trigger")
+	bool bIsReceptionNoFlashlight;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Trigger")
+	bool bIsMeetCole;
+	////////////////////////////---ACTIVE STATE---////////////////////////////
 
 protected:
 

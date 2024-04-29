@@ -211,14 +211,19 @@ void EmptyLinkFunctionForGeneratedCodeBoxCollider() {}
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_IsMeetCole_MetaData[];
-#endif
-		static void NewProp_IsMeetCole_SetBit(void* Obj);
-		static const UECodeGen_Private::FBoolPropertyParams NewProp_IsMeetCole;
-#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_CollisionBox_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_CollisionBox;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_bIsReceptionNoFlashlight_MetaData[];
+#endif
+		static void NewProp_bIsReceptionNoFlashlight_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsReceptionNoFlashlight;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_bIsMeetCole_MetaData[];
+#endif
+		static void NewProp_bIsMeetCole_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsMeetCole;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_EventSteps_MetaData[];
 #endif
@@ -244,17 +249,6 @@ void EmptyLinkFunctionForGeneratedCodeBoxCollider() {}
 	};
 #endif
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ABoxCollider_Statics::NewProp_IsMeetCole_MetaData[] = {
-		{ "Category", "Event | Trigger" },
-		{ "ModuleRelativePath", "Public/Triggers/BoxCollider.h" },
-	};
-#endif
-	void Z_Construct_UClass_ABoxCollider_Statics::NewProp_IsMeetCole_SetBit(void* Obj)
-	{
-		((ABoxCollider*)Obj)->IsMeetCole = 1;
-	}
-	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ABoxCollider_Statics::NewProp_IsMeetCole = { "IsMeetCole", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(ABoxCollider), &Z_Construct_UClass_ABoxCollider_Statics::NewProp_IsMeetCole_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ABoxCollider_Statics::NewProp_IsMeetCole_MetaData), Z_Construct_UClass_ABoxCollider_Statics::NewProp_IsMeetCole_MetaData) };
-#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ABoxCollider_Statics::NewProp_CollisionBox_MetaData[] = {
 		{ "Category", "BoxCollider" },
 		{ "EditInline", "true" },
@@ -263,6 +257,34 @@ void EmptyLinkFunctionForGeneratedCodeBoxCollider() {}
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABoxCollider_Statics::NewProp_CollisionBox = { "CollisionBox", nullptr, (EPropertyFlags)0x00100000000a000d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABoxCollider, CollisionBox), Z_Construct_UClass_UBoxComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ABoxCollider_Statics::NewProp_CollisionBox_MetaData), Z_Construct_UClass_ABoxCollider_Statics::NewProp_CollisionBox_MetaData) };
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsReceptionNoFlashlight_MetaData[] = {
+		{ "Category", "Event | Trigger" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "////////////////////////////---ACTIVE STATE---////////////////////////////\n" },
+#endif
+		{ "ModuleRelativePath", "Public/Triggers/BoxCollider.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "/---ACTIVE STATE---/" },
+#endif
+	};
+#endif
+	void Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsReceptionNoFlashlight_SetBit(void* Obj)
+	{
+		((ABoxCollider*)Obj)->bIsReceptionNoFlashlight = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsReceptionNoFlashlight = { "bIsReceptionNoFlashlight", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(ABoxCollider), &Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsReceptionNoFlashlight_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsReceptionNoFlashlight_MetaData), Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsReceptionNoFlashlight_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsMeetCole_MetaData[] = {
+		{ "Category", "Event | Trigger" },
+		{ "ModuleRelativePath", "Public/Triggers/BoxCollider.h" },
+	};
+#endif
+	void Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsMeetCole_SetBit(void* Obj)
+	{
+		((ABoxCollider*)Obj)->bIsMeetCole = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsMeetCole = { "bIsMeetCole", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(ABoxCollider), &Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsMeetCole_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsMeetCole_MetaData), Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsMeetCole_MetaData) };
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ABoxCollider_Statics::NewProp_EventSteps_MetaData[] = {
 		{ "Category", "Events | Steps" },
 		{ "ModuleRelativePath", "Public/Triggers/BoxCollider.h" },
@@ -270,8 +292,9 @@ void EmptyLinkFunctionForGeneratedCodeBoxCollider() {}
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABoxCollider_Statics::NewProp_EventSteps = { "EventSteps", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABoxCollider, EventSteps), Z_Construct_UClass_AGameplayEvents_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ABoxCollider_Statics::NewProp_EventSteps_MetaData), Z_Construct_UClass_ABoxCollider_Statics::NewProp_EventSteps_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ABoxCollider_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABoxCollider_Statics::NewProp_IsMeetCole,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABoxCollider_Statics::NewProp_CollisionBox,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsReceptionNoFlashlight,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsMeetCole,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABoxCollider_Statics::NewProp_EventSteps,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ABoxCollider_Statics::StaticCppClassTypeInfo = {
@@ -312,9 +335,9 @@ void EmptyLinkFunctionForGeneratedCodeBoxCollider() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Triggers_BoxCollider_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ABoxCollider, ABoxCollider::StaticClass, TEXT("ABoxCollider"), &Z_Registration_Info_UClass_ABoxCollider, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABoxCollider), 3021021255U) },
+		{ Z_Construct_UClass_ABoxCollider, ABoxCollider::StaticClass, TEXT("ABoxCollider"), &Z_Registration_Info_UClass_ABoxCollider, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABoxCollider), 3685691128U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Triggers_BoxCollider_h_729558077(TEXT("/Script/Into_The_Light"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Triggers_BoxCollider_h_1141153823(TEXT("/Script/Into_The_Light"),
 		Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Triggers_BoxCollider_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Triggers_BoxCollider_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

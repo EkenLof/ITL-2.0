@@ -9,6 +9,7 @@ class AMainHUD;
 class UInventoryComponent;
 class UItemBase;
 class AGameplayEvents;
+class ABoxCollider;
 
 USTRUCT()
 struct FInteractionData
@@ -34,6 +35,8 @@ public:
 	virtual void Tick(float DeltaTime) override;
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+	FORCEINLINE ABoxCollider* SetTriggerBox() const { return TriggerBox; };
+
 	FORCEINLINE AGameplayEvents* SetEventStep() const { return EventSteps; };
 	FORCEINLINE bool IsInteracting() const { return GetWorldTimerManager().IsTimerActive(TimerHandle_Interaction); };
 	FORCEINLINE UInventoryComponent* GetInventory() const { return PlayerInventory; };
@@ -50,6 +53,8 @@ public:
 
 protected:
 	virtual void BeginPlay() override;
+
+	ABoxCollider* TriggerBox;
 	
 	AMainHUD* HUD;
 
