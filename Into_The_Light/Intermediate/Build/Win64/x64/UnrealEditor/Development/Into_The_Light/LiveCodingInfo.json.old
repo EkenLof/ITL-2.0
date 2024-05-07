@@ -9,7 +9,6 @@
 			"GameplayEvents.cpp.obj",
 			"InteractionInterface.cpp.obj",
 			"ItemBase.cpp.obj",
-			"BoxCollider.cpp.obj",
 			"InteractionWidget.cpp.obj",
 			"DragItemVisual.cpp.obj",
 			"InventoryItemSlot.cpp.obj",
@@ -38,7 +37,8 @@
 			"ItemDragDropOperation.gen.cpp.obj",
 			"MainHUD.gen.cpp.obj",
 			"MainMenu.gen.cpp.obj",
-			"PickUp.gen.cpp.obj"
+			"PickUp.gen.cpp.obj",
+			"BoxCollider.cpp.obj"
 		]
 	}
 }
