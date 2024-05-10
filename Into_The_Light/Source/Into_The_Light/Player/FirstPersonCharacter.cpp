@@ -72,12 +72,19 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 	}
 
 	///////////////////////////////////////////---TEMP---/////////////////////////////////////////////
-	if(PlayerInventory->IsFlshlight && !BIsStepActive) // TEMP OR FOR FLASHLIGHT PICK UP.
+	if (PlayerInventory->IsFlshlight && !BIsStepActive && !PlayerInventory->IsFuse10a) // TEMP OR FOR FLASHLIGHT PICK UP.
 	{
 		EventSteps->NextStep(2);
 		// HiddenWall Reception OFF.
 
 		BIsStepActive = true;
+	}
+
+	else if (PlayerInventory->IsFuse10a && BIsStepActive)
+	{
+		EventSteps->NextStep(4);
+
+		BIsStepActive = false;
 	}
 	///////////////////////////////////////////---TEMP---/////////////////////////////////////////////
 

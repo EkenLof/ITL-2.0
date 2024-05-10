@@ -41,6 +41,11 @@ public:
 
 protected:
 
+	UPROPERTY(EditAnywhere, Category = "Animations | Cole")
+	class ULevelSequence* ColeInteractSequence;
+	UPROPERTY(EditAnywhere, Category = "Animations | Cole")
+	class ULevelSequence* ColeIdleSearchSequence;
+
 	virtual void BeginPlay() override;
 
 private:

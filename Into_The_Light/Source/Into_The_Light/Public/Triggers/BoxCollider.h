@@ -13,12 +13,10 @@ class INTO_THE_LIGHT_API ABoxCollider : public AActor
 {
 	GENERATED_BODY()
 	
-public:	
+public:
 	ABoxCollider();
 
 	FORCEINLINE AGameplayEvents* SetEventStep() const { return EventSteps; };
-
-	virtual void Tick(float DeltaTime) override;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	class UBoxComponent* CollisionBox;
@@ -26,7 +24,7 @@ public:
 	UFUNCTION()
 	void OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool BFromSweep, const FHitResult& SeepResult);
 
-	UFUNCTION() 
+	UFUNCTION()
 	void OnOverlapEnd(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
 
 	////////////////////////////---ACTIVE STATE---////////////////////////////
@@ -38,11 +36,18 @@ public:
 	bool bIsFuseBox;
 	////////////////////////////---ACTIVE STATE---////////////////////////////
 
+
+	virtual void Tick(float DeltaTime) override;
+
 protected:
 
 	UPROPERTY(EditAnywhere, Category = "Events | Steps")
 	AGameplayEvents* EventSteps;
-	
-	virtual void BeginPlay() override;
 
+	UPROPERTY(EditAnywhere, Category = "Events | TagNames")
+	FName MichaelTagName;
+
+
+	virtual void BeginPlay() override;
 };
+

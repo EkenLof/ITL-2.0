@@ -35,6 +35,7 @@
 /NODEFAULTLIB:"LIBCD"
 /NODEFAULTLIB:"LIBCPD"
 /FUNCTIONPADMIN:6
+/NATVIS:"..\Intermediate\Build\Win64\x64\UnrealEditor\Development\MovieScene\MovieScene.natvis"
 "D:\Github-EkenLof-Games\ITL-2.0\Into_The_Light\Intermediate\Build\Win64\x64\Into_The_LightEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.NoValFmtStr.ValApi.Cpp20.InclOrderUnreal5_3.h.obj"
 "D:\Github-EkenLof-Games\ITL-2.0\Into_The_Light\Intermediate\Build\Win64\x64\UnrealEditor\Development\Into_The_Light\Module.Into_The_Light.cpp.obj"
 "D:\Github-EkenLof-Games\ITL-2.0\Into_The_Light\Intermediate\Build\Win64\x64\UnrealEditor\Development\Into_The_Light\Default.rc2.res"
@@ -46,6 +47,8 @@
 "..\Plugins\EnhancedInput\Intermediate\Build\Win64\x64\UnrealEditor\Development\EnhancedInput\UnrealEditor-EnhancedInput.lib"
 "..\Intermediate\Build\Win64\x64\UnrealEditor\Development\SlateCore\UnrealEditor-SlateCore.lib"
 "..\Intermediate\Build\Win64\x64\UnrealEditor\Development\Slate\UnrealEditor-Slate.lib"
+"..\Intermediate\Build\Win64\x64\UnrealEditor\Development\LevelSequence\UnrealEditor-LevelSequence.lib"
+"..\Intermediate\Build\Win64\x64\UnrealEditor\Development\MovieScene\UnrealEditor-MovieScene.lib"
 "delayimp.lib"
 "wininet.lib"
 "rpcrt4.lib"

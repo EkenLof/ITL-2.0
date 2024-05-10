@@ -2,12 +2,15 @@
 #include "Components/BoxComponent.h"
 #include "Engine/Engine.h"
 
+#include "Engine/World.h"
+#include "Kismet/GameplayStatics.h"
+
 #include "Gameplay/GameplayEvents.h"
 
 // Sets default values
 ABoxCollider::ABoxCollider()
 {
- 	// Set this actor to call Tick() every frame. You can turn this off to improve performance if you don't need it.
+	// Set this actor to call Tick() every frame. You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = false;
 
 	bIsReceptionNoFlashlight = false;
@@ -23,13 +26,15 @@ ABoxCollider::ABoxCollider()
 	CollisionBox->OnComponentEndOverlap.AddDynamic(this, &ABoxCollider::OnOverlapEnd);
 
 	EventSteps = CreateDefaultSubobject<AGameplayEvents>(TEXT("EventSteps"));
+
+	MichaelTagName = FName(TEXT("Michael"));
 }
 
 // Called when the game starts or when spawned
 void ABoxCollider::BeginPlay()
 {
 	Super::BeginPlay();
-	
+
 }
 
 // Called every frame
@@ -41,22 +46,31 @@ void ABoxCollider::Tick(float DeltaTime)
 
 void ABoxCollider::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool BFromSweep, const FHitResult& SeepResult)
 {
-	if (bIsReceptionNoFlashlight)
+	if (OtherActor && OtherActor->ActorHasTag(MichaelTagName))
 	{
-		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("OBJECTIVE: Get the Flashlight."));
-	}
+		//////////////////////////////////////////////////---ACTIONS---//////////////////////////////////////////////////
+		if (bIsReceptionNoFlashlight)
+		{
+			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Blue, TEXT("OBJECTIVE: Get the Flashlight."));
+		}
 
-	else if (bIsMeetCole)
-	{
-		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("OBJECTIVE: Talk to Cole."));
-		EventSteps->NextStep(3);
+		else if (bIsMeetCole)
+		{
+			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Blue, TEXT("OBJECTIVE: Talk to Cole."));
+			EventSteps->NextStep(3);
+		}
+		//////////////////////////////////////////////////---ACTIONS---//////////////////////////////////////////////////
 	}
+	/*else
+	{
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("***Michael Not Found inside a trigger***"));
+	}*/
 }
 
 void ABoxCollider::OnOverlapEnd(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
 {
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("Exit Trigger"));
+	if (OtherActor && OtherActor->ActorHasTag(MichaelTagName))
+	{
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("Exit Trigger"));
+	}
 }
-
-
-

@@ -2,6 +2,15 @@
 #include "Engine/World.h"
 #include "Kismet/GameplayStatics.h"
 
+#include "MovieScene.h"
+#include "Animation/AnimInstance.h"
+#include "Components/SkeletalMeshComponent.h"
+
+#include "Runtime/LevelSequence/Public/LevelSequence.h"
+#include "Runtime/LevelSequence/Public/LevelSequencePlayer.h"
+#include "Runtime/LevelSequence/Public/LevelSequenceActor.h"
+#include "MovieSceneSequencePlayer.h"
+
 #include "Components/BoxComponent.h"
 
 AGameplayEvents::AGameplayEvents()
@@ -9,7 +18,18 @@ AGameplayEvents::AGameplayEvents()
 	// Default Value 
 	LevelStep = 0;
 
-	// PlayerInventory = CreateDefaultSubobject<UInventoryComponent>(TEXT("PlayerInventory"));
+	// static ConstructorHelpers::FObjectFinder<ULevelSequence> ColeInteractSequenceFinder(TEXT("LevelSequence'/All/Game/Animation/Cole/Animations/AS_Cole_StorageRoomInteraction'"));
+	static ConstructorHelpers::FObjectFinder<ULevelSequence> ColeInteractSequenceFinder(TEXT("/All/Game/Animation/Cole/Animations/AS_Cole_StorageRoomInteraction"));
+	if (ColeInteractSequenceFinder.Succeeded())
+	{
+		ColeInteractSequence = ColeInteractSequenceFinder.Object;
+		UE_LOG(LogTemp, Warning, TEXT("ColeInteractSequence loaded successfully."));
+	}
+	else
+	{
+		UE_LOG(LogTemp, Error, TEXT("Failed to load ColeInteractSequence."));
+	}
+
 }
 
 void AGameplayEvents::BeginPlay()
@@ -194,6 +214,32 @@ void AGameplayEvents::Step3()
 {
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 3 Active---"));
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Meeting Cole---"));
+
+	// Anim Play.
+	if (ColeInteractSequence)
+	{
+		ULevelSequencePlayer* LevelSequencePlayer = nullptr;
+		ALevelSequenceActor* LevelSequenceActor = nullptr;
+
+		LevelSequencePlayer = ULevelSequencePlayer::CreateLevelSequencePlayer(GetWorld(), ColeInteractSequence, FMovieSceneSequencePlaybackSettings(), LevelSequenceActor);
+
+		if (LevelSequencePlayer)
+		{
+			LevelSequencePlayer->Play();
+			//LevelSequencePlayer->Stop(); // Idle or 3rd anim.
+			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("STARTING ANIM"));
+		}
+		else
+		{
+			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("NOT STARTING ANIM SPELLING WRONG OR SOMTHING ELSE"));
+		}
+
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Cyan, TEXT("---Cole hit his head and turns around to interact---"));
+	}
+	else
+	{
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("---Coulden't start Animation---"));
+	}
 }
 
 void AGameplayEvents::Step4()
