@@ -17,8 +17,10 @@ public class Into_The_Light : ModuleRules
 			"EnhancedInput",
 			"SlateCore",
 			"Slate",
-			"UMG"
-		});
+			"UMG",
+            "LevelSequence",
+			"MovieScene"
+        });
 
 		PrivateDependencyModuleNames.AddRange(new string[] {  });
 
