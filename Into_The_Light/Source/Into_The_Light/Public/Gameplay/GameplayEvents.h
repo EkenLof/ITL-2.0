@@ -46,6 +46,10 @@ protected:
 	UPROPERTY(EditAnywhere, Category = "Animations | Cole")
 	class ULevelSequence* ColeIdleSearchSequence;
 
+	////////////////////////////---LevelSequence---///////////////////////////
+	UObject* WorldContextObject;
+	////////////////////////////---LevelSequence---///////////////////////////
+
 	virtual void BeginPlay() override;
 
 private:

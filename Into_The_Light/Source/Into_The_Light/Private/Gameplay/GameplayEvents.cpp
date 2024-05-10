@@ -19,6 +19,9 @@ AGameplayEvents::AGameplayEvents()
 	LevelStep = 0;
 
 	// static ConstructorHelpers::FObjectFinder<ULevelSequence> ColeInteractSequenceFinder(TEXT("LevelSequence'/All/Game/Animation/Cole/Animations/AS_Cole_StorageRoomInteraction'"));
+
+	/*
+	
 	static ConstructorHelpers::FObjectFinder<ULevelSequence> ColeInteractSequenceFinder(TEXT("/All/Game/Animation/Cole/Animations/AS_Cole_StorageRoomInteraction"));
 	if (ColeInteractSequenceFinder.Succeeded())
 	{
@@ -29,6 +32,9 @@ AGameplayEvents::AGameplayEvents()
 	{
 		UE_LOG(LogTemp, Error, TEXT("Failed to load ColeInteractSequence."));
 	}
+	
+	*/
+	
 
 }
 
@@ -87,35 +93,6 @@ void AGameplayEvents::Step2() //
 {
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 2 Active---"));
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Items collected, go to second floor storageroom (Cole)---"));
-	// Trigger OFF & HiddenWall OFF (RECEPTION)
-	//ReceptionTriggerStart->SetVisibility(false);
-
-	/*
-	To assign a tag to an object in Unreal Engine, you can follow these steps:
-	
-	Select the Object: In the level editor, select the object (actor or component) to which you want to assign a tag.
-
-	Details Panel: With the object selected, look at the Details panel on the right side of the editor window. If the 
-	object is an actor, you'll find a field called "Tags" under the "Actor" category. If the object is a component, 
-	you may need to scroll down to find the "Tags" field under the component's category.
-
-	Add Tag: In the "Tags" field, click on the empty space next to the "+" icon. This will allow you to add a new tag.
-
-	Enter Tag Name: Type in the name of the tag you want to assign to the object and press Enter. 
-	The tag will be added to the list of tags associated with the object.
-
-	Compile and Save: After adding the tag, make sure to compile and save your level or Blueprint to apply the changes.
-
-	Once you've assigned a tag to an object, you can use functions like FindActorByTag or FindComponentByTag in your code 
-	to locate and interact with objects based on their tags. These functions allow you to search for objects in the 
-	level based on the tags you've assigned to them.
-	
-	// TAGS:
-	Trigger_1_ACT1
-	Trigger_2_ACT1
-	HiddenWall_1_ACT1
-
-	*/
 
 	/*
 	// Hide actor
@@ -212,16 +189,178 @@ void AGameplayEvents::Step2() //
 
 void AGameplayEvents::Step3()
 {
+	FName ColeStorageRoomInteractTagName = FName(TEXT("LS_Cole_SearchIdle"));
+	FName ColeStorageRoomIdleSerachTagName = FName(TEXT("LS_Cole_SR-Interact"));
+
+	TArray<AActor*> ColeStorageRoomInteractTagFound;
+	TArray<AActor*> ColeStorageRoomIdleSerachTagFound;
+
+	UWorld* LevelWorld = GetWorld();
+
+	if (LevelWorld)
+	{
+		ColeInteractSequence = nullptr; // Assuming ColeInteractSequence is a ULevelSequence pointer
+		ColeIdleSearchSequence = nullptr; // Assuming ColeIdleSearchSequence is a ULevelSequence pointer
+
+		UGameplayStatics::GetAllActorsWithTag(LevelWorld, ColeStorageRoomInteractTagName, ColeStorageRoomInteractTagFound);
+		UGameplayStatics::GetAllActorsWithTag(LevelWorld, ColeStorageRoomIdleSerachTagName, ColeStorageRoomIdleSerachTagFound);
+
+		// Cole StorageRoom Interact
+		if (ColeStorageRoomInteractTagFound.Num() > 0)
+		{
+			AActor* FoundActor = ColeStorageRoomInteractTagFound[0];
+			ColeInteractSequence = Cast<ULevelSequence>(FoundActor->GetComponentByClass(ULevelSequence::StaticClass()));
+			if (ColeInteractSequence)
+			{
+				if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Emerald, TEXT("***Found Cole Interact***"));
+			}
+			else
+			{
+				if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("***Found Actor is not a ULevelSequence (Cole Interact)***"));
+			}
+		}
+		else
+		{
+			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("***Nothing Found***"));
+		}
+
+		// Cole StorageRoom Idle Serach
+		if (ColeStorageRoomIdleSerachTagFound.Num() > 0)
+		{
+			AActor* FoundActor = ColeStorageRoomIdleSerachTagFound[0];
+			ColeIdleSearchSequence = Cast<ULevelSequence>(FoundActor->GetComponentByClass(ULevelSequence::StaticClass()));
+			if (ColeIdleSearchSequence)
+			{
+				if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Emerald, TEXT("***Found Cole Idle-Search***"));
+			}
+			else
+			{
+				if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("***Found Actor is not a ULevelSequence (Cole Idle-Search)***"));
+			}
+		}
+		else
+		{
+			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("***Nothing Found***"));
+		}
+	}
+
+	/*
+	
+	if (LevelWorld)
+	{
+		ULevelSequence* ColeInteractSequence = nullptr; // Assuming ColeInteractSequence is a ULevelSequence pointer
+		ULevelSequence* ColeIdleSearchSequence = nullptr; // Assuming ColeIdleSearchSequence is a ULevelSequence pointer
+
+		UGameplayStatics::GetAllActorsWithTag(LevelWorld, ColeStorageRoomInteractTagName, ColeStorageRoomInteractTagFound);
+		UGameplayStatics::GetAllActorsWithTag(LevelWorld, ColeStorageRoomIdleSerachTagName, ColeStorageRoomIdleSerachTagFound);
+
+		// Cole StorageRoom Interact
+		if (ColeStorageRoomInteractTagFound.Num() > 0)
+		{
+			AActor* FoundActor = ColeStorageRoomInteractTagFound[0];
+			ColeInteractSequence = Cast<ULevelSequence>(FoundActor->GetComponentByClass(ULevelSequence::StaticClass()));
+			if (ColeInteractSequence)
+			{
+				if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---ReceptionTriggerStart Found---"));
+			}
+			else
+			{
+				if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("---Found Actor is not a ULevelSequence---"));
+			}
+		}
+		else
+		{
+			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("---ReceptionTriggerStart Not-Found---"));
+		}
+
+		// Cole StorageRoom Interact
+		if (ColeStorageRoomIdleSerachTagFound.Num() > 0)
+		{
+			AActor* FoundActor = ColeStorageRoomIdleSerachTagFound[0];
+			ColeIdleSearchSequence = Cast<ULevelSequence>(FoundActor->GetComponentByClass(ULevelSequence::StaticClass()));
+			if (ColeIdleSearchSequence)
+			{
+				if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---ReceptionTriggerStart Found---"));
+			}
+			else
+			{
+				if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("---Found Actor is not a ULevelSequence---"));
+			}
+		}
+		else
+		{
+			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("---ReceptionTriggerStart Not-Found---"));
+		}
+	}
+	
+
+	// ORIGINAL
+
+	if (LevelWorld)
+	{
+		UGameplayStatics::GetAllActorsWithTag(LevelWorld, ColeStorageRoomInteractTagName, ColeStorageRoomInteractTagFound);
+		UGameplayStatics::GetAllActorsWithTag(LevelWorld, ColeStorageRoomIdleSerachTagName, ColeStorageRoomIdleSerachTagFound);
+
+		// Cole StorageRoom Interact
+		for (AActor* Actor : ColeStorageRoomInteractTagFound)
+		{
+			if (ColeStorageRoomInteractTagFound.Num() > 0)
+			{
+				if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---ReceptionTriggerStart Found---"));
+				ColeInteractSequence = ColeStorageRoomInteractTagFound[0];
+			}
+			else
+			{
+				if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---ReceptionTriggerStart Not-Found---"));
+			}
+		}
+		// Cole StorageRoom Interact
+		for (AActor* Actor : ColeStorageRoomIdleSerachTagFound)
+		{
+			if (ColeStorageRoomIdleSerachTagFound.Num() > 0)
+			{
+				if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---ReceptionTriggerStart Found---"));
+				ColeIdleSearchSequence = ColeStorageRoomIdleSerachTagFound[0];
+			}
+			else
+			{
+				if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---ReceptionTriggerStart Not-Found---"));
+			}
+		}
+	}
+
+	*/
+
+	/*
+	
+	UPROPERTY(EditAnywhere, Category = "Animations | Cole")
+	class ULevelSequence* ColeInteractSequence;
+	UPROPERTY(EditAnywhere, Category = "Animations | Cole")
+	class ULevelSequence* ColeIdleSearchSequence;
+	
+	*/
+
+
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 3 Active---"));
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Meeting Cole---"));
 
 	// Anim Play.
 	if (ColeInteractSequence)
 	{
-		ULevelSequencePlayer* LevelSequencePlayer = nullptr;
-		ALevelSequenceActor* LevelSequenceActor = nullptr;
+		//LevelSequencePlayer = ULevelSequencePlayer::CreateLevelSequencePlayer(GetWorld(), ColeInteractSequence, FMovieSceneSequencePlaybackSettings(), LevelSequenceActor);
 
-		LevelSequencePlayer = ULevelSequencePlayer::CreateLevelSequencePlayer(GetWorld(), ColeInteractSequence, FMovieSceneSequencePlaybackSettings(), LevelSequenceActor);
+		static ULevelSequencePlayer* LevelSequencePlayer; // LSP
+
+		ALevelSequenceActor* LevelSequenceActor;
+
+		FStringAssetReference SequenceName;
+
+		SequenceName = ("/Game/Animation/Cole/Animations/LS_Cole_StorageRoomInteraction.LS_Cole_StorageRoomInteraction");
+
+
+		LevelSequencePlayer = ULevelSequencePlayer::CreateLevelSequencePlayer(WorldContextObject, ColeInteractSequence, FMovieSceneSequencePlaybackSettings(), LevelSequenceActor);
+
+		ULevelSequence* Asset = Cast<ULevelSequence>(SequenceName.TryLoad());
 
 		if (LevelSequencePlayer)
 		{
@@ -233,7 +372,7 @@ void AGameplayEvents::Step3()
 		{
 			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("NOT STARTING ANIM SPELLING WRONG OR SOMTHING ELSE"));
 		}
-
+		
 		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Cyan, TEXT("---Cole hit his head and turns around to interact---"));
 	}
 	else
