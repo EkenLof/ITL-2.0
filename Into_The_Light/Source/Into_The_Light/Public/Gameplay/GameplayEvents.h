@@ -42,9 +42,9 @@ public:
 protected:
 
 	UPROPERTY(EditAnywhere, Category = "Animations | Cole")
-	class ULevelSequence* ColeInteractSequence;
+	class UAnimSequence* ColeInteractAnimSeq;
 	UPROPERTY(EditAnywhere, Category = "Animations | Cole")
-	class ULevelSequence* ColeIdleSearchSequence;
+	class UAnimSequence* ColeIdleSearchAnimSeq;
 
 	////////////////////////////---LevelSequence---///////////////////////////
 	UObject* WorldContextObject;

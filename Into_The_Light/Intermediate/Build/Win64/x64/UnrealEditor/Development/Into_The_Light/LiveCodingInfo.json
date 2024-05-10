@@ -25,7 +25,6 @@
 			"Into_The_Light.cpp.obj",
 			"FirstPersonCharacter.cpp.obj",
 			"InventoryComponent.cpp.obj",
-			"GameplayEvents.cpp.obj",
 			"InteractionInterface.cpp.obj",
 			"ItemBase.cpp.obj",
 			"BoxCollider.cpp.obj",
@@ -38,7 +37,8 @@
 			"MainHUD.cpp.obj",
 			"MainMenu.cpp.obj",
 			"InterfaceActorT.cpp.obj",
-			"PickUp.cpp.obj"
+			"PickUp.cpp.obj",
+			"GameplayEvents.cpp.obj"
 		]
 	}
 }

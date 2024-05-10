@@ -12,9 +12,9 @@ void EmptyLinkFunctionForGeneratedCodeGameplayEvents() {}
 // Begin Cross Module References
 ENGINE_API UClass* Z_Construct_UClass_AActor();
 ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
+ENGINE_API UClass* Z_Construct_UClass_UAnimSequence_NoRegister();
 INTO_THE_LIGHT_API UClass* Z_Construct_UClass_AGameplayEvents();
 INTO_THE_LIGHT_API UClass* Z_Construct_UClass_AGameplayEvents_NoRegister();
-LEVELSEQUENCE_API UClass* Z_Construct_UClass_ULevelSequence_NoRegister();
 UPackage* Z_Construct_UPackage__Script_Into_The_Light();
 // End Cross Module References
 
@@ -281,11 +281,11 @@ struct Z_Construct_UClass_AGameplayEvents_Statics
 		{ "ToolTip", "---HiddenWalls---" },
 #endif
 	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ColeInteractSequence_MetaData[] = {
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ColeInteractAnimSeq_MetaData[] = {
 		{ "Category", "Animations | Cole" },
 		{ "ModuleRelativePath", "Public/Gameplay/GameplayEvents.h" },
 	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ColeIdleSearchSequence_MetaData[] = {
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ColeIdleSearchAnimSeq_MetaData[] = {
 		{ "Category", "Animations | Cole" },
 		{ "ModuleRelativePath", "Public/Gameplay/GameplayEvents.h" },
 	};
@@ -302,8 +302,8 @@ struct Z_Construct_UClass_AGameplayEvents_Statics
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_ReceptionTriggerStart;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_ReceptionHiddenWall;
-	static const UECodeGen_Private::FObjectPropertyParams NewProp_ColeInteractSequence;
-	static const UECodeGen_Private::FObjectPropertyParams NewProp_ColeIdleSearchSequence;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_ColeInteractAnimSeq;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_ColeIdleSearchAnimSeq;
 	static const UECodeGen_Private::FIntPropertyParams NewProp_LevelStep;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
@@ -323,14 +323,14 @@ struct Z_Construct_UClass_AGameplayEvents_Statics
 };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGameplayEvents_Statics::NewProp_ReceptionTriggerStart = { "ReceptionTriggerStart", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGameplayEvents, ReceptionTriggerStart), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ReceptionTriggerStart_MetaData), NewProp_ReceptionTriggerStart_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGameplayEvents_Statics::NewProp_ReceptionHiddenWall = { "ReceptionHiddenWall", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGameplayEvents, ReceptionHiddenWall), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ReceptionHiddenWall_MetaData), NewProp_ReceptionHiddenWall_MetaData) };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGameplayEvents_Statics::NewProp_ColeInteractSequence = { "ColeInteractSequence", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGameplayEvents, ColeInteractSequence), Z_Construct_UClass_ULevelSequence_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ColeInteractSequence_MetaData), NewProp_ColeInteractSequence_MetaData) };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGameplayEvents_Statics::NewProp_ColeIdleSearchSequence = { "ColeIdleSearchSequence", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGameplayEvents, ColeIdleSearchSequence), Z_Construct_UClass_ULevelSequence_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ColeIdleSearchSequence_MetaData), NewProp_ColeIdleSearchSequence_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGameplayEvents_Statics::NewProp_ColeInteractAnimSeq = { "ColeInteractAnimSeq", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGameplayEvents, ColeInteractAnimSeq), Z_Construct_UClass_UAnimSequence_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ColeInteractAnimSeq_MetaData), NewProp_ColeInteractAnimSeq_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGameplayEvents_Statics::NewProp_ColeIdleSearchAnimSeq = { "ColeIdleSearchAnimSeq", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGameplayEvents, ColeIdleSearchAnimSeq), Z_Construct_UClass_UAnimSequence_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ColeIdleSearchAnimSeq_MetaData), NewProp_ColeIdleSearchAnimSeq_MetaData) };
 const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AGameplayEvents_Statics::NewProp_LevelStep = { "LevelStep", nullptr, (EPropertyFlags)0x0040000000020001, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGameplayEvents, LevelStep), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_LevelStep_MetaData), NewProp_LevelStep_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AGameplayEvents_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGameplayEvents_Statics::NewProp_ReceptionTriggerStart,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGameplayEvents_Statics::NewProp_ReceptionHiddenWall,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGameplayEvents_Statics::NewProp_ColeInteractSequence,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGameplayEvents_Statics::NewProp_ColeIdleSearchSequence,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGameplayEvents_Statics::NewProp_ColeInteractAnimSeq,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGameplayEvents_Statics::NewProp_ColeIdleSearchAnimSeq,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGameplayEvents_Statics::NewProp_LevelStep,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AGameplayEvents_Statics::PropPointers) < 2048);
@@ -374,10 +374,10 @@ AGameplayEvents::~AGameplayEvents() {}
 struct Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_GameplayEvents_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AGameplayEvents, AGameplayEvents::StaticClass, TEXT("AGameplayEvents"), &Z_Registration_Info_UClass_AGameplayEvents, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AGameplayEvents), 799622524U) },
+		{ Z_Construct_UClass_AGameplayEvents, AGameplayEvents::StaticClass, TEXT("AGameplayEvents"), &Z_Registration_Info_UClass_AGameplayEvents, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AGameplayEvents), 2097485379U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_GameplayEvents_h_1571847661(TEXT("/Script/Into_The_Light"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_GameplayEvents_h_3082600949(TEXT("/Script/Into_The_Light"),
 	Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_GameplayEvents_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_GameplayEvents_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
