@@ -2,7 +2,10 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-//#include "Components/PrimitiveComponent.h"
+
+#include "Components/ActorComponent.h"
+#include "Components/PointLightComponent.h"
+#include "Components/RectLightComponent.h"
 
 #include "GameplayEvents.generated.h"
 
@@ -27,16 +30,41 @@ public:
 	void NextStep(int32 StepUp);
 	/////////////////////////////---NEXTSTEP ACTIVE---////////////////////////////////////
 
+
+	// ---Toggle Lights--- //
+	UFUNCTION(BlueprintCallable)
+	void ToggleOn();
+
+	UFUNCTION(BlueprintCallable)
+	void ToggleOff();
+	// ---Toggle Lights--- //
+
 	////////////////////////////---ASSIGN---///////////////////////////
 	// ---Triggers--- //
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign")
 	AActor* ReceptionTriggerStart;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign")
+	AActor* MissingColeTriggerStart;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign")
+	AActor* FuseBoxTriggerStart;
 	// ---Triggers--- //
 
 	// ---HiddenWalls--- //
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign")
 	AActor* ReceptionHiddenWall;
 	// ---HiddenWalls--- //
+
+	// ---Array Of Light--- //
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Lights")
+	TArray<AActor*> Lights;
+	// ---Array Of Light--- //
+	
+	// ---Array Of Actors--- //
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")
+	TArray<AActor*> EventActors;
+	// ---Array Of Actors--- //
 	////////////////////////////---ASSIGN---///////////////////////////
 
 protected:
@@ -49,6 +77,21 @@ protected:
 	////////////////////////////---LevelSequence---///////////////////////////
 	UObject* WorldContextObject;
 	////////////////////////////---LevelSequence---///////////////////////////
+
+	FName ReceptionLightsTagName;
+	FName F1LightsTagName;
+	FName F1OfficeLightsTagName;
+	FName F1ConferanceLightsTagName;
+	FName F1StorageRoomLightsTagName;
+
+	FName ColeStorageRoomTagName;
+	FName LanternTagName;
+	FName LanternBrokenTagName;
+	FName ElectricKeyTagName;
+
+	FName Trig3TagName;
+	FName Trig4TagName;
+
 
 	virtual void BeginPlay() override;
 
@@ -76,4 +119,10 @@ private:
 
 	UFUNCTION()
 	void Step4(); // 
+
+	UFUNCTION()
+	void Step5(); // 
+
+	UFUNCTION()
+	void Step6(); // 
 };

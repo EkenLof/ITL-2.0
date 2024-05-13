@@ -7,6 +7,16 @@
         "Includes": [
             "d:\\github-ekenlof-games\\itl-2.0\\into_the_light\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\into_the_light\\definitions.into_the_light.h",
             "d:\\github-ekenlof-games\\itl-2.0\\into_the_light\\source\\into_the_light\\public\\gameplay\\gameplayevents.h",
+            "d:\\dokument\\ue_5.4\\engine\\source\\runtime\\engine\\classes\\components\\pointlightcomponent.h",
+            "d:\\dokument\\ue_5.4\\engine\\source\\runtime\\engine\\classes\\components\\locallightcomponent.h",
+            "d:\\dokument\\ue_5.4\\engine\\source\\runtime\\engine\\classes\\components\\lightcomponent.h",
+            "d:\\dokument\\ue_5.4\\engine\\source\\runtime\\engine\\classes\\components\\lightcomponentbase.h",
+            "d:\\dokument\\ue_5.4\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\lightcomponentbase.generated.h",
+            "d:\\dokument\\ue_5.4\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\lightcomponent.generated.h",
+            "d:\\dokument\\ue_5.4\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\locallightcomponent.generated.h",
+            "d:\\dokument\\ue_5.4\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\pointlightcomponent.generated.h",
+            "d:\\dokument\\ue_5.4\\engine\\source\\runtime\\engine\\classes\\components\\rectlightcomponent.h",
+            "d:\\dokument\\ue_5.4\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\rectlightcomponent.generated.h",
             "d:\\github-ekenlof-games\\itl-2.0\\into_the_light\\intermediate\\build\\win64\\unrealeditor\\inc\\into_the_light\\uht\\gameplayevents.generated.h"
         ],
         "ImportedModules": [],

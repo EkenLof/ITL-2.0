@@ -80,7 +80,7 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 		BIsStepActive = true;
 	}
 
-	else if (PlayerInventory->IsFuse10a && BIsStepActive)
+	else if (PlayerInventory->IsFuse10a && BIsStepActive) // Fuse10a Pickup
 	{
 		EventSteps->NextStep(4);
 

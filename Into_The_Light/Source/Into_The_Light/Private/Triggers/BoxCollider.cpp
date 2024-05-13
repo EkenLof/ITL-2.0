@@ -16,6 +16,7 @@ ABoxCollider::ABoxCollider()
 	bIsReceptionNoFlashlight = false;
 	bIsMeetCole = false;
 	bIsFuseBox = false;
+	bIsMissingCole = false;
 
 	CollisionBox = CreateDefaultSubobject<UBoxComponent>(TEXT("BoxComponent"));
 	CollisionBox->SetBoxExtent(FVector(32.f, 32.f, 32.f));
@@ -58,6 +59,19 @@ void ABoxCollider::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* O
 		{
 			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Blue, TEXT("OBJECTIVE: Talk to Cole."));
 			EventSteps->NextStep(3);
+			bIsMeetCole = false;
+		}
+		else if (bIsFuseBox)
+		{
+			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Blue, TEXT("OBJECTIVE: Find the Electric-Key."));
+			EventSteps->NextStep(5);
+			bIsFuseBox = false;
+		}
+		else if (bIsMissingCole)
+		{
+			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Blue, TEXT("OBJECTIVE: Look for Electric-Key."));
+			EventSteps->NextStep(6);
+			bIsMissingCole = false;
 		}
 		//////////////////////////////////////////////////---ACTIONS---//////////////////////////////////////////////////
 	}

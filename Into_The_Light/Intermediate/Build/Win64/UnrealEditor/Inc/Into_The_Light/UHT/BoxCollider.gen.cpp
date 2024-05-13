@@ -207,6 +207,10 @@ struct Z_Construct_UClass_ABoxCollider_Statics
 		{ "Category", "Event | Trigger" },
 		{ "ModuleRelativePath", "Public/Triggers/BoxCollider.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bIsMissingCole_MetaData[] = {
+		{ "Category", "Event | Trigger" },
+		{ "ModuleRelativePath", "Public/Triggers/BoxCollider.h" },
+	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bIsFuseBox_MetaData[] = {
 		{ "Category", "Event | Trigger" },
 		{ "ModuleRelativePath", "Public/Triggers/BoxCollider.h" },
@@ -225,6 +229,8 @@ struct Z_Construct_UClass_ABoxCollider_Statics
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsReceptionNoFlashlight;
 	static void NewProp_bIsMeetCole_SetBit(void* Obj);
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsMeetCole;
+	static void NewProp_bIsMissingCole_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsMissingCole;
 	static void NewProp_bIsFuseBox_SetBit(void* Obj);
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsFuseBox;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_EventSteps;
@@ -252,6 +258,11 @@ void Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsMeetCole_SetBit(void* O
 	((ABoxCollider*)Obj)->bIsMeetCole = 1;
 }
 const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsMeetCole = { "bIsMeetCole", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(ABoxCollider), &Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsMeetCole_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bIsMeetCole_MetaData), NewProp_bIsMeetCole_MetaData) };
+void Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsMissingCole_SetBit(void* Obj)
+{
+	((ABoxCollider*)Obj)->bIsMissingCole = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsMissingCole = { "bIsMissingCole", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(ABoxCollider), &Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsMissingCole_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bIsMissingCole_MetaData), NewProp_bIsMissingCole_MetaData) };
 void Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsFuseBox_SetBit(void* Obj)
 {
 	((ABoxCollider*)Obj)->bIsFuseBox = 1;
@@ -263,6 +274,7 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ABoxColli
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABoxCollider_Statics::NewProp_CollisionBox,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsReceptionNoFlashlight,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsMeetCole,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsMissingCole,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsFuseBox,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABoxCollider_Statics::NewProp_EventSteps,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABoxCollider_Statics::NewProp_MichaelTagName,
@@ -308,10 +320,10 @@ ABoxCollider::~ABoxCollider() {}
 struct Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Triggers_BoxCollider_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ABoxCollider, ABoxCollider::StaticClass, TEXT("ABoxCollider"), &Z_Registration_Info_UClass_ABoxCollider, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABoxCollider), 2953260855U) },
+		{ Z_Construct_UClass_ABoxCollider, ABoxCollider::StaticClass, TEXT("ABoxCollider"), &Z_Registration_Info_UClass_ABoxCollider, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABoxCollider), 2519406394U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Triggers_BoxCollider_h_3307693794(TEXT("/Script/Into_The_Light"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Triggers_BoxCollider_h_633712918(TEXT("/Script/Into_The_Light"),
 	Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Triggers_BoxCollider_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Triggers_BoxCollider_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
