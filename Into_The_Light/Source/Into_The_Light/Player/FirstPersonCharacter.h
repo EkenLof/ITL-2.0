@@ -105,10 +105,18 @@ protected:
 	UPROPERTY(VisibleAnywhere, Category = "Character | Inventory")
 	UInventoryComponent* PlayerInventory;
 
+	UPROPERTY(EditAnywhere)
 	float InteractionCheckFrequency;
+	UPROPERTY(EditAnywhere)
 	float InteractionCheckDistance;
 
 	bool BIsStepActive;
+
+	bool bIsReceptionDoor;
+	bool bIsFuseBox;
+
+	bool bIsLookingAtRecDoor;
+	bool bIsLookingAtFuBox;
 
 	FTimerHandle TimerHandle_Interaction;
 	FInteractionData InteractionData;
@@ -122,6 +130,10 @@ protected:
 	void BeginInteract();
 	void EndInteract();
 	void Interact();
+
+private:
+	bool CheckLookAtObject();
+	bool CheckLeftMouseButtonDown();
 };
 
 

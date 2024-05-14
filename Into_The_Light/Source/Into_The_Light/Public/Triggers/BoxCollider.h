@@ -24,18 +24,14 @@ public:
 	UFUNCTION()
 	void OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool BFromSweep, const FHitResult& SeepResult);
 
-	UFUNCTION()
-	void OnOverlapEnd(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
+	//UFUNCTION()
+	//void OnOverlapEnd(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
 
 	////////////////////////////---ACTIVE STATE---////////////////////////////
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Trigger")
-	bool bIsReceptionNoFlashlight;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Trigger")
 	bool bIsMeetCole;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Trigger")
 	bool bIsMissingCole;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Trigger")
-	bool bIsFuseBox;
 	////////////////////////////---ACTIVE STATE---////////////////////////////
 
 

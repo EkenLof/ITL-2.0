@@ -9,8 +9,6 @@
 
 #include "GameplayEvents.generated.h"
 
-//class UInventoryComponent;                                                               //(FIX SET LATER)
-
 UCLASS()
 class INTO_THE_LIGHT_API AGameplayEvents : public AActor
 {
@@ -18,10 +16,6 @@ class INTO_THE_LIGHT_API AGameplayEvents : public AActor
 
 public:
 	AGameplayEvents();
-
-	//////////////////////////---Inventory Base-Logic---//////////////////////////////////
-	//FORCEINLINE UInventoryComponent* SetInventory() const { return PlayerInventory; };     (FIX SET LATER)
-	//////////////////////////---Inventory Base-Logic---//////////////////////////////////   
 
 	/////////////////////////////---NEXTSTEP ACTIVE---////////////////////////////////////
 	UFUNCTION(BlueprintCallable)
@@ -42,19 +36,8 @@ public:
 	////////////////////////////---ASSIGN---///////////////////////////
 	// ---Triggers--- //
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign")
-	AActor* ReceptionTriggerStart;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign")
 	AActor* MissingColeTriggerStart;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign")
-	AActor* FuseBoxTriggerStart;
 	// ---Triggers--- //
-
-	// ---HiddenWalls--- //
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign")
-	AActor* ReceptionHiddenWall;
-	// ---HiddenWalls--- //
 
 	// ---Array Of Light--- //
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Lights")
@@ -89,21 +72,14 @@ protected:
 	FName LanternBrokenTagName;
 	FName ElectricKeyTagName;
 
-	FName Trig3TagName;
-	FName Trig4TagName;
+	FName Trig2TagName;
 
+	void UpdateVaribleState(AActor*& ActorReference, const FName& TagName);
 
 	virtual void BeginPlay() override;
+	virtual void Tick(float DeltaTime) override;
 
 private:
-	//////////////////////////---Inventory Base-Logic---//////////////////////////////////
-	UPROPERTY(VisibleAnywhere, Category = "Character | Inventory")
-	//UInventoryComponent* PlayerInventory;                                                 //(FIX SET LATER)
-	//////////////////////////---Inventory Base-Logic---//////////////////////////////////
-
-	// CurrentStep
-	int32 LevelStep;
-
 	// Executed on each step (Every Step)
 	UFUNCTION()
 	void Step0(); // 

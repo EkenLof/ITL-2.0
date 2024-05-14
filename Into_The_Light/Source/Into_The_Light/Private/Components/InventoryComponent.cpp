@@ -28,37 +28,37 @@ void UInventoryComponent::ExposeItem(UItemBase* ItemOut)
 
 	if (ItemInTemp == Flashlight)
 	{
-		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Purple, TEXT("Flaslight Pick-Up-List is ---TRUE---"));
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Purple, TEXT("Flaslight Pick-Up-List is ---TRUE---"));
 		IsFlshlight = true;
 	}
 	else if (ItemInTemp == Lighter)
 	{
-		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Purple, TEXT("Lighter Pick-Up-List is ---TRUE---"));
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Purple, TEXT("Lighter Pick-Up-List is ---TRUE---"));
 		IsLighter = true;
 	}
 	else if (ItemInTemp == Battery)
 	{
-		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Purple, TEXT("Battery Pick-Up-List is ---TRUE---"));
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Purple, TEXT("Battery Pick-Up-List is ---TRUE---"));
 		IsBattery = true;
 	}
 	else if (ItemInTemp == Fuse10a)
 	{
-		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Purple, TEXT("Fuse10A Pick-Up-List is ---TRUE---"));
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Purple, TEXT("Fuse10A Pick-Up-List is ---TRUE---"));
 		IsFuse10a = true;
 	}
 	else if (ItemInTemp == ColeKeycard)
 	{
-		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Purple, TEXT("ColeKeycard Pick-Up-List is ---TRUE---"));
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Purple, TEXT("ColeKeycard Pick-Up-List is ---TRUE---"));
 		IsColeKeycard = true;
 	}
 	else if (ItemInTemp == ElectricKey)
 	{
-		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Purple, TEXT("ColeKeycard Pick-Up-List is ---TRUE---"));
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Purple, TEXT("ColeKeycard Pick-Up-List is ---TRUE---"));
 		IsElectricKey = true;
 	}
 	else
 	{
-		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Purple, TEXT("NONE Pick-Up-List is ---FALSE---"));
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Purple, TEXT("NONE Pick-Up-List is ---FALSE---"));
 	}
 }
 

@@ -16,8 +16,7 @@
 
 AGameplayEvents::AGameplayEvents()
 {
-	// Default Value 
-	LevelStep = 0;
+	PrimaryActorTick.bCanEverTick = true;
 
 	// static ConstructorHelpers::FObjectFinder<ULevelSequence> ColeInteractSequenceFinder(TEXT("LevelSequence'/All/Game/Animation/Cole/Animations/AS_Cole_StorageRoomInteraction'"));
 
@@ -35,7 +34,8 @@ AGameplayEvents::AGameplayEvents()
 	}
 	
 	*/
-	
+
+	//LevelWorld = GetWorld();
 
 	ReceptionLightsTagName = FName(TEXT("Reception_Lights"));
 	F1LightsTagName = FName(TEXT("F1_Lights"));
@@ -48,9 +48,7 @@ AGameplayEvents::AGameplayEvents()
 	ColeStorageRoomTagName = FName(TEXT("Cole_StorageRoom"));
 	ElectricKeyTagName = FName(TEXT("ElectricKey"));
 
-	Trig3TagName = FName(TEXT("Trigger_3_ACT1")); // FuseBox
-	Trig4TagName = FName(TEXT("Trigger_4_ACT1")); // MissingCole
-
+	Trig2TagName = FName(TEXT("Trigger_2_ACT1")); // MissingCole
 }
 
 void AGameplayEvents::BeginPlay()
@@ -58,164 +56,93 @@ void AGameplayEvents::BeginPlay()
 	Super::BeginPlay();
 
 	// Assigning to Varible
-	// ---Lights--- //
-	TArray<AActor*> ActorFoundByTag1;
-	TArray<AActor*> ActorFoundByTag2;
-	TArray<AActor*> ActorFoundByTag3;
-	TArray<AActor*> ActorFoundByTag4;
-	TArray<AActor*> ActorFoundByTag5;
 
-	// ---EventActor--- //
-	TArray<AActor*> ActorFoundByTag6;
-	TArray<AActor*> ActorFoundByTag7;
-	TArray<AActor*> ActorFoundByTag8;
-	TArray<AActor*> ActorFoundByTag9;
-
-	// ---Triggers--- //
-	TArray<AActor*> ActorFoundByTag10;
-	TArray<AActor*> ActorFoundByTag11;
-
-	UWorld* LevelWorld = GetWorld();
-
-	if (LevelWorld)
-	{
-		// ---Lights--- //
-		UGameplayStatics::GetAllActorsWithTag(LevelWorld, ReceptionLightsTagName, ActorFoundByTag1);
-		UGameplayStatics::GetAllActorsWithTag(LevelWorld, F1LightsTagName, ActorFoundByTag2);
-		UGameplayStatics::GetAllActorsWithTag(LevelWorld, F1OfficeLightsTagName, ActorFoundByTag3);
-		UGameplayStatics::GetAllActorsWithTag(LevelWorld, F1ConferanceLightsTagName, ActorFoundByTag4);
-		UGameplayStatics::GetAllActorsWithTag(LevelWorld, F1StorageRoomLightsTagName, ActorFoundByTag5);
-
-		// ---EventActor--- //
-		UGameplayStatics::GetAllActorsWithTag(LevelWorld, LanternTagName, ActorFoundByTag6);
-		UGameplayStatics::GetAllActorsWithTag(LevelWorld, LanternBrokenTagName, ActorFoundByTag7);
-		UGameplayStatics::GetAllActorsWithTag(LevelWorld, ColeStorageRoomTagName, ActorFoundByTag8);
-		UGameplayStatics::GetAllActorsWithTag(LevelWorld, ElectricKeyTagName, ActorFoundByTag9);
-
-		// ---Triggers--- //
-		UGameplayStatics::GetAllActorsWithTag(LevelWorld, Trig3TagName, ActorFoundByTag10);
-		UGameplayStatics::GetAllActorsWithTag(LevelWorld, Trig4TagName, ActorFoundByTag11);
-
-		// 1 Lights
-		for (AActor* Actor : ActorFoundByTag1)
-		{
-			if (ActorFoundByTag1.Num() > 0)
-			{
-				if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Found---"));
-				Lights[0] = ActorFoundByTag1[0];
-			}
-		}
-
-		// 2 Lights
-		for (AActor* Actor : ActorFoundByTag2)
-		{
-			if (ActorFoundByTag2.Num() > 0)
-			{
-				if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Found---"));
-				Lights[1] = ActorFoundByTag2[0];
-			}
-		}
-
-		// 3 Lights
-		for (AActor* Actor : ActorFoundByTag3)
-		{
-			if (ActorFoundByTag3.Num() > 0)
-			{
-				if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Found---"));
-				Lights[2] = ActorFoundByTag3[0];
-			}
-		}
-
-		// 4 Lights
-		for (AActor* Actor : ActorFoundByTag4)
-		{
-			if (ActorFoundByTag4.Num() > 0)
-			{
-				if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Found---"));
-				Lights[3] = ActorFoundByTag4[0];
-			}
-		}
-
-		// 5 Lights
-		for (AActor* Actor : ActorFoundByTag5)
-		{
-			if (ActorFoundByTag5.Num() > 0)
-			{
-				if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Found---"));
-				Lights[4] = ActorFoundByTag5[0];
-			}
-		}
-
-		// 6 EventActor (Lantern)
-		for (AActor* Actor : ActorFoundByTag6)
-		{
-			if (ActorFoundByTag6.Num() > 0)
-			{
-				if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Found---"));
-				EventActors[0] = ActorFoundByTag6[0];
-			}
-		}
-
-		// 7 EventActor (LanternBroken)
-		for (AActor* Actor : ActorFoundByTag7)
-		{
-			if (ActorFoundByTag7.Num() > 0)
-			{
-				if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Found---"));
-				EventActors[1] = ActorFoundByTag7[0];
-			}
-		}
-
-		// 8 EventActor (Cole)
-		for (AActor* Actor : ActorFoundByTag8)
-		{
-			if (ActorFoundByTag8.Num() > 0)
-			{
-				if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Found---"));
-				EventActors[2] = ActorFoundByTag8[0];
-			}
-		}
-		// 9 EventActor (ElectricKey)
-		for (AActor* Actor : ActorFoundByTag9)
-		{
-			if (ActorFoundByTag9.Num() > 0)
-			{
-				if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Found---"));
-				EventActors[3] = ActorFoundByTag9[0];
-			}
-		}
-
-		// 10 (FuseBox Trigger)
-		for (AActor* Actor : ActorFoundByTag10)
-		{
-			if (ActorFoundByTag10.Num() > 0)
-			{
-				if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Found---"));
-				FuseBoxTriggerStart = ActorFoundByTag10[0];
-			}
-		}
-		// 11 (MissingCole Trigger)
-		for (AActor* Actor : ActorFoundByTag11)
-		{
-			if (ActorFoundByTag11.Num() > 0)
-			{
-				if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Found---"));
-				MissingColeTriggerStart = ActorFoundByTag11[0];
-			}
-		}
-	}
-	// Assigning to Varible
-
-	ToggleOff(); // Lights off F1
+	ToggleOff(); // Start Values
 
 	NextStep(1); // Temp. Change to some action to Active for Events
 }
 
+void AGameplayEvents::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+
+	// Varible Check & assign. 
+	UpdateVaribleState(Lights[0], ReceptionLightsTagName);
+	UpdateVaribleState(Lights[1], F1LightsTagName);
+	UpdateVaribleState(Lights[2], F1OfficeLightsTagName);
+	UpdateVaribleState(Lights[3], F1ConferanceLightsTagName);
+	UpdateVaribleState(Lights[4], F1StorageRoomLightsTagName);
+
+	UpdateVaribleState(EventActors[0], LanternTagName);
+	UpdateVaribleState(EventActors[1], LanternBrokenTagName);
+	UpdateVaribleState(EventActors[2], ColeStorageRoomTagName);
+	UpdateVaribleState(EventActors[3], ElectricKeyTagName);
+
+	UpdateVaribleState(MissingColeTriggerStart, Trig2TagName);
+}
+
+void AGameplayEvents::UpdateVaribleState(AActor*& ActorReference, const FName& TagName)
+{
+	if (!IsValid(ActorReference))
+	{
+		ActorReference = nullptr;
+
+		TArray<AActor*> FoundActors;
+
+		UGameplayStatics::GetAllActorsWithTag(GetWorld(), TagName, FoundActors);
+
+		if (FoundActors.Num() > 0) 
+		{
+			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("FOUND"));
+			ActorReference = FoundActors[0];
+		}
+	}
+}
+
+void AGameplayEvents::ToggleOn()
+{
+	//if (Lights[0]) Lights[0]->SetActorHiddenInGame(false);
+	if (Lights[1]) Lights[1]->SetActorHiddenInGame(false);
+	if (Lights[2]) Lights[2]->SetActorHiddenInGame(false);
+	if (Lights[3]) Lights[3]->SetActorHiddenInGame(false);
+	if (Lights[4]) Lights[4]->SetActorHiddenInGame(false);
+}
+
+void AGameplayEvents::ToggleOff()
+{
+	// Lights
+	//if (Lights[0]) Lights[0]->SetActorHiddenInGame(true);
+
+	if (IsValid(Lights[1])) Lights[1]->SetActorHiddenInGame(true);
+	if (IsValid(Lights[2])) Lights[2]->SetActorHiddenInGame(true);
+	if (IsValid(Lights[3])) Lights[3]->SetActorHiddenInGame(true);
+	if (IsValid(Lights[4])) Lights[4]->SetActorHiddenInGame(true);
+
+	// EventActors
+	if (IsValid(EventActors[1])) // LanternBroken
+	{
+		EventActors[1]->SetActorHiddenInGame(true);
+		EventActors[1]->SetActorEnableCollision(false);
+	}
+	if (IsValid(EventActors[3])) // ElectricKey
+	{
+		EventActors[3]->SetActorHiddenInGame(true);
+		EventActors[3]->SetActorEnableCollision(false);
+	}
+
+	if (IsValid(MissingColeTriggerStart))
+	{
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("---MissinColeTrigger OFF---"));
+		MissingColeTriggerStart->SetActorEnableCollision(false);
+		//MissingColeTriggerStart->SetActorHiddenInGame(true);
+	}
+
+	// Unlock Reception Door.
+}
+
 void AGameplayEvents::NextStep(int32 StepUp)
 {
-	LevelStep += StepUp;
-
-	switch (LevelStep)
+	switch (StepUp)
 	{
 	case 0:
 		Step0();
@@ -233,10 +160,10 @@ void AGameplayEvents::NextStep(int32 StepUp)
 		Step4();
 		break;
 	case 5:
-		Step4();
+		Step5();
 		break;
 	case 6:
-		Step4();
+		Step6();
 		break;
 
 	default:
@@ -259,42 +186,6 @@ LanternBroken           // 2
 ElectricKey             // 3
 */
 
-void AGameplayEvents::ToggleOn()
-{
-	//if (Lights[0]) Lights[0]->SetActorHiddenInGame(false);
-	if (Lights[1]) Lights[1]->SetActorHiddenInGame(false);
-	if (Lights[2]) Lights[2]->SetActorHiddenInGame(false);
-	if (Lights[3]) Lights[3]->SetActorHiddenInGame(false);
-	if (Lights[4]) Lights[4]->SetActorHiddenInGame(false);
-}
-
-void AGameplayEvents::ToggleOff()
-{
-	// Lights
-	//if (Lights[0]) Lights[0]->SetActorHiddenInGame(true);
-	if (Lights[1]) Lights[1]->SetActorHiddenInGame(true);
-	if (Lights[2]) Lights[2]->SetActorHiddenInGame(true);
-	if (Lights[3]) Lights[3]->SetActorHiddenInGame(true);
-	if (Lights[4]) Lights[4]->SetActorHiddenInGame(true);
-
-	// EventActors
-	//if (EventActors[0]) EventActors[0]->SetActorHiddenInGame(true); // Lantern
-	if (EventActors[1]) // LanternBroken
-	{
-		EventActors[1]->SetActorHiddenInGame(true);
-		EventActors[1]->SetActorEnableCollision(false);
-	}
-	//if (EventActors[2]) EventActors[2]->SetActorHiddenInGame(true); // Cole
-	if (EventActors[3]) // ElectricKey
-	{
-		EventActors[3]->SetActorHiddenInGame(true);
-		EventActors[3]->SetActorEnableCollision(false);
-	}
-
-	if (MissingColeTriggerStart) MissingColeTriggerStart->SetActorEnableCollision(false);
-	if (FuseBoxTriggerStart) FuseBoxTriggerStart->SetActorEnableCollision(false);
-}
-
 
 void AGameplayEvents::Step0() // 
 {
@@ -308,7 +199,7 @@ void AGameplayEvents::Step0() //
 void AGameplayEvents::Step1() // 
 {
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 1 Active---"));
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("OBJECTIVE: Get FLashlight and battery."));
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Cyan, TEXT("OBJECTIVE: Find Cole."));
 
 	// Door to Second floor is locked
 }
@@ -316,7 +207,7 @@ void AGameplayEvents::Step1() //
 void AGameplayEvents::Step2() // 
 {
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 2 Active---"));
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Items collected, go to second floor storageroom (Cole)---"));
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---Items collected, go to second floor storageroom (Cole)---"));
 
 	/*
 	// Hide actor
@@ -338,77 +229,7 @@ void AGameplayEvents::Step2() //
 	}
 	*/
 
-	FName Trig1TagName = FName(TEXT("Trigger_1_ACT1"));
-	FName Trig2TagName = FName(TEXT("Trigger_2_ACT1"));
-
-	FName HidWallTagName = FName(TEXT("HiddenWall_1_ACT1"));
-
-	TArray<AActor*> ActorFoundByTagTrig1;
-	//TArray<AActor*> ActorFoundByTagTrig2;
-	TArray<AActor*> ActorFoundByTagHidWall1;
-
-	UWorld* LevelWorld = GetWorld();
-
-	if (LevelWorld)
-	{
-		UGameplayStatics::GetAllActorsWithTag(LevelWorld, Trig1TagName, ActorFoundByTagTrig1);
-		//UGameplayStatics::GetAllActorsWithTag(LevelWorld, Trig2TagName, ActorFoundByTagTrig2);
-		UGameplayStatics::GetAllActorsWithTag(LevelWorld, HidWallTagName, ActorFoundByTagHidWall1);
-
-		// Trigger 1
-		for (AActor* Actor : ActorFoundByTagTrig1)
-		{
-			if (ActorFoundByTagTrig1.Num() > 0)
-			{
-				if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---ReceptionTriggerStart Found---"));
-				ReceptionTriggerStart = ActorFoundByTagTrig1[0];
-			}
-			else
-			{
-				if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---ReceptionTriggerStart Not-Found---"));
-			}
-		}
-		// Trigger 2
-		/*
-		for (AActor* Actor : ActorFoundByTagTrig2)
-		{
-			if (ActorFoundByTagTrig2.Num() > 0)
-			{
-				if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---ReceptionTriggerStart Found---"));
-				ReceptionTriggerStart = ActorFoundByTagTrig2[0];
-			}
-			else
-			{
-				if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---ReceptionTriggerStart Not-Found---"));
-			}
-		}
-		*/
-		
-		// HiddenWall 1
-		for (AActor* Actor : ActorFoundByTagHidWall1)
-		{
-			if (ActorFoundByTagHidWall1.Num() > 0)
-			{
-				if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---ReceptionHiddenWall Found---"));
-				ReceptionHiddenWall = ActorFoundByTagHidWall1[0];
-			}
-			else
-			{
-				if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---ReceptionHiddenWall Not-Found---"));
-			}
-		}
-	}
-	
-	if (ReceptionTriggerStart)
-	{
-		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---ReceptionTriggerStart Active---"));
-		ReceptionTriggerStart->SetActorEnableCollision(false);
-	}
-	if (ReceptionHiddenWall)
-	{
-		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---ReceptionHiddenWall Active---"));
-		ReceptionHiddenWall->SetActorEnableCollision(false);
-	}		
+	// Unlock Reception Door.
 }
 
 void AGameplayEvents::Step3()
@@ -473,41 +294,42 @@ void AGameplayEvents::Step3()
 	*/
 
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 3 Active---"));
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Meeting Cole---"));
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---Meeting Cole---"));
 
 	// Anim Play.
 	if (ColeInteractAnimSeq)
 	{
 
-		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("***ColeInteractAnimSeq***"));
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("***ColeInteractAnimSeq***"));
 		//FString SequenceName = ("/Game/Animation/Cole/Animations/LS_Cole_StorageRoomInteraction.LS_Cole_StorageRoomInteraction");
 
 	}
 
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Take 10A fuse from Cole---"));
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---Take 10A fuse from Cole---"));
 }
 
 void AGameplayEvents::Step4()
 {
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 4 Active---"));
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Fuse Collected---"));
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Put the 10A Fuse in the Fusebox---"));
-
-	if (FuseBoxTriggerStart) FuseBoxTriggerStart->SetActorEnableCollision(true);
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Fuse Trigger TRUE---"));
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---Fuse Collected---"));
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---Put the 10A Fuse in the Fusebox---"));
 }
 
 void AGameplayEvents::Step5()
 {
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 5 Active---"));
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---The Fusebox is Locked, you need a key---"));
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---The Fusebox is Locked, you need a key---"));
 
 	// EventActors
+
+	
+	/*
 	if (EventActors[0]) // Lantern
 	{
 		EventActors[0]->SetActorHiddenInGame(true);
 		EventActors[0]->SetActorEnableCollision(false);
 	}
+	
 	if (EventActors[1]) // LanternBroken
 	{
 		EventActors[1]->SetActorHiddenInGame(false);
@@ -523,13 +345,22 @@ void AGameplayEvents::Step5()
 		EventActors[3]->SetActorHiddenInGame(false);
 		EventActors[3]->SetActorEnableCollision(true);
 	}
-
-	if (MissingColeTriggerStart) MissingColeTriggerStart->SetActorEnableCollision(true);
-	//if (FuseBoxTriggerStart) FuseBoxTriggerStart->SetActorEnableCollision(false);
+	*/
+	
+	if (MissingColeTriggerStart)
+	{
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("---MissinColeTrigger ON---"));
+		MissingColeTriggerStart->SetActorEnableCollision(true);
+		//MissingColeTriggerStart->SetActorHiddenInGame(false);
+	}
+	else
+	{
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 8.0f, FColor::Red, TEXT("---*MissinColeTrigger ON* NOT POSSIBLE---"));
+	}
 }
 
 void AGameplayEvents::Step6()
 {
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 6 Active---"));
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Look For Cole---"));
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---Look For Cole---"));
 }

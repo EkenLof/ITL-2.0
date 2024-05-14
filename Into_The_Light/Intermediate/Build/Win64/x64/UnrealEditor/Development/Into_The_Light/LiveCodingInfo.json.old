@@ -2,10 +2,8 @@
 	"RemapUnityFiles": 
 	{
 		"Module.Into_The_Light.cpp.obj": [
-			"BoxCollider.gen.cpp.obj",
 			"DoorSystem.gen.cpp.obj",
 			"DragItemVisual.gen.cpp.obj",
-			"FirstPersonCharacter.gen.cpp.obj",
 			"InteractionInterface.gen.cpp.obj",
 			"InteractionWidget.gen.cpp.obj",
 			"InterfaceActorT.gen.cpp.obj",
@@ -34,6 +32,8 @@
 			"MainMenu.cpp.obj",
 			"InterfaceActorT.cpp.obj",
 			"PickUp.cpp.obj",
+			"BoxCollider.gen.cpp.obj",
+			"FirstPersonCharacter.gen.cpp.obj",
 			"GameplayEvents.gen.cpp.obj",
 			"Into_The_Light.init.gen.cpp.obj",
 			"FirstPersonCharacter.cpp.obj",

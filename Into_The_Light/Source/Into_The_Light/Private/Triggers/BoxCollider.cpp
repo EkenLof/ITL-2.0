@@ -13,9 +13,7 @@ ABoxCollider::ABoxCollider()
 	// Set this actor to call Tick() every frame. You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = false;
 
-	bIsReceptionNoFlashlight = false;
 	bIsMeetCole = false;
-	bIsFuseBox = false;
 	bIsMissingCole = false;
 
 	CollisionBox = CreateDefaultSubobject<UBoxComponent>(TEXT("BoxComponent"));
@@ -24,7 +22,7 @@ ABoxCollider::ABoxCollider()
 	RootComponent = CollisionBox;
 
 	CollisionBox->OnComponentBeginOverlap.AddDynamic(this, &ABoxCollider::OnOverlapBegin);
-	CollisionBox->OnComponentEndOverlap.AddDynamic(this, &ABoxCollider::OnOverlapEnd);
+	//CollisionBox->OnComponentEndOverlap.AddDynamic(this, &ABoxCollider::OnOverlapEnd);
 
 	EventSteps = CreateDefaultSubobject<AGameplayEvents>(TEXT("EventSteps"));
 
@@ -50,26 +48,15 @@ void ABoxCollider::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* O
 	if (OtherActor && OtherActor->ActorHasTag(MichaelTagName))
 	{
 		//////////////////////////////////////////////////---ACTIONS---//////////////////////////////////////////////////
-		if (bIsReceptionNoFlashlight)
+		if (bIsMeetCole)
 		{
-			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Blue, TEXT("OBJECTIVE: Get the Flashlight."));
-		}
-
-		else if (bIsMeetCole)
-		{
-			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Blue, TEXT("OBJECTIVE: Talk to Cole."));
+			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Cyan, TEXT("OBJECTIVE: Talk to Cole."));
 			EventSteps->NextStep(3);
 			bIsMeetCole = false;
 		}
-		else if (bIsFuseBox)
-		{
-			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Blue, TEXT("OBJECTIVE: Find the Electric-Key."));
-			EventSteps->NextStep(5);
-			bIsFuseBox = false;
-		}
 		else if (bIsMissingCole)
 		{
-			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Blue, TEXT("OBJECTIVE: Look for Electric-Key."));
+			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Cyan, TEXT("OBJECTIVE: Look for Electric-Key."));
 			EventSteps->NextStep(6);
 			bIsMissingCole = false;
 		}
@@ -81,6 +68,7 @@ void ABoxCollider::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* O
 	}*/
 }
 
+/*
 void ABoxCollider::OnOverlapEnd(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
 {
 	if (OtherActor && OtherActor->ActorHasTag(MichaelTagName))
@@ -88,3 +76,5 @@ void ABoxCollider::OnOverlapEnd(UPrimitiveComponent* OverlappedComp, AActor* Oth
 		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("Exit Trigger"));
 	}
 }
+*/
+

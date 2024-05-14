@@ -6,6 +6,8 @@
 #include "World/PickUp.h"
 #include "Items/ItemBase.h" // Test for witch item is picked up
 
+#include "Engine/World.h"
+
 #include "Components/StaticMeshComponent.h"
 #include "Components/InputComponent.h"
 #include "Components/CapsuleComponent.h"
@@ -47,6 +49,12 @@ AFirstPersonCharacter::AFirstPersonCharacter()
 
 	BIsStepActive = false;
 
+	bIsReceptionDoor = true;
+	bIsFuseBox = true;
+
+	bIsLookingAtFuBox = false;
+	bIsLookingAtRecDoor = false;
+
 	EventSteps = CreateDefaultSubobject<AGameplayEvents>(TEXT("EventSteps"));
 	TriggerBox = CreateDefaultSubobject<ABoxCollider>(TEXT("TriggerBox"));
 
@@ -72,7 +80,7 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 	}
 
 	///////////////////////////////////////////---TEMP---/////////////////////////////////////////////
-	if (PlayerInventory->IsFlshlight && !BIsStepActive && !PlayerInventory->IsFuse10a) // TEMP OR FOR FLASHLIGHT PICK UP.
+	else if (PlayerInventory->IsFlshlight && !BIsStepActive && !PlayerInventory->IsFuse10a) // TEMP OR FOR FLASHLIGHT PICK UP.
 	{
 		EventSteps->NextStep(2);
 		// HiddenWall Reception OFF.
@@ -88,6 +96,21 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 	}
 	///////////////////////////////////////////---TEMP---/////////////////////////////////////////////
 
+	/////////////////////////////////---ReceptionDoor & FuseBox---////////////////////////////////////
+	else if (CheckLookAtObject() && CheckLeftMouseButtonDown() && bIsFuseBox && bIsLookingAtFuBox && !bIsLookingAtRecDoor)
+	{
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Blue, TEXT("OBJECTIVE: Find the Electric Key."));
+
+		EventSteps->NextStep(5);
+		bIsFuseBox = false;
+	}
+	else if (CheckLookAtObject() && CheckLeftMouseButtonDown() && bIsReceptionDoor && bIsLookingAtRecDoor && !bIsLookingAtFuBox)
+	{		
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Blue, TEXT("OBJECTIVE: Get the Flashlight."));
+
+		bIsReceptionDoor = false;
+	}
+	/////////////////////////////////---ReceptionDoor & FuseBox---////////////////////////////////////
 }
 
 void AFirstPersonCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
@@ -111,6 +134,50 @@ void AFirstPersonCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInp
 
 	PlayerInputComponent->BindAction("ToggleMenu", IE_Pressed, this, &AFirstPersonCharacter::ToggleMenu);
 }
+
+// RayCast
+
+bool AFirstPersonCharacter::CheckLookAtObject()
+{
+	FName ReceptionDoorTagName = FName(TEXT("ReceptionDoor"));
+	FName FuseTagName = FName(TEXT("FuseBox"));
+
+	FVector Start = GetWorld()->GetFirstPlayerController()->PlayerCameraManager->GetCameraLocation();
+	FVector End = Start + GetWorld()->GetFirstPlayerController()->GetControlRotation().Vector() * InteractionCheckDistance;
+
+	FHitResult HitResult;
+	FCollisionQueryParams CollisionParams;
+	CollisionParams.AddIgnoredActor(this); // Ignore self
+
+	// Perform Raycast
+	if (GetWorld()->LineTraceSingleByChannel(HitResult, Start, End, ECollisionChannel::ECC_Visibility, CollisionParams))
+	{
+		// Check if hit actor has the desired tag
+		if (HitResult.GetActor() && HitResult.GetActor()->ActorHasTag(FuseTagName) && bIsFuseBox)
+		{			
+			bIsLookingAtRecDoor = false;
+			bIsLookingAtFuBox = true;
+
+			return true;
+		}
+		else if (HitResult.GetActor() && HitResult.GetActor()->ActorHasTag(ReceptionDoorTagName) && bIsReceptionDoor)
+		{
+			bIsLookingAtFuBox = false;
+			bIsLookingAtRecDoor = true;
+
+			return true;
+		}
+	}
+
+	return false;
+}
+
+bool AFirstPersonCharacter::CheckLeftMouseButtonDown()
+{
+	return GetWorld()->GetFirstPlayerController()->IsInputKeyDown(EKeys::LeftMouseButton);
+}
+
+// Raycast
 
 void AFirstPersonCharacter::MoveForward(float InputValue)
 {
@@ -181,13 +248,13 @@ void AFirstPersonCharacter::UseFlashlight() // FLashlight LOGIC
 	if (!isFlashlightEquiped && PlayerInventory->IsFlshlight)
 	{
 		//FlashlightMesh->bHiddenInGame = false;
-		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("Equip Flishlight TRUE!"));
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Red, TEXT("Equip Flishlight TRUE!"));
 		isFlashlightEquiped = true;
 	}
 	else if (isFlashlightEquiped)
 	{
 		//FlashlightMesh->bHiddenInGame = true;
-		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("Equip Flashlight False!"));
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Red, TEXT("Equip Flashlight False!"));
 		isFlashlightEquiped = false;
 	}
 }
