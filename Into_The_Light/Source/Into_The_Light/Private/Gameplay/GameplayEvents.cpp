@@ -55,7 +55,19 @@ void AGameplayEvents::BeginPlay()
 {
 	Super::BeginPlay();
 
-	// Assigning to Varible
+	// Varible Check & assign. 
+	UpdateVaribleState(Lights[0], ReceptionLightsTagName);
+	UpdateVaribleState(Lights[1], F1LightsTagName);
+	UpdateVaribleState(Lights[2], F1OfficeLightsTagName);
+	UpdateVaribleState(Lights[3], F1ConferanceLightsTagName);
+	UpdateVaribleState(Lights[4], F1StorageRoomLightsTagName);
+
+	UpdateVaribleState(LanternActor, LanternTagName);
+	UpdateVaribleState(LanternBrockenActor, LanternBrokenTagName);
+	UpdateVaribleState(ColeStorageRoomActor, ColeStorageRoomTagName);
+	UpdateVaribleState(ElectricKeyActor, ElectricKeyTagName);
+
+	UpdateVaribleState(MissingColeTriggerStart, Trig2TagName);
 
 	ToggleOff(); // Start Values
 
@@ -65,20 +77,6 @@ void AGameplayEvents::BeginPlay()
 void AGameplayEvents::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
-	// Varible Check & assign. 
-	UpdateVaribleState(Lights[0], ReceptionLightsTagName);
-	UpdateVaribleState(Lights[1], F1LightsTagName);
-	UpdateVaribleState(Lights[2], F1OfficeLightsTagName);
-	UpdateVaribleState(Lights[3], F1ConferanceLightsTagName);
-	UpdateVaribleState(Lights[4], F1StorageRoomLightsTagName);
-
-	UpdateVaribleState(EventActors[0], LanternTagName);
-	UpdateVaribleState(EventActors[1], LanternBrokenTagName);
-	UpdateVaribleState(EventActors[2], ColeStorageRoomTagName);
-	UpdateVaribleState(EventActors[3], ElectricKeyTagName);
-
-	UpdateVaribleState(MissingColeTriggerStart, Trig2TagName);
 }
 
 void AGameplayEvents::UpdateVaribleState(AActor*& ActorReference, const FName& TagName)
@@ -119,15 +117,15 @@ void AGameplayEvents::ToggleOff()
 	if (IsValid(Lights[4])) Lights[4]->SetActorHiddenInGame(true);
 
 	// EventActors
-	if (IsValid(EventActors[1])) // LanternBroken
+	if (IsValid(LanternBrockenActor)) // LanternBroken
 	{
-		EventActors[1]->SetActorHiddenInGame(true);
-		EventActors[1]->SetActorEnableCollision(false);
+		LanternBrockenActor->SetActorHiddenInGame(true);
+		LanternBrockenActor->SetActorEnableCollision(false);
 	}
-	if (IsValid(EventActors[3])) // ElectricKey
+	if (IsValid(ElectricKeyActor)) // ElectricKey
 	{
-		EventActors[3]->SetActorHiddenInGame(true);
-		EventActors[3]->SetActorEnableCollision(false);
+		ElectricKeyActor->SetActorHiddenInGame(true);
+		ElectricKeyActor->SetActorEnableCollision(false);
 	}
 
 	if (IsValid(MissingColeTriggerStart))
@@ -164,6 +162,18 @@ void AGameplayEvents::NextStep(int32 StepUp)
 		break;
 	case 6:
 		Step6();
+		break;
+	case 7:
+		Step7();
+		break;
+	case 8:
+		Step8();
+		break;
+	case 9:
+		Step9();
+		break;
+	case 10:
+		Step10();
 		break;
 
 	default:
@@ -320,34 +330,52 @@ void AGameplayEvents::Step5()
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 5 Active---"));
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---The Fusebox is Locked, you need a key---"));
 
-	// EventActors
+	UpdateVaribleState(LanternActor, LanternTagName);
+	UpdateVaribleState(LanternBrockenActor, LanternBrokenTagName);
+	UpdateVaribleState(ColeStorageRoomActor, ColeStorageRoomTagName);
+	UpdateVaribleState(ElectricKeyActor, ElectricKeyTagName);
+
+	UpdateVaribleState(MissingColeTriggerStart, Trig2TagName);
 
 	
-	/*
-	if (EventActors[0]) // Lantern
+	if (IsValid(LanternActor)) // Lantern
 	{
-		EventActors[0]->SetActorHiddenInGame(true);
-		EventActors[0]->SetActorEnableCollision(false);
+		LanternActor->SetActorHiddenInGame(true);
+		LanternActor->SetActorEnableCollision(false);
+	}
+	else
+	{
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 8.0f, FColor::Red, TEXT("---*Lantern ON* NOT POSSIBLE---"));
+	}
+	if (IsValid(LanternBrockenActor)) // LanternBroken
+	{
+		LanternBrockenActor->SetActorHiddenInGame(false);
+		LanternBrockenActor->SetActorEnableCollision(true);
+	}
+	else
+	{
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 8.0f, FColor::Red, TEXT("---*LanternBroken ON* NOT POSSIBLE---"));
+	}
+	if (IsValid(ColeStorageRoomActor)) // Cole
+	{
+		ColeStorageRoomActor->SetActorHiddenInGame(true);
+		ColeStorageRoomActor->SetActorEnableCollision(false);
+	}
+	else
+	{
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 8.0f, FColor::Red, TEXT("---*Cole ON* NOT POSSIBLE---"));
+	}
+	if (IsValid(ElectricKeyActor)) // ElectricKey
+	{
+		ElectricKeyActor->SetActorHiddenInGame(false);
+		ElectricKeyActor->SetActorEnableCollision(true);
+	}
+	else
+	{
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 8.0f, FColor::Red, TEXT("---*ElectricKey ON* NOT POSSIBLE---"));
 	}
 	
-	if (EventActors[1]) // LanternBroken
-	{
-		EventActors[1]->SetActorHiddenInGame(false);
-		EventActors[1]->SetActorEnableCollision(true);
-	}
-	if (EventActors[2]) // Cole
-	{
-		EventActors[2]->SetActorHiddenInGame(true);
-		EventActors[2]->SetActorEnableCollision(false);
-	}
-	if (EventActors[3]) // ElectricKey
-	{
-		EventActors[3]->SetActorHiddenInGame(false);
-		EventActors[3]->SetActorEnableCollision(true);
-	}
-	*/
-	
-	if (MissingColeTriggerStart)
+	if (IsValid(MissingColeTriggerStart))
 	{
 		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("---MissinColeTrigger ON---"));
 		MissingColeTriggerStart->SetActorEnableCollision(true);
@@ -360,6 +388,27 @@ void AGameplayEvents::Step5()
 }
 
 void AGameplayEvents::Step6()
+{
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 6 Active---"));
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---Look For Cole---"));
+}
+
+void AGameplayEvents::Step7()
+{
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 6 Active---"));
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---Look For Cole---"));
+}
+void AGameplayEvents::Step8()
+{
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 6 Active---"));
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---Look For Cole---"));
+}
+void AGameplayEvents::Step9()
+{
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 6 Active---"));
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---Look For Cole---"));
+}
+void AGameplayEvents::Step10()
 {
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 6 Active---"));
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---Look For Cole---"));

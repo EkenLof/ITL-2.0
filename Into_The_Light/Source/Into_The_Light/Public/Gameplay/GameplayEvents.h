@@ -45,8 +45,17 @@ public:
 	// ---Array Of Light--- //
 	
 	// ---Array Of Actors--- //
+	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")
+	//TArray<AActor*> EventActors;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")
-	TArray<AActor*> EventActors;
+	AActor* LanternActor;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")
+	AActor* LanternBrockenActor;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")
+	AActor* ColeStorageRoomActor;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")
+	AActor* ElectricKeyActor;
 	// ---Array Of Actors--- //
 	////////////////////////////---ASSIGN---///////////////////////////
 
@@ -101,4 +110,16 @@ private:
 
 	UFUNCTION()
 	void Step6(); // 
+
+	UFUNCTION()
+	void Step7(); // 
+
+	UFUNCTION()
+	void Step8(); // 
+
+	UFUNCTION()
+	void Step9(); // 
+
+	UFUNCTION()
+	void Step10(); // 
 };
