@@ -47,6 +47,8 @@ AGameplayEvents::AGameplayEvents()
 	LanternBrokenTagName = FName(TEXT("LanternBroken"));
 	ColeStorageRoomTagName = FName(TEXT("Cole_StorageRoom"));
 	ElectricKeyTagName = FName(TEXT("ElectricKey"));
+	ElectricKey_KeyTagName = FName(TEXT("ElectricKey_Key")); // ElectricKey_Key Real KEY
+	// FIIIXXX ElectricKey_KeyActor;
 
 	Trig2TagName = FName(TEXT("Trigger_2_ACT1")); // MissingCole
 }
