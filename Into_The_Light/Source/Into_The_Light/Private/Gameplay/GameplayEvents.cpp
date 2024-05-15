@@ -48,7 +48,8 @@ AGameplayEvents::AGameplayEvents()
 	ColeStorageRoomTagName = FName(TEXT("Cole_StorageRoom"));
 	ElectricKeyTagName = FName(TEXT("ElectricKey"));
 	ElectricKey_KeyTagName = FName(TEXT("ElectricKey_Key")); // ElectricKey_Key Real KEY
-	// FIIIXXX ElectricKey_KeyActor;
+
+	// FIIIXXX Fuse10A_InFuseBox
 
 	Trig2TagName = FName(TEXT("Trigger_2_ACT1")); // MissingCole
 }
@@ -68,6 +69,7 @@ void AGameplayEvents::BeginPlay()
 	UpdateVaribleState(LanternBrockenActor, LanternBrokenTagName);
 	UpdateVaribleState(ColeStorageRoomActor, ColeStorageRoomTagName);
 	UpdateVaribleState(ElectricKeyActor, ElectricKeyTagName);
+	UpdateVaribleState(ElectricKey_KeyActor, ElectricKey_KeyTagName);
 
 	UpdateVaribleState(MissingColeTriggerStart, Trig2TagName);
 
@@ -123,10 +125,11 @@ void AGameplayEvents::ToggleOff()
 		LanternBrockenActor->SetActorHiddenInGame(true);
 		LanternBrockenActor->SetActorEnableCollision(false);
 	}
-	if (IsValid(ElectricKeyActor)) // ElectricKey
+	if (IsValid(ElectricKeyActor) && IsValid(ElectricKey_KeyActor)) // ElectricKey
 	{
 		ElectricKeyActor->SetActorHiddenInGame(true);
 		ElectricKeyActor->SetActorEnableCollision(false);
+		ElectricKey_KeyActor->SetActorEnableCollision(false);
 	}
 
 	if (IsValid(MissingColeTriggerStart))
@@ -335,6 +338,7 @@ void AGameplayEvents::Step5()
 	UpdateVaribleState(LanternBrockenActor, LanternBrokenTagName);
 	UpdateVaribleState(ColeStorageRoomActor, ColeStorageRoomTagName);
 	UpdateVaribleState(ElectricKeyActor, ElectricKeyTagName);
+	UpdateVaribleState(ElectricKey_KeyActor, ElectricKey_KeyTagName);
 
 	UpdateVaribleState(MissingColeTriggerStart, Trig2TagName);
 
@@ -366,10 +370,11 @@ void AGameplayEvents::Step5()
 	{
 		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 8.0f, FColor::Red, TEXT("---*Cole ON* NOT POSSIBLE---"));
 	}
-	if (IsValid(ElectricKeyActor)) // ElectricKey
+	if (IsValid(ElectricKeyActor) && IsValid(ElectricKey_KeyActor)) // ElectricKey
 	{
 		ElectricKeyActor->SetActorHiddenInGame(false);
 		ElectricKeyActor->SetActorEnableCollision(true);
+		ElectricKey_KeyActor->SetActorEnableCollision(true);
 	}
 	else
 	{

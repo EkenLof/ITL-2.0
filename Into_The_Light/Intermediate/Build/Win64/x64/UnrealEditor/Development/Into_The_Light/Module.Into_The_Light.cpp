@@ -20,6 +20,8 @@
 #include "D:/Github-EkenLof-Games/ITL-2.0/Into_The_Light/Intermediate/Build/Win64/UnrealEditor/Inc/Into_The_Light/UHT/PickUp.gen.cpp"
 #include "D:/Github-EkenLof-Games/ITL-2.0/Into_The_Light/Source/Into_The_Light/Doors_Objects/DoorSystem.cpp"
 #include "D:/Github-EkenLof-Games/ITL-2.0/Into_The_Light/Source/Into_The_Light/Into_The_Light.cpp"
+#include "D:/Github-EkenLof-Games/ITL-2.0/Into_The_Light/Source/Into_The_Light/Player/FirstPersonCharacter.cpp"
+#include "D:/Github-EkenLof-Games/ITL-2.0/Into_The_Light/Source/Into_The_Light/Private/Components/InventoryComponent.cpp"
 #include "D:/Github-EkenLof-Games/ITL-2.0/Into_The_Light/Source/Into_The_Light/Private/Interfaces/InteractionInterface.cpp"
 #include "D:/Github-EkenLof-Games/ITL-2.0/Into_The_Light/Source/Into_The_Light/Private/Items/ItemBase.cpp"
 #include "D:/Github-EkenLof-Games/ITL-2.0/Into_The_Light/Source/Into_The_Light/Private/Triggers/BoxCollider.cpp"
