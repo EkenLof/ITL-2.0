@@ -15,6 +15,10 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define INTO_THE_LIGHT_GameplayEvents_generated_h
 
 #define FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_GameplayEvents_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execStep10); \
+	DECLARE_FUNCTION(execStep9); \
+	DECLARE_FUNCTION(execStep8); \
+	DECLARE_FUNCTION(execStep7); \
 	DECLARE_FUNCTION(execStep6); \
 	DECLARE_FUNCTION(execStep5); \
 	DECLARE_FUNCTION(execStep4); \

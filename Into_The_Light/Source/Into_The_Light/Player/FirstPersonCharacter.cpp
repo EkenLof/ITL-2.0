@@ -88,23 +88,32 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 		BIsStepActive = true;
 	}
 
-	else if (PlayerInventory->IsFuse10a && BIsStepActive) // Fuse10a Pickup
+	else if (PlayerInventory->IsFuse10a && !PlayerInventory->IsElectricKey && BIsStepActive) // Fuse10a Pickup
 	{
 		EventSteps->NextStep(4);
 
 		BIsStepActive = false;
 	}
+
+	else if (PlayerInventory->IsElectricKey && !BIsStepActive) // Fuse10a Pickup
+	{
+		EventSteps->NextStep(7);
+
+		BIsStepActive = true;
+	}
 	///////////////////////////////////////////---TEMP---/////////////////////////////////////////////
 
 	/////////////////////////////////---ReceptionDoor & FuseBox---////////////////////////////////////
-	else if (CheckLookAtObject() && CheckLeftMouseButtonDown() && bIsFuseBox && bIsLookingAtFuBox && !bIsLookingAtRecDoor)
+	else if (CheckLookAtObject() && CheckLeftMouseButtonDown() && bIsFuseBox && bIsLookingAtFuBox && !bIsLookingAtRecDoor 
+		|| CheckLookAtObject() && CheckRightMouseButtonDown() && bIsFuseBox && bIsLookingAtFuBox && !bIsLookingAtRecDoor)
 	{
 		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Blue, TEXT("OBJECTIVE: Find the Electric Key."));
 
 		EventSteps->NextStep(5);
 		bIsFuseBox = false;
 	}
-	else if (CheckLookAtObject() && CheckLeftMouseButtonDown() && bIsReceptionDoor && bIsLookingAtRecDoor && !bIsLookingAtFuBox)
+	else if (CheckLookAtObject() && CheckLeftMouseButtonDown() && bIsReceptionDoor && bIsLookingAtRecDoor && !bIsLookingAtFuBox
+		|| CheckLookAtObject() && CheckRightMouseButtonDown() && bIsReceptionDoor && bIsLookingAtRecDoor && !bIsLookingAtFuBox)
 	{		
 		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Blue, TEXT("OBJECTIVE: Get the Flashlight."));
 
@@ -175,6 +184,11 @@ bool AFirstPersonCharacter::CheckLookAtObject()
 bool AFirstPersonCharacter::CheckLeftMouseButtonDown()
 {
 	return GetWorld()->GetFirstPlayerController()->IsInputKeyDown(EKeys::LeftMouseButton);
+}
+
+bool AFirstPersonCharacter::CheckRightMouseButtonDown()
+{
+	return GetWorld()->GetFirstPlayerController()->IsInputKeyDown(EKeys::RightMouseButton);
 }
 
 // Raycast

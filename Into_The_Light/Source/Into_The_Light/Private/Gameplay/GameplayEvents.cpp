@@ -56,11 +56,11 @@ void AGameplayEvents::BeginPlay()
 	Super::BeginPlay();
 
 	// Varible Check & assign. 
-	UpdateVaribleState(Lights[0], ReceptionLightsTagName);
-	UpdateVaribleState(Lights[1], F1LightsTagName);
-	UpdateVaribleState(Lights[2], F1OfficeLightsTagName);
-	UpdateVaribleState(Lights[3], F1ConferanceLightsTagName);
-	UpdateVaribleState(Lights[4], F1StorageRoomLightsTagName);
+	UpdateVaribleState(ReceptionLight, ReceptionLightsTagName);
+	UpdateVaribleState(F1Light, F1LightsTagName);
+	UpdateVaribleState(F1OfficeLight, F1OfficeLightsTagName);
+	UpdateVaribleState(F1ConferanceLight, F1ConferanceLightsTagName);
+	UpdateVaribleState(F1StorageRoomLight, F1StorageRoomLightsTagName);
 
 	UpdateVaribleState(LanternActor, LanternTagName);
 	UpdateVaribleState(LanternBrockenActor, LanternBrokenTagName);
@@ -99,22 +99,21 @@ void AGameplayEvents::UpdateVaribleState(AActor*& ActorReference, const FName& T
 
 void AGameplayEvents::ToggleOn()
 {
-	//if (Lights[0]) Lights[0]->SetActorHiddenInGame(false);
-	if (Lights[1]) Lights[1]->SetActorHiddenInGame(false);
-	if (Lights[2]) Lights[2]->SetActorHiddenInGame(false);
-	if (Lights[3]) Lights[3]->SetActorHiddenInGame(false);
-	if (Lights[4]) Lights[4]->SetActorHiddenInGame(false);
+	if (IsValid(F1Light)) F1Light->SetActorHiddenInGame(false);
+	if (IsValid(F1OfficeLight)) F1OfficeLight->SetActorHiddenInGame(false);
+	if (IsValid(F1ConferanceLight)) F1ConferanceLight->SetActorHiddenInGame(false);
+	if (IsValid(F1StorageRoomLight)) F1StorageRoomLight->SetActorHiddenInGame(false);
 }
 
 void AGameplayEvents::ToggleOff()
 {
 	// Lights
-	//if (Lights[0]) Lights[0]->SetActorHiddenInGame(true);
+	//if (IsValid(ReceptionLight)) ReceptionLight->SetActorHiddenInGame(true);
 
-	if (IsValid(Lights[1])) Lights[1]->SetActorHiddenInGame(true);
-	if (IsValid(Lights[2])) Lights[2]->SetActorHiddenInGame(true);
-	if (IsValid(Lights[3])) Lights[3]->SetActorHiddenInGame(true);
-	if (IsValid(Lights[4])) Lights[4]->SetActorHiddenInGame(true);
+	if (IsValid(F1Light)) F1Light->SetActorHiddenInGame(true);
+	if (IsValid(F1OfficeLight)) F1OfficeLight->SetActorHiddenInGame(true);
+	if (IsValid(F1ConferanceLight)) F1ConferanceLight->SetActorHiddenInGame(true);
+	if (IsValid(F1StorageRoomLight)) F1StorageRoomLight->SetActorHiddenInGame(true);
 
 	// EventActors
 	if (IsValid(LanternBrockenActor)) // LanternBroken
@@ -379,7 +378,6 @@ void AGameplayEvents::Step5()
 	{
 		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("---MissinColeTrigger ON---"));
 		MissingColeTriggerStart->SetActorEnableCollision(true);
-		//MissingColeTriggerStart->SetActorHiddenInGame(false);
 	}
 	else
 	{
@@ -390,26 +388,37 @@ void AGameplayEvents::Step5()
 void AGameplayEvents::Step6()
 {
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 6 Active---"));
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---Look For Cole---"));
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---Look for the Electric-KEY---"));
+
 }
 
 void AGameplayEvents::Step7()
 {
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 6 Active---"));
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---Look For Cole---"));
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 7 Active---"));
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---Use the key & Restore the Light---"));
+
 }
 void AGameplayEvents::Step8()
 {
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 6 Active---"));
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---Look For Cole---"));
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 8 Active---"));
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---Light Restored---"));
+
+	UpdateVaribleState(F1Light, F1LightsTagName);
+	UpdateVaribleState(F1OfficeLight, F1OfficeLightsTagName);
+	UpdateVaribleState(F1ConferanceLight, F1ConferanceLightsTagName);
+	UpdateVaribleState(F1StorageRoomLight, F1StorageRoomLightsTagName);
+
+	ToggleOn();
+
+	// Reception-Phone Rings
 }
 void AGameplayEvents::Step9()
 {
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 6 Active---"));
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 9 Active---"));
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---Look For Cole---"));
 }
 void AGameplayEvents::Step10()
 {
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 6 Active---"));
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 10 Active---"));
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---Look For Cole---"));
 }

@@ -134,6 +134,7 @@ protected:
 private:
 	bool CheckLookAtObject();
 	bool CheckLeftMouseButtonDown();
+	bool CheckRightMouseButtonDown();
 };
 
 

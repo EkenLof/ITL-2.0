@@ -39,15 +39,20 @@ public:
 	AActor* MissingColeTriggerStart;
 	// ---Triggers--- //
 
-	// ---Array Of Light--- //
+	// ---Lights--- //
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Lights")
-	TArray<AActor*> Lights;
-	// ---Array Of Light--- //
+	AActor* ReceptionLight;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Lights")
+	AActor* F1Light;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Lights")
+	AActor* F1OfficeLight;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Lights")
+	AActor* F1ConferanceLight;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Lights")
+	AActor* F1StorageRoomLight;
+	// ---Lights--- //
 	
-	// ---Array Of Actors--- //
-	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")
-	//TArray<AActor*> EventActors;
-
+	// ---Actors--- //
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")
 	AActor* LanternActor;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")

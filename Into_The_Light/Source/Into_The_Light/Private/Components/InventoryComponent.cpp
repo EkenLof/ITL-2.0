@@ -17,10 +17,8 @@ void UInventoryComponent::BeginPlay()
 {
 	Super::BeginPlay();
 
-	// ...
 }
 
-//////////////////////////////////////////////////////////////////// 14-4-2024
 
 void UInventoryComponent::ExposeItem(UItemBase* ItemOut)
 {
@@ -62,9 +60,7 @@ void UInventoryComponent::ExposeItem(UItemBase* ItemOut)
 	}
 }
 
-//////////////////////////////////////////////////////////////////// 14-4-2024
-
-UItemBase* UInventoryComponent::FindMatchingItem(UItemBase* ItemIn) const // 14-4-2024
+UItemBase* UInventoryComponent::FindMatchingItem(UItemBase* ItemIn) const
 {
 	if (ItemIn)
 	{
@@ -76,7 +72,7 @@ UItemBase* UInventoryComponent::FindMatchingItem(UItemBase* ItemIn) const // 14-
 	return nullptr;
 }
 
-UItemBase* UInventoryComponent::FindNextItemByID(UItemBase* ItemIn) const // 14-4-2024
+UItemBase* UInventoryComponent::FindNextItemByID(UItemBase* ItemIn) const 
 {
 	if (ItemIn)
 	{
