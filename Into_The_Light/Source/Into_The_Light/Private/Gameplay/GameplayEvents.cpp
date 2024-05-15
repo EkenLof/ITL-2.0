@@ -47,9 +47,9 @@ AGameplayEvents::AGameplayEvents()
 	LanternBrokenTagName = FName(TEXT("LanternBroken"));
 	ColeStorageRoomTagName = FName(TEXT("Cole_StorageRoom"));
 	ElectricKeyTagName = FName(TEXT("ElectricKey"));
-	ElectricKey_KeyTagName = FName(TEXT("ElectricKey_Key")); // ElectricKey_Key Real KEY
+	ElectricKey_KeyTagName = FName(TEXT("ElectricKey_Key")); // ElectricKey_Key
 
-	// FIIIXXX Fuse10A_InFuseBox
+	Fuse10A_ToFuseBoxTagName = FName(TEXT("Fuse10A_InFuseBox")); //Fuse10A_InFuseBox
 
 	Trig2TagName = FName(TEXT("Trigger_2_ACT1")); // MissingCole
 }
@@ -70,6 +70,8 @@ void AGameplayEvents::BeginPlay()
 	UpdateVaribleState(ColeStorageRoomActor, ColeStorageRoomTagName);
 	UpdateVaribleState(ElectricKeyActor, ElectricKeyTagName);
 	UpdateVaribleState(ElectricKey_KeyActor, ElectricKey_KeyTagName);
+
+	UpdateVaribleState(Fuse10A_ToFuseBoxActor, Fuse10A_ToFuseBoxTagName);
 
 	UpdateVaribleState(MissingColeTriggerStart, Trig2TagName);
 
@@ -107,6 +109,7 @@ void AGameplayEvents::ToggleOn()
 	if (IsValid(F1OfficeLight)) F1OfficeLight->SetActorHiddenInGame(false);
 	if (IsValid(F1ConferanceLight)) F1ConferanceLight->SetActorHiddenInGame(false);
 	if (IsValid(F1StorageRoomLight)) F1StorageRoomLight->SetActorHiddenInGame(false);
+	if (IsValid(Fuse10A_ToFuseBoxActor)) Fuse10A_ToFuseBoxActor->SetActorHiddenInGame(false);
 }
 
 void AGameplayEvents::ToggleOff()
@@ -414,6 +417,8 @@ void AGameplayEvents::Step8()
 	UpdateVaribleState(F1OfficeLight, F1OfficeLightsTagName);
 	UpdateVaribleState(F1ConferanceLight, F1ConferanceLightsTagName);
 	UpdateVaribleState(F1StorageRoomLight, F1StorageRoomLightsTagName);
+
+	UpdateVaribleState(Fuse10A_ToFuseBoxActor, Fuse10A_ToFuseBoxTagName);
 
 	ToggleOn();
 

@@ -63,7 +63,9 @@ public:
 	AActor* ElectricKeyActor;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")
 	AActor* ElectricKey_KeyActor;
-	// ---Array Of Actors--- //
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")
+	AActor* Fuse10A_ToFuseBoxActor;
+	// ---Actors--- //
 	////////////////////////////---ASSIGN---///////////////////////////
 
 protected:
@@ -88,6 +90,8 @@ protected:
 	FName LanternBrokenTagName;
 	FName ElectricKeyTagName;
 	FName ElectricKey_KeyTagName;
+
+	FName Fuse10A_ToFuseBoxTagName;
 
 	FName Trig2TagName;
 

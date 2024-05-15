@@ -6,6 +6,10 @@
 #include "World/PickUp.h"
 #include "Items/ItemBase.h" // Test for witch item is picked up
 
+#include "Materials/MaterialInterface.h"
+#include "Materials/MaterialInstanceDynamic.h"
+#include "Engine/Texture2D.h"
+#include "Engine/StaticMesh.h"
 #include "Engine/World.h"
 
 #include "Components/StaticMeshComponent.h"
@@ -25,6 +29,32 @@
 AFirstPersonCharacter::AFirstPersonCharacter()
 {
 	PrimaryActorTick.bCanEverTick = true;
+
+	// UI System
+	bIsUiActive = false;
+	
+	//MeshComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("MeshComponent"));
+	//RootComponent = MeshComponent;
+	/*
+	// Load the default texture
+	static ConstructorHelpers::FObjectFinder<UTexture2D> DefaultTexture(TEXT("/Game/PhysicsDoors/Textures/T-PD_Grab"));
+	Texture = DefaultTexture.Object;
+
+	// Create a dynamic material instance and set the texture
+	Material = UMaterialInstanceDynamic::Create(MeshComponent->GetMaterial(0), this);
+	if (Material)
+	{
+		Material->SetTextureParameterValue("Texture", Texture);
+		MeshComponent->SetMaterial(0, Material);
+	}
+
+	// Set up the mesh
+	static ConstructorHelpers::FObjectFinder<UStaticMesh> PlaneMesh(TEXT("/Engine/BasicShapes/Plane"));
+	if (PlaneMesh.Succeeded())
+	{
+		MeshComponent->SetStaticMesh(PlaneMesh.Object);
+	}*/
+	// UI System
 
 	//PlayerMovementsValues->MaxWalkSpeed = WalkSpeed;
 	WalkSpeed = 187.5;
@@ -48,10 +78,8 @@ AFirstPersonCharacter::AFirstPersonCharacter()
 	InteractionCheckDistance = 200.0f;
 
 	BIsStepActive = false;
-
 	bIsReceptionDoor = true;
 	bIsFuseBox = true;
-
 	bIsLookingAtFuBox = false;
 	bIsLookingAtRecDoor = false;
 
@@ -66,11 +94,21 @@ void AFirstPersonCharacter::BeginPlay()
 	Super::BeginPlay();
 
 	HUD = Cast<AMainHUD>(GetWorld()->GetFirstPlayerController()->GetHUD());
+
+	/*
+	// Position the mesh in the center of the screen
+	FVector Location = FVector(0.f, 0.f, 100.f); // Adjust the Z value to position the texture in front of the camera
+	SetActorLocation(Location);*/
 }
 
 void AFirstPersonCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+
+	if (bIsUiActive)
+	{
+
+	}
 
 	//ItemHandeling();
 
@@ -80,7 +118,7 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 	}
 
 	///////////////////////////////////////////---TEMP---/////////////////////////////////////////////
-	else if (PlayerInventory->IsFlshlight && !BIsStepActive && !PlayerInventory->IsFuse10a) // TEMP OR FOR FLASHLIGHT PICK UP.
+	else if (PlayerInventory->IsFlshlight && !BIsStepActive && !PlayerInventory->IsFuse10a) // Flashlight Pickup.
 	{
 		EventSteps->NextStep(2);
 		// HiddenWall Reception OFF.
@@ -95,7 +133,7 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 		BIsStepActive = false;
 	}
 
-	else if (PlayerInventory->IsElectricKey && !BIsStepActive) // Fuse10a Pickup
+	else if (PlayerInventory->IsElectricKey && !BIsStepActive) // ElectricKey Pickup
 	{
 		EventSteps->NextStep(7);
 
@@ -166,6 +204,7 @@ bool AFirstPersonCharacter::CheckLookAtObject()
 		{			
 			bIsLookingAtRecDoor = false;
 			bIsLookingAtFuBox = true;
+			bIsUiActive = true;
 
 			return true;
 		}
@@ -173,10 +212,12 @@ bool AFirstPersonCharacter::CheckLookAtObject()
 		{
 			bIsLookingAtFuBox = false;
 			bIsLookingAtRecDoor = true;
+			bIsUiActive = true;
 
 			return true;
 		}
 	}
+	bIsUiActive = false;
 
 	return false;
 }
@@ -304,7 +345,6 @@ void AFirstPersonCharacter::PerformInteractionCheck()
 				//
 				//const float Distance = (TraceStart - TraceHit.ImpactPoint).Size();
 				//if (TraceHit.GetActor() != InteractionData.CurrentInteractable && Distance <= InteractionCheckDistance)
-
 
 				if (TraceHit.GetActor() != InteractionData.CurrentInteractable)
 				{

@@ -93,9 +93,16 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FirstPersonCharacter | ItemLogic")
 	bool isFlashlightEquiped;
 
-	//UItemBase* Item;
-	//void ItemHandeling();
-
+	//--- UI System ---//
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FirstPersonCharacter | UiLogic")
+	bool bIsUiActive;
+	UPROPERTY(EditAnywhere, Category = "Texture")
+	UTexture2D* Texture;
+	UPROPERTY()
+	UMaterialInterface* Material;
+	UPROPERTY()
+	UStaticMeshComponent* MeshComponent;
+	//--- UI System ---//
 
 	//---- Inventory - Item - Interaction **Systems** ----
 	// --- VARIBLES ---
