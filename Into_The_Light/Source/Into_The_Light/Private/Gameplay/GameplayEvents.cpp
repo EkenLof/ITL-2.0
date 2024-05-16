@@ -3,39 +3,22 @@
 #include "Kismet/GameplayStatics.h"
 
 #include "MovieScene.h"
+#include "MovieSceneSequencePlayer.h"
 #include "Animation/AnimInstance.h"
+#include "Animation/AnimSequence.h"
+
 #include "Components/SkeletalMeshComponent.h"
+#include "Components/BoxComponent.h"
 
 #include "Runtime/LevelSequence/Public/LevelSequence.h"
 #include "Runtime/LevelSequence/Public/LevelSequencePlayer.h"
 #include "Runtime/LevelSequence/Public/LevelSequenceActor.h"
-#include "MovieSceneSequencePlayer.h"
-#include "Animation/AnimSequence.h"
-
-#include "Components/BoxComponent.h"
 
 AGameplayEvents::AGameplayEvents()
 {
 	PrimaryActorTick.bCanEverTick = true;
 
 	// static ConstructorHelpers::FObjectFinder<ULevelSequence> ColeInteractSequenceFinder(TEXT("LevelSequence'/All/Game/Animation/Cole/Animations/AS_Cole_StorageRoomInteraction'"));
-
-	/*
-	
-	static ConstructorHelpers::FObjectFinder<ULevelSequence> ColeInteractSequenceFinder(TEXT("/All/Game/Animation/Cole/Animations/AS_Cole_StorageRoomInteraction"));
-	if (ColeInteractSequenceFinder.Succeeded())
-	{
-		ColeInteractSequence = ColeInteractSequenceFinder.Object;
-		UE_LOG(LogTemp, Warning, TEXT("ColeInteractSequence loaded successfully."));
-	}
-	else
-	{
-		UE_LOG(LogTemp, Error, TEXT("Failed to load ColeInteractSequence."));
-	}
-	
-	*/
-
-	//LevelWorld = GetWorld();
 
 	ReceptionLightsTagName = FName(TEXT("Reception_Lights"));
 	F1LightsTagName = FName(TEXT("F1_Lights"));
@@ -50,6 +33,10 @@ AGameplayEvents::AGameplayEvents()
 	ElectricKey_KeyTagName = FName(TEXT("ElectricKey_Key")); // ElectricKey_Key
 
 	Fuse10A_ToFuseBoxTagName = FName(TEXT("Fuse10A_InFuseBox")); //Fuse10A_InFuseBox
+	FuseBox_InteractibleTagName = FName(TEXT("FuseBox_Interactible")); // FuseBox_Interactible
+	//Fuse10A_InFuseBoxTransTagName = FName(TEXT("Fuse10A_InFuseBoxTransparent")); // Fuse10A_InFuseBoxTransparent
+
+	LighterTagName = FName(TEXT("Lighter")); // Lighter
 
 	Trig2TagName = FName(TEXT("Trigger_2_ACT1")); // MissingCole
 }
@@ -59,6 +46,8 @@ void AGameplayEvents::BeginPlay()
 	Super::BeginPlay();
 
 	// Varible Check & assign. 
+	UpdateVaribleState(MissingColeTriggerStart, Trig2TagName);
+
 	UpdateVaribleState(ReceptionLight, ReceptionLightsTagName);
 	UpdateVaribleState(F1Light, F1LightsTagName);
 	UpdateVaribleState(F1OfficeLight, F1OfficeLightsTagName);
@@ -72,11 +61,11 @@ void AGameplayEvents::BeginPlay()
 	UpdateVaribleState(ElectricKey_KeyActor, ElectricKey_KeyTagName);
 
 	UpdateVaribleState(Fuse10A_ToFuseBoxActor, Fuse10A_ToFuseBoxTagName);
-
-	UpdateVaribleState(MissingColeTriggerStart, Trig2TagName);
+	UpdateVaribleState(FuseBox_InteractibleActor, FuseBox_InteractibleTagName);
+	//UpdateVaribleState(Fuse10A_InFuseBoxTransActor, Fuse10A_InFuseBoxTransTagName);
+	UpdateVaribleState(LighterActor, LighterTagName);
 
 	ToggleOff(); // Start Values
-
 	NextStep(1); // Temp. Change to some action to Active for Events
 }
 
@@ -97,7 +86,7 @@ void AGameplayEvents::UpdateVaribleState(AActor*& ActorReference, const FName& T
 
 		if (FoundActors.Num() > 0) 
 		{
-			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("FOUND"));
+			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("FOUND: " + TagName.ToString()));
 			ActorReference = FoundActors[0];
 		}
 	}
@@ -110,6 +99,11 @@ void AGameplayEvents::ToggleOn()
 	if (IsValid(F1ConferanceLight)) F1ConferanceLight->SetActorHiddenInGame(false);
 	if (IsValid(F1StorageRoomLight)) F1StorageRoomLight->SetActorHiddenInGame(false);
 	if (IsValid(Fuse10A_ToFuseBoxActor)) Fuse10A_ToFuseBoxActor->SetActorHiddenInGame(false);
+	if(IsValid(LighterActor))
+	{
+		LighterActor->SetActorHiddenInGame(false);
+		LighterActor->SetActorEnableCollision(true);
+	}
 }
 
 void AGameplayEvents::ToggleOff()
@@ -121,6 +115,8 @@ void AGameplayEvents::ToggleOff()
 	if (IsValid(F1OfficeLight)) F1OfficeLight->SetActorHiddenInGame(true);
 	if (IsValid(F1ConferanceLight)) F1ConferanceLight->SetActorHiddenInGame(true);
 	if (IsValid(F1StorageRoomLight)) F1StorageRoomLight->SetActorHiddenInGame(true);
+
+	LighterActor->SetActorEnableCollision(false);
 
 	// EventActors
 	if (IsValid(LanternBrockenActor)) // LanternBroken
@@ -139,10 +135,9 @@ void AGameplayEvents::ToggleOff()
 	{
 		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("---MissinColeTrigger OFF---"));
 		MissingColeTriggerStart->SetActorEnableCollision(false);
-		//MissingColeTriggerStart->SetActorHiddenInGame(true);
 	}
 
-	// Unlock Reception Door.
+	if (IsValid(FuseBox_InteractibleActor)) FuseBox_InteractibleActor->SetActorEnableCollision(false);
 }
 
 void AGameplayEvents::NextStep(int32 StepUp)
@@ -188,21 +183,6 @@ void AGameplayEvents::NextStep(int32 StepUp)
 	}
 }
 
-/*
-// Lights
-Reception_Lights        // 0
-F1_Lights               // 1
-F1_Office_Lights        // 2
-F1_Conferance_Lights    // 3
-F1_StorageRoom_Lights   // 4
-
-// EventActors
-Cole_StorageRoom        // 0
-Lantern                 // 1
-LanternBroken           // 2
-ElectricKey             // 3
-*/
-
 
 void AGameplayEvents::Step0() // 
 {
@@ -245,82 +225,16 @@ void AGameplayEvents::Step2() //
 		RecetionHiddenWall->Destroy();
 	}
 	*/
-
-	// Unlock Reception Door.
 }
 
 void AGameplayEvents::Step3()
 {
-	/*
-	
-	FName ColeStorageRoomInteractTagName = FName(TEXT("LS_Cole_SearchIdle"));
-	FName ColeStorageRoomIdleSerachTagName = FName(TEXT("LS_Cole_SR-Interact"));
-
-	TArray<AActor*> ColeStorageRoomInteractTagFound;
-	TArray<AActor*> ColeStorageRoomIdleSerachTagFound;
-
-	UWorld* LevelWorld = GetWorld();
-
-	if (LevelWorld)
-	{
-		ColeInteractSequence = nullptr; // Assuming ColeInteractSequence is a ULevelSequence pointer
-		ColeIdleSearchSequence = nullptr; // Assuming ColeIdleSearchSequence is a ULevelSequence pointer
-
-		UGameplayStatics::GetAllActorsWithTag(LevelWorld, ColeStorageRoomInteractTagName, ColeStorageRoomInteractTagFound);
-		UGameplayStatics::GetAllActorsWithTag(LevelWorld, ColeStorageRoomIdleSerachTagName, ColeStorageRoomIdleSerachTagFound);
-
-		// Cole StorageRoom Interact
-		if (ColeStorageRoomInteractTagFound.Num() > 0)
-		{
-			AActor* FoundActor = ColeStorageRoomInteractTagFound[0];
-			ColeInteractSequence = Cast<ULevelSequence>(FoundActor->GetComponentByClass(ULevelSequence::StaticClass()));
-			if (ColeInteractSequence)
-			{
-				if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Emerald, TEXT("***Found Cole Interact***"));
-			}
-			else
-			{
-				if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("***Found Actor is not a ULevelSequence (Cole Interact)***"));
-			}
-		}
-		else
-		{
-			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("***Nothing Found***"));
-		}
-
-		// Cole StorageRoom Idle Serach
-		if (ColeStorageRoomIdleSerachTagFound.Num() > 0)
-		{
-			AActor* FoundActor = ColeStorageRoomIdleSerachTagFound[0];
-			ColeIdleSearchSequence = Cast<ULevelSequence>(FoundActor->GetComponentByClass(ULevelSequence::StaticClass()));
-			if (ColeIdleSearchSequence)
-			{
-				if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Emerald, TEXT("***Found Cole Idle-Search***"));
-			}
-			else
-			{
-				if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("***Found Actor is not a ULevelSequence (Cole Idle-Search)***"));
-			}
-		}
-		else
-		{
-			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("***Nothing Found***"));
-		}
-	}
-
-	*/
+	// Cole Meet Cutscene
 
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 3 Active---"));
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---Meeting Cole---"));
 
 	// Anim Play.
-	if (ColeInteractAnimSeq)
-	{
-
-		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("***ColeInteractAnimSeq***"));
-		//FString SequenceName = ("/Game/Animation/Cole/Animations/LS_Cole_StorageRoomInteraction.LS_Cole_StorageRoomInteraction");
-
-	}
 
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---Take 10A fuse from Cole---"));
 }
@@ -407,6 +321,13 @@ void AGameplayEvents::Step7()
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 7 Active---"));
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---Use the key & Restore the Light---"));
 
+	UpdateVaribleState(FuseBox_InteractibleActor, FuseBox_InteractibleTagName);
+
+	if (IsValid(FuseBox_InteractibleActor))
+	{
+		FuseBox_InteractibleActor->SetActorEnableCollision(true);
+	}
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("---Fusebox Collusion On---"));
 }
 void AGameplayEvents::Step8()
 {
@@ -419,6 +340,8 @@ void AGameplayEvents::Step8()
 	UpdateVaribleState(F1StorageRoomLight, F1StorageRoomLightsTagName);
 
 	UpdateVaribleState(Fuse10A_ToFuseBoxActor, Fuse10A_ToFuseBoxTagName);
+
+	UpdateVaribleState(LighterActor, LighterTagName);
 
 	ToggleOn();
 

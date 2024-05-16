@@ -12,7 +12,6 @@ void EmptyLinkFunctionForGeneratedCodeGameplayEvents() {}
 // Begin Cross Module References
 ENGINE_API UClass* Z_Construct_UClass_AActor();
 ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
-ENGINE_API UClass* Z_Construct_UClass_UAnimSequence_NoRegister();
 INTO_THE_LIGHT_API UClass* Z_Construct_UClass_AGameplayEvents();
 INTO_THE_LIGHT_API UClass* Z_Construct_UClass_AGameplayEvents_NoRegister();
 UPackage* Z_Construct_UPackage__Script_Into_The_Light();
@@ -71,13 +70,7 @@ struct Z_Construct_UFunction_AGameplayEvents_Step0_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "// Executed on each step (Every Step)\n" },
-#endif
 		{ "ModuleRelativePath", "Public/Gameplay/GameplayEvents.h" },
-#if !UE_BUILD_SHIPPING
-		{ "ToolTip", "Executed on each step (Every Step)" },
-#endif
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFunctionParams FuncParams;
@@ -456,11 +449,11 @@ struct Z_Construct_UFunction_AGameplayEvents_ToggleOn_Statics
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
 #if !UE_BUILD_SHIPPING
-		{ "Comment", "// ---Toggle Lights--- //\n" },
+		{ "Comment", "// ---Toggle--- //\n" },
 #endif
 		{ "ModuleRelativePath", "Public/Gameplay/GameplayEvents.h" },
 #if !UE_BUILD_SHIPPING
-		{ "ToolTip", "---Toggle Lights---" },
+		{ "ToolTip", "---Toggle---" },
 #endif
 	};
 #endif // WITH_METADATA
@@ -585,12 +578,18 @@ struct Z_Construct_UClass_AGameplayEvents_Statics
 		{ "Category", "Event | Assign | Actors" },
 		{ "ModuleRelativePath", "Public/Gameplay/GameplayEvents.h" },
 	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ColeInteractAnimSeq_MetaData[] = {
-		{ "Category", "Animations | Cole" },
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_FuseBox_InteractibleActor_MetaData[] = {
+		{ "Category", "Event | Assign | Actors" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = \"Event | Assign | Actors\")\n//AActor* Fuse10A_InFuseBoxTransActor;\n" },
+#endif
 		{ "ModuleRelativePath", "Public/Gameplay/GameplayEvents.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = \"Event | Assign | Actors\")\nAActor* Fuse10A_InFuseBoxTransActor;" },
+#endif
 	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ColeIdleSearchAnimSeq_MetaData[] = {
-		{ "Category", "Animations | Cole" },
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_LighterActor_MetaData[] = {
+		{ "Category", "Event | Assign | Actors" },
 		{ "ModuleRelativePath", "Public/Gameplay/GameplayEvents.h" },
 	};
 #endif // WITH_METADATA
@@ -606,13 +605,13 @@ struct Z_Construct_UClass_AGameplayEvents_Statics
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_ElectricKeyActor;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_ElectricKey_KeyActor;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_Fuse10A_ToFuseBoxActor;
-	static const UECodeGen_Private::FObjectPropertyParams NewProp_ColeInteractAnimSeq;
-	static const UECodeGen_Private::FObjectPropertyParams NewProp_ColeIdleSearchAnimSeq;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_FuseBox_InteractibleActor;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_LighterActor;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
 		{ &Z_Construct_UFunction_AGameplayEvents_NextStep, "NextStep" }, // 452918355
-		{ &Z_Construct_UFunction_AGameplayEvents_Step0, "Step0" }, // 2469733562
+		{ &Z_Construct_UFunction_AGameplayEvents_Step0, "Step0" }, // 140066084
 		{ &Z_Construct_UFunction_AGameplayEvents_Step1, "Step1" }, // 2049934850
 		{ &Z_Construct_UFunction_AGameplayEvents_Step10, "Step10" }, // 2215850230
 		{ &Z_Construct_UFunction_AGameplayEvents_Step2, "Step2" }, // 3595875670
@@ -624,7 +623,7 @@ struct Z_Construct_UClass_AGameplayEvents_Statics
 		{ &Z_Construct_UFunction_AGameplayEvents_Step8, "Step8" }, // 2658875839
 		{ &Z_Construct_UFunction_AGameplayEvents_Step9, "Step9" }, // 1023245460
 		{ &Z_Construct_UFunction_AGameplayEvents_ToggleOff, "ToggleOff" }, // 83995692
-		{ &Z_Construct_UFunction_AGameplayEvents_ToggleOn, "ToggleOn" }, // 806581691
+		{ &Z_Construct_UFunction_AGameplayEvents_ToggleOn, "ToggleOn" }, // 379029772
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -644,8 +643,8 @@ const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGameplayEvent
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGameplayEvents_Statics::NewProp_ElectricKeyActor = { "ElectricKeyActor", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGameplayEvents, ElectricKeyActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ElectricKeyActor_MetaData), NewProp_ElectricKeyActor_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGameplayEvents_Statics::NewProp_ElectricKey_KeyActor = { "ElectricKey_KeyActor", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGameplayEvents, ElectricKey_KeyActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ElectricKey_KeyActor_MetaData), NewProp_ElectricKey_KeyActor_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGameplayEvents_Statics::NewProp_Fuse10A_ToFuseBoxActor = { "Fuse10A_ToFuseBoxActor", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGameplayEvents, Fuse10A_ToFuseBoxActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Fuse10A_ToFuseBoxActor_MetaData), NewProp_Fuse10A_ToFuseBoxActor_MetaData) };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGameplayEvents_Statics::NewProp_ColeInteractAnimSeq = { "ColeInteractAnimSeq", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGameplayEvents, ColeInteractAnimSeq), Z_Construct_UClass_UAnimSequence_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ColeInteractAnimSeq_MetaData), NewProp_ColeInteractAnimSeq_MetaData) };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGameplayEvents_Statics::NewProp_ColeIdleSearchAnimSeq = { "ColeIdleSearchAnimSeq", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGameplayEvents, ColeIdleSearchAnimSeq), Z_Construct_UClass_UAnimSequence_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ColeIdleSearchAnimSeq_MetaData), NewProp_ColeIdleSearchAnimSeq_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGameplayEvents_Statics::NewProp_FuseBox_InteractibleActor = { "FuseBox_InteractibleActor", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGameplayEvents, FuseBox_InteractibleActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_FuseBox_InteractibleActor_MetaData), NewProp_FuseBox_InteractibleActor_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGameplayEvents_Statics::NewProp_LighterActor = { "LighterActor", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGameplayEvents, LighterActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_LighterActor_MetaData), NewProp_LighterActor_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AGameplayEvents_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGameplayEvents_Statics::NewProp_MissingColeTriggerStart,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGameplayEvents_Statics::NewProp_ReceptionLight,
@@ -659,8 +658,8 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AGameplay
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGameplayEvents_Statics::NewProp_ElectricKeyActor,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGameplayEvents_Statics::NewProp_ElectricKey_KeyActor,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGameplayEvents_Statics::NewProp_Fuse10A_ToFuseBoxActor,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGameplayEvents_Statics::NewProp_ColeInteractAnimSeq,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGameplayEvents_Statics::NewProp_ColeIdleSearchAnimSeq,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGameplayEvents_Statics::NewProp_FuseBox_InteractibleActor,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGameplayEvents_Statics::NewProp_LighterActor,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AGameplayEvents_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_AGameplayEvents_Statics::DependentSingletons[])() = {
@@ -703,10 +702,10 @@ AGameplayEvents::~AGameplayEvents() {}
 struct Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_GameplayEvents_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AGameplayEvents, AGameplayEvents::StaticClass, TEXT("AGameplayEvents"), &Z_Registration_Info_UClass_AGameplayEvents, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AGameplayEvents), 349718876U) },
+		{ Z_Construct_UClass_AGameplayEvents, AGameplayEvents::StaticClass, TEXT("AGameplayEvents"), &Z_Registration_Info_UClass_AGameplayEvents, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AGameplayEvents), 3804273228U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_GameplayEvents_h_1422966579(TEXT("/Script/Into_The_Light"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_GameplayEvents_h_441457617(TEXT("/Script/Into_The_Light"),
 	Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_GameplayEvents_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_GameplayEvents_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

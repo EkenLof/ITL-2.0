@@ -33,22 +33,22 @@ void UInventoryItemSlot::NativeConstruct()
 		switch (ItemReference->ItemType)
 		{
 		case EItemType::LeftHand: 
-			ItemBorder->SetBrushColor(FLinearColor(0.0f, 0.200f, 0.255f, 0.4f)); // Cyan-ish //R,G,B,A
+			ItemBorder->SetBrushColor(FLinearColor(0.255f, 0.255f, 0.255f, 1.0f));
 			break;
 		case EItemType::RightHand: 
-			ItemBorder->SetBrushColor(FLinearColor(0.0f, 0.255f, 0.200f, 0.4f)); // // Green/Cyan //R,G,B,A
+			ItemBorder->SetBrushColor(FLinearColor(0.255f, 0.255f, 0.255f, 1.0f));
 			break;
 		case EItemType::Consumable: 
-			ItemBorder->SetBrushColor(FLinearColor(0.0f, 0.150f, 0.50f, 0.4f)); // Green-ish //R,G,B,A
+			ItemBorder->SetBrushColor(FLinearColor(0.255f, 0.255f, 0.255f, 1.0f));
 			break;
 		case EItemType::Useables: 
-			ItemBorder->SetBrushColor(FLinearColor(0.175f, 0.255f, 0.225f, 0.4f)); // Green/Cyan Bright //R,G,B,A
+			ItemBorder->SetBrushColor(FLinearColor(0.255f, 0.255f, 0.255f, 1.0f));
 			break;
 		case EItemType::Item: 
-			ItemBorder->SetBrushColor(FLinearColor(0.175f, 0.0f, 0.0f, 0.4f)); // Red-ish //R,G,B,A
+			ItemBorder->SetBrushColor(FLinearColor(0.255f, 0.255f, 0.255f, 1.0f));
 			break;
 		case EItemType::Collectibles: 
-			ItemBorder->SetBrushColor(FLinearColor(0.125f, 0.0f, 0.255f, 0.4f)); // Peurple-ish //R,G,B,A
+			ItemBorder->SetBrushColor(FLinearColor(0.255f, 0.255f, 0.255f, 1.0f));
 			break;
 		default:;
 		}

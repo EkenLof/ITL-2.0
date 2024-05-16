@@ -25,13 +25,13 @@ public:
 	/////////////////////////////---NEXTSTEP ACTIVE---////////////////////////////////////
 
 
-	// ---Toggle Lights--- //
+	// ---Toggle--- //
 	UFUNCTION(BlueprintCallable)
 	void ToggleOn();
 
 	UFUNCTION(BlueprintCallable)
 	void ToggleOff();
-	// ---Toggle Lights--- //
+	// ---Toggle--- //
 
 	////////////////////////////---ASSIGN---///////////////////////////
 	// ---Triggers--- //
@@ -65,17 +65,20 @@ public:
 	AActor* ElectricKey_KeyActor;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")
 	AActor* Fuse10A_ToFuseBoxActor;
+	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")
+	//AActor* Fuse10A_InFuseBoxTransActor;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")
+	AActor* FuseBox_InteractibleActor;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")
+	AActor* LighterActor;
 	// ---Actors--- //
 	////////////////////////////---ASSIGN---///////////////////////////
 
 protected:
-
-	UPROPERTY(EditAnywhere, Category = "Animations | Cole")
-	class UAnimSequence* ColeInteractAnimSeq;
-	UPROPERTY(EditAnywhere, Category = "Animations | Cole")
-	class UAnimSequence* ColeIdleSearchAnimSeq;
-
 	////////////////////////////---LevelSequence---///////////////////////////
+	//UPROPERTY(EditAnywhere, Category = "Animations | Cole")
+	//class UAnimSequence* ColeInteractAnimSeq;
+	
 	UObject* WorldContextObject;
 	////////////////////////////---LevelSequence---///////////////////////////
 
@@ -92,6 +95,9 @@ protected:
 	FName ElectricKey_KeyTagName;
 
 	FName Fuse10A_ToFuseBoxTagName;
+	FName Fuse10A_InFuseBoxTransTagName;
+	FName FuseBox_InteractibleTagName;
+	FName LighterTagName;
 
 	FName Trig2TagName;
 
@@ -101,7 +107,6 @@ protected:
 	virtual void Tick(float DeltaTime) override;
 
 private:
-	// Executed on each step (Every Step)
 	UFUNCTION()
 	void Step0(); // 
 

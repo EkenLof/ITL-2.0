@@ -8,6 +8,8 @@
 
 #include "Materials/MaterialInterface.h"
 #include "Materials/MaterialInstanceDynamic.h"
+#include "Materials/MaterialParameterCollection.h"
+
 #include "Engine/Texture2D.h"
 #include "Engine/StaticMesh.h"
 #include "Engine/World.h"
@@ -26,34 +28,49 @@
 #include "Gameplay/GameplayEvents.h"
 #include "Triggers/BoxCollider.h"
 
+#include "Kismet/GameplayStatics.h" // For the Assign Function.
+
 AFirstPersonCharacter::AFirstPersonCharacter()
 {
 	PrimaryActorTick.bCanEverTick = true;
 
 	// UI System
+	/*
 	bIsUiActive = false;
 	
-	//MeshComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("MeshComponent"));
-	//RootComponent = MeshComponent;
-	/*
-	// Load the default texture
-	static ConstructorHelpers::FObjectFinder<UTexture2D> DefaultTexture(TEXT("/Game/PhysicsDoors/Textures/T-PD_Grab"));
-	Texture = DefaultTexture.Object;
+	UiMeshComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("UiMeshComponent"));
+	RootComponent = UiMeshComponent;
+	
+	static ConstructorHelpers::FObjectFinder<UTexture2D>DefaultTexture(TEXT("/Game/PhysicsDoors/Textures/T-PD_Grab"));
+	UiTexture = DefaultTexture.Object;
 
-	// Create a dynamic material instance and set the texture
-	Material = UMaterialInstanceDynamic::Create(MeshComponent->GetMaterial(0), this);
-	if (Material)
+	UiMaterial = UMaterialInstanceDynamic::Create(UiMeshComponent->GetMaterial(0), this);
+	if (UiMaterial)
 	{
-		Material->SetTextureParameterValue("Texture", Texture);
-		MeshComponent->SetMaterial(0, Material);
+		if (UiMeshComponent)
+		{
+			//UMaterialParameterCollection* ParameterCollection = LoadObject<UMaterialParameterCollection>(nullptr, TEXT("/Game/UI/UI_System/TextureParameterCollection"));
+			//if (ParameterCollection)
+			//{
+				//ParameterCollection->SetTextureParameterValue(FName("Texture"), UiTexture);
+			//}
+			//else
+			//{
+				//UE_LOG(LogTemp, Warning, TEXT("Failed to load material parameter collection."));
+			//}
+
+			//UiMaterial->SetTextureStreamingData();
+
+			UiMeshComponent->SetMaterial(0, UiMaterial);
+		}
 	}
 
 	// Set up the mesh
 	static ConstructorHelpers::FObjectFinder<UStaticMesh> PlaneMesh(TEXT("/Engine/BasicShapes/Plane"));
 	if (PlaneMesh.Succeeded())
 	{
-		MeshComponent->SetStaticMesh(PlaneMesh.Object);
-	}*/
+		UiMeshComponent->SetStaticMesh(PlaneMesh.Object);
+	} */
 	// UI System
 
 	//PlayerMovementsValues->MaxWalkSpeed = WalkSpeed;
@@ -75,16 +92,21 @@ AFirstPersonCharacter::AFirstPersonCharacter()
 	PlayerInventory->SetWeightCapacity(80.0f); // 50 YT
 
 	InteractionCheckFrequency = 0.1; // Interaction time update
-	InteractionCheckDistance = 200.0f;
+	InteractionCheckDistance = 200.0f; // Check if all distances match
 
 	BIsStepActive = false;
+	bIsTempOnOff = false;
 	bIsReceptionDoor = true;
 	bIsFuseBox = true;
+	bIsFuseBox_Interactible = true;
 	bIsLookingAtFuBox = false;
 	bIsLookingAtRecDoor = false;
+	bIsLookingAtFuseBox_Interactible = false;
 
 	EventSteps = CreateDefaultSubobject<AGameplayEvents>(TEXT("EventSteps"));
 	TriggerBox = CreateDefaultSubobject<ABoxCollider>(TEXT("TriggerBox"));
+
+	Fuse10A_InFuseBoxTransTagName = FName(TEXT("Fuse10A_InFuseBoxTransparent")); // Fuse10A_InFuseBoxTransparent
 
 	//BaseEyeHeight = 75.0f;
 }
@@ -105,17 +127,12 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	if (bIsUiActive)
-	{
-
-	}
+	//if (bIsUiActive)
+	//{}
 
 	//ItemHandeling();
 
-	if (GetWorld()->TimeSince(InteractionData.LastInteractionCheckTime) > InteractionCheckFrequency)
-	{
-		PerformInteractionCheck();
-	}
+	if (GetWorld()->TimeSince(InteractionData.LastInteractionCheckTime) > InteractionCheckFrequency) PerformInteractionCheck();
 
 	///////////////////////////////////////////---TEMP---/////////////////////////////////////////////
 	else if (PlayerInventory->IsFlshlight && !BIsStepActive && !PlayerInventory->IsFuse10a) // Flashlight Pickup.
@@ -142,21 +159,48 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 	///////////////////////////////////////////---TEMP---/////////////////////////////////////////////
 
 	/////////////////////////////////---ReceptionDoor & FuseBox---////////////////////////////////////
-	else if (CheckLookAtObject() && CheckLeftMouseButtonDown() && bIsFuseBox && bIsLookingAtFuBox && !bIsLookingAtRecDoor 
-		|| CheckLookAtObject() && CheckRightMouseButtonDown() && bIsFuseBox && bIsLookingAtFuBox && !bIsLookingAtRecDoor)
+	else if (CheckLookAtObject() && CheckLeftMouseButtonDown() && bIsFuseBox && bIsLookingAtFuBox && !bIsLookingAtRecDoor && !bIsLookingAtFuseBox_Interactible
+		|| CheckLookAtObject() && CheckRightMouseButtonDown() && bIsFuseBox && bIsLookingAtFuBox && !bIsLookingAtRecDoor && !bIsLookingAtFuseBox_Interactible)
 	{
 		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Blue, TEXT("OBJECTIVE: Find the Electric Key."));
 
 		EventSteps->NextStep(5);
 		bIsFuseBox = false;
 	}
-	else if (CheckLookAtObject() && CheckLeftMouseButtonDown() && bIsReceptionDoor && bIsLookingAtRecDoor && !bIsLookingAtFuBox
-		|| CheckLookAtObject() && CheckRightMouseButtonDown() && bIsReceptionDoor && bIsLookingAtRecDoor && !bIsLookingAtFuBox)
+	else if (CheckLookAtObject() && CheckLeftMouseButtonDown() && bIsReceptionDoor && bIsLookingAtRecDoor && !bIsLookingAtFuBox && !bIsLookingAtFuseBox_Interactible
+		|| CheckLookAtObject() && CheckRightMouseButtonDown() && bIsReceptionDoor && bIsLookingAtRecDoor && !bIsLookingAtFuBox && !bIsLookingAtFuseBox_Interactible)
 	{		
 		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Blue, TEXT("OBJECTIVE: Get the Flashlight."));
 
 		bIsReceptionDoor = false;
 	}
+	else if (CheckLookAtObject() && CheckLeftMouseButtonDown() && bIsFuseBox_Interactible && bIsLookingAtFuseBox_Interactible && !bIsLookingAtRecDoor && !bIsLookingAtFuBox
+		|| CheckLookAtObject() && CheckRightMouseButtonDown() && bIsFuseBox_Interactible && bIsLookingAtFuseBox_Interactible && !bIsLookingAtRecDoor && !bIsLookingAtFuBox)
+	{
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Blue, TEXT("OBJECTIVE: Look for Cole."));
+
+		EventSteps->NextStep(8); // Lights Restored, fuse10a in place.
+		bIsFuseBox_Interactible = false;
+	}
+
+	// --- Looking OnOff --- //
+	// Looking & Visable
+	if (bIsLookingAtFuseBox_Interactible && bIsFuseBox_Interactible && !bIsTempOnOff)
+	{
+		UpdateVaribleState(Fuse10A_InFuseBoxTransActor, Fuse10A_InFuseBoxTransTagName);
+		if (IsValid(Fuse10A_InFuseBoxTransActor)) Fuse10A_InFuseBoxTransActor->SetActorHiddenInGame(false);
+		
+		bIsTempOnOff = true;
+	}
+	// Not Looking & Not Visable
+	else if (bIsLookingAtFuseBox_Interactible && !bIsFuseBox_Interactible && bIsTempOnOff || !bIsLookingAtFuseBox_Interactible && bIsTempOnOff)
+	{
+		UpdateVaribleState(Fuse10A_InFuseBoxTransActor, Fuse10A_InFuseBoxTransTagName);
+		if (IsValid(Fuse10A_InFuseBoxTransActor)) Fuse10A_InFuseBoxTransActor->SetActorHiddenInGame(true);
+
+		bIsTempOnOff = false;
+	}
+	// --- Looking OnOff --- //
 	/////////////////////////////////---ReceptionDoor & FuseBox---////////////////////////////////////
 }
 
@@ -182,12 +226,31 @@ void AFirstPersonCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInp
 	PlayerInputComponent->BindAction("ToggleMenu", IE_Pressed, this, &AFirstPersonCharacter::ToggleMenu);
 }
 
+void AFirstPersonCharacter::UpdateVaribleState(AActor*& ActorReference, const FName& TagName)
+{
+	if (!IsValid(ActorReference))
+	{
+		ActorReference = nullptr;
+
+		TArray<AActor*> FoundActors;
+
+		UGameplayStatics::GetAllActorsWithTag(GetWorld(), TagName, FoundActors);
+
+		if (FoundActors.Num() > 0)
+		{
+			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("FOUND: " + TagName.ToString()));
+			ActorReference = FoundActors[0];
+		}
+	}
+}
+
 // RayCast
 
 bool AFirstPersonCharacter::CheckLookAtObject()
 {
 	FName ReceptionDoorTagName = FName(TEXT("ReceptionDoor"));
 	FName FuseTagName = FName(TEXT("FuseBox"));
+	FName FuseBox_Interactible = FName(TEXT("FuseBox_Interactible"));
 
 	FVector Start = GetWorld()->GetFirstPlayerController()->PlayerCameraManager->GetCameraLocation();
 	FVector End = Start + GetWorld()->GetFirstPlayerController()->GetControlRotation().Vector() * InteractionCheckDistance;
@@ -203,7 +266,9 @@ bool AFirstPersonCharacter::CheckLookAtObject()
 		if (HitResult.GetActor() && HitResult.GetActor()->ActorHasTag(FuseTagName) && bIsFuseBox)
 		{			
 			bIsLookingAtRecDoor = false;
+			bIsLookingAtFuseBox_Interactible = false;
 			bIsLookingAtFuBox = true;
+
 			bIsUiActive = true;
 
 			return true;
@@ -211,12 +276,28 @@ bool AFirstPersonCharacter::CheckLookAtObject()
 		else if (HitResult.GetActor() && HitResult.GetActor()->ActorHasTag(ReceptionDoorTagName) && bIsReceptionDoor)
 		{
 			bIsLookingAtFuBox = false;
+			bIsLookingAtFuseBox_Interactible = false;
 			bIsLookingAtRecDoor = true;
+
+			bIsUiActive = true;
+
+			return true;
+		}
+		else if (HitResult.GetActor() && HitResult.GetActor()->ActorHasTag(FuseBox_Interactible) && bIsFuseBox_Interactible)
+		{
+			bIsLookingAtFuBox = false;
+			bIsLookingAtRecDoor = false;
+			bIsLookingAtFuseBox_Interactible = true;
+
 			bIsUiActive = true;
 
 			return true;
 		}
 	}
+	bIsLookingAtFuBox = false;
+	bIsLookingAtRecDoor = false;
+	bIsLookingAtFuseBox_Interactible = false;
+
 	bIsUiActive = false;
 
 	return false;
@@ -265,39 +346,7 @@ void AFirstPersonCharacter::CamLookUp(float InputValue)
 {
 	AddControllerPitchInput(InputValue);
 }
-/*
-void AFirstPersonCharacter::ItemHandeling()
-{
-	UItemBase* CurrentItem;
-	CurrentItem = NULL;
 
-	if (PlayerInventory->FindMatchingItem(Item) == CurrentItem)
-	{
-		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("Is IF!"));
-		CurrentItem = Item;
-	}
-	else 
-	{
-		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("Is ELSE!"));
-	}
-
-	if (Item->ID != CurrentItem->ID) // False
-	{
-		isFlashlightInInventory = false;
-
-		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("Is False!"));
-	}
-	else // True
-	{
-		isFlashlightInInventory = true;
-
-		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("Is True!"));
-		CurrentItem->ResetItemFlags();
-	}
-	
-	//if(PlayerInventory->FindMatchingItem(Item)) 
-}
-*/
 void AFirstPersonCharacter::UseFlashlight() // FLashlight LOGIC
 {
 	if (!isFlashlightEquiped && PlayerInventory->IsFlshlight)

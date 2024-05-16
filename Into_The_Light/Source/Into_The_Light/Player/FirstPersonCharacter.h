@@ -1,7 +1,12 @@
 #pragma once
 
 #include "CoreMinimal.h"
+
 #include "GameFramework/Character.h"
+#include "GameFramework/Actor.h"
+
+#include "Components/ActorComponent.h"
+
 #include "Interfaces/InteractionInterface.h"
 #include "FirstPersonCharacter.generated.h"
 
@@ -93,16 +98,16 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FirstPersonCharacter | ItemLogic")
 	bool isFlashlightEquiped;
 
-	//--- UI System ---//
+	////////////////////////////////////--- UI System ---////////////////////////////////////
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FirstPersonCharacter | UiLogic")
 	bool bIsUiActive;
-	UPROPERTY(EditAnywhere, Category = "Texture")
-	UTexture2D* Texture;
+	UPROPERTY(EditAnywhere, Category = "FirstPersonCharacter | UiLogic")
+	UTexture2D* UiTexture;
 	UPROPERTY()
-	UMaterialInterface* Material;
+	UMaterialInterface* UiMaterial;
 	UPROPERTY()
-	UStaticMeshComponent* MeshComponent;
-	//--- UI System ---//
+	UStaticMeshComponent* UiMeshComponent;
+	////////////////////////////////////--- UI System ---////////////////////////////////////
 
 	//---- Inventory - Item - Interaction **Systems** ----
 	// --- VARIBLES ---
@@ -119,11 +124,23 @@ protected:
 
 	bool BIsStepActive;
 
+	bool bIsTempOnOff;
+
 	bool bIsReceptionDoor;
 	bool bIsFuseBox;
+	bool bIsFuseBox_Interactible;
 
 	bool bIsLookingAtRecDoor;
 	bool bIsLookingAtFuBox;
+	bool bIsLookingAtFuseBox_Interactible;
+
+	// --- Tags --- //
+	FName Fuse10A_InFuseBoxTransTagName;
+	// --- Tags --- //
+	// --- Actors --- //
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")
+	AActor* Fuse10A_InFuseBoxTransActor;
+	// --- Actors --- //
 
 	FTimerHandle TimerHandle_Interaction;
 	FInteractionData InteractionData;
@@ -139,6 +156,8 @@ protected:
 	void Interact();
 
 private:
+	void UpdateVaribleState(AActor*& ActorReference, const FName& TagName);
+
 	bool CheckLookAtObject();
 	bool CheckLeftMouseButtonDown();
 	bool CheckRightMouseButtonDown();
