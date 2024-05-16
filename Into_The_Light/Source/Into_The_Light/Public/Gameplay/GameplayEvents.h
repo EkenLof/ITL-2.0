@@ -6,8 +6,11 @@
 #include "Components/ActorComponent.h"
 #include "Components/PointLightComponent.h"
 #include "Components/RectLightComponent.h"
+#include "Components/AudioComponent.h"
 
 #include "GameplayEvents.generated.h"
+
+class AActorSoundSystem;
 
 UCLASS()
 class INTO_THE_LIGHT_API AGameplayEvents : public AActor
@@ -16,6 +19,8 @@ class INTO_THE_LIGHT_API AGameplayEvents : public AActor
 
 public:
 	AGameplayEvents();
+
+	FORCEINLINE AActorSoundSystem* GetInventory() const { return ActorSoundSystem; };
 
 	/////////////////////////////---NEXTSTEP ACTIVE---////////////////////////////////////
 	UFUNCTION(BlueprintCallable)
@@ -71,10 +76,15 @@ public:
 	AActor* FuseBox_InteractibleActor;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")
 	AActor* LighterActor;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")
+	AActor* ReceptionPhoneActor;
 	// ---Actors--- //
 	////////////////////////////---ASSIGN---///////////////////////////
 
 protected:
+
+	AActorSoundSystem* ActorSoundSystem;
+
 	////////////////////////////---LevelSequence---///////////////////////////
 	//UPROPERTY(EditAnywhere, Category = "Animations | Cole")
 	//class UAnimSequence* ColeInteractAnimSeq;

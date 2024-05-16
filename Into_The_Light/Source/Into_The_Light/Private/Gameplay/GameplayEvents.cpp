@@ -14,9 +14,17 @@
 #include "Runtime/LevelSequence/Public/LevelSequencePlayer.h"
 #include "Runtime/LevelSequence/Public/LevelSequenceActor.h"
 
+#include "Audio/ActorSoundSystem.h"
+
+#include "Sound/SoundCue.h"
+
 AGameplayEvents::AGameplayEvents()
 {
 	PrimaryActorTick.bCanEverTick = true;
+
+	
+	// SoundCueAsset(TEXT("/Game/Audio/Phone/Reception-Phone/Reception_PhoneCall"));
+
 
 	// static ConstructorHelpers::FObjectFinder<ULevelSequence> ColeInteractSequenceFinder(TEXT("LevelSequence'/All/Game/Animation/Cole/Animations/AS_Cole_StorageRoomInteraction'"));
 
@@ -345,12 +353,21 @@ void AGameplayEvents::Step8()
 
 	ToggleOn();
 
-	// Reception-Phone Rings
+	// Reception-Phone Rings // Play the sound
+	ActorSoundSystem->PlayReceptionPhoneAudio();
 }
 void AGameplayEvents::Step9()
 {
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 9 Active---"));
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---Look For Cole---"));
+
+	// Stop the PhoneSound
+	ActorSoundSystem->StopReceptionPhoneAudio();
+
+	// Reception light goes out
+	UpdateVaribleState(ReceptionLight, ReceptionLightsTagName);
+
+	if (IsValid(ReceptionLight)) ReceptionLight->SetActorHiddenInGame(true);
 }
 void AGameplayEvents::Step10()
 {

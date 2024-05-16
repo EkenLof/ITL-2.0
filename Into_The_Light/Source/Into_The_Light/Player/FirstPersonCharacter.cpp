@@ -251,6 +251,7 @@ bool AFirstPersonCharacter::CheckLookAtObject()
 	FName ReceptionDoorTagName = FName(TEXT("ReceptionDoor"));
 	FName FuseTagName = FName(TEXT("FuseBox"));
 	FName FuseBox_Interactible = FName(TEXT("FuseBox_Interactible"));
+	FName ReceptionPhoneTagName =FName(TEXT("ReceptionPhone")); // ReceptionPhone
 
 	FVector Start = GetWorld()->GetFirstPlayerController()->PlayerCameraManager->GetCameraLocation();
 	FVector End = Start + GetWorld()->GetFirstPlayerController()->GetControlRotation().Vector() * InteractionCheckDistance;

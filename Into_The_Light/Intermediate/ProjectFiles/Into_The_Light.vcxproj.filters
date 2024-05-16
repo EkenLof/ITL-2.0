@@ -66,6 +66,12 @@
     <Filter Include="Source\Into_The_Light\Private">
       <UniqueIdentifier>{4BC6348E-E192-39F4-8DFA-468EE1A8C86C}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Into_The_Light\Private\Audio">
+      <UniqueIdentifier>{AA6BD888-DD79-3FAB-8C11-F3C6110EFA24}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\Into_The_Light\Private\Audio\ActorSoundSystem.cpp">
+      <Filter>Source\Into_The_Light\Private\Audio</Filter>
+    </ClCompile>
     <Filter Include="Source\Into_The_Light\Private\Components">
       <UniqueIdentifier>{2C75BD5F-6696-3D7D-A9F0-C92288FAC6C7}</UniqueIdentifier>
     </Filter>
@@ -141,6 +147,12 @@
     <Filter Include="Source\Into_The_Light\Public">
       <UniqueIdentifier>{98546B91-01CE-38BD-8223-89E9159DF152}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source\Into_The_Light\Public\Audio">
+      <UniqueIdentifier>{6AA1B42C-0FCF-343F-B355-5B66F3466F71}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\Into_The_Light\Public\Audio\ActorSoundSystem.h">
+      <Filter>Source\Into_The_Light\Public\Audio</Filter>
+    </ClInclude>
     <Filter Include="Source\Into_The_Light\Public\Components">
       <UniqueIdentifier>{484C4C21-4E03-3186-B044-DCE3BC0B9EC1}</UniqueIdentifier>
     </Filter>

@@ -5,6 +5,7 @@
 			"BoxCollider.gen.cpp.obj",
 			"DoorSystem.gen.cpp.obj",
 			"DragItemVisual.gen.cpp.obj",
+			"FirstPersonCharacter.gen.cpp.obj",
 			"InteractionInterface.gen.cpp.obj",
 			"InteractionWidget.gen.cpp.obj",
 			"InterfaceActorT.gen.cpp.obj",
@@ -26,6 +27,7 @@
 			"BoxCollider.cpp.obj",
 			"InteractionWidget.cpp.obj",
 			"DragItemVisual.cpp.obj",
+			"InventoryItemSlot.cpp.obj",
 			"InventoryPanel.cpp.obj",
 			"InventoryTooltip.cpp.obj",
 			"ItemDragDropOperation.cpp.obj",
@@ -33,12 +35,12 @@
 			"MainMenu.cpp.obj",
 			"InterfaceActorT.cpp.obj",
 			"PickUp.cpp.obj",
-			"FirstPersonCharacter.gen.cpp.obj",
+			"ActorSoundSystem.gen.cpp.obj",
 			"GameplayEvents.gen.cpp.obj",
 			"Into_The_Light.init.gen.cpp.obj",
 			"FirstPersonCharacter.cpp.obj",
-			"GameplayEvents.cpp.obj",
-			"InventoryItemSlot.cpp.obj"
+			"ActorSoundSystem.cpp.obj",
+			"GameplayEvents.cpp.obj"
 		]
 	}
 }
