@@ -24,7 +24,6 @@ public:
 
 	/////////////////////////////---NEXTSTEP ACTIVE---////////////////////////////////////
 	UFUNCTION(BlueprintCallable)
-	
 	// void NextStep();
 	void NextStep(int32 StepUp);
 	/////////////////////////////---NEXTSTEP ACTIVE---////////////////////////////////////
@@ -82,7 +81,7 @@ public:
 	////////////////////////////---ASSIGN---///////////////////////////
 
 protected:
-
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Audio")
 	AActorSoundSystem* ActorSoundSystem;
 
 	////////////////////////////---LevelSequence---///////////////////////////
@@ -117,6 +116,11 @@ protected:
 	virtual void Tick(float DeltaTime) override;
 
 private:
+
+	// Find and assign the ActorSoundSystem
+	void InitializeActorSoundSystem();
+
+
 	UFUNCTION()
 	void Step0(); // 
 

@@ -1,6 +1,10 @@
 #include "Gameplay/GameplayEvents.h"
+
 #include "Engine/World.h"
+#include "EngineUtils.h"
+
 #include "Kismet/GameplayStatics.h"
+#include "Logging/LogMacros.h"
 
 #include "MovieScene.h"
 #include "MovieSceneSequencePlayer.h"
@@ -73,6 +77,8 @@ void AGameplayEvents::BeginPlay()
 	//UpdateVaribleState(Fuse10A_InFuseBoxTransActor, Fuse10A_InFuseBoxTransTagName);
 	UpdateVaribleState(LighterActor, LighterTagName);
 
+	InitializeActorSoundSystem();
+
 	ToggleOff(); // Start Values
 	NextStep(1); // Temp. Change to some action to Active for Events
 }
@@ -97,6 +103,22 @@ void AGameplayEvents::UpdateVaribleState(AActor*& ActorReference, const FName& T
 			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("FOUND: " + TagName.ToString()));
 			ActorReference = FoundActors[0];
 		}
+	}
+}
+
+void AGameplayEvents::InitializeActorSoundSystem()
+{
+	// Find the ActorSoundSystem in the world
+	for (TActorIterator<AActorSoundSystem> It(GetWorld()); It; ++It)
+	{
+		ActorSoundSystem = *It;
+		break;
+	}
+
+	if (!ActorSoundSystem)
+	{
+		UE_LOG(LogTemp, Error, TEXT("ActorSoundSystem not found!"));
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Red, TEXT("ActorSoundSystem NOT Found!"));
 	}
 }
 
@@ -213,6 +235,11 @@ void AGameplayEvents::Step2() //
 {
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 2 Active---"));
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---Items collected, go to second floor storageroom (Cole)---"));
+
+	// Stop the PhoneSound // TEST
+	InitializeActorSoundSystem();
+	if(IsValid(ActorSoundSystem))ActorSoundSystem->StopReceptionPhoneAudio();
+	else if (!IsValid(ActorSoundSystem)) if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Red, TEXT("ActorSoundSystem is NOT Valid"));
 
 	/*
 	// Hide actor
@@ -354,7 +381,9 @@ void AGameplayEvents::Step8()
 	ToggleOn();
 
 	// Reception-Phone Rings // Play the sound
-	ActorSoundSystem->PlayReceptionPhoneAudio();
+	InitializeActorSoundSystem();
+	if (IsValid(ActorSoundSystem))ActorSoundSystem->PlayReceptionPhoneAudio();
+	else if (!IsValid(ActorSoundSystem)) if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Red, TEXT("ActorSoundSystem is NOT Valid"));;
 }
 void AGameplayEvents::Step9()
 {
@@ -362,7 +391,9 @@ void AGameplayEvents::Step9()
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---Look For Cole---"));
 
 	// Stop the PhoneSound
-	ActorSoundSystem->StopReceptionPhoneAudio();
+	InitializeActorSoundSystem();
+	if (IsValid(ActorSoundSystem))ActorSoundSystem->StopReceptionPhoneAudio();
+	else if (!IsValid(ActorSoundSystem)) if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Red, TEXT("ActorSoundSystem is NOT Valid"));
 
 	// Reception light goes out
 	UpdateVaribleState(ReceptionLight, ReceptionLightsTagName);

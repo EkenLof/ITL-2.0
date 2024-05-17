@@ -1,6 +1,9 @@
 #include "Audio/ActorSoundSystem.h"
 #include "Sound/SoundCue.h"
 
+#include "UObject/ConstructorHelpers.h"
+#include "Logging/LogMacros.h"
+
 // Sets default values
 AActorSoundSystem::AActorSoundSystem()
 {
@@ -17,7 +20,12 @@ AActorSoundSystem::AActorSoundSystem()
 
 		ReceptionPhone_AudioComponent->SetupAttachment(RootComponent);
 	}
-
+	else
+	{
+		UE_LOG(LogTemp, Error, TEXT("Failed to load SoundCue!"));
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Red, 
+			TEXT("Failed to load SoundCue!"));
+	}
 }
 
 // Called when the game starts or when spawned
@@ -26,8 +34,31 @@ void AActorSoundSystem::BeginPlay()
 	Super::BeginPlay();
 
 	// Set the SoundCue to play
-	if (ReceptionPhone_AudioComponent && ReceptionPhone_SoundCue) ReceptionPhone_AudioComponent->SetSound(ReceptionPhone_SoundCue);
-	
+	if (ReceptionPhone_AudioComponent && ReceptionPhone_SoundCue) 
+	{
+		ReceptionPhone_AudioComponent->SetSound(ReceptionPhone_SoundCue);
+
+		StopReceptionPhoneAudio();
+
+		UE_LOG(LogTemp, Error, TEXT("ReceptionPhone_AudioComponent and SoundCue initialized"));
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green,
+			TEXT("ReceptionPhone_AudioComponent and SoundCue initialized"));
+	}
+	else
+	{
+		if (!ReceptionPhone_AudioComponent)
+		{
+			UE_LOG(LogTemp, Error, TEXT("ReceptionPhone_AudioComponent is not initialized!"));
+			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red,
+				TEXT("ReceptionPhone_AudioComponent is not initialized!"));
+		}
+		if (!ReceptionPhone_SoundCue)
+		{
+			UE_LOG(LogTemp, Error, TEXT("ReceptionPhone_SoundCue is not initialized!"));
+			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red,
+				TEXT("eceptionPhone_SoundCue is not initialized!"));
+		}
+	}
 }
 
 // Called every frame
@@ -39,12 +70,36 @@ void AActorSoundSystem::Tick(float DeltaTime)
 
 void AActorSoundSystem::PlayReceptionPhoneAudio()
 {
-	if (ReceptionPhone_AudioComponent && ReceptionPhone_SoundCue)ReceptionPhone_AudioComponent->Play(0.0f);
+	if (ReceptionPhone_AudioComponent && ReceptionPhone_SoundCue)
+	{
+		ReceptionPhone_AudioComponent->Play(0.0f);
+		UE_LOG(LogTemp, Error, TEXT("Play ACTIVE."));
+		if(GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green,
+			TEXT("Play ACTIVE!"));
+	}
+	else
+	{
+		UE_LOG(LogTemp, Error, TEXT("Cannot play audio, component or sound cue is not initialized."));
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red,
+			TEXT("Cannot play audio, component or sound cue is not initialized"));
+	}
 }
 
 void AActorSoundSystem::StopReceptionPhoneAudio()
 {
-	if (ReceptionPhone_AudioComponent && ReceptionPhone_SoundCue)ReceptionPhone_AudioComponent->Stop();
+	if (ReceptionPhone_AudioComponent && ReceptionPhone_SoundCue)
+	{
+		ReceptionPhone_AudioComponent->Stop();
+		UE_LOG(LogTemp, Error, TEXT("Stop ACTIVE."));
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green,
+			TEXT("Stop ACTIVE!"));
+	}
+	else
+	{
+		UE_LOG(LogTemp, Error, TEXT("Cannot stop audio, component or sound cue is not initialized."));
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red,
+			TEXT("Cannot stop audio, component or sound cue is not initialized"));
+	}
 }
 
 

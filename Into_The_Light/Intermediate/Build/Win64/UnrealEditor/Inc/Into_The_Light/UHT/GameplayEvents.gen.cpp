@@ -12,6 +12,7 @@ void EmptyLinkFunctionForGeneratedCodeGameplayEvents() {}
 // Begin Cross Module References
 ENGINE_API UClass* Z_Construct_UClass_AActor();
 ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
+INTO_THE_LIGHT_API UClass* Z_Construct_UClass_AActorSoundSystem_NoRegister();
 INTO_THE_LIGHT_API UClass* Z_Construct_UClass_AGameplayEvents();
 INTO_THE_LIGHT_API UClass* Z_Construct_UClass_AGameplayEvents_NoRegister();
 UPackage* Z_Construct_UPackage__Script_Into_The_Light();
@@ -596,6 +597,10 @@ struct Z_Construct_UClass_AGameplayEvents_Statics
 		{ "Category", "Event | Assign | Actors" },
 		{ "ModuleRelativePath", "Public/Gameplay/GameplayEvents.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ActorSoundSystem_MetaData[] = {
+		{ "Category", "Event | Assign | Audio" },
+		{ "ModuleRelativePath", "Public/Gameplay/GameplayEvents.h" },
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_MissingColeTriggerStart;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_ReceptionLight;
@@ -612,6 +617,7 @@ struct Z_Construct_UClass_AGameplayEvents_Statics
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_FuseBox_InteractibleActor;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_LighterActor;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_ReceptionPhoneActor;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_ActorSoundSystem;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
@@ -651,6 +657,7 @@ const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGameplayEvent
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGameplayEvents_Statics::NewProp_FuseBox_InteractibleActor = { "FuseBox_InteractibleActor", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGameplayEvents, FuseBox_InteractibleActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_FuseBox_InteractibleActor_MetaData), NewProp_FuseBox_InteractibleActor_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGameplayEvents_Statics::NewProp_LighterActor = { "LighterActor", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGameplayEvents, LighterActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_LighterActor_MetaData), NewProp_LighterActor_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGameplayEvents_Statics::NewProp_ReceptionPhoneActor = { "ReceptionPhoneActor", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGameplayEvents, ReceptionPhoneActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ReceptionPhoneActor_MetaData), NewProp_ReceptionPhoneActor_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGameplayEvents_Statics::NewProp_ActorSoundSystem = { "ActorSoundSystem", nullptr, (EPropertyFlags)0x0020080000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGameplayEvents, ActorSoundSystem), Z_Construct_UClass_AActorSoundSystem_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ActorSoundSystem_MetaData), NewProp_ActorSoundSystem_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AGameplayEvents_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGameplayEvents_Statics::NewProp_MissingColeTriggerStart,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGameplayEvents_Statics::NewProp_ReceptionLight,
@@ -667,6 +674,7 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AGameplay
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGameplayEvents_Statics::NewProp_FuseBox_InteractibleActor,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGameplayEvents_Statics::NewProp_LighterActor,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGameplayEvents_Statics::NewProp_ReceptionPhoneActor,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGameplayEvents_Statics::NewProp_ActorSoundSystem,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AGameplayEvents_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_AGameplayEvents_Statics::DependentSingletons[])() = {
@@ -709,10 +717,10 @@ AGameplayEvents::~AGameplayEvents() {}
 struct Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_GameplayEvents_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AGameplayEvents, AGameplayEvents::StaticClass, TEXT("AGameplayEvents"), &Z_Registration_Info_UClass_AGameplayEvents, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AGameplayEvents), 3431470006U) },
+		{ Z_Construct_UClass_AGameplayEvents, AGameplayEvents::StaticClass, TEXT("AGameplayEvents"), &Z_Registration_Info_UClass_AGameplayEvents, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AGameplayEvents), 1633057432U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_GameplayEvents_h_1593954426(TEXT("/Script/Into_The_Light"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_GameplayEvents_h_267344265(TEXT("/Script/Into_The_Light"),
 	Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_GameplayEvents_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_GameplayEvents_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
