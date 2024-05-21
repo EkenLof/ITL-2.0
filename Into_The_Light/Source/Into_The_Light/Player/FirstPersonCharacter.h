@@ -129,10 +129,12 @@ protected:
 	bool bIsReceptionDoor;
 	bool bIsFuseBox;
 	bool bIsFuseBox_Interactible;
+	bool bIsReceptionPhone;
 
 	bool bIsLookingAtRecDoor;
 	bool bIsLookingAtFuBox;
 	bool bIsLookingAtFuseBox_Interactible;
+	bool bIsLookingReceptionPhone;
 
 	// --- Tags --- //
 	FName Fuse10A_InFuseBoxTransTagName;

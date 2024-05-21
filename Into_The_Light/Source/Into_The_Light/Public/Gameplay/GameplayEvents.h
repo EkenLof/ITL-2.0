@@ -107,6 +107,7 @@ protected:
 	FName Fuse10A_InFuseBoxTransTagName;
 	FName FuseBox_InteractibleTagName;
 	FName LighterTagName;
+	FName ReceptionPhoneTagName;
 
 	FName Trig2TagName;
 

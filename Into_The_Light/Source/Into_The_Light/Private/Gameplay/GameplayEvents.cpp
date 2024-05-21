@@ -47,6 +47,7 @@ AGameplayEvents::AGameplayEvents()
 	Fuse10A_ToFuseBoxTagName = FName(TEXT("Fuse10A_InFuseBox")); //Fuse10A_InFuseBox
 	FuseBox_InteractibleTagName = FName(TEXT("FuseBox_Interactible")); // FuseBox_Interactible
 	//Fuse10A_InFuseBoxTransTagName = FName(TEXT("Fuse10A_InFuseBoxTransparent")); // Fuse10A_InFuseBoxTransparent
+	ReceptionPhoneTagName = FName(TEXT("ReceptionPhone")); // ReceptionPhone
 
 	LighterTagName = FName(TEXT("Lighter")); // Lighter
 
@@ -76,6 +77,7 @@ void AGameplayEvents::BeginPlay()
 	UpdateVaribleState(FuseBox_InteractibleActor, FuseBox_InteractibleTagName);
 	//UpdateVaribleState(Fuse10A_InFuseBoxTransActor, Fuse10A_InFuseBoxTransTagName);
 	UpdateVaribleState(LighterActor, LighterTagName);
+	UpdateVaribleState(ReceptionPhoneActor, ReceptionPhoneTagName);
 
 	InitializeActorSoundSystem();
 
@@ -140,6 +142,7 @@ void AGameplayEvents::ToggleOff()
 {
 	// Lights
 	//if (IsValid(ReceptionLight)) ReceptionLight->SetActorHiddenInGame(true);
+	if (IsValid(ReceptionPhoneActor)) ReceptionPhoneActor->SetActorEnableCollision(false);
 
 	if (IsValid(F1Light)) F1Light->SetActorHiddenInGame(true);
 	if (IsValid(F1OfficeLight)) F1OfficeLight->SetActorHiddenInGame(true);
@@ -406,7 +409,10 @@ void AGameplayEvents::Step8()
 
 	ToggleOn();
 
-	// Reception-Phone Rings // Play the sound
+	// Reception-Phone Rings // Play the sound // Colission Active
+	UpdateVaribleState(ReceptionPhoneActor, ReceptionPhoneTagName);
+	if (IsValid(ReceptionPhoneActor)) ReceptionPhoneActor->SetActorEnableCollision(false);
+
 	InitializeActorSoundSystem();
 	if (IsValid(ActorSoundSystem))ActorSoundSystem->PlayReceptionPhoneAudio();
 	else if (!IsValid(ActorSoundSystem)) if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Red, TEXT("ActorSoundSystem is NOT Valid"));;
@@ -436,6 +442,8 @@ void AGameplayEvents::Step10()
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---F1 Footprint to F2---"));
 
 	// Sett active with trigger
+
+
 }
 
 void AGameplayEvents::Step11()
