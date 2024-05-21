@@ -7,11 +7,9 @@
 			"DoorSystem.gen.cpp.obj",
 			"DragItemVisual.gen.cpp.obj",
 			"FirstPersonCharacter.gen.cpp.obj",
-			"GameplayEvents.gen.cpp.obj",
 			"InteractionInterface.gen.cpp.obj",
 			"InteractionWidget.gen.cpp.obj",
 			"InterfaceActorT.gen.cpp.obj",
-			"Into_The_Light.init.gen.cpp.obj",
 			"InventoryComponent.gen.cpp.obj",
 			"InventoryItemSlot.gen.cpp.obj",
 			"InventoryPanel.gen.cpp.obj",
@@ -39,6 +37,8 @@
 			"MainMenu.cpp.obj",
 			"InterfaceActorT.cpp.obj",
 			"PickUp.cpp.obj",
+			"GameplayEvents.gen.cpp.obj",
+			"Into_The_Light.init.gen.cpp.obj",
 			"ActorSoundSystem.cpp.obj",
 			"GameplayEvents.cpp.obj"
 		]

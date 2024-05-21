@@ -207,6 +207,36 @@ void AGameplayEvents::NextStep(int32 StepUp)
 	case 10:
 		Step10();
 		break;
+	case 11:
+		Step11();
+		break;
+	case 12:
+		Step12();
+		break;
+	case 13:
+		Step13();
+		break;
+	case 14:
+		Step14();
+		break;
+	case 15:
+		Step15();
+		break;
+	case 16:
+		Step16();
+		break;
+	case 17:
+		Step17();
+		break;
+	case 18:
+		Step18();
+		break;
+	case 19:
+		Step19();
+		break;
+	case 20:
+		Step20();
+		break;
 
 	default:
 		break;
@@ -235,12 +265,6 @@ void AGameplayEvents::Step2() //
 {
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 2 Active---"));
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---Items collected, go to second floor storageroom (Cole)---"));
-
-	// Stop the PhoneSound // TEST
-	InitializeActorSoundSystem();
-	if(IsValid(ActorSoundSystem))ActorSoundSystem->StopReceptionPhoneAudio();
-	else if (!IsValid(ActorSoundSystem)) if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Red, TEXT("ActorSoundSystem is NOT Valid"));
-
 	/*
 	// Hide actor
 	if (RecetionHiddenWall)
@@ -349,6 +373,8 @@ void AGameplayEvents::Step6()
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 6 Active---"));
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---Look for the Electric-KEY---"));
 
+	// Message from cole informing that he is in the Manegers.Office.
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("*Message from cole informing that he is in the Manegers_Office*"));
 }
 
 void AGameplayEvents::Step7()
@@ -388,7 +414,7 @@ void AGameplayEvents::Step8()
 void AGameplayEvents::Step9()
 {
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 9 Active---"));
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---Look For Cole---"));
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---Check the main office---"));
 
 	// Stop the PhoneSound
 	InitializeActorSoundSystem();
@@ -399,9 +425,75 @@ void AGameplayEvents::Step9()
 	UpdateVaribleState(ReceptionLight, ReceptionLightsTagName);
 
 	if (IsValid(ReceptionLight)) ReceptionLight->SetActorHiddenInGame(true);
+
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---Lights in B1 goes out & Reception-Phone dies---"));
+	// When it's dark.
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---Footsteps runnging from F1 (Above)---"));
 }
 void AGameplayEvents::Step10()
 {
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 10 Active---"));
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---Look For Cole---"));
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---F1 Footprint to F2---"));
+
+	// Sett active with trigger
+}
+
+void AGameplayEvents::Step11()
+{
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 11 Active---"));
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("------"));
+}
+
+void AGameplayEvents::Step12()
+{
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 12 Active---"));
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("------"));
+}
+
+void AGameplayEvents::Step13()
+{
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 13 Active---"));
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("------"));
+}
+
+void AGameplayEvents::Step14()
+{
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 14 Active---"));
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("------"));
+}
+
+void AGameplayEvents::Step15()
+{
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 15 Active---"));
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("------"));
+}
+
+void AGameplayEvents::Step16()
+{
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 16 Active---"));
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("------"));
+}
+
+void AGameplayEvents::Step17()
+{
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 17 Active---"));
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("------"));
+}
+
+void AGameplayEvents::Step18()
+{
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 18 Active---"));
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("------"));
+}
+
+void AGameplayEvents::Step19()
+{
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 19 Active---"));
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("------"));
+}
+
+void AGameplayEvents::Step20() // END OF DEMO!!!
+{
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 20 Active---"));
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("------"));
 }

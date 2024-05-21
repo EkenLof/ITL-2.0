@@ -149,8 +149,38 @@ private:
 	void Step8(); // 
 
 	UFUNCTION()
-	void Step9(); // 
+	void Step9(); // Reception phone off
 
 	UFUNCTION()
 	void Step10(); // 
+
+	UFUNCTION()
+	void Step11();
+
+	UFUNCTION()
+	void Step12();
+
+	UFUNCTION()
+	void Step13();
+
+	UFUNCTION()
+	void Step14();
+
+	UFUNCTION()
+	void Step15();
+
+	UFUNCTION()
+	void Step16();
+
+	UFUNCTION()
+	void Step17();
+
+	UFUNCTION()
+	void Step18();
+
+	UFUNCTION()
+	void Step19();
+
+	UFUNCTION()
+	void Step20();
 };
