@@ -1,6 +1,8 @@
 #include "Gameplay/GameplayEvents.h"
 
 #include "Engine/World.h"
+#include "Engine/LevelStreaming.h"
+
 #include "EngineUtils.h"
 
 #include "Kismet/GameplayStatics.h"
@@ -52,11 +54,20 @@ AGameplayEvents::AGameplayEvents()
 	LighterTagName = FName(TEXT("Lighter")); // Lighter
 
 	Trig2TagName = FName(TEXT("Trigger_2_ACT1")); // MissingCole
+
+	Sublvl1 = FName(TEXT("Interior_Doors"));
+	SubLvl2 = FName(TEXT("Sublvl2"));
+	Sublvl3 = FName(TEXT("Sublvl3"));
+	SubLvl4 = FName(TEXT("Sublvl4"));
+	Sublvl5 = FName(TEXT("Sublvl5"));
+	SubLvl6 = FName(TEXT("Sublvl6"));
 }
 
 void AGameplayEvents::BeginPlay()
 {
 	Super::BeginPlay();
+
+	//LoadSublevel(Sublvl1);
 
 	// Varible Check & assign. 
 	UpdateVaribleState(MissingColeTriggerStart, Trig2TagName);
@@ -127,6 +138,53 @@ void AGameplayEvents::InitializeActorSoundSystem()
 		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Red, TEXT("ActorSoundSystem NOT Found!"));
 	}
 }
+
+
+// Function to load a sublevel
+void AGameplayEvents::LoadSublevel(FName LevelName)
+{
+	if (!LevelName.IsNone()) UGameplayStatics::LoadStreamLevel(this, LevelName, true, false, FLatentActionInfo()); // ShouldBlockOnLoad: True = loaded before anything else runs / False = Loading in the background and gives a smoother gamplay.
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("LevelName is None"));
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 25.0f, FColor::Red, TEXT("LevelName is None"));
+	}
+}
+
+// Function to unload a sublevel
+void AGameplayEvents::UnloadSublevel(FName LevelName)
+{
+	if (LevelName.IsNone())
+	{
+		UE_LOG(LogTemp, Warning, TEXT("LevelName is None"));
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 25.0f, FColor::Red, TEXT("LevelName is None"));
+		return;
+	}
+
+	UWorld* World = GetWorld();
+	if (!World)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("World is null"));
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 25.0f, FColor::Red, TEXT("World is null"));
+		return;
+	}
+
+	if (!LevelName.IsNone())
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Attempting to unload sublevel: %s"), *LevelName.ToString());
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 8.0f, FColor::Red, TEXT("SUBLEVEL UNLOADED"));
+
+		UGameplayStatics::UnloadStreamLevel(this, LevelName, FLatentActionInfo(), false); // ShouldBlockOnLoad: True = loaded before anything else runs / False = Loading in the background and gives a smoother gamplay.
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("LevelName is None"));
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("ERROR: SUBLEVEL UNLOADED / LevelName is None"));
+	}
+
+	//UGameplayStatics::UnloadStreamLevel(this, LevelName, FLatentActionInfo(), true); // Change to 'false' if you want non-blocking
+}
+
 
 void AGameplayEvents::ToggleOn()
 {
@@ -272,6 +330,9 @@ void AGameplayEvents::Step2() //
 {
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 2 Active---"));
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---Items collected, go to second floor storageroom (Cole)---"));
+
+	//UnloadSublevel(Sublvl1);
+
 	/*
 	// Hide actor
 	if (RecetionHiddenWall)

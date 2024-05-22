@@ -18,6 +18,55 @@ INTO_THE_LIGHT_API UClass* Z_Construct_UClass_AGameplayEvents_NoRegister();
 UPackage* Z_Construct_UPackage__Script_Into_The_Light();
 // End Cross Module References
 
+// Begin Class AGameplayEvents Function LoadSublevel
+struct Z_Construct_UFunction_AGameplayEvents_LoadSublevel_Statics
+{
+	struct GameplayEvents_eventLoadSublevel_Parms
+	{
+		FName LevelName;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "Event | SubLevels" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// Function to load a sublevel\n" },
+#endif
+		{ "ModuleRelativePath", "Public/Gameplay/GameplayEvents.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Function to load a sublevel" },
+#endif
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FNamePropertyParams NewProp_LevelName;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FNamePropertyParams Z_Construct_UFunction_AGameplayEvents_LoadSublevel_Statics::NewProp_LevelName = { "LevelName", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Name, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(GameplayEvents_eventLoadSublevel_Parms, LevelName), METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AGameplayEvents_LoadSublevel_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AGameplayEvents_LoadSublevel_Statics::NewProp_LevelName,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AGameplayEvents_LoadSublevel_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AGameplayEvents_LoadSublevel_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AGameplayEvents, nullptr, "LoadSublevel", nullptr, nullptr, Z_Construct_UFunction_AGameplayEvents_LoadSublevel_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AGameplayEvents_LoadSublevel_Statics::PropPointers), sizeof(Z_Construct_UFunction_AGameplayEvents_LoadSublevel_Statics::GameplayEvents_eventLoadSublevel_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04080401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AGameplayEvents_LoadSublevel_Statics::Function_MetaDataParams), Z_Construct_UFunction_AGameplayEvents_LoadSublevel_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_AGameplayEvents_LoadSublevel_Statics::GameplayEvents_eventLoadSublevel_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_AGameplayEvents_LoadSublevel()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AGameplayEvents_LoadSublevel_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(AGameplayEvents::execLoadSublevel)
+{
+	P_GET_PROPERTY(FNameProperty,Z_Param_LevelName);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->LoadSublevel(Z_Param_LevelName);
+	P_NATIVE_END;
+}
+// End Class AGameplayEvents Function LoadSublevel
+
 // Begin Class AGameplayEvents Function NextStep
 struct Z_Construct_UFunction_AGameplayEvents_NextStep_Statics
 {
@@ -775,11 +824,61 @@ DEFINE_FUNCTION(AGameplayEvents::execToggleOn)
 }
 // End Class AGameplayEvents Function ToggleOn
 
+// Begin Class AGameplayEvents Function UnloadSublevel
+struct Z_Construct_UFunction_AGameplayEvents_UnloadSublevel_Statics
+{
+	struct GameplayEvents_eventUnloadSublevel_Parms
+	{
+		FName LevelName;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "Event | SubLevels" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// Function to unload a sublevel\n" },
+#endif
+		{ "ModuleRelativePath", "Public/Gameplay/GameplayEvents.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Function to unload a sublevel" },
+#endif
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FNamePropertyParams NewProp_LevelName;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FNamePropertyParams Z_Construct_UFunction_AGameplayEvents_UnloadSublevel_Statics::NewProp_LevelName = { "LevelName", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Name, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(GameplayEvents_eventUnloadSublevel_Parms, LevelName), METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AGameplayEvents_UnloadSublevel_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AGameplayEvents_UnloadSublevel_Statics::NewProp_LevelName,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AGameplayEvents_UnloadSublevel_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AGameplayEvents_UnloadSublevel_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AGameplayEvents, nullptr, "UnloadSublevel", nullptr, nullptr, Z_Construct_UFunction_AGameplayEvents_UnloadSublevel_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AGameplayEvents_UnloadSublevel_Statics::PropPointers), sizeof(Z_Construct_UFunction_AGameplayEvents_UnloadSublevel_Statics::GameplayEvents_eventUnloadSublevel_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04080401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AGameplayEvents_UnloadSublevel_Statics::Function_MetaDataParams), Z_Construct_UFunction_AGameplayEvents_UnloadSublevel_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_AGameplayEvents_UnloadSublevel_Statics::GameplayEvents_eventUnloadSublevel_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_AGameplayEvents_UnloadSublevel()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AGameplayEvents_UnloadSublevel_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(AGameplayEvents::execUnloadSublevel)
+{
+	P_GET_PROPERTY(FNameProperty,Z_Param_LevelName);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->UnloadSublevel(Z_Param_LevelName);
+	P_NATIVE_END;
+}
+// End Class AGameplayEvents Function UnloadSublevel
+
 // Begin Class AGameplayEvents
 void AGameplayEvents::StaticRegisterNativesAGameplayEvents()
 {
 	UClass* Class = AGameplayEvents::StaticClass();
 	static const FNameNativePtrPair Funcs[] = {
+		{ "LoadSublevel", &AGameplayEvents::execLoadSublevel },
 		{ "NextStep", &AGameplayEvents::execNextStep },
 		{ "Step0", &AGameplayEvents::execStep0 },
 		{ "Step1", &AGameplayEvents::execStep1 },
@@ -804,6 +903,7 @@ void AGameplayEvents::StaticRegisterNativesAGameplayEvents()
 		{ "Step9", &AGameplayEvents::execStep9 },
 		{ "ToggleOff", &AGameplayEvents::execToggleOff },
 		{ "ToggleOn", &AGameplayEvents::execToggleOn },
+		{ "UnloadSublevel", &AGameplayEvents::execUnloadSublevel },
 	};
 	FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 }
@@ -822,21 +922,21 @@ struct Z_Construct_UClass_AGameplayEvents_Statics
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_MissingColeTriggerStart_MetaData[] = {
 		{ "Category", "Event | Assign" },
 #if !UE_BUILD_SHIPPING
-		{ "Comment", "////////////////////////////---ASSIGN---///////////////////////////\n// ---Triggers--- //\n" },
+		{ "Comment", "////////////////////////////---ASSIGN---///////////////////////////\n// --- Triggers --- //\n" },
 #endif
 		{ "ModuleRelativePath", "Public/Gameplay/GameplayEvents.h" },
 #if !UE_BUILD_SHIPPING
-		{ "ToolTip", "/---ASSIGN---\n ---Triggers---" },
+		{ "ToolTip", "/---ASSIGN---\n --- Triggers ---" },
 #endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ReceptionLight_MetaData[] = {
 		{ "Category", "Event | Assign | Lights" },
 #if !UE_BUILD_SHIPPING
-		{ "Comment", "// ---Lights--- //\n" },
+		{ "Comment", "// --- Lights --- //\n" },
 #endif
 		{ "ModuleRelativePath", "Public/Gameplay/GameplayEvents.h" },
 #if !UE_BUILD_SHIPPING
-		{ "ToolTip", "---Lights---" },
+		{ "ToolTip", "--- Lights ---" },
 #endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_F1Light_MetaData[] = {
@@ -858,11 +958,11 @@ struct Z_Construct_UClass_AGameplayEvents_Statics
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_LanternActor_MetaData[] = {
 		{ "Category", "Event | Assign | Actors" },
 #if !UE_BUILD_SHIPPING
-		{ "Comment", "// ---Actors--- //\n" },
+		{ "Comment", "// --- Actors --- //\n" },
 #endif
 		{ "ModuleRelativePath", "Public/Gameplay/GameplayEvents.h" },
 #if !UE_BUILD_SHIPPING
-		{ "ToolTip", "---Actors---" },
+		{ "ToolTip", "--- Actors ---" },
 #endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_LanternBrockenActor_MetaData[] = {
@@ -903,6 +1003,36 @@ struct Z_Construct_UClass_AGameplayEvents_Statics
 		{ "Category", "Event | Assign | Actors" },
 		{ "ModuleRelativePath", "Public/Gameplay/GameplayEvents.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Sublvl1_MetaData[] = {
+		{ "Category", "Event | Assign | SubLevels" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// --- Actors --- //\n// --- SubLevels --- //\n" },
+#endif
+		{ "ModuleRelativePath", "Public/Gameplay/GameplayEvents.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "--- Actors ---\n--- SubLevels ---" },
+#endif
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_SubLvl2_MetaData[] = {
+		{ "Category", "Event | Assign | SubLevels" },
+		{ "ModuleRelativePath", "Public/Gameplay/GameplayEvents.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Sublvl3_MetaData[] = {
+		{ "Category", "Event | Assign | SubLevels" },
+		{ "ModuleRelativePath", "Public/Gameplay/GameplayEvents.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_SubLvl4_MetaData[] = {
+		{ "Category", "Event | Assign | SubLevels" },
+		{ "ModuleRelativePath", "Public/Gameplay/GameplayEvents.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Sublvl5_MetaData[] = {
+		{ "Category", "Event | Assign | SubLevels" },
+		{ "ModuleRelativePath", "Public/Gameplay/GameplayEvents.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_SubLvl6_MetaData[] = {
+		{ "Category", "Event | Assign | SubLevels" },
+		{ "ModuleRelativePath", "Public/Gameplay/GameplayEvents.h" },
+	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ActorSoundSystem_MetaData[] = {
 		{ "Category", "Event | Assign | Audio" },
 		{ "ModuleRelativePath", "Public/Gameplay/GameplayEvents.h" },
@@ -923,10 +1053,17 @@ struct Z_Construct_UClass_AGameplayEvents_Statics
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_FuseBox_InteractibleActor;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_LighterActor;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_ReceptionPhoneActor;
+	static const UECodeGen_Private::FNamePropertyParams NewProp_Sublvl1;
+	static const UECodeGen_Private::FNamePropertyParams NewProp_SubLvl2;
+	static const UECodeGen_Private::FNamePropertyParams NewProp_Sublvl3;
+	static const UECodeGen_Private::FNamePropertyParams NewProp_SubLvl4;
+	static const UECodeGen_Private::FNamePropertyParams NewProp_Sublvl5;
+	static const UECodeGen_Private::FNamePropertyParams NewProp_SubLvl6;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_ActorSoundSystem;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
+		{ &Z_Construct_UFunction_AGameplayEvents_LoadSublevel, "LoadSublevel" }, // 3980752048
 		{ &Z_Construct_UFunction_AGameplayEvents_NextStep, "NextStep" }, // 452918355
 		{ &Z_Construct_UFunction_AGameplayEvents_Step0, "Step0" }, // 140066084
 		{ &Z_Construct_UFunction_AGameplayEvents_Step1, "Step1" }, // 2049934850
@@ -951,6 +1088,7 @@ struct Z_Construct_UClass_AGameplayEvents_Statics
 		{ &Z_Construct_UFunction_AGameplayEvents_Step9, "Step9" }, // 1023245460
 		{ &Z_Construct_UFunction_AGameplayEvents_ToggleOff, "ToggleOff" }, // 83995692
 		{ &Z_Construct_UFunction_AGameplayEvents_ToggleOn, "ToggleOn" }, // 379029772
+		{ &Z_Construct_UFunction_AGameplayEvents_UnloadSublevel, "UnloadSublevel" }, // 2779745760
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -973,6 +1111,12 @@ const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGameplayEvent
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGameplayEvents_Statics::NewProp_FuseBox_InteractibleActor = { "FuseBox_InteractibleActor", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGameplayEvents, FuseBox_InteractibleActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_FuseBox_InteractibleActor_MetaData), NewProp_FuseBox_InteractibleActor_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGameplayEvents_Statics::NewProp_LighterActor = { "LighterActor", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGameplayEvents, LighterActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_LighterActor_MetaData), NewProp_LighterActor_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGameplayEvents_Statics::NewProp_ReceptionPhoneActor = { "ReceptionPhoneActor", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGameplayEvents, ReceptionPhoneActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ReceptionPhoneActor_MetaData), NewProp_ReceptionPhoneActor_MetaData) };
+const UECodeGen_Private::FNamePropertyParams Z_Construct_UClass_AGameplayEvents_Statics::NewProp_Sublvl1 = { "Sublvl1", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Name, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGameplayEvents, Sublvl1), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Sublvl1_MetaData), NewProp_Sublvl1_MetaData) };
+const UECodeGen_Private::FNamePropertyParams Z_Construct_UClass_AGameplayEvents_Statics::NewProp_SubLvl2 = { "SubLvl2", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Name, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGameplayEvents, SubLvl2), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_SubLvl2_MetaData), NewProp_SubLvl2_MetaData) };
+const UECodeGen_Private::FNamePropertyParams Z_Construct_UClass_AGameplayEvents_Statics::NewProp_Sublvl3 = { "Sublvl3", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Name, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGameplayEvents, Sublvl3), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Sublvl3_MetaData), NewProp_Sublvl3_MetaData) };
+const UECodeGen_Private::FNamePropertyParams Z_Construct_UClass_AGameplayEvents_Statics::NewProp_SubLvl4 = { "SubLvl4", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Name, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGameplayEvents, SubLvl4), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_SubLvl4_MetaData), NewProp_SubLvl4_MetaData) };
+const UECodeGen_Private::FNamePropertyParams Z_Construct_UClass_AGameplayEvents_Statics::NewProp_Sublvl5 = { "Sublvl5", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Name, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGameplayEvents, Sublvl5), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Sublvl5_MetaData), NewProp_Sublvl5_MetaData) };
+const UECodeGen_Private::FNamePropertyParams Z_Construct_UClass_AGameplayEvents_Statics::NewProp_SubLvl6 = { "SubLvl6", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Name, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGameplayEvents, SubLvl6), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_SubLvl6_MetaData), NewProp_SubLvl6_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGameplayEvents_Statics::NewProp_ActorSoundSystem = { "ActorSoundSystem", nullptr, (EPropertyFlags)0x0020080000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGameplayEvents, ActorSoundSystem), Z_Construct_UClass_AActorSoundSystem_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ActorSoundSystem_MetaData), NewProp_ActorSoundSystem_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AGameplayEvents_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGameplayEvents_Statics::NewProp_MissingColeTriggerStart,
@@ -990,6 +1134,12 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AGameplay
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGameplayEvents_Statics::NewProp_FuseBox_InteractibleActor,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGameplayEvents_Statics::NewProp_LighterActor,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGameplayEvents_Statics::NewProp_ReceptionPhoneActor,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGameplayEvents_Statics::NewProp_Sublvl1,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGameplayEvents_Statics::NewProp_SubLvl2,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGameplayEvents_Statics::NewProp_Sublvl3,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGameplayEvents_Statics::NewProp_SubLvl4,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGameplayEvents_Statics::NewProp_Sublvl5,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGameplayEvents_Statics::NewProp_SubLvl6,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGameplayEvents_Statics::NewProp_ActorSoundSystem,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AGameplayEvents_Statics::PropPointers) < 2048);
@@ -1033,10 +1183,10 @@ AGameplayEvents::~AGameplayEvents() {}
 struct Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_GameplayEvents_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AGameplayEvents, AGameplayEvents::StaticClass, TEXT("AGameplayEvents"), &Z_Registration_Info_UClass_AGameplayEvents, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AGameplayEvents), 2255512037U) },
+		{ Z_Construct_UClass_AGameplayEvents, AGameplayEvents::StaticClass, TEXT("AGameplayEvents"), &Z_Registration_Info_UClass_AGameplayEvents, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AGameplayEvents), 1645313262U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_GameplayEvents_h_129887126(TEXT("/Script/Into_The_Light"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_GameplayEvents_h_641193608(TEXT("/Script/Into_The_Light"),
 	Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_GameplayEvents_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_GameplayEvents_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

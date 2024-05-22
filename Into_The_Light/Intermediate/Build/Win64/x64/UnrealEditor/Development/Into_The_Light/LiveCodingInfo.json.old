@@ -25,8 +25,8 @@
 			"DoorSystem.cpp.obj",
 			"Into_The_Light.cpp.obj",
 			"FirstPersonCharacter.cpp.obj",
+			"ActorSoundSystem.cpp.obj",
 			"InventoryComponent.cpp.obj",
-			"GameplayEvents.cpp.obj",
 			"InteractionInterface.cpp.obj",
 			"ItemBase.cpp.obj",
 			"BoxCollider.cpp.obj",
@@ -40,7 +40,7 @@
 			"MainMenu.cpp.obj",
 			"InterfaceActorT.cpp.obj",
 			"PickUp.cpp.obj",
-			"ActorSoundSystem.cpp.obj"
+			"GameplayEvents.cpp.obj"
 		]
 	}
 }

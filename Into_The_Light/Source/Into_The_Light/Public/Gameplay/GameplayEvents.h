@@ -38,12 +38,12 @@ public:
 	// ---Toggle--- //
 
 	////////////////////////////---ASSIGN---///////////////////////////
-	// ---Triggers--- //
+	// --- Triggers --- //
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign")
 	AActor* MissingColeTriggerStart;
-	// ---Triggers--- //
+	// --- Triggers --- //
 
-	// ---Lights--- //
+	// --- Lights --- //
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Lights")
 	AActor* ReceptionLight;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Lights")
@@ -54,9 +54,9 @@ public:
 	AActor* F1ConferanceLight;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Lights")
 	AActor* F1StorageRoomLight;
-	// ---Lights--- //
+	// --- Lights --- //
 	
-	// ---Actors--- //
+	// --- Actors --- //
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")
 	AActor* LanternActor;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")
@@ -77,7 +77,21 @@ public:
 	AActor* LighterActor;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")
 	AActor* ReceptionPhoneActor;
-	// ---Actors--- //
+	// --- Actors --- //
+	// --- SubLevels --- //
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | SubLevels")
+	FName Sublvl1;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | SubLevels")
+	FName SubLvl2;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | SubLevels")
+	FName Sublvl3;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | SubLevels")
+	FName SubLvl4;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | SubLevels")
+	FName Sublvl5;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | SubLevels")
+	FName SubLvl6;
+	// --- Sublevels --- //
 	////////////////////////////---ASSIGN---///////////////////////////
 
 protected:
@@ -110,6 +124,15 @@ protected:
 	FName ReceptionPhoneTagName;
 
 	FName Trig2TagName;
+
+	// Function to load a sublevel
+	UFUNCTION(BlueprintCallable, Category = "Event | SubLevels")
+	void LoadSublevel(FName LevelName);
+
+	// Function to unload a sublevel
+	UFUNCTION(BlueprintCallable, Category = "Event | SubLevels")
+	void UnloadSublevel(FName LevelName);
+
 
 	void UpdateVaribleState(AActor*& ActorReference, const FName& TagName);
 
