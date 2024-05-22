@@ -26,6 +26,7 @@ public:
 	void PlayReceptionPhoneAudio();
 	void StopReceptionPhoneAudio();
 
+	////////////////////////////---ASSIGN---///////////////////////////
 	// --- Sounds --- //
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Sounds", meta = (AllowPrivateAccess = "true"))
 	class UAudioComponent* ReceptionPhone_AudioComponent;
@@ -33,4 +34,9 @@ public:
 	class USoundCue* ReceptionPhone_SoundCue;
 	// --- Sounds --- //
 	////////////////////////////---ASSIGN---///////////////////////////
+
+	// --- Active / Not-Active --- //
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Active")
+	bool bIsManagerCalling;
+	// --- Active / Not-Active --- //
 };

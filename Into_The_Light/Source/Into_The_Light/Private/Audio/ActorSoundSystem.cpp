@@ -10,6 +10,8 @@ AActorSoundSystem::AActorSoundSystem()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
+	bIsManagerCalling = false;
+
 	static ConstructorHelpers::FObjectFinder<USoundCue>
 		SoundCueAsset(TEXT("/Script/Engine.SoundCue'/Game/Audio/Phone/Reception-Phone/Reception_PhoneCall.Reception_PhoneCall'"));
 	if (SoundCueAsset.Succeeded())
@@ -76,6 +78,8 @@ void AActorSoundSystem::PlayReceptionPhoneAudio()
 		UE_LOG(LogTemp, Error, TEXT("Play ACTIVE."));
 		if(GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green,
 			TEXT("Play ACTIVE!"));
+
+		bIsManagerCalling = true;
 	}
 	else
 	{
@@ -93,6 +97,8 @@ void AActorSoundSystem::StopReceptionPhoneAudio()
 		UE_LOG(LogTemp, Error, TEXT("Stop ACTIVE."));
 		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green,
 			TEXT("Stop ACTIVE!"));
+
+		bIsManagerCalling = false;
 	}
 	else
 	{

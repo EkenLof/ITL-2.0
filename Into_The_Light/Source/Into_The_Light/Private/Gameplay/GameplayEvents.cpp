@@ -105,6 +105,10 @@ void AGameplayEvents::UpdateVaribleState(AActor*& ActorReference, const FName& T
 			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("FOUND: " + TagName.ToString()));
 			ActorReference = FoundActors[0];
 		}
+		else 
+		{ 
+			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT(" NOT-FOUND: " + TagName.ToString())); 
+		}
 	}
 }
 
@@ -411,26 +415,34 @@ void AGameplayEvents::Step8()
 
 	// Reception-Phone Rings // Play the sound // Colission Active
 	UpdateVaribleState(ReceptionPhoneActor, ReceptionPhoneTagName);
-	if (IsValid(ReceptionPhoneActor)) ReceptionPhoneActor->SetActorEnableCollision(false);
+	if (IsValid(ReceptionPhoneActor)) ReceptionPhoneActor->SetActorEnableCollision(true);
 
 	InitializeActorSoundSystem();
 	if (IsValid(ActorSoundSystem))ActorSoundSystem->PlayReceptionPhoneAudio();
-	else if (!IsValid(ActorSoundSystem)) if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Red, TEXT("ActorSoundSystem is NOT Valid"));;
+	else if (!IsValid(ActorSoundSystem)) if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("ActorSoundSystem is NOT Valid"));;
 }
 void AGameplayEvents::Step9()
 {
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 9 Active---"));
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---Check the main office---"));
 
-	// Stop the PhoneSound
+	// Stop the PhoneSound // Collision Not Active
+	UpdateVaribleState(ReceptionPhoneActor, ReceptionPhoneTagName);
+	if (IsValid(ReceptionPhoneActor)) ReceptionPhoneActor->SetActorEnableCollision(false);
+	else 
+	{
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("NOT Valid *ReceptionPhoneActor*"));
+	}
+
 	InitializeActorSoundSystem();
 	if (IsValid(ActorSoundSystem))ActorSoundSystem->StopReceptionPhoneAudio();
-	else if (!IsValid(ActorSoundSystem)) if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Red, TEXT("ActorSoundSystem is NOT Valid"));
+	else if (!IsValid(ActorSoundSystem)) if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("NOT Valid *ActorSoundSystem*"));
 
 	// Reception light goes out
 	UpdateVaribleState(ReceptionLight, ReceptionLightsTagName);
 
 	if (IsValid(ReceptionLight)) ReceptionLight->SetActorHiddenInGame(true);
+	else if (!IsValid(ReceptionLight)) if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("NOT Valid *ReceptionLight*"));
 
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---Lights in B1 goes out & Reception-Phone dies---"));
 	// When it's dark.
