@@ -60,7 +60,7 @@
 		},
 		{
 			"Name": "Grab",
-			"Enabled": true
+			"Enabled": false
 		}
 	]
 }
