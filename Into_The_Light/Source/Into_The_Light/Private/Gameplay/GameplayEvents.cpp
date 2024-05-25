@@ -206,15 +206,10 @@ void AGameplayEvents::UnloadSublevel(FName LevelName)
 		else if (!LevelName.IsNone())
 		{
 			UE_LOG(LogTemp, Warning, TEXT("Attempting to unload sublevel: %s"), *LevelName.ToString());
-			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 8.0f, FColor::Red, TEXT("SUBLEVEL UNLOADED"));
 
 			UGameplayStatics::UnloadStreamLevel(this, LevelName, FLatentActionInfo(), false); // ShouldBlockOnLoad: True = loaded before anything else runs / False = Loading in the background and gives a smoother gamplay.
 		}
-		else
-		{
-			UE_LOG(LogTemp, Warning, TEXT("LevelName is None"));
-			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("ERROR: SUBLEVEL UNLOADED / LevelName is None"));
-		}
+		else UE_LOG(LogTemp, Warning, TEXT("LevelName is None"));
 	}
 
 	//UGameplayStatics::UnloadStreamLevel(this, LevelName, FLatentActionInfo(), true); // Change to 'false' if you want non-blocking
@@ -245,23 +240,13 @@ void AGameplayEvents::ToggleOff()
 		ElectricKey_KeyActor->SetActorEnableCollision(false);
 	}
 
-	if (IsValid(MissingColeTriggerStart))
-	{
-		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("---MissinColeTrigger OFF---"));
-		MissingColeTriggerStart->SetActorEnableCollision(false);
-	}
-
+	if (IsValid(MissingColeTriggerStart)) MissingColeTriggerStart->SetActorEnableCollision(false);
 
 	if (IsValid(ExitFuseBoxRoomActor)) ExitFuseBoxRoomActor->SetActorEnableCollision(false);
-	else
-	{
-		UE_LOG(LogTemp, Warning, TEXT("ExitFuseBoxRoomActor is NOT Valid"));
-	}
+	else UE_LOG(LogTemp, Warning, TEXT("ExitFuseBoxRoomActor is NOT Valid"));
+
 	if (IsValid(ExitReceptionPhoneActor)) ExitReceptionPhoneActor->SetActorEnableCollision(false);
-	else
-	{
-		UE_LOG(LogTemp, Warning, TEXT("ExitReceptionPhoneActor is NOT Valid"));
-	}
+	else UE_LOG(LogTemp, Warning, TEXT("ExitReceptionPhoneActor is NOT Valid"));
 }
 
 void AGameplayEvents::NextStep(int32 StepUp)
@@ -334,8 +319,7 @@ void AGameplayEvents::Step3()
 void AGameplayEvents::Step4()
 {
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 4 Active---"));
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---Fuse Collected---"));
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---Put the 10A Fuse in the Fusebox---"));
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---Fuse Collected. \nPut the 10A Fuse in the Fusebox---"));
 }
 
 void AGameplayEvents::Step5()
@@ -356,48 +340,36 @@ void AGameplayEvents::Step5()
 		LanternActor->SetActorHiddenInGame(true);
 		LanternActor->SetActorEnableCollision(false);
 	}
-	else
-	{
-		UE_LOG(LogTemp, Warning, TEXT("---*Lantern ON* NOT POSSIBLE---"));
-	}
+	else UE_LOG(LogTemp, Warning, TEXT("---*Lantern ON* NOT POSSIBLE---"));
+
 	if (IsValid(LanternBrockenActor)) // LanternBroken
 	{
 		LanternBrockenActor->SetActorHiddenInGame(false);
 		LanternBrockenActor->SetActorEnableCollision(true);
 	}
-	else
-	{
-		UE_LOG(LogTemp, Warning, TEXT("---*LanternBroken ON* NOT POSSIBLE---"));
-	}
+	else UE_LOG(LogTemp, Warning, TEXT("---*LanternBroken ON* NOT POSSIBLE---"));
+
 	if (IsValid(ColeStorageRoomActor)) // Cole
 	{
 		ColeStorageRoomActor->SetActorHiddenInGame(true);
 		ColeStorageRoomActor->SetActorEnableCollision(false);
 	}
-	else
-	{
-		UE_LOG(LogTemp, Warning, TEXT("---*Cole ON* NOT POSSIBLE---"));
-	}
+	else UE_LOG(LogTemp, Warning, TEXT("---*Cole ON* NOT POSSIBLE---"));
+
 	if (IsValid(ElectricKeyActor) && IsValid(ElectricKey_KeyActor)) // ElectricKey
 	{
 		ElectricKeyActor->SetActorHiddenInGame(false);
 		ElectricKeyActor->SetActorEnableCollision(true);
 		ElectricKey_KeyActor->SetActorEnableCollision(true);
 	}
-	else
-	{
-		UE_LOG(LogTemp, Warning, TEXT("---*ElectricKey ON* NOT POSSIBLE---"));
-	}
+	else UE_LOG(LogTemp, Warning, TEXT("---*ElectricKey ON* NOT POSSIBLE---"));
 	
 	if (IsValid(MissingColeTriggerStart))
 	{
 		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("---MissinColeTrigger ON---"));
 		MissingColeTriggerStart->SetActorEnableCollision(true);
 	}
-	else
-	{
-		UE_LOG(LogTemp, Warning, TEXT("---*MissinColeTrigger ON* NOT POSSIBLE---"));
-	}
+	else UE_LOG(LogTemp, Warning, TEXT("---*MissinColeTrigger ON* NOT POSSIBLE---"));
 }
 
 void AGameplayEvents::Step6()
@@ -409,7 +381,7 @@ void AGameplayEvents::Step6()
 	delete LanternActor;
 
 	// Message from cole informing that he is in the Manegers.Office.
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("*Message from cole informing that he is in the Manegers_Office*"));
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("*Message from cole: \nInforming that he is in the Manegers_Office*"));
 }
 
 void AGameplayEvents::Step7()
@@ -428,44 +400,23 @@ void AGameplayEvents::Step8()
 
 	// Fuse10A_ToFuseBoxActor
 	UpdateVaribleState(Fuse10A_ToFuseBoxActor, Fuse10A_ToFuseBoxTagName);
-	if (IsValid(Fuse10A_ToFuseBoxActor))
-	{
-		Fuse10A_ToFuseBoxActor->SetActorHiddenInGame(false);
-	}
-	else
-	{
-		UE_LOG(LogTemp, Warning, TEXT("Fuse10A_ToFuseBoxActor is NOT Valid"));
-	}
+	if (IsValid(Fuse10A_ToFuseBoxActor)) Fuse10A_ToFuseBoxActor->SetActorHiddenInGame(false);
+	else UE_LOG(LogTemp, Warning, TEXT("Fuse10A_ToFuseBoxActor is NOT Valid"));
 
 	// ReceptionPhoneActor
 	UpdateVaribleState(ReceptionPhoneActor, ReceptionPhoneTagName);
-	if (IsValid(ReceptionPhoneActor))
-	{
-		ReceptionPhoneActor->SetActorEnableCollision(true);
-	}
-	else
-	{
-		UE_LOG(LogTemp, Warning, TEXT("ReceptionPhoneActor is NOT Valid"));
-	}
+	if (IsValid(ReceptionPhoneActor)) ReceptionPhoneActor->SetActorEnableCollision(true);
+	else UE_LOG(LogTemp, Warning, TEXT("ReceptionPhoneActor is NOT Valid"));
 
 	// Trigger for Lights
 	UpdateVaribleState(ExitFuseBoxRoomActor, Trig3TagName);
 	if (IsValid(ExitFuseBoxRoomActor)) ExitFuseBoxRoomActor->SetActorEnableCollision(true);
-	else
-	{
-		UE_LOG(LogTemp, Warning, TEXT("ExitFuseBoxRoomActor is NOT Valid"));
-	}
+	else UE_LOG(LogTemp, Warning, TEXT("ExitFuseBoxRoomActor is NOT Valid"));
 
 	// Play Reception Phone audio
 	InitializeActorSoundSystem();
-	if (IsValid(ActorSoundSystem))
-	{
-		ActorSoundSystem->PlayReceptionPhoneAudio();
-	}
-	else
-	{
-		UE_LOG(LogTemp, Warning, TEXT("ActorSoundSystem is NOT Valid"));
-	}
+	if (IsValid(ActorSoundSystem)) ActorSoundSystem->PlayReceptionPhoneAudio();
+	else UE_LOG(LogTemp, Warning, TEXT("ActorSoundSystem is NOT Valid"));
 }
 
 void AGameplayEvents::Step9()
@@ -476,36 +427,22 @@ void AGameplayEvents::Step9()
 	// Stop the PhoneSound // Collision Not Active
 	UpdateVaribleState(ReceptionPhoneActor, ReceptionPhoneTagName);
 	if (IsValid(ReceptionPhoneActor)) ReceptionPhoneActor->SetActorEnableCollision(false);
-	else 
-	{
-		UE_LOG(LogTemp, Warning, TEXT("NOT Valid *ReceptionPhoneActor*"));
-	}
+	else UE_LOG(LogTemp, Warning, TEXT("NOT Valid *ReceptionPhoneActor*"));
 
 	InitializeActorSoundSystem();
 	if (IsValid(ActorSoundSystem))ActorSoundSystem->StopReceptionPhoneAudio();
-	else
-	{
-		UE_LOG(LogTemp, Warning, TEXT("NOT Valid *ActorSoundSystem*"));
-	}
+	else UE_LOG(LogTemp, Warning, TEXT("NOT Valid *ActorSoundSystem*"));
 
 	UpdateVaribleState(ExitReceptionPhoneActor, Trig4TagName);
 	if (IsValid(ExitReceptionPhoneActor)) ExitReceptionPhoneActor->SetActorEnableCollision(true);
-	else
-	{
-		UE_LOG(LogTemp, Warning, TEXT("ExitReceptionPhoneActor is NOT Valid"));
-	}
-
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---Lights in B1 goes out & Reception-Phone dies---"));
-	
-	// When it's dark. // TRIGGERED
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---Footsteps runnging from F1 (Above)---"));
+	else UE_LOG(LogTemp, Warning, TEXT("ExitReceptionPhoneActor is NOT Valid"));
 }
 void AGameplayEvents::Step10()
 {
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 10 Active---"));
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---F1 Footprint to F2---"));
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---Footsteps runnging from F1 (Above) \nF1 Footprint to F2---"));
 
-	// Sett active with trigger
+
 }
 
 void AGameplayEvents::Step11()

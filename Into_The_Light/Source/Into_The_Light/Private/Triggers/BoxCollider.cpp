@@ -73,6 +73,7 @@ void ABoxCollider::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* O
 		{
 			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Cyan, TEXT("LightsB1Reception ON!"));
 			EventSteps->UnloadSublevel(TEXT("LightsB1Reception"));
+			EventSteps->NextStep(10);
 			bIsExitReceptionPhone = false;
 		}
 		//////////////////////////////////////////////////---ACTIONS---//////////////////////////////////////////////////
