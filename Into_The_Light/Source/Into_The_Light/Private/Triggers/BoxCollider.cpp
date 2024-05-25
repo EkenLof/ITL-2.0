@@ -15,6 +15,8 @@ ABoxCollider::ABoxCollider()
 
 	bIsMeetCole = false;
 	bIsMissingCole = false;
+	bIsExitFuseBoxRoom = false;
+	bIsExitReceptionPhone = false;
 
 	CollisionBox = CreateDefaultSubobject<UBoxComponent>(TEXT("BoxComponent"));
 	CollisionBox->SetBoxExtent(FVector(32.f, 32.f, 32.f));
@@ -53,12 +55,25 @@ void ABoxCollider::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* O
 			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Cyan, TEXT("OBJECTIVE: Talk to Cole."));
 			EventSteps->NextStep(3);
 			bIsMeetCole = false;
+			//Destroy(this);
 		}
 		else if (bIsMissingCole)
 		{
 			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Cyan, TEXT("OBJECTIVE: Look for Electric-Key."));
 			EventSteps->NextStep(6);
 			bIsMissingCole = false;
+		}
+		else if (bIsExitFuseBoxRoom)
+		{
+			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Cyan, TEXT("Light ON!"));
+			EventSteps->LoadSublevel(TEXT("LightsF1"));
+			bIsExitFuseBoxRoom = false;
+		}
+		else if (bIsExitReceptionPhone)
+		{
+			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Cyan, TEXT("LightsB1Reception ON!"));
+			EventSteps->UnloadSublevel(TEXT("LightsB1Reception"));
+			bIsExitReceptionPhone = false;
 		}
 		//////////////////////////////////////////////////---ACTIONS---//////////////////////////////////////////////////
 	}

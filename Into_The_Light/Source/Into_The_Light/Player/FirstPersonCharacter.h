@@ -125,6 +125,7 @@ protected:
 	bool BIsStepActive;
 
 	bool bIsTempOnOff;
+	bool bIsTempWaitForInteractibleFuseBox;
 
 	bool bIsReceptionDoor;
 	bool bIsFuseBox;

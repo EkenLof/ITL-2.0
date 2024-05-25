@@ -32,6 +32,10 @@ public:
 	bool bIsMeetCole;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Trigger")
 	bool bIsMissingCole;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Trigger")
+	bool bIsExitFuseBoxRoom;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Trigger")
+	bool bIsExitReceptionPhone;
 	////////////////////////////---ACTIVE STATE---////////////////////////////
 
 

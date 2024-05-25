@@ -96,6 +96,7 @@ AFirstPersonCharacter::AFirstPersonCharacter()
 
 	BIsStepActive = false;
 	bIsTempOnOff = false;
+	bIsTempWaitForInteractibleFuseBox = false;
 
 	bIsReceptionDoor = true;
 	bIsFuseBox = true;
@@ -141,83 +142,84 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 	///////////////////////////////////////////---TEMP---/////////////////////////////////////////////
 	else if (PlayerInventory->IsFlshlight && !BIsStepActive && !PlayerInventory->IsFuse10a) // Flashlight Pickup.
 	{
-		EventSteps->NextStep(2);
-		// HiddenWall Reception OFF.
+		if (IsValid(EventSteps)) EventSteps->NextStep(2);
 
 		BIsStepActive = true;
 	}
 
 	else if (PlayerInventory->IsFuse10a && !PlayerInventory->IsElectricKey && BIsStepActive) // Fuse10a Pickup
 	{
-		EventSteps->NextStep(4);
+		if (IsValid(EventSteps)) EventSteps->NextStep(4);
 
 		BIsStepActive = false;
 	}
 
 	else if (PlayerInventory->IsElectricKey && !BIsStepActive) // ElectricKey Pickup
 	{
-		EventSteps->NextStep(7);
+		if (IsValid(EventSteps)) EventSteps->NextStep(7);
 
 		BIsStepActive = true;
 	}
 	///////////////////////////////////////////---TEMP---/////////////////////////////////////////////
 
-	/////////////////////////////////---ReceptionDoor & FuseBox---////////////////////////////////////
-	// FuseBox Door.
-	else if (CheckLookAtObject() && CheckLeftMouseButtonDown() && bIsFuseBox && bIsLookingAtFuBox && !bIsLookingAtRecDoor && !bIsLookingAtFuseBox_Interactible && !bIsLookingReceptionPhone
-		|| CheckLookAtObject() && CheckRightMouseButtonDown() && bIsFuseBox && bIsLookingAtFuBox && !bIsLookingAtRecDoor && !bIsLookingAtFuseBox_Interactible && !bIsLookingReceptionPhone)
-	{
-		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Blue, TEXT("OBJECTIVE: Find the Electric Key."));
-
-		EventSteps->NextStep(5);
-		bIsFuseBox = false;
-	}
-	// Reception Door.
-	else if (CheckLookAtObject() && CheckLeftMouseButtonDown() && bIsReceptionDoor && bIsLookingAtRecDoor && !bIsLookingAtFuBox && !bIsLookingAtFuseBox_Interactible && !bIsLookingReceptionPhone
-		|| CheckLookAtObject() && CheckRightMouseButtonDown() && bIsReceptionDoor && bIsLookingAtRecDoor && !bIsLookingAtFuBox && !bIsLookingAtFuseBox_Interactible && !bIsLookingReceptionPhone)
-	{		
-		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Blue, TEXT("OBJECTIVE: Get the Flashlight."));
-
-		bIsReceptionDoor = false;
-	}
-	// FuseBox Fuse 10A to Box.
-	else if (CheckLookAtObject() && CheckLeftMouseButtonDown() && bIsFuseBox_Interactible && bIsLookingAtFuseBox_Interactible && !bIsLookingAtRecDoor && !bIsLookingAtFuBox && !bIsLookingReceptionPhone
-		|| CheckLookAtObject() && CheckRightMouseButtonDown() && bIsFuseBox_Interactible && bIsLookingAtFuseBox_Interactible && !bIsLookingAtRecDoor && !bIsLookingAtFuBox && !bIsLookingReceptionPhone)
-	{
-		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Blue, TEXT("OBJECTIVE: Get to Manager-Office."));
-
-		EventSteps->NextStep(8); // Lights Restored, fuse10a in place.
-		bIsFuseBox_Interactible = false;
-	}
-	// Reception Phone.
-	else if (CheckLookAtObject() && CheckLeftMouseButtonDown() && bIsReceptionPhone && bIsLookingReceptionPhone && !bIsLookingAtFuseBox_Interactible && !bIsLookingAtRecDoor && !bIsLookingAtFuBox
-		|| CheckLookAtObject() && CheckRightMouseButtonDown() && bIsReceptionPhone && bIsLookingReceptionPhone && !bIsLookingAtFuseBox_Interactible && !bIsLookingAtRecDoor && !bIsLookingAtFuBox)
-	{
-		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Blue, TEXT("OBJECTIVE: ..."));
-
-		EventSteps->NextStep(9); // Phone dies & Light att B1 goes out.
-		bIsReceptionPhone = false;
-	}
-
-	// --- Looking OnOff --- //
+	/////////////////////////////////---Looking On or Off---////////////////////////////////////
 	// Looking & Visable
-	if (bIsLookingAtFuseBox_Interactible && bIsFuseBox_Interactible && !bIsTempOnOff)
+	if (bIsLookingAtFuseBox_Interactible && bIsFuseBox_Interactible && !bIsTempOnOff && bIsTempWaitForInteractibleFuseBox)
 	{
 		UpdateVaribleState(Fuse10A_InFuseBoxTransActor, Fuse10A_InFuseBoxTransTagName);
 		if (IsValid(Fuse10A_InFuseBoxTransActor)) Fuse10A_InFuseBoxTransActor->SetActorHiddenInGame(false);
-		
+
 		bIsTempOnOff = true;
 	}
 	// Not Looking & Not Visable
-	else if (bIsLookingAtFuseBox_Interactible && !bIsFuseBox_Interactible && bIsTempOnOff || !bIsLookingAtFuseBox_Interactible && bIsTempOnOff)
+	else if (!bIsFuseBox_Interactible && bIsTempOnOff
+		|| !bIsLookingAtFuseBox_Interactible && bIsTempOnOff
+		|| !bIsTempOnOff
+		|| !bIsTempWaitForInteractibleFuseBox)
 	{
 		UpdateVaribleState(Fuse10A_InFuseBoxTransActor, Fuse10A_InFuseBoxTransTagName);
 		if (IsValid(Fuse10A_InFuseBoxTransActor)) Fuse10A_InFuseBoxTransActor->SetActorHiddenInGame(true);
 
 		bIsTempOnOff = false;
 	}
-	// --- Looking OnOff --- //
-	/////////////////////////////////---ReceptionDoor & FuseBox---////////////////////////////////////
+	/////////////////////////////////---Looking On or Off---////////////////////////////////////
+
+	/////////////////////////////////---ReceptionDoor & FuseBox & ReceptionPhone---////////////////////////////////////
+	// FuseBox Door.
+	if (CheckLookAtObject() && CheckLeftMouseButtonDown() && bIsFuseBox && bIsLookingAtFuBox && !bIsLookingAtRecDoor && !bIsLookingAtFuseBox_Interactible && !bIsLookingReceptionPhone
+		|| CheckLookAtObject() && CheckRightMouseButtonDown() && bIsFuseBox && bIsLookingAtFuBox && !bIsLookingAtRecDoor && !bIsLookingAtFuseBox_Interactible && !bIsLookingReceptionPhone)
+	{
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Blue, TEXT("OBJECTIVE: Find the Electric Key."));
+
+		if (IsValid(EventSteps)) EventSteps->NextStep(5);
+		bIsFuseBox = false;
+	}
+	// Reception Door.
+	else if (CheckLookAtObject() && CheckLeftMouseButtonDown() && bIsReceptionDoor && bIsLookingAtRecDoor && !bIsLookingAtFuBox && !bIsLookingAtFuseBox_Interactible && !bIsLookingReceptionPhone
+		|| CheckLookAtObject() && CheckRightMouseButtonDown() && bIsReceptionDoor && bIsLookingAtRecDoor && !bIsLookingAtFuBox && !bIsLookingAtFuseBox_Interactible && !bIsLookingReceptionPhone)
+	{
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Blue, TEXT("OBJECTIVE: Get the Flashlight."));
+
+		bIsReceptionDoor = false;
+	}
+	// FuseBox Fuse 10A to Box.
+	else if (CheckLookAtObject() && CheckLeftMouseButtonDown() && bIsTempWaitForInteractibleFuseBox && bIsFuseBox_Interactible && bIsLookingAtFuseBox_Interactible && !bIsLookingAtRecDoor && !bIsLookingAtFuBox && !bIsLookingReceptionPhone)
+	{
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Blue, TEXT("OBJECTIVE: Get to Manager-Office."));
+
+		if (IsValid(EventSteps)) EventSteps->NextStep(8); // Lights Restored, fuse10a in place.
+		bIsFuseBox_Interactible = false;
+	}
+	// Reception Phone.
+	else if (CheckLookAtObject() && CheckLeftMouseButtonDown() && bIsReceptionPhone && bIsLookingReceptionPhone && !bIsLookingAtFuseBox_Interactible && !bIsLookingAtRecDoor && !bIsLookingAtFuBox)
+	{
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Blue, TEXT("OBJECTIVE: ..."));
+
+		if (IsValid(EventSteps)) EventSteps->NextStep(9); // Phone dies & Light att B1 goes out.
+		bIsReceptionPhone = false;
+	}
+	else return;
+	/////////////////////////////////---ReceptionDoor & FuseBox & ReceptionPhone---////////////////////////////////////
 }
 
 void AFirstPersonCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
@@ -315,6 +317,9 @@ bool AFirstPersonCharacter::CheckLookAtObject()
 			bIsLookingReceptionPhone = false;
 
 			bIsLookingAtFuseBox_Interactible = true;
+
+			// From GameplayEvent Activity
+			if (IsValid(EventSteps)) bIsTempWaitForInteractibleFuseBox = EventSteps->bIsTempWaitForInteractibleFuseBox;
 
 			bIsUiActive = true; // NOT IN USE YET 
 

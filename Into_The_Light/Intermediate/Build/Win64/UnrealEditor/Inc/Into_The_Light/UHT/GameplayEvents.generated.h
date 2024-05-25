@@ -36,10 +36,11 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 	DECLARE_FUNCTION(execStep2); \
 	DECLARE_FUNCTION(execStep1); \
 	DECLARE_FUNCTION(execStep0); \
-	DECLARE_FUNCTION(execUnloadSublevel); \
-	DECLARE_FUNCTION(execLoadSublevel); \
+	DECLARE_FUNCTION(execOnSublevelLoaded); \
 	DECLARE_FUNCTION(execToggleOff); \
 	DECLARE_FUNCTION(execToggleOn); \
+	DECLARE_FUNCTION(execUnloadSublevel); \
+	DECLARE_FUNCTION(execLoadSublevel); \
 	DECLARE_FUNCTION(execNextStep);
 
 
