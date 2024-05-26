@@ -170,9 +170,11 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 
 	else if (PlayerInventory->IsColeKeycard && !BIsStepActive) // Cole's Keycard Pickup
 	{
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Cyan, TEXT("OBJECTIVE: Get to the Manager Office with the the Elevator."));
 		if (IsValid(EventSteps)) EventSteps->NextStep(13); // Elevator Acive
 
 		BIsStepActive = true;
+		return;
 	}
 	///////////////////////////////////////////---TEMP---/////////////////////////////////////////////
 

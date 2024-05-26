@@ -20,7 +20,9 @@
 #include "Runtime/LevelSequence/Public/LevelSequencePlayer.h"
 #include "Runtime/LevelSequence/Public/LevelSequenceActor.h"
 
+// Other Scripts
 #include "Audio/ActorSoundSystem.h"
+#include "Gameplay/Elevator_System.h"
 
 #include "Sound/SoundCue.h"
 
@@ -29,7 +31,6 @@ AGameplayEvents::AGameplayEvents()
 	PrimaryActorTick.bCanEverTick = true;
 
 	bIsTempWaitForInteractibleFuseBox = false;
-	bIsElevatorOn = false;
 	
 	ReceptionLightsTagName = FName(TEXT("Reception_Lights"));
 	F1LightsTagName = FName(TEXT("F1_Lights"));
@@ -456,6 +457,9 @@ void AGameplayEvents::Step11()
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---OfficeKey Collected---"));
 
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Cyan, TEXT("OBJECTIVE: Get to the F1 Office."));
+
+	delete ReceptionPhoneActor;
+	delete ActorSoundSystem;
 }
 
 void AGameplayEvents::Step12()
@@ -469,10 +473,9 @@ void AGameplayEvents::Step13()
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 13 Active---"));
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---Cole's Keycard Collected---"));
 
-	bIsElevatorOn = true;
+	if(IsValid(Elevator_System))Elevator_System->ElevatorActive();
 
 	// Elevator Active, Player Getting to the Manager Office,
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Cyan, TEXT("OBJECTIVE: Get to the Manager Office with the the Elevator."));
 }
 
 void AGameplayEvents::Step14()

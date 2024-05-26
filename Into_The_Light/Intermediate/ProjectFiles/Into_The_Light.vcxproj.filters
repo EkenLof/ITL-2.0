@@ -81,6 +81,9 @@
     <Filter Include="Source\Into_The_Light\Private\Gameplay">
       <UniqueIdentifier>{68BD4E67-10A7-36D6-9FB1-40E0D471ED74}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\Into_The_Light\Private\Gameplay\Elevator_System.cpp">
+      <Filter>Source\Into_The_Light\Private\Gameplay</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\Into_The_Light\Private\Gameplay\GameplayEvents.cpp">
       <Filter>Source\Into_The_Light\Private\Gameplay</Filter>
     </ClCompile>
@@ -162,6 +165,9 @@
     <Filter Include="Source\Into_The_Light\Public\Gameplay">
       <UniqueIdentifier>{ED60F363-BC38-31BD-A011-67848F8553E8}</UniqueIdentifier>
     </Filter>
+    <ClInclude Include="..\..\Source\Into_The_Light\Public\Gameplay\Elevator_System.h">
+      <Filter>Source\Into_The_Light\Public\Gameplay</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\Into_The_Light\Public\Gameplay\GameplayEvents.h">
       <Filter>Source\Into_The_Light\Public\Gameplay</Filter>
     </ClInclude>

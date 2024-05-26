@@ -2,7 +2,6 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-
 #include "Components/ActorComponent.h"
 #include "Components/PointLightComponent.h"
 #include "Components/RectLightComponent.h"
@@ -11,6 +10,7 @@
 #include "GameplayEvents.generated.h"
 
 class AActorSoundSystem;
+class AElevator_System;
 
 UCLASS()
 class INTO_THE_LIGHT_API AGameplayEvents : public AActor
@@ -21,6 +21,7 @@ public:
 	AGameplayEvents();
 
 	FORCEINLINE AActorSoundSystem* GetInventory() const { return ActorSoundSystem; };
+	FORCEINLINE AElevator_System* GetInteract() const { return Elevator_System; };
 
 	/////////////////////////////---NEXTSTEP ACTIVE---////////////////////////////////////
 	UFUNCTION(BlueprintCallable)
@@ -49,8 +50,6 @@ public:
 	// Activity
 	UPROPERTY(EditAnywhere, Category = "Event | Activity")
 	bool bIsTempWaitForInteractibleFuseBox;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Activity")
-	bool bIsElevatorOn;
 
 
 	////////////////////////////---ASSIGN---///////////////////////////
@@ -101,6 +100,7 @@ public:
 protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Audio")
 	AActorSoundSystem* ActorSoundSystem;
+	AElevator_System* Elevator_System;
 
 	////////////////////////////---LevelSequence---///////////////////////////
 	//UPROPERTY(EditAnywhere, Category = "Animations | Cole")
