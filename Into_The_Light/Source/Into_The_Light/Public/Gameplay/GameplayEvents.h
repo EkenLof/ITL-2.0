@@ -49,6 +49,9 @@ public:
 	// Activity
 	UPROPERTY(EditAnywhere, Category = "Event | Activity")
 	bool bIsTempWaitForInteractibleFuseBox;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Activity")
+	bool bIsElevatorOn;
+
 
 	////////////////////////////---ASSIGN---///////////////////////////
 	// --- Triggers --- //

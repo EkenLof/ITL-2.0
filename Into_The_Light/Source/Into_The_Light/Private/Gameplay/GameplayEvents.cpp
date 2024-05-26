@@ -29,6 +29,7 @@ AGameplayEvents::AGameplayEvents()
 	PrimaryActorTick.bCanEverTick = true;
 
 	bIsTempWaitForInteractibleFuseBox = false;
+	bIsElevatorOn = false;
 	
 	ReceptionLightsTagName = FName(TEXT("Reception_Lights"));
 	F1LightsTagName = FName(TEXT("F1_Lights"));
@@ -50,6 +51,8 @@ AGameplayEvents::AGameplayEvents()
 
 	Trig3TagName = FName(TEXT("Trigger_3_ACT1")); //Trigger_3_ACT1
 	Trig4TagName = FName(TEXT("Trigger_4_ACT1"));
+
+	// Door_To_OfficeKey
 
 	//Sublvl3 = FName(TEXT("Sublvl3"));
 	//SubLvl4 = FName(TEXT("Sublvl4"));
@@ -443,24 +446,33 @@ void AGameplayEvents::Step10()
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---Footsteps runnging from F1 (Above) \nF1 Footprint to F2---"));
 
 
+	// Door To OfficeKey OPEN
+
 }
 
 void AGameplayEvents::Step11()
 {
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 11 Active---"));
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("------"));
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---OfficeKey Collected---"));
+
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Cyan, TEXT("OBJECTIVE: Get to the F1 Office."));
 }
 
 void AGameplayEvents::Step12()
 {
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 12 Active---"));
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("------"));
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---SOMTHING HAPPENS---"));
 }
 
 void AGameplayEvents::Step13()
 {
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 13 Active---"));
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("------"));
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---Cole's Keycard Collected---"));
+
+	bIsElevatorOn = true;
+
+	// Elevator Active, Player Getting to the Manager Office,
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Cyan, TEXT("OBJECTIVE: Get to the Manager Office with the the Elevator."));
 }
 
 void AGameplayEvents::Step14()

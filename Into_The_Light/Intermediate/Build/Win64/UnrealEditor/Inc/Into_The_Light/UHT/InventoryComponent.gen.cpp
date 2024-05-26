@@ -897,7 +897,7 @@ struct Z_Construct_UClass_UInventoryComponent_Statics
 		{ "ToolTip", "USABLE-ITEMS" },
 #endif
 	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_IsColeKeycard_MetaData[] = {
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bIsOfficeKey_MetaData[] = {
 		{ "Category", "Inventory | ItemID" },
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "/// KEY-ITEMS (ITEMS)\n" },
@@ -906,6 +906,10 @@ struct Z_Construct_UClass_UInventoryComponent_Statics
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "KEY-ITEMS (ITEMS)" },
 #endif
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_IsColeKeycard_MetaData[] = {
+		{ "Category", "Inventory | ItemID" },
+		{ "ModuleRelativePath", "Public/Components/InventoryComponent.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_IsElectricKey_MetaData[] = {
 		{ "Category", "Inventory | ItemID" },
@@ -939,7 +943,7 @@ struct Z_Construct_UClass_UInventoryComponent_Statics
 		{ "ToolTip", "USABLE-ITEMS" },
 #endif
 	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ColeKeycard_MetaData[] = {
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_OfficeKey_MetaData[] = {
 		{ "Category", "Inventory | ItemID" },
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "/// KEY-ITEMS (ITEMS)\n" },
@@ -948,6 +952,10 @@ struct Z_Construct_UClass_UInventoryComponent_Statics
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "KEY-ITEMS (ITEMS)" },
 #endif
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ColeKeycard_MetaData[] = {
+		{ "Category", "Inventory | ItemID" },
+		{ "ModuleRelativePath", "Public/Components/InventoryComponent.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ElectricKey_MetaData[] = {
 		{ "Category", "Inventory | ItemID" },
@@ -980,6 +988,8 @@ struct Z_Construct_UClass_UInventoryComponent_Statics
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_IsLighter;
 	static void NewProp_IsBattery_SetBit(void* Obj);
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_IsBattery;
+	static void NewProp_bIsOfficeKey_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsOfficeKey;
 	static void NewProp_IsColeKeycard_SetBit(void* Obj);
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_IsColeKeycard;
 	static void NewProp_IsElectricKey_SetBit(void* Obj);
@@ -989,6 +999,7 @@ struct Z_Construct_UClass_UInventoryComponent_Statics
 	static const UECodeGen_Private::FStrPropertyParams NewProp_Flashlight;
 	static const UECodeGen_Private::FStrPropertyParams NewProp_Lighter;
 	static const UECodeGen_Private::FStrPropertyParams NewProp_Battery;
+	static const UECodeGen_Private::FStrPropertyParams NewProp_OfficeKey;
 	static const UECodeGen_Private::FStrPropertyParams NewProp_ColeKeycard;
 	static const UECodeGen_Private::FStrPropertyParams NewProp_ElectricKey;
 	static const UECodeGen_Private::FStrPropertyParams NewProp_Fuse10a;
@@ -1036,6 +1047,11 @@ void Z_Construct_UClass_UInventoryComponent_Statics::NewProp_IsBattery_SetBit(vo
 	((UInventoryComponent*)Obj)->IsBattery = 1;
 }
 const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UInventoryComponent_Statics::NewProp_IsBattery = { "IsBattery", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(UInventoryComponent), &Z_Construct_UClass_UInventoryComponent_Statics::NewProp_IsBattery_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_IsBattery_MetaData), NewProp_IsBattery_MetaData) };
+void Z_Construct_UClass_UInventoryComponent_Statics::NewProp_bIsOfficeKey_SetBit(void* Obj)
+{
+	((UInventoryComponent*)Obj)->bIsOfficeKey = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UInventoryComponent_Statics::NewProp_bIsOfficeKey = { "bIsOfficeKey", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(UInventoryComponent), &Z_Construct_UClass_UInventoryComponent_Statics::NewProp_bIsOfficeKey_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bIsOfficeKey_MetaData), NewProp_bIsOfficeKey_MetaData) };
 void Z_Construct_UClass_UInventoryComponent_Statics::NewProp_IsColeKeycard_SetBit(void* Obj)
 {
 	((UInventoryComponent*)Obj)->IsColeKeycard = 1;
@@ -1054,6 +1070,7 @@ const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UInventoryCompon
 const UECodeGen_Private::FStrPropertyParams Z_Construct_UClass_UInventoryComponent_Statics::NewProp_Flashlight = { "Flashlight", nullptr, (EPropertyFlags)0x0010000000020005, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UInventoryComponent, Flashlight), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Flashlight_MetaData), NewProp_Flashlight_MetaData) };
 const UECodeGen_Private::FStrPropertyParams Z_Construct_UClass_UInventoryComponent_Statics::NewProp_Lighter = { "Lighter", nullptr, (EPropertyFlags)0x0010000000020005, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UInventoryComponent, Lighter), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Lighter_MetaData), NewProp_Lighter_MetaData) };
 const UECodeGen_Private::FStrPropertyParams Z_Construct_UClass_UInventoryComponent_Statics::NewProp_Battery = { "Battery", nullptr, (EPropertyFlags)0x0010000000020005, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UInventoryComponent, Battery), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Battery_MetaData), NewProp_Battery_MetaData) };
+const UECodeGen_Private::FStrPropertyParams Z_Construct_UClass_UInventoryComponent_Statics::NewProp_OfficeKey = { "OfficeKey", nullptr, (EPropertyFlags)0x0010000000020005, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UInventoryComponent, OfficeKey), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_OfficeKey_MetaData), NewProp_OfficeKey_MetaData) };
 const UECodeGen_Private::FStrPropertyParams Z_Construct_UClass_UInventoryComponent_Statics::NewProp_ColeKeycard = { "ColeKeycard", nullptr, (EPropertyFlags)0x0010000000020005, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UInventoryComponent, ColeKeycard), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ColeKeycard_MetaData), NewProp_ColeKeycard_MetaData) };
 const UECodeGen_Private::FStrPropertyParams Z_Construct_UClass_UInventoryComponent_Statics::NewProp_ElectricKey = { "ElectricKey", nullptr, (EPropertyFlags)0x0010000000020005, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UInventoryComponent, ElectricKey), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ElectricKey_MetaData), NewProp_ElectricKey_MetaData) };
 const UECodeGen_Private::FStrPropertyParams Z_Construct_UClass_UInventoryComponent_Statics::NewProp_Fuse10a = { "Fuse10a", nullptr, (EPropertyFlags)0x0010000000020005, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UInventoryComponent, Fuse10a), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Fuse10a_MetaData), NewProp_Fuse10a_MetaData) };
@@ -1066,12 +1083,14 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UInventor
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInventoryComponent_Statics::NewProp_IsFlshlight,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInventoryComponent_Statics::NewProp_IsLighter,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInventoryComponent_Statics::NewProp_IsBattery,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInventoryComponent_Statics::NewProp_bIsOfficeKey,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInventoryComponent_Statics::NewProp_IsColeKeycard,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInventoryComponent_Statics::NewProp_IsElectricKey,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInventoryComponent_Statics::NewProp_IsFuse10a,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInventoryComponent_Statics::NewProp_Flashlight,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInventoryComponent_Statics::NewProp_Lighter,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInventoryComponent_Statics::NewProp_Battery,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInventoryComponent_Statics::NewProp_OfficeKey,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInventoryComponent_Statics::NewProp_ColeKeycard,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInventoryComponent_Statics::NewProp_ElectricKey,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInventoryComponent_Statics::NewProp_Fuse10a,
@@ -1128,10 +1147,10 @@ struct Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Sou
 		{ FItemAddResult::StaticStruct, Z_Construct_UScriptStruct_FItemAddResult_Statics::NewStructOps, TEXT("ItemAddResult"), &Z_Registration_Info_UScriptStruct_ItemAddResult, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FItemAddResult), 2715229806U) },
 	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UInventoryComponent, UInventoryComponent::StaticClass, TEXT("UInventoryComponent"), &Z_Registration_Info_UClass_UInventoryComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UInventoryComponent), 1913609372U) },
+		{ Z_Construct_UClass_UInventoryComponent, UInventoryComponent::StaticClass, TEXT("UInventoryComponent"), &Z_Registration_Info_UClass_UInventoryComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UInventoryComponent), 3900210339U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Components_InventoryComponent_h_15210654(TEXT("/Script/Into_The_Light"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Components_InventoryComponent_h_532438794(TEXT("/Script/Into_The_Light"),
 	Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Components_InventoryComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Components_InventoryComponent_h_Statics::ClassInfo),
 	Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Components_InventoryComponent_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Components_InventoryComponent_h_Statics::ScriptStructInfo),
 	Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Components_InventoryComponent_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Components_InventoryComponent_h_Statics::EnumInfo));

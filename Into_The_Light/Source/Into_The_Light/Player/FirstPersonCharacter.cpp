@@ -140,23 +140,37 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 	if (GetWorld()->TimeSince(InteractionData.LastInteractionCheckTime) > InteractionCheckFrequency) PerformInteractionCheck();
 
 	///////////////////////////////////////////---TEMP---/////////////////////////////////////////////
-	else if (PlayerInventory->IsFlshlight && !BIsStepActive && !PlayerInventory->IsFuse10a) // Flashlight Pickup.
+	else if (PlayerInventory->IsFlshlight && !BIsStepActive && !PlayerInventory->IsFuse10a && !PlayerInventory->bIsOfficeKey && !PlayerInventory->IsColeKeycard) // Flashlight Pickup.
 	{
 		if (IsValid(EventSteps)) EventSteps->NextStep(2);
 
 		BIsStepActive = true;
 	}
 
-	else if (PlayerInventory->IsFuse10a && !PlayerInventory->IsElectricKey && BIsStepActive) // Fuse10a Pickup
+	else if (PlayerInventory->IsFuse10a && !PlayerInventory->IsElectricKey && BIsStepActive && !PlayerInventory->bIsOfficeKey && !PlayerInventory->IsColeKeycard) // Fuse10a Pickup
 	{
 		if (IsValid(EventSteps)) EventSteps->NextStep(4);
 
 		BIsStepActive = false;
 	}
 
-	else if (PlayerInventory->IsElectricKey && !BIsStepActive) // ElectricKey Pickup
+	else if (PlayerInventory->IsElectricKey && !BIsStepActive && !PlayerInventory->bIsOfficeKey && !PlayerInventory->IsColeKeycard) // ElectricKey Pickup
 	{
 		if (IsValid(EventSteps)) EventSteps->NextStep(7);
+
+		BIsStepActive = true;
+	}
+
+	else if (PlayerInventory->bIsOfficeKey && BIsStepActive && !PlayerInventory->IsColeKeycard) // ElectricKey Pickup
+	{
+		if (IsValid(EventSteps)) EventSteps->NextStep(11);
+
+		BIsStepActive = false;
+	}
+
+	else if (PlayerInventory->IsColeKeycard && !BIsStepActive) // Cole's Keycard Pickup
+	{
+		if (IsValid(EventSteps)) EventSteps->NextStep(13); // Elevator Acive
 
 		BIsStepActive = true;
 	}

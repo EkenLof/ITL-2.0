@@ -11,6 +11,7 @@ UInventoryComponent::UInventoryComponent()
 	IsFuse10a = false;
 	IsColeKeycard = false;
 	IsElectricKey = false;
+	bIsOfficeKey = false;
 }
 
 void UInventoryComponent::BeginPlay()
@@ -51,8 +52,13 @@ void UInventoryComponent::ExposeItem(UItemBase* ItemOut)
 	}
 	else if (ItemInTemp == ElectricKey)
 	{
-		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Purple, TEXT("ColeKeycard Pick-Up-List is ---TRUE---"));
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Purple, TEXT("ElectricKey Pick-Up-List is ---TRUE---"));
 		IsElectricKey = true;
+	}
+	else if (ItemInTemp == OfficeKey)
+	{
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Purple, TEXT("OfficeKey Pick-Up-List is ---TRUE---"));
+		bIsOfficeKey = true;
 	}
 	else
 	{
