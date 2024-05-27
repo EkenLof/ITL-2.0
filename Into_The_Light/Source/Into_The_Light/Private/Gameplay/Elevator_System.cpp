@@ -5,9 +5,11 @@
 AElevator_System::AElevator_System()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	PrimaryActorTick.bCanEverTick = false;
+	PrimaryActorTick.bCanEverTick = true;
 
 	bIsElevatorOn = false;
+
+	// Tag: ElevatorCardReader
 }
 
 // Called when the game starts or when spawned
@@ -24,12 +26,9 @@ void AElevator_System::Tick(float DeltaTime)
 
 }
 
-void AElevator_System::ElevatorActive()
+void AElevator_System::ElevatorActive(bool bIsElevatorActivety)
 {
-	if (!bIsElevatorOn) bIsElevatorOn = true;
-	else
-	{
-		UE_LOG(LogTemp, Error, TEXT("Failed to set bIsElevatorOn ACTIVE!"));
-		return;
-	}
+	bIsElevatorOn = bIsElevatorActivety;
+	UE_LOG(LogTemp, Error, TEXT("Succeded to set bIsElevatorOn ACTIVE!"));
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Red, TEXT("Succeded to set bIsElevatorOn ACTIVE!"));
 }

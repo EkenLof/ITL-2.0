@@ -14,9 +14,10 @@ class INTO_THE_LIGHT_API AElevator_System : public AActor
 public:	
 	AElevator_System();
 
-	void ElevatorActive();
+	UFUNCTION(BlueprintCallable, Category = "Elevator | Event | Activity")
+	void ElevatorActive(bool bIsElevatorActivety);
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Activity")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Elevator | Event | Activity")
 	bool bIsElevatorOn;
 
 protected:

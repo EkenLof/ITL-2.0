@@ -1,4 +1,5 @@
 #include "Gameplay/GameplayEvents.h"
+#include "GameFramework/Actor.h"
 
 #include "Engine/World.h"
 #include "Engine/LevelStreaming.h"
@@ -22,7 +23,6 @@
 
 // Other Scripts
 #include "Audio/ActorSoundSystem.h"
-#include "Gameplay/Elevator_System.h"
 
 #include "Sound/SoundCue.h"
 
@@ -53,12 +53,9 @@ AGameplayEvents::AGameplayEvents()
 	Trig3TagName = FName(TEXT("Trigger_3_ACT1")); //Trigger_3_ACT1
 	Trig4TagName = FName(TEXT("Trigger_4_ACT1"));
 
+	
+	ReceptionPhoneKeyTagName = FName(TEXT("ReceptionPhone_Key")); // ReceptionPhone_Key
 	// Door_To_OfficeKey
-
-	//Sublvl3 = FName(TEXT("Sublvl3"));
-	//SubLvl4 = FName(TEXT("Sublvl4"));
-	//Sublvl5 = FName(TEXT("Sublvl5"));
-	//SubLvl6 = FName(TEXT("Sublvl6"));
 }
 
 void AGameplayEvents::BeginPlay()
@@ -81,6 +78,7 @@ void AGameplayEvents::BeginPlay()
 	UpdateVaribleState(Fuse10A_ToFuseBoxActor, Fuse10A_ToFuseBoxTagName);
 	UpdateVaribleState(LighterActor, LighterTagName);
 	UpdateVaribleState(ReceptionPhoneActor, ReceptionPhoneTagName);
+	UpdateVaribleState(ReceptionPhoneKeyActor, ReceptionPhoneKeyTagName);
 
 	InitializeActorSoundSystem();
 
@@ -245,6 +243,9 @@ void AGameplayEvents::ToggleOff()
 	}
 
 	if (IsValid(MissingColeTriggerStart)) MissingColeTriggerStart->SetActorEnableCollision(false);
+
+	if (IsValid(ReceptionPhoneKeyActor)) ReceptionPhoneKeyActor->SetActorEnableCollision(false);
+	else UE_LOG(LogTemp, Warning, TEXT("ReceptionPhoneKeyActor is NOT Valid"));
 
 	if (IsValid(ExitFuseBoxRoomActor)) ExitFuseBoxRoomActor->SetActorEnableCollision(false);
 	else UE_LOG(LogTemp, Warning, TEXT("ExitFuseBoxRoomActor is NOT Valid"));
@@ -457,9 +458,6 @@ void AGameplayEvents::Step11()
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---OfficeKey Collected---"));
 
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Cyan, TEXT("OBJECTIVE: Get to the F1 Office."));
-
-	delete ReceptionPhoneActor;
-	delete ActorSoundSystem;
 }
 
 void AGameplayEvents::Step12()
@@ -472,10 +470,6 @@ void AGameplayEvents::Step13()
 {
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 13 Active---"));
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---Cole's Keycard Collected---"));
-
-	if(IsValid(Elevator_System))Elevator_System->ElevatorActive();
-
-	// Elevator Active, Player Getting to the Manager Office,
 }
 
 void AGameplayEvents::Step14()

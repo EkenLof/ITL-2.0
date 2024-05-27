@@ -151,6 +151,10 @@ struct Z_Construct_UClass_ABoxCollider_Statics
 		{ "Category", "Event | Trigger" },
 		{ "ModuleRelativePath", "Public/Triggers/BoxCollider.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bIsExitWithKeyCard_MetaData[] = {
+		{ "Category", "Event | Trigger" },
+		{ "ModuleRelativePath", "Public/Triggers/BoxCollider.h" },
+	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_EventSteps_MetaData[] = {
 		{ "Category", "Events | Steps" },
 		{ "ModuleRelativePath", "Public/Triggers/BoxCollider.h" },
@@ -169,6 +173,8 @@ struct Z_Construct_UClass_ABoxCollider_Statics
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsExitFuseBoxRoom;
 	static void NewProp_bIsExitReceptionPhone_SetBit(void* Obj);
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsExitReceptionPhone;
+	static void NewProp_bIsExitWithKeyCard_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsExitWithKeyCard;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_EventSteps;
 	static const UECodeGen_Private::FNamePropertyParams NewProp_MichaelTagName;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
@@ -203,6 +209,11 @@ void Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsExitReceptionPhone_SetB
 	((ABoxCollider*)Obj)->bIsExitReceptionPhone = 1;
 }
 const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsExitReceptionPhone = { "bIsExitReceptionPhone", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(ABoxCollider), &Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsExitReceptionPhone_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bIsExitReceptionPhone_MetaData), NewProp_bIsExitReceptionPhone_MetaData) };
+void Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsExitWithKeyCard_SetBit(void* Obj)
+{
+	((ABoxCollider*)Obj)->bIsExitWithKeyCard = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsExitWithKeyCard = { "bIsExitWithKeyCard", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(ABoxCollider), &Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsExitWithKeyCard_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bIsExitWithKeyCard_MetaData), NewProp_bIsExitWithKeyCard_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABoxCollider_Statics::NewProp_EventSteps = { "EventSteps", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABoxCollider, EventSteps), Z_Construct_UClass_AGameplayEvents_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_EventSteps_MetaData), NewProp_EventSteps_MetaData) };
 const UECodeGen_Private::FNamePropertyParams Z_Construct_UClass_ABoxCollider_Statics::NewProp_MichaelTagName = { "MichaelTagName", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Name, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABoxCollider, MichaelTagName), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_MichaelTagName_MetaData), NewProp_MichaelTagName_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ABoxCollider_Statics::PropPointers[] = {
@@ -211,6 +222,7 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ABoxColli
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsMissingCole,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsExitFuseBoxRoom,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsExitReceptionPhone,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsExitWithKeyCard,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABoxCollider_Statics::NewProp_EventSteps,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABoxCollider_Statics::NewProp_MichaelTagName,
 };
@@ -255,10 +267,10 @@ ABoxCollider::~ABoxCollider() {}
 struct Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Triggers_BoxCollider_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ABoxCollider, ABoxCollider::StaticClass, TEXT("ABoxCollider"), &Z_Registration_Info_UClass_ABoxCollider, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABoxCollider), 2280643142U) },
+		{ Z_Construct_UClass_ABoxCollider, ABoxCollider::StaticClass, TEXT("ABoxCollider"), &Z_Registration_Info_UClass_ABoxCollider, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABoxCollider), 1565985882U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Triggers_BoxCollider_h_3491519672(TEXT("/Script/Into_The_Light"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Triggers_BoxCollider_h_1795812843(TEXT("/Script/Into_The_Light"),
 	Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Triggers_BoxCollider_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Triggers_BoxCollider_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

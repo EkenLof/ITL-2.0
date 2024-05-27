@@ -178,9 +178,6 @@ struct Z_Construct_UFunction_AGameplayEvents_Step1_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "// \n" },
-#endif
 		{ "ModuleRelativePath", "Public/Gameplay/GameplayEvents.h" },
 	};
 #endif // WITH_METADATA
@@ -210,13 +207,7 @@ struct Z_Construct_UFunction_AGameplayEvents_Step10_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "// Reception phone off\n" },
-#endif
 		{ "ModuleRelativePath", "Public/Gameplay/GameplayEvents.h" },
-#if !UE_BUILD_SHIPPING
-		{ "ToolTip", "Reception phone off" },
-#endif
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFunctionParams FuncParams;
@@ -245,9 +236,6 @@ struct Z_Construct_UFunction_AGameplayEvents_Step11_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "// \n" },
-#endif
 		{ "ModuleRelativePath", "Public/Gameplay/GameplayEvents.h" },
 	};
 #endif // WITH_METADATA
@@ -509,9 +497,6 @@ struct Z_Construct_UFunction_AGameplayEvents_Step2_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "// \n" },
-#endif
 		{ "ModuleRelativePath", "Public/Gameplay/GameplayEvents.h" },
 	};
 #endif // WITH_METADATA
@@ -570,9 +555,6 @@ struct Z_Construct_UFunction_AGameplayEvents_Step3_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "// \n" },
-#endif
 		{ "ModuleRelativePath", "Public/Gameplay/GameplayEvents.h" },
 	};
 #endif // WITH_METADATA
@@ -602,9 +584,6 @@ struct Z_Construct_UFunction_AGameplayEvents_Step4_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "// \n" },
-#endif
 		{ "ModuleRelativePath", "Public/Gameplay/GameplayEvents.h" },
 	};
 #endif // WITH_METADATA
@@ -634,9 +613,6 @@ struct Z_Construct_UFunction_AGameplayEvents_Step5_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "// \n" },
-#endif
 		{ "ModuleRelativePath", "Public/Gameplay/GameplayEvents.h" },
 	};
 #endif // WITH_METADATA
@@ -666,9 +642,6 @@ struct Z_Construct_UFunction_AGameplayEvents_Step6_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "// \n" },
-#endif
 		{ "ModuleRelativePath", "Public/Gameplay/GameplayEvents.h" },
 	};
 #endif // WITH_METADATA
@@ -698,9 +671,6 @@ struct Z_Construct_UFunction_AGameplayEvents_Step7_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "// \n" },
-#endif
 		{ "ModuleRelativePath", "Public/Gameplay/GameplayEvents.h" },
 	};
 #endif // WITH_METADATA
@@ -730,9 +700,6 @@ struct Z_Construct_UFunction_AGameplayEvents_Step8_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "// \n" },
-#endif
 		{ "ModuleRelativePath", "Public/Gameplay/GameplayEvents.h" },
 	};
 #endif // WITH_METADATA
@@ -762,9 +729,6 @@ struct Z_Construct_UFunction_AGameplayEvents_Step9_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "// \n" },
-#endif
 		{ "ModuleRelativePath", "Public/Gameplay/GameplayEvents.h" },
 	};
 #endif // WITH_METADATA
@@ -1015,6 +979,10 @@ struct Z_Construct_UClass_AGameplayEvents_Statics
 		{ "Category", "Event | Assign | Actors" },
 		{ "ModuleRelativePath", "Public/Gameplay/GameplayEvents.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ReceptionPhoneKeyActor_MetaData[] = {
+		{ "Category", "Event | Assign | Actors" },
+		{ "ModuleRelativePath", "Public/Gameplay/GameplayEvents.h" },
+	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_LightsB1Reception_SL_MetaData[] = {
 		{ "Category", "Event | Assign | SubLevels" },
 #if !UE_BUILD_SHIPPING
@@ -1047,6 +1015,7 @@ struct Z_Construct_UClass_AGameplayEvents_Statics
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_Fuse10A_ToFuseBoxActor;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_LighterActor;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_ReceptionPhoneActor;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_ReceptionPhoneKeyActor;
 	static const UECodeGen_Private::FNamePropertyParams NewProp_LightsB1Reception_SL;
 	static const UECodeGen_Private::FNamePropertyParams NewProp_LightsF1_SL;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_ActorSoundSystem;
@@ -1057,9 +1026,9 @@ struct Z_Construct_UClass_AGameplayEvents_Statics
 		{ &Z_Construct_UFunction_AGameplayEvents_NextStep, "NextStep" }, // 452918355
 		{ &Z_Construct_UFunction_AGameplayEvents_OnSublevelLoaded, "OnSublevelLoaded" }, // 1957554179
 		{ &Z_Construct_UFunction_AGameplayEvents_Step0, "Step0" }, // 140066084
-		{ &Z_Construct_UFunction_AGameplayEvents_Step1, "Step1" }, // 2049934850
-		{ &Z_Construct_UFunction_AGameplayEvents_Step10, "Step10" }, // 3950508524
-		{ &Z_Construct_UFunction_AGameplayEvents_Step11, "Step11" }, // 503508953
+		{ &Z_Construct_UFunction_AGameplayEvents_Step1, "Step1" }, // 3744467042
+		{ &Z_Construct_UFunction_AGameplayEvents_Step10, "Step10" }, // 4183978094
+		{ &Z_Construct_UFunction_AGameplayEvents_Step11, "Step11" }, // 3519674019
 		{ &Z_Construct_UFunction_AGameplayEvents_Step12, "Step12" }, // 1474196349
 		{ &Z_Construct_UFunction_AGameplayEvents_Step13, "Step13" }, // 2231726236
 		{ &Z_Construct_UFunction_AGameplayEvents_Step14, "Step14" }, // 4282671231
@@ -1068,15 +1037,15 @@ struct Z_Construct_UClass_AGameplayEvents_Statics
 		{ &Z_Construct_UFunction_AGameplayEvents_Step17, "Step17" }, // 69831471
 		{ &Z_Construct_UFunction_AGameplayEvents_Step18, "Step18" }, // 2732384840
 		{ &Z_Construct_UFunction_AGameplayEvents_Step19, "Step19" }, // 729867157
-		{ &Z_Construct_UFunction_AGameplayEvents_Step2, "Step2" }, // 3595875670
+		{ &Z_Construct_UFunction_AGameplayEvents_Step2, "Step2" }, // 3647741597
 		{ &Z_Construct_UFunction_AGameplayEvents_Step20, "Step20" }, // 1373972910
-		{ &Z_Construct_UFunction_AGameplayEvents_Step3, "Step3" }, // 1513859092
-		{ &Z_Construct_UFunction_AGameplayEvents_Step4, "Step4" }, // 603366955
-		{ &Z_Construct_UFunction_AGameplayEvents_Step5, "Step5" }, // 317589636
-		{ &Z_Construct_UFunction_AGameplayEvents_Step6, "Step6" }, // 1535311411
-		{ &Z_Construct_UFunction_AGameplayEvents_Step7, "Step7" }, // 337556794
-		{ &Z_Construct_UFunction_AGameplayEvents_Step8, "Step8" }, // 2658875839
-		{ &Z_Construct_UFunction_AGameplayEvents_Step9, "Step9" }, // 1023245460
+		{ &Z_Construct_UFunction_AGameplayEvents_Step3, "Step3" }, // 2240352314
+		{ &Z_Construct_UFunction_AGameplayEvents_Step4, "Step4" }, // 3015971388
+		{ &Z_Construct_UFunction_AGameplayEvents_Step5, "Step5" }, // 3982976046
+		{ &Z_Construct_UFunction_AGameplayEvents_Step6, "Step6" }, // 667451690
+		{ &Z_Construct_UFunction_AGameplayEvents_Step7, "Step7" }, // 3199753067
+		{ &Z_Construct_UFunction_AGameplayEvents_Step8, "Step8" }, // 2320462625
+		{ &Z_Construct_UFunction_AGameplayEvents_Step9, "Step9" }, // 2465062377
 		{ &Z_Construct_UFunction_AGameplayEvents_ToggleOff, "ToggleOff" }, // 83995692
 		{ &Z_Construct_UFunction_AGameplayEvents_ToggleOn, "ToggleOn" }, // 379029772
 		{ &Z_Construct_UFunction_AGameplayEvents_UnloadSublevel, "UnloadSublevel" }, // 2693158880
@@ -1103,6 +1072,7 @@ const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGameplayEvent
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGameplayEvents_Statics::NewProp_Fuse10A_ToFuseBoxActor = { "Fuse10A_ToFuseBoxActor", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGameplayEvents, Fuse10A_ToFuseBoxActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Fuse10A_ToFuseBoxActor_MetaData), NewProp_Fuse10A_ToFuseBoxActor_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGameplayEvents_Statics::NewProp_LighterActor = { "LighterActor", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGameplayEvents, LighterActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_LighterActor_MetaData), NewProp_LighterActor_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGameplayEvents_Statics::NewProp_ReceptionPhoneActor = { "ReceptionPhoneActor", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGameplayEvents, ReceptionPhoneActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ReceptionPhoneActor_MetaData), NewProp_ReceptionPhoneActor_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGameplayEvents_Statics::NewProp_ReceptionPhoneKeyActor = { "ReceptionPhoneKeyActor", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGameplayEvents, ReceptionPhoneKeyActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ReceptionPhoneKeyActor_MetaData), NewProp_ReceptionPhoneKeyActor_MetaData) };
 const UECodeGen_Private::FNamePropertyParams Z_Construct_UClass_AGameplayEvents_Statics::NewProp_LightsB1Reception_SL = { "LightsB1Reception_SL", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Name, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGameplayEvents, LightsB1Reception_SL), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_LightsB1Reception_SL_MetaData), NewProp_LightsB1Reception_SL_MetaData) };
 const UECodeGen_Private::FNamePropertyParams Z_Construct_UClass_AGameplayEvents_Statics::NewProp_LightsF1_SL = { "LightsF1_SL", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Name, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGameplayEvents, LightsF1_SL), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_LightsF1_SL_MetaData), NewProp_LightsF1_SL_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AGameplayEvents_Statics::NewProp_ActorSoundSystem = { "ActorSoundSystem", nullptr, (EPropertyFlags)0x0020080000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AGameplayEvents, ActorSoundSystem), Z_Construct_UClass_AActorSoundSystem_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ActorSoundSystem_MetaData), NewProp_ActorSoundSystem_MetaData) };
@@ -1119,6 +1089,7 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AGameplay
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGameplayEvents_Statics::NewProp_Fuse10A_ToFuseBoxActor,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGameplayEvents_Statics::NewProp_LighterActor,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGameplayEvents_Statics::NewProp_ReceptionPhoneActor,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGameplayEvents_Statics::NewProp_ReceptionPhoneKeyActor,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGameplayEvents_Statics::NewProp_LightsB1Reception_SL,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGameplayEvents_Statics::NewProp_LightsF1_SL,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AGameplayEvents_Statics::NewProp_ActorSoundSystem,
@@ -1164,10 +1135,10 @@ AGameplayEvents::~AGameplayEvents() {}
 struct Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_GameplayEvents_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AGameplayEvents, AGameplayEvents::StaticClass, TEXT("AGameplayEvents"), &Z_Registration_Info_UClass_AGameplayEvents, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AGameplayEvents), 3730974436U) },
+		{ Z_Construct_UClass_AGameplayEvents, AGameplayEvents::StaticClass, TEXT("AGameplayEvents"), &Z_Registration_Info_UClass_AGameplayEvents, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AGameplayEvents), 229863628U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_GameplayEvents_h_4224562873(TEXT("/Script/Into_The_Light"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_GameplayEvents_h_474780968(TEXT("/Script/Into_The_Light"),
 	Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_GameplayEvents_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_GameplayEvents_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

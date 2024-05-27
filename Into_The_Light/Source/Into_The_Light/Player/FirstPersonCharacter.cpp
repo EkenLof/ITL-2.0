@@ -13,6 +13,7 @@
 #include "Engine/Texture2D.h"
 #include "Engine/StaticMesh.h"
 #include "Engine/World.h"
+#include "EngineUtils.h"
 
 #include "Components/StaticMeshComponent.h"
 #include "Components/InputComponent.h"
@@ -20,6 +21,7 @@
 
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/SpringArmComponent.h"
+#include "GameFramework/Actor.h"
 
 #include "UserInterface/MainHUD.h"
 
@@ -27,51 +29,13 @@
 
 #include "Gameplay/GameplayEvents.h"
 #include "Triggers/BoxCollider.h"
+#include "Gameplay/Elevator_System.h"
 
 #include "Kismet/GameplayStatics.h" // For the Assign Function.
 
 AFirstPersonCharacter::AFirstPersonCharacter()
 {
 	PrimaryActorTick.bCanEverTick = true;
-
-	// UI System
-	/*
-	bIsUiActive = false;
-	
-	UiMeshComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("UiMeshComponent"));
-	RootComponent = UiMeshComponent;
-	
-	static ConstructorHelpers::FObjectFinder<UTexture2D>DefaultTexture(TEXT("/Game/PhysicsDoors/Textures/T-PD_Grab"));
-	UiTexture = DefaultTexture.Object;
-
-	UiMaterial = UMaterialInstanceDynamic::Create(UiMeshComponent->GetMaterial(0), this);
-	if (UiMaterial)
-	{
-		if (UiMeshComponent)
-		{
-			//UMaterialParameterCollection* ParameterCollection = LoadObject<UMaterialParameterCollection>(nullptr, TEXT("/Game/UI/UI_System/TextureParameterCollection"));
-			//if (ParameterCollection)
-			//{
-				//ParameterCollection->SetTextureParameterValue(FName("Texture"), UiTexture);
-			//}
-			//else
-			//{
-				//UE_LOG(LogTemp, Warning, TEXT("Failed to load material parameter collection."));
-			//}
-
-			//UiMaterial->SetTextureStreamingData();
-
-			UiMeshComponent->SetMaterial(0, UiMaterial);
-		}
-	}
-
-	// Set up the mesh
-	static ConstructorHelpers::FObjectFinder<UStaticMesh> PlaneMesh(TEXT("/Engine/BasicShapes/Plane"));
-	if (PlaneMesh.Succeeded())
-	{
-		UiMeshComponent->SetStaticMesh(PlaneMesh.Object);
-	} */
-	// UI System
 
 	//PlayerMovementsValues->MaxWalkSpeed = WalkSpeed;
 	WalkSpeed = 187.5;
@@ -112,6 +76,7 @@ AFirstPersonCharacter::AFirstPersonCharacter()
 	TriggerBox = CreateDefaultSubobject<ABoxCollider>(TEXT("TriggerBox"));
 
 	Fuse10A_InFuseBoxTransTagName = FName(TEXT("Fuse10A_InFuseBoxTransparent")); // Fuse10A_InFuseBoxTransparent
+	ReceptionPhoneKeyTagName = FName(TEXT("ReceptionPhone_Key")); // ReceptionPhone_Key
 
 	//BaseEyeHeight = 75.0f;
 }
@@ -121,11 +86,6 @@ void AFirstPersonCharacter::BeginPlay()
 	Super::BeginPlay();
 
 	HUD = Cast<AMainHUD>(GetWorld()->GetFirstPlayerController()->GetHUD());
-
-	/*
-	// Position the mesh in the center of the screen
-	FVector Location = FVector(0.f, 0.f, 100.f); // Adjust the Z value to position the texture in front of the camera
-	SetActorLocation(Location);*/
 }
 
 void AFirstPersonCharacter::Tick(float DeltaTime)
@@ -134,8 +94,6 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 
 	//if (bIsUiActive)
 	//{}
-
-	//ItemHandeling();
 
 	if (GetWorld()->TimeSince(InteractionData.LastInteractionCheckTime) > InteractionCheckFrequency) PerformInteractionCheck();
 
@@ -171,10 +129,17 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 	else if (PlayerInventory->IsColeKeycard && !BIsStepActive) // Cole's Keycard Pickup
 	{
 		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Cyan, TEXT("OBJECTIVE: Get to the Manager Office with the the Elevator."));
-		if (IsValid(EventSteps)) EventSteps->NextStep(13); // Elevator Acive
+		//AElevator_System* ElevatorSystem = GetElevatorSystem();
+
+		for (TActorIterator<AElevator_System> It(GetWorld()); It; ++It)
+		{
+			ElevatorSystem = *It;
+			break;  // Assuming there's only one elevator system, break after finding it
+		}
+
+		if (IsValid(ElevatorSystem)) ElevatorSystem->ElevatorActive(true);
 
 		BIsStepActive = true;
-		return;
 	}
 	///////////////////////////////////////////---TEMP---/////////////////////////////////////////////
 
@@ -223,6 +188,11 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 	{
 		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Blue, TEXT("OBJECTIVE: Get to Manager-Office."));
 
+		// ReceptionPhoneKeyActor
+		UpdateVaribleState(ReceptionPhoneKeyActor, ReceptionPhoneKeyTagName);
+		if (IsValid(ReceptionPhoneKeyActor)) ReceptionPhoneKeyActor->SetActorEnableCollision(true);
+		else UE_LOG(LogTemp, Warning, TEXT("ReceptionPhoneKeyActor is NOT Valid"));
+
 		if (IsValid(EventSteps)) EventSteps->NextStep(8); // Lights Restored, fuse10a in place.
 		bIsFuseBox_Interactible = false;
 	}
@@ -259,6 +229,17 @@ void AFirstPersonCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInp
 
 	PlayerInputComponent->BindAction("ToggleMenu", IE_Pressed, this, &AFirstPersonCharacter::ToggleMenu);
 }
+
+/*
+AElevator_System* AFirstPersonCharacter::GetElevatorSystem()
+{
+	for (TActorIterator<AElevator_System> It(GetWorld()); It; ++It)
+	{
+		return *It;  // Assuming there's only one elevator system, return the first found
+	}
+	return nullptr;  // Return nullptr if no elevator system is found
+}
+*/
 
 void AFirstPersonCharacter::UpdateVaribleState(AActor*& ActorReference, const FName& TagName)
 {

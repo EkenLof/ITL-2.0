@@ -4,7 +4,6 @@
 
 #include "GameFramework/Character.h"
 #include "GameFramework/Actor.h"
-
 #include "Components/ActorComponent.h"
 
 #include "Interfaces/InteractionInterface.h"
@@ -15,6 +14,7 @@ class UInventoryComponent;
 class UItemBase;
 class AGameplayEvents;
 class ABoxCollider;
+class AElevator_System;
 
 USTRUCT()
 struct FInteractionData
@@ -41,6 +41,7 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 	FORCEINLINE ABoxCollider* SetTriggerBox() const { return TriggerBox; };
+	//FORCEINLINE AElevator_System* GetInteract() const { return ElevatorSystem; };
 
 	FORCEINLINE AGameplayEvents* SetEventStep() const { return EventSteps; };
 	FORCEINLINE bool IsInteracting() const { return GetWorldTimerManager().IsTimerActive(TimerHandle_Interaction); };
@@ -55,6 +56,10 @@ public:
 
 	float WalkSpeed;
 	float RunSpeed;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign")
+	AElevator_System* ElevatorSystem;
+	//AElevator_System* GetElevatorSystem();
 
 protected:
 	virtual void BeginPlay() override;
@@ -139,10 +144,13 @@ protected:
 
 	// --- Tags --- //
 	FName Fuse10A_InFuseBoxTransTagName;
+	FName ReceptionPhoneKeyTagName;
 	// --- Tags --- //
 	// --- Actors --- //
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")
 	AActor* Fuse10A_InFuseBoxTransActor;
+	UPROPERTY()
+	AActor* ReceptionPhoneKeyActor;
 	// --- Actors --- //
 
 	FTimerHandle TimerHandle_Interaction;

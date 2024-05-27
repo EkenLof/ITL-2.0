@@ -21,7 +21,7 @@ public:
 	AGameplayEvents();
 
 	FORCEINLINE AActorSoundSystem* GetInventory() const { return ActorSoundSystem; };
-	FORCEINLINE AElevator_System* GetInteract() const { return Elevator_System; };
+	//FORCEINLINE AElevator_System* GetInteract() const { return Elevator_System; };
 
 	/////////////////////////////---NEXTSTEP ACTIVE---////////////////////////////////////
 	UFUNCTION(BlueprintCallable)
@@ -79,6 +79,8 @@ public:
 	AActor* LighterActor;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")
 	AActor* ReceptionPhoneActor;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")
+	AActor* ReceptionPhoneKeyActor;
 	// --- Actors --- //
 
 	// --- SubLevels --- //
@@ -86,21 +88,13 @@ public:
 	FName LightsB1Reception_SL;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | SubLevels")
 	FName LightsF1_SL;
-	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | SubLevels")
-	//FName Sublvl3;
-	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | SubLevels")
-	//FName SubLvl4;
-	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | SubLevels")
-	//FName Sublvl5;
-	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | SubLevels")
-	//FName SubLvl6;
 	// --- Sublevels --- //
 	////////////////////////////---ASSIGN---///////////////////////////
 
 protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Audio")
 	AActorSoundSystem* ActorSoundSystem;
-	AElevator_System* Elevator_System;
+	//AElevator_System* GetElevatorSystem();
 
 	////////////////////////////---LevelSequence---///////////////////////////
 	//UPROPERTY(EditAnywhere, Category = "Animations | Cole")
@@ -122,10 +116,9 @@ protected:
 	FName ElectricKey_KeyTagName;
 
 	FName Fuse10A_ToFuseBoxTagName;
-	//FName Fuse10A_InFuseBoxTransTagName;
-	//FName FuseBox_InteractibleTagName;
 	FName LighterTagName;
 	FName ReceptionPhoneTagName;
+	FName ReceptionPhoneKeyTagName;
 
 	FName Trig2TagName;
 	FName Trig3TagName;
@@ -147,37 +140,37 @@ private:
 
 
 	UFUNCTION()
-	void Step0(); // 
+	void Step0(); 
 
 	UFUNCTION()
-	void Step1(); // 
+	void Step1(); 
 
 	UFUNCTION()
-	void Step2(); // 
+	void Step2(); 
 
 	UFUNCTION()
-	void Step3(); // 
+	void Step3(); 
 
 	UFUNCTION()
-	void Step4(); // 
+	void Step4(); 
 
 	UFUNCTION()
-	void Step5(); // 
+	void Step5(); 
 
 	UFUNCTION()
-	void Step6(); // 
+	void Step6(); 
 
 	UFUNCTION()
-	void Step7(); // 
+	void Step7(); 
 
 	UFUNCTION()
-	void Step8(); // 
+	void Step8(); 
 
 	UFUNCTION()
-	void Step9(); // Reception phone off
+	void Step9(); 
 
 	UFUNCTION()
-	void Step10(); // 
+	void Step10(); 
 
 	UFUNCTION()
 	void Step11();

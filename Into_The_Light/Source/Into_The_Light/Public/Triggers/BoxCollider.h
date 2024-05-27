@@ -36,6 +36,8 @@ public:
 	bool bIsExitFuseBoxRoom;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Trigger")
 	bool bIsExitReceptionPhone;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Trigger")
+	bool bIsExitWithKeyCard;
 	////////////////////////////---ACTIVE STATE---////////////////////////////
 
 
