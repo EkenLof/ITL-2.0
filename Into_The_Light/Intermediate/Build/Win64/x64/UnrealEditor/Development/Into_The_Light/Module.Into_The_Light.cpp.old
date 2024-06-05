@@ -36,6 +36,6 @@
 #include "D:/Github-EkenLof-Games/ITL-2.0/Into_The_Light/Source/Into_The_Light/Private/UserInterface/Inventory/InventoryPanel.cpp"
 #include "D:/Github-EkenLof-Games/ITL-2.0/Into_The_Light/Source/Into_The_Light/Private/UserInterface/Inventory/InventoryTooltip.cpp"
 #include "D:/Github-EkenLof-Games/ITL-2.0/Into_The_Light/Source/Into_The_Light/Private/UserInterface/Inventory/ItemDragDropOperation.cpp"
-#include "D:/Github-EkenLof-Games/ITL-2.0/Into_The_Light/Source/Into_The_Light/Private/UserInterface/MainHUD.cpp"
+#include "D:/Github-EkenLof-Games/ITL-2.0/Into_The_Light/Source/Into_The_Light/Private/UserInterface/MainMenu.cpp"
 #include "D:/Github-EkenLof-Games/ITL-2.0/Into_The_Light/Source/Into_The_Light/Private/World/InterfaceActorT.cpp"
 #include "D:/Github-EkenLof-Games/ITL-2.0/Into_The_Light/Source/Into_The_Light/Private/World/PickUp.cpp"

@@ -158,6 +158,7 @@ protected:
 
 	// --- FUNCTIONS ---
 	void ToggleMenu();
+	void TogglePauseMenu();
 
 	void PerformInteractionCheck();
 	void FoundInteractable(AActor* NewInteractable);

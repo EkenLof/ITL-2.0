@@ -228,6 +228,7 @@ void AFirstPersonCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInp
 	PlayerInputComponent->BindAction("Interact", IE_Released, this, &AFirstPersonCharacter::EndInteract);
 
 	PlayerInputComponent->BindAction("ToggleMenu", IE_Pressed, this, &AFirstPersonCharacter::ToggleMenu);
+	PlayerInputComponent->BindAction("TogglePauseMenu", IE_Pressed, this, &AFirstPersonCharacter::TogglePauseMenu);
 }
 
 /*
@@ -554,6 +555,11 @@ void AFirstPersonCharacter::UpdateInteractionWidget() const
 void AFirstPersonCharacter::ToggleMenu()
 {
 	HUD->ToggleMenu();
+}
+
+void AFirstPersonCharacter::TogglePauseMenu()
+{
+	return;
 }
 
 void AFirstPersonCharacter::DropItem(UItemBase* ItemToDrop, const int32 QuantityToDrop) // FIX FOR KEY-ITEMS NOT-DROPABLE

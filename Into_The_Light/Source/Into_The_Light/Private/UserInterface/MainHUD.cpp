@@ -65,7 +65,7 @@ void AMainHUD::ToggleMenu()
 
 			World->GetWorldSettings()->SetTimeDilation(1.0f);
 		}
-		else // Game Menu Open (Maybe set pause function...)
+		else // Game Menu Open (set pause function...)
 		{
 			DisplayMenu();
 
