@@ -1,9 +1,11 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-
 #include "UserInterface/MainHUD.h"
 #include "UserInterface/MainMenu.h"
 #include "UserInterface/Interaction/InteractionWidget.h"
+
+#include "GameFramework/WorldSettings.h"
+#include "Kismet/GameplayStatics.h"
 
 AMainHUD::AMainHUD()
 {
@@ -49,22 +51,31 @@ void AMainHUD::HideMenu()
 
 void AMainHUD::ToggleMenu()
 {
-	if (bIsMenuVisible) // In Game & No visable Game Menu...
-	{
-		HideMenu();
+	UWorld* World = GetWorld();
 
-		const FInputModeGameOnly InputMode;
-		GetOwningPlayerController()->SetInputMode(InputMode);
-		GetOwningPlayerController()->SetShowMouseCursor(false);
-	}
-	else // Game Menu Open (Maybe set pause function...)
+	if (World)
 	{
-		DisplayMenu();
+		if (bIsMenuVisible) // In Game & No visable Game Menu...
+		{
+			HideMenu();
 
-		const FInputModeGameAndUI InputMode;
-		GetOwningPlayerController()->SetInputMode(InputMode);
-		GetOwningPlayerController()->SetShowMouseCursor(true);
-	}
+			const FInputModeGameOnly InputMode;
+			GetOwningPlayerController()->SetInputMode(InputMode);
+			GetOwningPlayerController()->SetShowMouseCursor(false);
+
+			World->GetWorldSettings()->SetTimeDilation(1.0f);
+		}
+		else // Game Menu Open (Maybe set pause function...)
+		{
+			DisplayMenu();
+
+			const FInputModeGameAndUI InputMode;
+			GetOwningPlayerController()->SetInputMode(InputMode);
+			GetOwningPlayerController()->SetShowMouseCursor(true);
+
+			World->GetWorldSettings()->SetTimeDilation(0.0f);
+		}
+	}	
 }
 
 void AMainHUD::ShowInteractionWidget() const

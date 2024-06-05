@@ -39,10 +39,10 @@
 			"InventoryPanel.cpp.obj",
 			"InventoryTooltip.cpp.obj",
 			"ItemDragDropOperation.cpp.obj",
-			"MainHUD.cpp.obj",
+			"MainMenu.cpp.obj",
 			"InterfaceActorT.cpp.obj",
 			"PickUp.cpp.obj",
-			"MainMenu.cpp.obj"
+			"MainHUD.cpp.obj"
 		]
 	}
 }
