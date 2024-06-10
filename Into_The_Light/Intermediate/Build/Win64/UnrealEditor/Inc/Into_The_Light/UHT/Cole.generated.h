@@ -23,7 +23,7 @@ private: \
 	static void StaticRegisterNativesACole(); \
 	friend struct Z_Construct_UClass_ACole_Statics; \
 public: \
-	DECLARE_CLASS(ACole, AActor, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/Into_The_Light"), NO_API) \
+	DECLARE_CLASS(ACole, APawn, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/Into_The_Light"), NO_API) \
 	DECLARE_SERIALIZER(ACole)
 
 

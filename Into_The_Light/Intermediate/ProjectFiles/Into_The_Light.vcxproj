@@ -327,6 +327,9 @@
     <ClCompile Include="..\..\Source\Into_The_Light\Private\UserInterface\Inventory\ItemDragDropOperation.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
+    <ClCompile Include="..\..\Source\Into_The_Light\Private\UserInterface\Objective\ObjectivePanel.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
     <ClCompile Include="..\..\Source\Into_The_Light\Private\World\InterfaceActorT.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
@@ -349,6 +352,7 @@
     <ClInclude Include="..\..\Source\Into_The_Light\Public\UserInterface\Inventory\InventoryPanel.h"/>
     <ClInclude Include="..\..\Source\Into_The_Light\Public\UserInterface\Inventory\InventoryTooltip.h"/>
     <ClInclude Include="..\..\Source\Into_The_Light\Public\UserInterface\Inventory\ItemDragDropOperation.h"/>
+    <ClInclude Include="..\..\Source\Into_The_Light\Public\UserInterface\Objective\ObjectivePanel.h"/>
     <ClInclude Include="..\..\Source\Into_The_Light\Public\World\InterfaceActorT.h"/>
     <ClInclude Include="..\..\Source\Into_The_Light\Public\World\PickUp.h"/>
   </ItemGroup>

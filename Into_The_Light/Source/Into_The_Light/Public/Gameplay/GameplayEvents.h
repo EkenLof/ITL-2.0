@@ -6,11 +6,11 @@
 #include "Components/PointLightComponent.h"
 #include "Components/RectLightComponent.h"
 #include "Components/AudioComponent.h"
-
 #include "GameplayEvents.generated.h"
 
 class AActorSoundSystem;
 class AElevator_System;
+class UObjectivePanel;
 
 UCLASS()
 class INTO_THE_LIGHT_API AGameplayEvents : public AActor
@@ -21,7 +21,7 @@ public:
 	AGameplayEvents();
 
 	FORCEINLINE AActorSoundSystem* GetInventory() const { return ActorSoundSystem; };
-	//FORCEINLINE AElevator_System* GetInteract() const { return Elevator_System; };
+	FORCEINLINE UObjectivePanel* SetObjective() const { return Objective; };
 
 	/////////////////////////////---NEXTSTEP ACTIVE---////////////////////////////////////
 	UFUNCTION(BlueprintCallable)
@@ -94,7 +94,7 @@ public:
 protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Audio")
 	AActorSoundSystem* ActorSoundSystem;
-	//AElevator_System* GetElevatorSystem();
+	
 
 	////////////////////////////---LevelSequence---///////////////////////////
 	//UPROPERTY(EditAnywhere, Category = "Animations | Cole")
@@ -130,7 +130,11 @@ protected:
 	virtual void BeginPlay() override;
 	virtual void Tick(float DeltaTime) override;
 
+	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "UI")
+	//TSubclassOf<UObjectivePanel> widgetclass;
+
 private:
+	UObjectivePanel* Objective;
 
 	UFUNCTION()
 	void OnSublevelLoaded();

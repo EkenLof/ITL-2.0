@@ -1,6 +1,9 @@
 #include "Triggers/BoxCollider.h"
+
 #include "Components/BoxComponent.h"
 #include "Engine/Engine.h"
+
+#include "EngineUtils.h" // for (TActorIterator<ACole> It(GetWorld()); It; ++It)
 
 #include "Engine/World.h"
 #include "Kismet/GameplayStatics.h"
@@ -29,7 +32,7 @@ ABoxCollider::ABoxCollider()
 	//CollisionBox->OnComponentEndOverlap.AddDynamic(this, &ABoxCollider::OnOverlapEnd);
 
 	EventSteps = CreateDefaultSubobject<AGameplayEvents>(TEXT("EventSteps"));
-	ColeState = CreateDefaultSubobject<ACole>(TEXT("ColeState"));
+	//ColeState = CreateDefaultSubobject<ACole>(TEXT("ColeState"));
 
 	MichaelTagName = FName(TEXT("Michael"));
 }
@@ -56,6 +59,13 @@ void ABoxCollider::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* O
 		if (bIsMeetCole)
 		{
 			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Cyan, TEXT("OBJECTIVE: Talk to Cole."));
+
+			for (TActorIterator<ACole> It(GetWorld()); It; ++It)
+			{
+				ColeState = *It;
+				break;  // Assuming there's only one elevator system, break after finding it
+			}
+
 			if (IsValid(ColeState)) ColeState->ColeMeet(true);
 			if (IsValid(EventSteps)) EventSteps->NextStep(3);
 			bIsMeetCole = false;

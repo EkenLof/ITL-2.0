@@ -10,7 +10,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeCole() {}
 
 // Begin Cross Module References
-ENGINE_API UClass* Z_Construct_UClass_AActor();
+ENGINE_API UClass* Z_Construct_UClass_APawn();
 INTO_THE_LIGHT_API UClass* Z_Construct_UClass_ACole();
 INTO_THE_LIGHT_API UClass* Z_Construct_UClass_ACole_NoRegister();
 UPackage* Z_Construct_UPackage__Script_Into_The_Light();
@@ -82,6 +82,7 @@ struct Z_Construct_UClass_ACole_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[] = {
+		{ "HideCategories", "Navigation" },
 		{ "IncludePath", "Characters/Cole.h" },
 		{ "ModuleRelativePath", "Public/Characters/Cole.h" },
 	};
@@ -89,9 +90,15 @@ struct Z_Construct_UClass_ACole_Statics
 		{ "Category", "Elevator | Event | Activity" },
 		{ "ModuleRelativePath", "Public/Characters/Cole.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bIsColeFuseTakenOn_MetaData[] = {
+		{ "Category", "Elevator | Event | Activity" },
+		{ "ModuleRelativePath", "Public/Characters/Cole.h" },
+	};
 #endif // WITH_METADATA
 	static void NewProp_bIsColeMeetOn_SetBit(void* Obj);
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsColeMeetOn;
+	static void NewProp_bIsColeFuseTakenOn_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsColeFuseTakenOn;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
@@ -108,18 +115,24 @@ void Z_Construct_UClass_ACole_Statics::NewProp_bIsColeMeetOn_SetBit(void* Obj)
 	((ACole*)Obj)->bIsColeMeetOn = 1;
 }
 const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ACole_Statics::NewProp_bIsColeMeetOn = { "bIsColeMeetOn", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(ACole), &Z_Construct_UClass_ACole_Statics::NewProp_bIsColeMeetOn_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bIsColeMeetOn_MetaData), NewProp_bIsColeMeetOn_MetaData) };
+void Z_Construct_UClass_ACole_Statics::NewProp_bIsColeFuseTakenOn_SetBit(void* Obj)
+{
+	((ACole*)Obj)->bIsColeFuseTakenOn = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ACole_Statics::NewProp_bIsColeFuseTakenOn = { "bIsColeFuseTakenOn", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(ACole), &Z_Construct_UClass_ACole_Statics::NewProp_bIsColeFuseTakenOn_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bIsColeFuseTakenOn_MetaData), NewProp_bIsColeFuseTakenOn_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ACole_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACole_Statics::NewProp_bIsColeMeetOn,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACole_Statics::NewProp_bIsColeFuseTakenOn,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ACole_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_ACole_Statics::DependentSingletons[])() = {
-	(UObject* (*)())Z_Construct_UClass_AActor,
+	(UObject* (*)())Z_Construct_UClass_APawn,
 	(UObject* (*)())Z_Construct_UPackage__Script_Into_The_Light,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ACole_Statics::DependentSingletons) < 16);
 const UECodeGen_Private::FClassParams Z_Construct_UClass_ACole_Statics::ClassParams = {
 	&ACole::StaticClass,
-	"Engine",
+	"Game",
 	&StaticCppClassTypeInfo,
 	DependentSingletons,
 	FuncInfo,
@@ -152,10 +165,10 @@ ACole::~ACole() {}
 struct Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Characters_Cole_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ACole, ACole::StaticClass, TEXT("ACole"), &Z_Registration_Info_UClass_ACole, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ACole), 1882806490U) },
+		{ Z_Construct_UClass_ACole, ACole::StaticClass, TEXT("ACole"), &Z_Registration_Info_UClass_ACole, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ACole), 158769868U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Characters_Cole_h_3370203544(TEXT("/Script/Into_The_Light"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Characters_Cole_h_3265389785(TEXT("/Script/Into_The_Light"),
 	Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Characters_Cole_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Characters_Cole_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

@@ -25,8 +25,6 @@ AActorSoundSystem::AActorSoundSystem()
 	else
 	{
 		UE_LOG(LogTemp, Error, TEXT("Failed to load SoundCue!"));
-		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Red, 
-			TEXT("Failed to load SoundCue!"));
 	}
 }
 
@@ -43,22 +41,16 @@ void AActorSoundSystem::BeginPlay()
 		StopReceptionPhoneAudio();
 
 		UE_LOG(LogTemp, Error, TEXT("ReceptionPhone_AudioComponent and SoundCue initialized"));
-		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green,
-			TEXT("ReceptionPhone_AudioComponent and SoundCue initialized"));
 	}
 	else
 	{
 		if (!ReceptionPhone_AudioComponent)
 		{
 			UE_LOG(LogTemp, Error, TEXT("ReceptionPhone_AudioComponent is not initialized!"));
-			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red,
-				TEXT("ReceptionPhone_AudioComponent is not initialized!"));
 		}
 		if (!ReceptionPhone_SoundCue)
 		{
 			UE_LOG(LogTemp, Error, TEXT("ReceptionPhone_SoundCue is not initialized!"));
-			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red,
-				TEXT("eceptionPhone_SoundCue is not initialized!"));
 		}
 	}
 }
@@ -76,16 +68,12 @@ void AActorSoundSystem::PlayReceptionPhoneAudio()
 	{
 		ReceptionPhone_AudioComponent->Play(0.0f);
 		UE_LOG(LogTemp, Error, TEXT("Play ACTIVE."));
-		if(GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green,
-			TEXT("Play ACTIVE!"));
 
 		bIsManagerCalling = true;
 	}
 	else
 	{
 		UE_LOG(LogTemp, Error, TEXT("Cannot play audio, component or sound cue is not initialized."));
-		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red,
-			TEXT("Cannot play audio, component or sound cue is not initialized"));
 	}
 }
 
@@ -95,16 +83,12 @@ void AActorSoundSystem::StopReceptionPhoneAudio()
 	{
 		ReceptionPhone_AudioComponent->Stop();
 		UE_LOG(LogTemp, Error, TEXT("Stop ACTIVE."));
-		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green,
-			TEXT("Stop ACTIVE!"));
 
 		bIsManagerCalling = false;
 	}
 	else
 	{
 		UE_LOG(LogTemp, Error, TEXT("Cannot stop audio, component or sound cue is not initialized."));
-		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red,
-			TEXT("Cannot stop audio, component or sound cue is not initialized"));
 	}
 }
 

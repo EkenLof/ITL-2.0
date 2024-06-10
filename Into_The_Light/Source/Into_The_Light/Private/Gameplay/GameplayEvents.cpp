@@ -1,4 +1,5 @@
 #include "Gameplay/GameplayEvents.h"
+
 #include "GameFramework/Actor.h"
 
 #include "Engine/World.h"
@@ -11,6 +12,7 @@
 
 #include "MovieScene.h"
 #include "MovieSceneSequencePlayer.h"
+
 #include "Animation/AnimInstance.h"
 #include "Animation/AnimSequence.h"
 
@@ -23,14 +25,16 @@
 
 // Other Scripts
 #include "Audio/ActorSoundSystem.h"
-
 #include "Sound/SoundCue.h"
+#include "UserInterface/Objective/ObjectivePanel.h"
 
 AGameplayEvents::AGameplayEvents()
 {
 	PrimaryActorTick.bCanEverTick = true;
 
 	bIsTempWaitForInteractibleFuseBox = false;
+
+	Objective = CreateDefaultSubobject<UObjectivePanel>(TEXT("Objective"));
 	
 	ReceptionLightsTagName = FName(TEXT("Reception_Lights"));
 	F1LightsTagName = FName(TEXT("F1_Lights"));
@@ -112,12 +116,14 @@ void AGameplayEvents::UpdateVaribleState(AActor*& ActorReference, const FName& T
 
 			if (FoundActors.Num() > 0)
 			{
-				if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("FOUND: " + TagName.ToString()));
+				UE_LOG(LogTemp, Error, TEXT("FOUND"));
+				//if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("FOUND: " + TagName.ToString()));
 				ActorReference = FoundActors[0];
 			}
 			else
 			{
-				if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT(" NOT-FOUND: " + TagName.ToString()));
+				UE_LOG(LogTemp, Error, TEXT("NOT-FOUND"));
+				//if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT(" NOT-FOUND: " + TagName.ToString()));
 			}
 		}
 	}
@@ -143,11 +149,9 @@ void AGameplayEvents::InitializeActorSoundSystem()
 		if (!ActorSoundSystem)
 		{
 			UE_LOG(LogTemp, Error, TEXT("ActorSoundSystem not found!"));
-			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Red, TEXT("ActorSoundSystem NOT Found!"));
 		}
 	}
 }
-
 
 // Function to load a sublevel
 void AGameplayEvents::LoadSublevel(FName LevelName)
@@ -178,14 +182,12 @@ void AGameplayEvents::LoadSublevel(FName LevelName)
 		UGameplayStatics::LoadStreamLevel(this, LevelName, true, true, LatentInfo);
 
 		UE_LOG(LogTemp, Warning, TEXT("LoadStreamLevel called for sublevel: %s"), *LevelName.ToString());
-		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 8.0f, FColor::Red, TEXT("SUBLEVEL LOADED: ") + LevelName.ToString());
 	}
 }
 
 void AGameplayEvents::OnSublevelLoaded()
 {
 	UE_LOG(LogTemp, Warning, TEXT("Sublevel successfully loaded"));
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 8.0f, FColor::Green, TEXT("Sublevel successfully loaded"));
 }
 
 // Function to unload a sublevel
@@ -286,24 +288,28 @@ void AGameplayEvents::NextStep(int32 StepUp)
 }
 
 
-void AGameplayEvents::Step0() // 
+void AGameplayEvents::Step0() 
 {
-	// SpawnPoint.
 	// Blacksceen StoryScene Before entering Buildning.
 	// Getting a message from Cole (With instructions of Flashlight and Where he is).
 	// NEVER ACTIVE BECAUSE OF TEMP ---BEGINPLAY()---
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 0 Active---"));
 }
 
-void AGameplayEvents::Step1() // 
+void AGameplayEvents::Step1() 
 {
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 1 Active---"));
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Cyan, TEXT("OBJECTIVE: Find Cole."));
 
-	// Door to Second floor is locked
+	//FText TempText = FText::FromString(TEXT("Find Cole"));
+;
+	/*if (IsValid(Objective))
+	{
+		Objective->SetInfoText(Objective->ActiveText = TempText);
+		//Objective->bIsFindCole = true;
+	*/
 }
 
-void AGameplayEvents::Step2() // 
+void AGameplayEvents::Step2() 
 {
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 2 Active---"));
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---Items collected, go to second floor storageroom (Cole)---"));
