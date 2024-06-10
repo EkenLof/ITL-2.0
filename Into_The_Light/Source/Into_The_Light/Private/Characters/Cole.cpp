@@ -8,6 +8,8 @@ ACole::ACole()
 
 	bIsColeMeetOn = false;
 	bIsColeFuseTakenOn = false;
+
+	// Trigger_1_ACT1
 }
 
 void ACole::BeginPlay()

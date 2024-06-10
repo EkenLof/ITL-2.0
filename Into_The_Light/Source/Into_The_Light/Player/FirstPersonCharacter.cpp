@@ -254,8 +254,12 @@ void AFirstPersonCharacter::UpdateVaribleState(AActor*& ActorReference, const FN
 
 		if (FoundActors.Num() > 0)
 		{
-			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("FOUND: " + TagName.ToString()));
+			UE_LOG(LogTemp, Error, TEXT("FOUND"));
 			ActorReference = FoundActors[0];
+		}
+		else
+		{
+			UE_LOG(LogTemp, Error, TEXT("NOT-FOUND"));
 		}
 	}
 }

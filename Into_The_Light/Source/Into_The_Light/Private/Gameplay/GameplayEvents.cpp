@@ -117,13 +117,11 @@ void AGameplayEvents::UpdateVaribleState(AActor*& ActorReference, const FName& T
 			if (FoundActors.Num() > 0)
 			{
 				UE_LOG(LogTemp, Error, TEXT("FOUND"));
-				//if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("FOUND: " + TagName.ToString()));
 				ActorReference = FoundActors[0];
 			}
 			else
 			{
 				UE_LOG(LogTemp, Error, TEXT("NOT-FOUND"));
-				//if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT(" NOT-FOUND: " + TagName.ToString()));
 			}
 		}
 	}
