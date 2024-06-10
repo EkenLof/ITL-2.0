@@ -32,7 +32,7 @@ ABoxCollider::ABoxCollider()
 	//CollisionBox->OnComponentEndOverlap.AddDynamic(this, &ABoxCollider::OnOverlapEnd);
 
 	EventSteps = CreateDefaultSubobject<AGameplayEvents>(TEXT("EventSteps"));
-	//ColeState = CreateDefaultSubobject<ACole>(TEXT("ColeState"));
+	ColeState = CreateDefaultSubobject<ACole>(TEXT("ColeState"));
 
 	MichaelTagName = FName(TEXT("Michael"));
 }
@@ -67,6 +67,10 @@ void ABoxCollider::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* O
 			}
 
 			if (IsValid(ColeState)) ColeState->ColeMeet(true);
+			else
+			{
+				if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Cyan, TEXT("Cole ignores me..."));
+			}
 			if (IsValid(EventSteps)) EventSteps->NextStep(3);
 			bIsMeetCole = false;
 			//Destroy(this);

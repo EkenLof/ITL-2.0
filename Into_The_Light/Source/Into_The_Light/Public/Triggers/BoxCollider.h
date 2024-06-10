@@ -19,7 +19,7 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	FORCEINLINE AGameplayEvents* SetEventStep() const { return EventSteps; };
-	//FORCEINLINE ACole* SetColeState() const { return ColeState; };
+	FORCEINLINE ACole* SetColeState() const { return ColeState; };
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	class UBoxComponent* CollisionBox;
@@ -43,10 +43,9 @@ public:
 	bool bIsExitWithKeyCard;
 	////////////////////////////---ACTIVE STATE---////////////////////////////
 
+protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign")
 	ACole* ColeState;
-
-protected:
 
 	UPROPERTY(EditAnywhere, Category = "Events | Steps")
 	AGameplayEvents* EventSteps;

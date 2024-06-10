@@ -127,14 +127,8 @@ struct Z_Construct_UClass_ABoxCollider_Statics
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CollisionBox_MetaData[] = {
 		{ "Category", "BoxCollider" },
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "//FORCEINLINE ACole* SetColeState() const { return ColeState; };\n" },
-#endif
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Public/Triggers/BoxCollider.h" },
-#if !UE_BUILD_SHIPPING
-		{ "ToolTip", "FORCEINLINE ACole* SetColeState() const { return ColeState; };" },
-#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bIsMeetCole_MetaData[] = {
 		{ "Category", "Event | Trigger" },
@@ -164,13 +158,7 @@ struct Z_Construct_UClass_ABoxCollider_Statics
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ColeState_MetaData[] = {
 		{ "Category", "Event | Assign" },
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "////////////////////////////---ACTIVE STATE---////////////////////////////\n" },
-#endif
 		{ "ModuleRelativePath", "Public/Triggers/BoxCollider.h" },
-#if !UE_BUILD_SHIPPING
-		{ "ToolTip", "/---ACTIVE STATE---/" },
-#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_EventSteps_MetaData[] = {
 		{ "Category", "Events | Steps" },
@@ -232,7 +220,7 @@ void Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsExitWithKeyCard_SetBit(
 	((ABoxCollider*)Obj)->bIsExitWithKeyCard = 1;
 }
 const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsExitWithKeyCard = { "bIsExitWithKeyCard", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(ABoxCollider), &Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsExitWithKeyCard_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bIsExitWithKeyCard_MetaData), NewProp_bIsExitWithKeyCard_MetaData) };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABoxCollider_Statics::NewProp_ColeState = { "ColeState", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABoxCollider, ColeState), Z_Construct_UClass_ACole_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ColeState_MetaData), NewProp_ColeState_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABoxCollider_Statics::NewProp_ColeState = { "ColeState", nullptr, (EPropertyFlags)0x0020080000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABoxCollider, ColeState), Z_Construct_UClass_ACole_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ColeState_MetaData), NewProp_ColeState_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABoxCollider_Statics::NewProp_EventSteps = { "EventSteps", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABoxCollider, EventSteps), Z_Construct_UClass_AGameplayEvents_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_EventSteps_MetaData), NewProp_EventSteps_MetaData) };
 const UECodeGen_Private::FNamePropertyParams Z_Construct_UClass_ABoxCollider_Statics::NewProp_MichaelTagName = { "MichaelTagName", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Name, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABoxCollider, MichaelTagName), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_MichaelTagName_MetaData), NewProp_MichaelTagName_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ABoxCollider_Statics::PropPointers[] = {
@@ -287,10 +275,10 @@ ABoxCollider::~ABoxCollider() {}
 struct Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Triggers_BoxCollider_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ABoxCollider, ABoxCollider::StaticClass, TEXT("ABoxCollider"), &Z_Registration_Info_UClass_ABoxCollider, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABoxCollider), 869265762U) },
+		{ Z_Construct_UClass_ABoxCollider, ABoxCollider::StaticClass, TEXT("ABoxCollider"), &Z_Registration_Info_UClass_ABoxCollider, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABoxCollider), 2015996797U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Triggers_BoxCollider_h_3759932824(TEXT("/Script/Into_The_Light"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Triggers_BoxCollider_h_1103005784(TEXT("/Script/Into_The_Light"),
 	Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Triggers_BoxCollider_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Triggers_BoxCollider_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
