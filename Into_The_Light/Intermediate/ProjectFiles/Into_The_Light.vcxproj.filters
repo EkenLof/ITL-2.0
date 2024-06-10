@@ -72,6 +72,12 @@
     <ClCompile Include="..\..\Source\Into_The_Light\Private\Audio\ActorSoundSystem.cpp">
       <Filter>Source\Into_The_Light\Private\Audio</Filter>
     </ClCompile>
+    <Filter Include="Source\Into_The_Light\Private\Characters">
+      <UniqueIdentifier>{D31D5E13-E30C-3B52-97E4-F214413604D3}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\Into_The_Light\Private\Characters\Cole.cpp">
+      <Filter>Source\Into_The_Light\Private\Characters</Filter>
+    </ClCompile>
     <Filter Include="Source\Into_The_Light\Private\Components">
       <UniqueIdentifier>{2C75BD5F-6696-3D7D-A9F0-C92288FAC6C7}</UniqueIdentifier>
     </Filter>
@@ -155,6 +161,12 @@
     </Filter>
     <ClInclude Include="..\..\Source\Into_The_Light\Public\Audio\ActorSoundSystem.h">
       <Filter>Source\Into_The_Light\Public\Audio</Filter>
+    </ClInclude>
+    <Filter Include="Source\Into_The_Light\Public\Characters">
+      <UniqueIdentifier>{1E5E9EA8-DEB1-3993-8966-B433F6D93F20}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\Into_The_Light\Public\Characters\Cole.h">
+      <Filter>Source\Into_The_Light\Public\Characters</Filter>
     </ClInclude>
     <Filter Include="Source\Into_The_Light\Public\Components">
       <UniqueIdentifier>{484C4C21-4E03-3186-B044-DCE3BC0B9EC1}</UniqueIdentifier>

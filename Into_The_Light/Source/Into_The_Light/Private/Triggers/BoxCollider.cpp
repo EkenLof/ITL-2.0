@@ -6,6 +6,7 @@
 #include "Kismet/GameplayStatics.h"
 
 #include "Gameplay/GameplayEvents.h"
+#include "Characters/Cole.h"
 
 // Sets default values
 ABoxCollider::ABoxCollider()
@@ -28,6 +29,7 @@ ABoxCollider::ABoxCollider()
 	//CollisionBox->OnComponentEndOverlap.AddDynamic(this, &ABoxCollider::OnOverlapEnd);
 
 	EventSteps = CreateDefaultSubobject<AGameplayEvents>(TEXT("EventSteps"));
+	ColeState = CreateDefaultSubobject<ACole>(TEXT("ColeState"));
 
 	MichaelTagName = FName(TEXT("Michael"));
 }
@@ -54,6 +56,7 @@ void ABoxCollider::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* O
 		if (bIsMeetCole)
 		{
 			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Cyan, TEXT("OBJECTIVE: Talk to Cole."));
+			if (IsValid(ColeState)) ColeState->ColeMeet(true);
 			if (IsValid(EventSteps)) EventSteps->NextStep(3);
 			bIsMeetCole = false;
 			//Destroy(this);

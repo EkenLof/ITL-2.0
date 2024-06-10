@@ -4,6 +4,7 @@
 		"Module.Into_The_Light.cpp.obj": [
 			"ActorSoundSystem.gen.cpp.obj",
 			"BoxCollider.gen.cpp.obj",
+			"Cole.gen.cpp.obj",
 			"DoorSystem.gen.cpp.obj",
 			"DragItemVisual.gen.cpp.obj",
 			"Elevator_System.gen.cpp.obj",
@@ -39,10 +40,11 @@
 			"InventoryPanel.cpp.obj",
 			"InventoryTooltip.cpp.obj",
 			"ItemDragDropOperation.cpp.obj",
+			"MainHUD.cpp.obj",
 			"MainMenu.cpp.obj",
 			"InterfaceActorT.cpp.obj",
 			"PickUp.cpp.obj",
-			"MainHUD.cpp.obj"
+			"Cole.cpp.obj"
 		]
 	}
 }

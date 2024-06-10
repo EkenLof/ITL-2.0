@@ -3,10 +3,10 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 
-
 #include "BoxCollider.generated.h"
 
 class AGameplayEvents;
+class ACole;
 
 UCLASS()
 class INTO_THE_LIGHT_API ABoxCollider : public AActor
@@ -17,6 +17,7 @@ public:
 	ABoxCollider();
 
 	FORCEINLINE AGameplayEvents* SetEventStep() const { return EventSteps; };
+	FORCEINLINE ACole* SetColeState() const { return ColeState; };
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	class UBoxComponent* CollisionBox;
@@ -47,6 +48,8 @@ protected:
 
 	UPROPERTY(EditAnywhere, Category = "Events | Steps")
 	AGameplayEvents* EventSteps;
+	UPROPERTY(EditAnywhere, Category = "Events | Steps")
+	ACole* ColeState;
 
 	UPROPERTY(EditAnywhere, Category = "Events | TagNames")
 	FName MichaelTagName;
