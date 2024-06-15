@@ -1,5 +1,6 @@
 // Game
 #include "UserInterface/Inventory/InventoryPanel.h"
+
 #include "UserInterface/Inventory/InventoryItemSlot.h"
 #include "UserInterface/Inventory/ItemDragDropOperation.h"
 #include "..\Player/FirstPersonCharacter.h"

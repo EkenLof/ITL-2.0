@@ -1,6 +1,9 @@
 #include "Triggers/BoxCollider.h"
+
 #include "Components/BoxComponent.h"
 #include "Engine/Engine.h"
+
+#include "EngineUtils.h" // for (TActorIterator<ACole> It(GetWorld()); It; ++It)
 
 #include "Engine/World.h"
 #include "Kismet/GameplayStatics.h"
@@ -32,6 +35,7 @@ ABoxCollider::ABoxCollider()
 	ColeState = CreateDefaultSubobject<ACole>(TEXT("ColeState"));
 
 	MichaelTagName = FName(TEXT("Michael"));
+	// Cole_StorageRoom
 }
 
 // Called when the game starts or when spawned
@@ -56,10 +60,36 @@ void ABoxCollider::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* O
 		if (bIsMeetCole)
 		{
 			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Cyan, TEXT("OBJECTIVE: Talk to Cole."));
-			if (IsValid(ColeState)) ColeState->ColeMeet(true);
+
+			FName TagName = "Cole_StorageRoom";
+			TArray<AActor*> TaggedActors;
+			UGameplayStatics::GetAllActorsWithTag(GetWorld(), TagName, TaggedActors);
+
+			// Assuming ColeState is a member variable of ABoxTrigger
+			this->ColeState = nullptr;
+
+			if (TaggedActors.Num() > 0)
+			{
+				// Iterate through the tagged actors and find the first valid ACole
+				for (AActor* Actor : TaggedActors)
+				{
+					ACole* PotentialCole = Cast<ACole>(Actor);
+					if (IsValid(PotentialCole))
+					{
+						this->ColeState = PotentialCole;
+						break;
+					}
+				}
+			}
+
+			if (IsValid(this->ColeState)) this->ColeState->ColeMeet(true);
+			else
+			{
+				if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Cyan, TEXT("Cole ignores me..."));
+			}
+
 			if (IsValid(EventSteps)) EventSteps->NextStep(3);
 			bIsMeetCole = false;
-			//Destroy(this);
 		}
 		else if (bIsMissingCole)
 		{

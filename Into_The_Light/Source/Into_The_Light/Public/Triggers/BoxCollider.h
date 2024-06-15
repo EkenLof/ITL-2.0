@@ -16,6 +16,8 @@ class INTO_THE_LIGHT_API ABoxCollider : public AActor
 public:
 	ABoxCollider();
 
+	virtual void Tick(float DeltaTime) override;
+
 	FORCEINLINE AGameplayEvents* SetEventStep() const { return EventSteps; };
 	FORCEINLINE ACole* SetColeState() const { return ColeState; };
 
@@ -41,15 +43,12 @@ public:
 	bool bIsExitWithKeyCard;
 	////////////////////////////---ACTIVE STATE---////////////////////////////
 
-
-	virtual void Tick(float DeltaTime) override;
-
 protected:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign")
+	ACole* ColeState;
 
 	UPROPERTY(EditAnywhere, Category = "Events | Steps")
 	AGameplayEvents* EventSteps;
-	UPROPERTY(EditAnywhere, Category = "Events | Steps")
-	ACole* ColeState;
 
 	UPROPERTY(EditAnywhere, Category = "Events | TagNames")
 	FName MichaelTagName;

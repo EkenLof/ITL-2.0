@@ -144,6 +144,12 @@
     <ClCompile Include="..\..\Source\Into_The_Light\Private\UserInterface\Inventory\ItemDragDropOperation.cpp">
       <Filter>Source\Into_The_Light\Private\UserInterface\Inventory</Filter>
     </ClCompile>
+    <Filter Include="Source\Into_The_Light\Private\UserInterface\Objective">
+      <UniqueIdentifier>{45B2AA67-5044-3BA7-86A0-886C5DD594C5}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\Into_The_Light\Private\UserInterface\Objective\ObjectivePanel.cpp">
+      <Filter>Source\Into_The_Light\Private\UserInterface\Objective</Filter>
+    </ClCompile>
     <Filter Include="Source\Into_The_Light\Private\World">
       <UniqueIdentifier>{88E8957D-BA5C-3AB7-A0C2-60C2B9BA3025}</UniqueIdentifier>
     </Filter>
@@ -233,6 +239,12 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\Into_The_Light\Public\UserInterface\Inventory\ItemDragDropOperation.h">
       <Filter>Source\Into_The_Light\Public\UserInterface\Inventory</Filter>
+    </ClInclude>
+    <Filter Include="Source\Into_The_Light\Public\UserInterface\Objective">
+      <UniqueIdentifier>{3B88652E-944D-32AC-8193-E82E20C23E73}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\Into_The_Light\Public\UserInterface\Objective\ObjectivePanel.h">
+      <Filter>Source\Into_The_Light\Public\UserInterface\Objective</Filter>
     </ClInclude>
     <Filter Include="Source\Into_The_Light\Public\World">
       <UniqueIdentifier>{8331D2D5-CCF6-3B1B-84A8-5AB0ABB9C809}</UniqueIdentifier>
