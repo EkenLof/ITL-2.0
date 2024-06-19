@@ -5,7 +5,7 @@
 #include "ObjectivePanel.generated.h"
 
 class UTextBlock;
-
+class AGameplayEvents;
 class AFirstPersonCharacter;
 
 
@@ -15,8 +15,7 @@ class INTO_THE_LIGHT_API UObjectivePanel : public UUserWidget
 	GENERATED_BODY()
 
 public:
-	UPROPERTY()
-	AFirstPersonCharacter* Player;
+	FORCEINLINE AFirstPersonCharacter* SetObjective() const { return Player; };
 
 	UPROPERTY(meta = (BindWidget))
 	UTextBlock* TextContent;
@@ -31,5 +30,8 @@ public:
 	void SetInfoText(FText& TempText);
 
 protected:
-	virtual void NativeOnInitialized() override;
+	AFirstPersonCharacter* Player;
+
+	//virtual void NativeOnInitialized() override;
+	virtual void NativeConstruct() override;
 };

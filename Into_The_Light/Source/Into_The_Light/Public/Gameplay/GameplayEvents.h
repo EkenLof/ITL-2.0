@@ -10,7 +10,7 @@
 
 class AActorSoundSystem;
 class AElevator_System;
-class UObjectivePanel;
+
 
 UCLASS()
 class INTO_THE_LIGHT_API AGameplayEvents : public AActor
@@ -21,7 +21,6 @@ public:
 	AGameplayEvents();
 
 	FORCEINLINE AActorSoundSystem* GetInventory() const { return ActorSoundSystem; };
-	FORCEINLINE UObjectivePanel* SetObjective() const { return Objective; };
 
 	/////////////////////////////---NEXTSTEP ACTIVE---////////////////////////////////////
 	UFUNCTION(BlueprintCallable)
@@ -48,8 +47,21 @@ public:
 	// ---Toggle--- //
 
 	// Activity
-	UPROPERTY(EditAnywhere, Category = "Event | Activity")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Activity")
 	bool bIsTempWaitForInteractibleFuseBox;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Activity")
+	bool bIsStep1; //
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Activity")
+	bool bIsStep2; //
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Activity")
+	bool bIsStep3; //
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Activity")
+	bool bIsStep4; //
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Activity")
+	bool bIsStep5; //
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Activity")
+	bool bIsStep6; //
 
 
 	////////////////////////////---ASSIGN---///////////////////////////
@@ -134,8 +146,6 @@ protected:
 	//TSubclassOf<UObjectivePanel> widgetclass;
 
 private:
-	UObjectivePanel* Objective;
-
 	UFUNCTION()
 	void OnSublevelLoaded();
 

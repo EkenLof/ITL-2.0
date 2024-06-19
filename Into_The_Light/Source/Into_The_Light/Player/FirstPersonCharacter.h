@@ -1,7 +1,6 @@
 #pragma once
 
 #include "CoreMinimal.h"
-
 #include "GameFramework/Character.h"
 #include "GameFramework/Actor.h"
 #include "Components/ActorComponent.h"
@@ -15,6 +14,7 @@ class UItemBase;
 class AGameplayEvents;
 class ABoxCollider;
 class AElevator_System;
+class UObjectivePanel;
 
 USTRUCT()
 struct FInteractionData
@@ -40,6 +40,8 @@ public:
 	virtual void Tick(float DeltaTime) override;
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+	FORCEINLINE UObjectivePanel* SetObjective() const { return Objective; };
+
 	FORCEINLINE ABoxCollider* SetTriggerBox() const { return TriggerBox; };
 	//FORCEINLINE AElevator_System* GetInteract() const { return ElevatorSystem; };
 
@@ -54,12 +56,16 @@ public:
 	bool isWalkingForward;
 	bool isWalkingBackward;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign")
+	bool bIsObjectiveFlashlight;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign")
+	bool bIsObjectiveFuseCollected;
+
 	float WalkSpeed;
 	float RunSpeed;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign")
 	AElevator_System* ElevatorSystem;
-	//AElevator_System* GetElevatorSystem();
 
 protected:
 	virtual void BeginPlay() override;
@@ -168,6 +174,8 @@ protected:
 	void Interact();
 
 private:
+	UObjectivePanel* Objective;
+
 	void UpdateVaribleState(AActor*& ActorReference, const FName& TagName);
 
 	bool CheckLookAtObject();

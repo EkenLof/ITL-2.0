@@ -30,6 +30,7 @@
 #include "Gameplay/GameplayEvents.h"
 #include "Triggers/BoxCollider.h"
 #include "Gameplay/Elevator_System.h"
+#include "UserInterface/Objective/ObjectivePanel.h"
 
 #include "Kismet/GameplayStatics.h" // For the Assign Function.
 
@@ -94,12 +95,32 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 
 	//if (bIsUiActive)
 	//{}
+	UWorld* World = GetWorld();
 
 	if (GetWorld()->TimeSince(InteractionData.LastInteractionCheckTime) > InteractionCheckFrequency) PerformInteractionCheck();
 
 	///////////////////////////////////////////---TEMP---/////////////////////////////////////////////
 	else if (PlayerInventory->IsFlshlight && !BIsStepActive && !PlayerInventory->IsFuse10a && !PlayerInventory->bIsOfficeKey && !PlayerInventory->IsColeKeycard) // Flashlight Pickup.
 	{
+		//
+		/*if (!World)
+		{
+			UE_LOG(LogTemp, Error, TEXT("World is null in UObjectivePanel"));
+			return;
+		}
+		else
+		{
+			for (TActorIterator<UObjectivePanel> It(World); It; ++It)
+			{
+				Objective = *It;
+				break;
+			}
+			if (!Objective) UE_LOG(LogTemp, Error, TEXT("UObjectivePanel not found!"));
+		}*/
+
+		bIsObjectiveFlashlight = true;
+		//
+
 		if (IsValid(EventSteps)) EventSteps->NextStep(2);
 
 		BIsStepActive = true;
@@ -107,6 +128,28 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 
 	else if (PlayerInventory->IsFuse10a && !PlayerInventory->IsElectricKey && BIsStepActive && !PlayerInventory->bIsOfficeKey && !PlayerInventory->IsColeKeycard) // Fuse10a Pickup
 	{
+		//
+		/*
+		if (!World)
+		{
+			UE_LOG(LogTemp, Error, TEXT("World is null in UObjectivePanel"));
+			return;
+		}
+		else
+		{
+			for (TActorIterator<UObjectivePanel> It(World); It; ++It)
+			{
+				Objective = *It;
+				break;
+			}
+			if (!Objective) UE_LOG(LogTemp, Error, TEXT("UObjectivePanel not found!"));
+		}
+		*/
+
+		bIsObjectiveFuseCollected = true;
+		bIsObjectiveFlashlight = false;
+		//
+
 		if (IsValid(EventSteps)) EventSteps->NextStep(4);
 
 		BIsStepActive = false;
@@ -230,17 +273,6 @@ void AFirstPersonCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInp
 	PlayerInputComponent->BindAction("ToggleMenu", IE_Pressed, this, &AFirstPersonCharacter::ToggleMenu);
 	PlayerInputComponent->BindAction("TogglePauseMenu", IE_Pressed, this, &AFirstPersonCharacter::TogglePauseMenu);
 }
-
-/*
-AElevator_System* AFirstPersonCharacter::GetElevatorSystem()
-{
-	for (TActorIterator<AElevator_System> It(GetWorld()); It; ++It)
-	{
-		return *It;  // Assuming there's only one elevator system, return the first found
-	}
-	return nullptr;  // Return nullptr if no elevator system is found
-}
-*/
 
 void AFirstPersonCharacter::UpdateVaribleState(AActor*& ActorReference, const FName& TagName)
 {

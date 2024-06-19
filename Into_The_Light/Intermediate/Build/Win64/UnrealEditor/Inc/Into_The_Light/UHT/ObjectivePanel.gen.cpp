@@ -10,7 +10,6 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeObjectivePanel() {}
 
 // Begin Cross Module References
-INTO_THE_LIGHT_API UClass* Z_Construct_UClass_AFirstPersonCharacter_NoRegister();
 INTO_THE_LIGHT_API UClass* Z_Construct_UClass_UObjectivePanel();
 INTO_THE_LIGHT_API UClass* Z_Construct_UClass_UObjectivePanel_NoRegister();
 UMG_API UClass* Z_Construct_UClass_UTextBlock_NoRegister();
@@ -82,9 +81,6 @@ struct Z_Construct_UClass_UObjectivePanel_Statics
 		{ "IncludePath", "UserInterface/Objective/ObjectivePanel.h" },
 		{ "ModuleRelativePath", "Public/UserInterface/Objective/ObjectivePanel.h" },
 	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Player_MetaData[] = {
-		{ "ModuleRelativePath", "Public/UserInterface/Objective/ObjectivePanel.h" },
-	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_TextContent_MetaData[] = {
 		{ "BindWidget", "" },
 		{ "EditInline", "true" },
@@ -99,7 +95,6 @@ struct Z_Construct_UClass_UObjectivePanel_Statics
 		{ "ModuleRelativePath", "Public/UserInterface/Objective/ObjectivePanel.h" },
 	};
 #endif // WITH_METADATA
-	static const UECodeGen_Private::FObjectPropertyParams NewProp_Player;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_TextContent;
 	static const UECodeGen_Private::FTextPropertyParams NewProp_ActiveText;
 	static void NewProp_bIsFindCole_SetBit(void* Obj);
@@ -115,7 +110,6 @@ struct Z_Construct_UClass_UObjectivePanel_Statics
 	};
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UObjectivePanel_Statics::NewProp_Player = { "Player", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UObjectivePanel, Player), Z_Construct_UClass_AFirstPersonCharacter_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Player_MetaData), NewProp_Player_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UObjectivePanel_Statics::NewProp_TextContent = { "TextContent", nullptr, (EPropertyFlags)0x0010000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UObjectivePanel, TextContent), Z_Construct_UClass_UTextBlock_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_TextContent_MetaData), NewProp_TextContent_MetaData) };
 const UECodeGen_Private::FTextPropertyParams Z_Construct_UClass_UObjectivePanel_Statics::NewProp_ActiveText = { "ActiveText", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Text, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UObjectivePanel, ActiveText), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ActiveText_MetaData), NewProp_ActiveText_MetaData) };
 void Z_Construct_UClass_UObjectivePanel_Statics::NewProp_bIsFindCole_SetBit(void* Obj)
@@ -124,7 +118,6 @@ void Z_Construct_UClass_UObjectivePanel_Statics::NewProp_bIsFindCole_SetBit(void
 }
 const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UObjectivePanel_Statics::NewProp_bIsFindCole = { "bIsFindCole", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(UObjectivePanel), &Z_Construct_UClass_UObjectivePanel_Statics::NewProp_bIsFindCole_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bIsFindCole_MetaData), NewProp_bIsFindCole_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UObjectivePanel_Statics::PropPointers[] = {
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UObjectivePanel_Statics::NewProp_Player,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UObjectivePanel_Statics::NewProp_TextContent,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UObjectivePanel_Statics::NewProp_ActiveText,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UObjectivePanel_Statics::NewProp_bIsFindCole,
@@ -171,10 +164,10 @@ UObjectivePanel::~UObjectivePanel() {}
 struct Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_UserInterface_Objective_ObjectivePanel_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UObjectivePanel, UObjectivePanel::StaticClass, TEXT("UObjectivePanel"), &Z_Registration_Info_UClass_UObjectivePanel, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UObjectivePanel), 3226971716U) },
+		{ Z_Construct_UClass_UObjectivePanel, UObjectivePanel::StaticClass, TEXT("UObjectivePanel"), &Z_Registration_Info_UClass_UObjectivePanel, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UObjectivePanel), 1284662986U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_UserInterface_Objective_ObjectivePanel_h_3699872321(TEXT("/Script/Into_The_Light"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_UserInterface_Objective_ObjectivePanel_h_1219480803(TEXT("/Script/Into_The_Light"),
 	Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_UserInterface_Objective_ObjectivePanel_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_UserInterface_Objective_ObjectivePanel_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

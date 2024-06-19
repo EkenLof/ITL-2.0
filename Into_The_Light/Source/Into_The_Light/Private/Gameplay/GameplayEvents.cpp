@@ -26,7 +26,6 @@
 // Other Scripts
 #include "Audio/ActorSoundSystem.h"
 #include "Sound/SoundCue.h"
-#include "UserInterface/Objective/ObjectivePanel.h"
 
 AGameplayEvents::AGameplayEvents()
 {
@@ -34,7 +33,14 @@ AGameplayEvents::AGameplayEvents()
 
 	bIsTempWaitForInteractibleFuseBox = false;
 
-	Objective = CreateDefaultSubobject<UObjectivePanel>(TEXT("Objective"));
+	bIsStep1 = false;
+	bIsStep2 = false;
+	bIsStep3 = false;
+	bIsStep4 = false;
+	bIsStep5 = false;
+	bIsStep6 = false;
+
+	//Objective = CreateDefaultSubobject<UObjectivePanel>(TEXT("Objective"));
 	
 	ReceptionLightsTagName = FName(TEXT("Reception_Lights"));
 	F1LightsTagName = FName(TEXT("F1_Lights"));
@@ -297,14 +303,6 @@ void AGameplayEvents::Step0()
 void AGameplayEvents::Step1() 
 {
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 1 Active---"));
-
-	//FText TempText = FText::FromString(TEXT("Find Cole"));
-;
-	/*if (IsValid(Objective))
-	{
-		Objective->SetInfoText(Objective->ActiveText = TempText);
-		//Objective->bIsFindCole = true;
-	*/
 }
 
 void AGameplayEvents::Step2() 
