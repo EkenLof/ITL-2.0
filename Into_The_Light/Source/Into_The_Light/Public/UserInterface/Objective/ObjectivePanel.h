@@ -27,11 +27,14 @@ public:
 	bool bIsFindCole;
 
 	UFUNCTION(BlueprintCallable, Category = "Event | Activity | Objective")
-	void SetInfoText(FText& TempText);
+	void InfoText(FText& TempText);
+
+	UFUNCTION(BlueprintCallable, Category = "Event | Activity | Objective")
+	void SetInfoText();
 
 protected:
 	AFirstPersonCharacter* Player;
 
-	//virtual void NativeOnInitialized() override;
-	virtual void NativeConstruct() override;
+	virtual void NativeOnInitialized() override;
+	//virtual void NativeConstruct() override;
 };

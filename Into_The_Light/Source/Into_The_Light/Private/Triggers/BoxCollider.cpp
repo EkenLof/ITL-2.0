@@ -59,8 +59,6 @@ void ABoxCollider::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* O
 		//////////////////////////////////////////////////---ACTIONS---//////////////////////////////////////////////////
 		if (bIsMeetCole)
 		{
-			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Cyan, TEXT("OBJECTIVE: Talk to Cole."));
-
 			FName TagName = "Cole_StorageRoom";
 			TArray<AActor*> TaggedActors;
 			UGameplayStatics::GetAllActorsWithTag(GetWorld(), TagName, TaggedActors);

@@ -15,7 +15,8 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define INTO_THE_LIGHT_ObjectivePanel_generated_h
 
 #define FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_UserInterface_Objective_ObjectivePanel_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
-	DECLARE_FUNCTION(execSetInfoText);
+	DECLARE_FUNCTION(execSetInfoText); \
+	DECLARE_FUNCTION(execInfoText);
 
 
 #define FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_UserInterface_Objective_ObjectivePanel_h_15_INCLASS_NO_PURE_DECLS \

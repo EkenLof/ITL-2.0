@@ -8,6 +8,7 @@
 			"DoorSystem.gen.cpp.obj",
 			"DragItemVisual.gen.cpp.obj",
 			"Elevator_System.gen.cpp.obj",
+			"GameplayEvents.gen.cpp.obj",
 			"InteractionInterface.gen.cpp.obj",
 			"InteractionWidget.gen.cpp.obj",
 			"InterfaceActorT.gen.cpp.obj",
@@ -29,7 +30,6 @@
 			"Elevator_System.cpp.obj",
 			"InteractionInterface.cpp.obj",
 			"ItemBase.cpp.obj",
-			"BoxCollider.cpp.obj",
 			"InteractionWidget.cpp.obj",
 			"DragItemVisual.cpp.obj",
 			"InventoryItemSlot.cpp.obj",
@@ -41,11 +41,11 @@
 			"InterfaceActorT.cpp.obj",
 			"PickUp.cpp.obj",
 			"FirstPersonCharacter.gen.cpp.obj",
-			"GameplayEvents.gen.cpp.obj",
 			"Into_The_Light.init.gen.cpp.obj",
 			"ObjectivePanel.gen.cpp.obj",
 			"FirstPersonCharacter.cpp.obj",
 			"GameplayEvents.cpp.obj",
+			"BoxCollider.cpp.obj",
 			"ObjectivePanel.cpp.obj"
 		]
 	}

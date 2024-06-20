@@ -308,7 +308,6 @@ void AGameplayEvents::Step1()
 void AGameplayEvents::Step2() 
 {
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 2 Active---"));
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---Items collected, go to second floor storageroom (Cole)---"));
 }
 
 void AGameplayEvents::Step3()
@@ -326,7 +325,6 @@ void AGameplayEvents::Step3()
 void AGameplayEvents::Step4()
 {
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 4 Active---"));
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---Fuse Collected. \nPut the 10A Fuse in the Fusebox---"));
 }
 
 void AGameplayEvents::Step5()
@@ -394,7 +392,6 @@ void AGameplayEvents::Step6()
 void AGameplayEvents::Step7()
 {
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 7 Active---"));
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---Use the key & Restore the Light---"));
 	
 	// Value To FirstPersonCharacter
 	bIsTempWaitForInteractibleFuseBox = true;
@@ -429,7 +426,6 @@ void AGameplayEvents::Step8()
 void AGameplayEvents::Step9()
 {
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 9 Active---"));
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---Check the main office---"));
 
 	// Stop the PhoneSound // Collision Not Active
 	UpdateVaribleState(ReceptionPhoneActor, ReceptionPhoneTagName);
@@ -457,9 +453,6 @@ void AGameplayEvents::Step10()
 void AGameplayEvents::Step11()
 {
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 11 Active---"));
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---OfficeKey Collected---"));
-
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Cyan, TEXT("OBJECTIVE: Get to the F1 Office."));
 }
 
 void AGameplayEvents::Step12()
@@ -471,7 +464,6 @@ void AGameplayEvents::Step12()
 void AGameplayEvents::Step13()
 {
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 13 Active---"));
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---Cole's Keycard Collected---"));
 }
 
 void AGameplayEvents::Step14()

@@ -38,6 +38,13 @@ AFirstPersonCharacter::AFirstPersonCharacter()
 {
 	PrimaryActorTick.bCanEverTick = true;
 
+	// Optionally, set the widget class in the constructor or from the editor
+	static ConstructorHelpers::FClassFinder<UObjectivePanel> WidgetBPClass(TEXT("/Game/UI/WBP_ObjectivePanel.WBP_ObjectivePanel")); // /Script/UMGEditor.WidgetBlueprint'/Game/UI/WBP_ObjectivePanel.WBP_ObjectivePanel'
+	if (WidgetBPClass.Class != nullptr)
+	{
+		ObjectiveClass = WidgetBPClass.Class;
+	}
+
 	//PlayerMovementsValues->MaxWalkSpeed = WalkSpeed;
 	WalkSpeed = 187.5;
 	RunSpeed = 437.5;
@@ -87,6 +94,26 @@ void AFirstPersonCharacter::BeginPlay()
 	Super::BeginPlay();
 
 	HUD = Cast<AMainHUD>(GetWorld()->GetFirstPlayerController()->GetHUD());
+
+	if(ObjectiveClass)
+	{
+		// Create the widget and add it to the viewport
+		Objective = CreateWidget<UObjectivePanel>(GetWorld(), ObjectiveClass);
+		if (Objective)
+		{
+			// Determine a high Z-order to ensure it's above other UI elements
+			int32 ZOrder = 999; // Adjust this value as needed
+			Objective->AddToViewport(ZOrder);
+			// Call SetInfoText() on the widget instance
+			//Objective->SetInfoText();
+
+			 // Set the position of the ObjectivePanel to the top-left corner
+			FVector2D Position(0, 25); // Top-left corner
+			bool bRemoveDPIScale = true;
+			Objective->SetPositionInViewport(Position, bRemoveDPIScale);
+			UE_LOG(LogTemp, Log, TEXT("ObjectivePanelInstance positioned at top-left corner"));
+		}
+	}
 }
 
 void AFirstPersonCharacter::Tick(float DeltaTime)
@@ -102,78 +129,95 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 	///////////////////////////////////////////---TEMP---/////////////////////////////////////////////
 	else if (PlayerInventory->IsFlshlight && !BIsStepActive && !PlayerInventory->IsFuse10a && !PlayerInventory->bIsOfficeKey && !PlayerInventory->IsColeKeycard) // Flashlight Pickup.
 	{
-		//
-		/*if (!World)
-		{
-			UE_LOG(LogTemp, Error, TEXT("World is null in UObjectivePanel"));
-			return;
-		}
-		else
-		{
-			for (TActorIterator<UObjectivePanel> It(World); It; ++It)
-			{
-				Objective = *It;
-				break;
-			}
-			if (!Objective) UE_LOG(LogTemp, Error, TEXT("UObjectivePanel not found!"));
-		}*/
-
+		// Objective
 		bIsObjectiveFlashlight = true;
-		//
+		
+		if (Objective)
+		{
+			Objective->SetInfoText();
+			UE_LOG(LogTemp, Log, TEXT("Objective's SetInfoText called"));
+		}
+		else UE_LOG(LogTemp, Error, TEXT("Objective is null"));
 
+		// STEP
 		if (IsValid(EventSteps)) EventSteps->NextStep(2);
-
 		BIsStepActive = true;
 	}
 
 	else if (PlayerInventory->IsFuse10a && !PlayerInventory->IsElectricKey && BIsStepActive && !PlayerInventory->bIsOfficeKey && !PlayerInventory->IsColeKeycard) // Fuse10a Pickup
 	{
-		//
-		/*
-		if (!World)
-		{
-			UE_LOG(LogTemp, Error, TEXT("World is null in UObjectivePanel"));
-			return;
-		}
-		else
-		{
-			for (TActorIterator<UObjectivePanel> It(World); It; ++It)
-			{
-				Objective = *It;
-				break;
-			}
-			if (!Objective) UE_LOG(LogTemp, Error, TEXT("UObjectivePanel not found!"));
-		}
-		*/
-
+		// Objective
 		bIsObjectiveFuseCollected = true;
 		bIsObjectiveFlashlight = false;
-		//
 
+		if (Objective)
+		{
+			Objective->SetInfoText();
+			UE_LOG(LogTemp, Log, TEXT("Objective's SetInfoText called"));
+		}
+		else UE_LOG(LogTemp, Error, TEXT("Objective is null"));
+
+		// STEP
 		if (IsValid(EventSteps)) EventSteps->NextStep(4);
-
 		BIsStepActive = false;
 	}
 
 	else if (PlayerInventory->IsElectricKey && !BIsStepActive && !PlayerInventory->bIsOfficeKey && !PlayerInventory->IsColeKeycard) // ElectricKey Pickup
 	{
-		if (IsValid(EventSteps)) EventSteps->NextStep(7);
+		// Objective
+		bIsObjectiveElectricKeyCollected = true;
+		bIsObjectiveFuseCollected = false;
+		bIsObjectiveFlashlight = false;
 
+		if (Objective)
+		{
+			Objective->SetInfoText();
+			UE_LOG(LogTemp, Log, TEXT("Objective's SetInfoText called"));
+		}
+		else UE_LOG(LogTemp, Error, TEXT("Objective is null"));
+
+		// STEP
+		if (IsValid(EventSteps)) EventSteps->NextStep(7);
 		BIsStepActive = true;
 	}
 
-	else if (PlayerInventory->bIsOfficeKey && BIsStepActive && !PlayerInventory->IsColeKeycard) // ElectricKey Pickup
+	else if (PlayerInventory->bIsOfficeKey && BIsStepActive && !PlayerInventory->IsColeKeycard) // OfficeKey Pickup
 	{
-		if (IsValid(EventSteps)) EventSteps->NextStep(11);
+		// Objective
+		bIsObjectiveOfficeKeyCollected = true;
+		bIsObjectiveElectricKeyCollected = false;
+		bIsObjectiveFuseCollected = false;
+		bIsObjectiveFlashlight = false;
 
+		if (Objective)
+		{
+			Objective->SetInfoText();
+			UE_LOG(LogTemp, Log, TEXT("Objective's SetInfoText called"));
+		}
+		else UE_LOG(LogTemp, Error, TEXT("Objective is null"));
+
+		// STEP
+		if (IsValid(EventSteps)) EventSteps->NextStep(11);
 		BIsStepActive = false;
 	}
 
 	else if (PlayerInventory->IsColeKeycard && !BIsStepActive) // Cole's Keycard Pickup
 	{
-		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Cyan, TEXT("OBJECTIVE: Get to the Manager Office with the the Elevator."));
-		//AElevator_System* ElevatorSystem = GetElevatorSystem();
+		// Objective
+		bIsObjectiveKeycardCollected = true;
+		bIsObjectiveOfficeKeyCollected = false;
+		bIsObjectiveElectricKeyCollected = false;
+		bIsObjectiveFuseCollected = false;
+		bIsObjectiveFlashlight = false;
 
+		if (Objective)
+		{
+			Objective->SetInfoText();
+			UE_LOG(LogTemp, Log, TEXT("Objective's SetInfoText called"));
+		}
+		else UE_LOG(LogTemp, Error, TEXT("Objective is null"));
+
+		// Elevator
 		for (TActorIterator<AElevator_System> It(GetWorld()); It; ++It)
 		{
 			ElevatorSystem = *It;
@@ -222,15 +266,12 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 	else if (CheckLookAtObject() && CheckLeftMouseButtonDown() && bIsReceptionDoor && bIsLookingAtRecDoor && !bIsLookingAtFuBox && !bIsLookingAtFuseBox_Interactible && !bIsLookingReceptionPhone
 		|| CheckLookAtObject() && CheckRightMouseButtonDown() && bIsReceptionDoor && bIsLookingAtRecDoor && !bIsLookingAtFuBox && !bIsLookingAtFuseBox_Interactible && !bIsLookingReceptionPhone)
 	{
-		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Blue, TEXT("OBJECTIVE: Get the Flashlight."));
-
+		// REMOVE???????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????
 		bIsReceptionDoor = false;
 	}
 	// FuseBox Fuse 10A to Box.
 	else if (CheckLookAtObject() && CheckLeftMouseButtonDown() && bIsTempWaitForInteractibleFuseBox && bIsFuseBox_Interactible && bIsLookingAtFuseBox_Interactible && !bIsLookingAtRecDoor && !bIsLookingAtFuBox && !bIsLookingReceptionPhone)
 	{
-		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Blue, TEXT("OBJECTIVE: Get to Manager-Office."));
-
 		// ReceptionPhoneKeyActor
 		UpdateVaribleState(ReceptionPhoneKeyActor, ReceptionPhoneKeyTagName);
 		if (IsValid(ReceptionPhoneKeyActor)) ReceptionPhoneKeyActor->SetActorEnableCollision(true);
@@ -242,8 +283,6 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 	// Reception Phone.
 	else if (CheckLookAtObject() && CheckLeftMouseButtonDown() && bIsReceptionPhone && bIsLookingReceptionPhone && !bIsLookingAtFuseBox_Interactible && !bIsLookingAtRecDoor && !bIsLookingAtFuBox)
 	{
-		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Blue, TEXT("OBJECTIVE: ..."));
-
 		if (IsValid(EventSteps)) EventSteps->NextStep(9); // Phone dies & Light att B1 goes out.
 		bIsReceptionPhone = false;
 	}

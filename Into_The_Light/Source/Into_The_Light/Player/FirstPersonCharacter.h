@@ -56,10 +56,16 @@ public:
 	bool isWalkingForward;
 	bool isWalkingBackward;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Value")
 	bool bIsObjectiveFlashlight;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Value")
 	bool bIsObjectiveFuseCollected;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Value")
+	bool bIsObjectiveElectricKeyCollected;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Value")
+	bool bIsObjectiveOfficeKeyCollected;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Value")
+	bool bIsObjectiveKeycardCollected;
 
 	float WalkSpeed;
 	float RunSpeed;
@@ -173,6 +179,9 @@ protected:
 	void EndInteract();
 	void Interact();
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | UI")
+	TSubclassOf<UObjectivePanel> ObjectiveClass;
+
 private:
 	UObjectivePanel* Objective;
 
@@ -182,6 +191,3 @@ private:
 	bool CheckLeftMouseButtonDown();
 	bool CheckRightMouseButtonDown();
 };
-
-
-
