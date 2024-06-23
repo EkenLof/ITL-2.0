@@ -275,16 +275,6 @@ void AGameplayEvents::NextStep(int32 StepUp)
 	case 8: Step8(); break;
 	case 9: Step9(); break;
 	case 10: Step10(); break;
-	case 11: Step11(); break;
-	case 12: Step12(); break;
-	case 13: Step13(); break;
-	case 14: Step14(); break;
-	case 15: Step15(); break;
-	case 16: Step16(); break;
-	case 17: Step17(); break;
-	case 18: Step18(); break;
-	case 19: Step19(); break;
-	case 20: Step20(); break;
 	default:
 		UE_LOG(LogTemp, Warning, TEXT("NextStep() encountered an unknown step number"));
 		break;
@@ -448,62 +438,4 @@ void AGameplayEvents::Step10()
 
 	// Door To OfficeKey OPEN
 
-}
-
-void AGameplayEvents::Step11()
-{
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 11 Active---"));
-}
-
-void AGameplayEvents::Step12()
-{
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 12 Active---"));
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---SOMTHING HAPPENS---"));
-}
-
-void AGameplayEvents::Step13()
-{
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 13 Active---"));
-}
-
-void AGameplayEvents::Step14()
-{
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 14 Active---"));
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("------"));
-}
-
-void AGameplayEvents::Step15()
-{
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 15 Active---"));
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("------"));
-}
-
-void AGameplayEvents::Step16()
-{
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 16 Active---"));
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("------"));
-}
-
-void AGameplayEvents::Step17()
-{
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 17 Active---"));
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("------"));
-}
-
-void AGameplayEvents::Step18()
-{
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 18 Active---"));
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("------"));
-}
-
-void AGameplayEvents::Step19()
-{
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 19 Active---"));
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("------"));
-}
-
-void AGameplayEvents::Step20() // END OF DEMO!!!
-{
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 20 Active---"));
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("------"));
 }

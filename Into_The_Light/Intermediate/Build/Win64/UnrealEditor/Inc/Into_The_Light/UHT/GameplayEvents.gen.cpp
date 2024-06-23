@@ -231,267 +231,6 @@ DEFINE_FUNCTION(AGameplayEvents::execStep10)
 }
 // End Class AGameplayEvents Function Step10
 
-// Begin Class AGameplayEvents Function Step11
-struct Z_Construct_UFunction_AGameplayEvents_Step11_Statics
-{
-#if WITH_METADATA
-	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Public/Gameplay/GameplayEvents.h" },
-	};
-#endif // WITH_METADATA
-	static const UECodeGen_Private::FFunctionParams FuncParams;
-};
-const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AGameplayEvents_Step11_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AGameplayEvents, nullptr, "Step11", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00040401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AGameplayEvents_Step11_Statics::Function_MetaDataParams), Z_Construct_UFunction_AGameplayEvents_Step11_Statics::Function_MetaDataParams) };
-UFunction* Z_Construct_UFunction_AGameplayEvents_Step11()
-{
-	static UFunction* ReturnFunction = nullptr;
-	if (!ReturnFunction)
-	{
-		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AGameplayEvents_Step11_Statics::FuncParams);
-	}
-	return ReturnFunction;
-}
-DEFINE_FUNCTION(AGameplayEvents::execStep11)
-{
-	P_FINISH;
-	P_NATIVE_BEGIN;
-	P_THIS->Step11();
-	P_NATIVE_END;
-}
-// End Class AGameplayEvents Function Step11
-
-// Begin Class AGameplayEvents Function Step12
-struct Z_Construct_UFunction_AGameplayEvents_Step12_Statics
-{
-#if WITH_METADATA
-	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Public/Gameplay/GameplayEvents.h" },
-	};
-#endif // WITH_METADATA
-	static const UECodeGen_Private::FFunctionParams FuncParams;
-};
-const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AGameplayEvents_Step12_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AGameplayEvents, nullptr, "Step12", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00040401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AGameplayEvents_Step12_Statics::Function_MetaDataParams), Z_Construct_UFunction_AGameplayEvents_Step12_Statics::Function_MetaDataParams) };
-UFunction* Z_Construct_UFunction_AGameplayEvents_Step12()
-{
-	static UFunction* ReturnFunction = nullptr;
-	if (!ReturnFunction)
-	{
-		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AGameplayEvents_Step12_Statics::FuncParams);
-	}
-	return ReturnFunction;
-}
-DEFINE_FUNCTION(AGameplayEvents::execStep12)
-{
-	P_FINISH;
-	P_NATIVE_BEGIN;
-	P_THIS->Step12();
-	P_NATIVE_END;
-}
-// End Class AGameplayEvents Function Step12
-
-// Begin Class AGameplayEvents Function Step13
-struct Z_Construct_UFunction_AGameplayEvents_Step13_Statics
-{
-#if WITH_METADATA
-	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Public/Gameplay/GameplayEvents.h" },
-	};
-#endif // WITH_METADATA
-	static const UECodeGen_Private::FFunctionParams FuncParams;
-};
-const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AGameplayEvents_Step13_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AGameplayEvents, nullptr, "Step13", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00040401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AGameplayEvents_Step13_Statics::Function_MetaDataParams), Z_Construct_UFunction_AGameplayEvents_Step13_Statics::Function_MetaDataParams) };
-UFunction* Z_Construct_UFunction_AGameplayEvents_Step13()
-{
-	static UFunction* ReturnFunction = nullptr;
-	if (!ReturnFunction)
-	{
-		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AGameplayEvents_Step13_Statics::FuncParams);
-	}
-	return ReturnFunction;
-}
-DEFINE_FUNCTION(AGameplayEvents::execStep13)
-{
-	P_FINISH;
-	P_NATIVE_BEGIN;
-	P_THIS->Step13();
-	P_NATIVE_END;
-}
-// End Class AGameplayEvents Function Step13
-
-// Begin Class AGameplayEvents Function Step14
-struct Z_Construct_UFunction_AGameplayEvents_Step14_Statics
-{
-#if WITH_METADATA
-	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Public/Gameplay/GameplayEvents.h" },
-	};
-#endif // WITH_METADATA
-	static const UECodeGen_Private::FFunctionParams FuncParams;
-};
-const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AGameplayEvents_Step14_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AGameplayEvents, nullptr, "Step14", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00040401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AGameplayEvents_Step14_Statics::Function_MetaDataParams), Z_Construct_UFunction_AGameplayEvents_Step14_Statics::Function_MetaDataParams) };
-UFunction* Z_Construct_UFunction_AGameplayEvents_Step14()
-{
-	static UFunction* ReturnFunction = nullptr;
-	if (!ReturnFunction)
-	{
-		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AGameplayEvents_Step14_Statics::FuncParams);
-	}
-	return ReturnFunction;
-}
-DEFINE_FUNCTION(AGameplayEvents::execStep14)
-{
-	P_FINISH;
-	P_NATIVE_BEGIN;
-	P_THIS->Step14();
-	P_NATIVE_END;
-}
-// End Class AGameplayEvents Function Step14
-
-// Begin Class AGameplayEvents Function Step15
-struct Z_Construct_UFunction_AGameplayEvents_Step15_Statics
-{
-#if WITH_METADATA
-	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Public/Gameplay/GameplayEvents.h" },
-	};
-#endif // WITH_METADATA
-	static const UECodeGen_Private::FFunctionParams FuncParams;
-};
-const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AGameplayEvents_Step15_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AGameplayEvents, nullptr, "Step15", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00040401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AGameplayEvents_Step15_Statics::Function_MetaDataParams), Z_Construct_UFunction_AGameplayEvents_Step15_Statics::Function_MetaDataParams) };
-UFunction* Z_Construct_UFunction_AGameplayEvents_Step15()
-{
-	static UFunction* ReturnFunction = nullptr;
-	if (!ReturnFunction)
-	{
-		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AGameplayEvents_Step15_Statics::FuncParams);
-	}
-	return ReturnFunction;
-}
-DEFINE_FUNCTION(AGameplayEvents::execStep15)
-{
-	P_FINISH;
-	P_NATIVE_BEGIN;
-	P_THIS->Step15();
-	P_NATIVE_END;
-}
-// End Class AGameplayEvents Function Step15
-
-// Begin Class AGameplayEvents Function Step16
-struct Z_Construct_UFunction_AGameplayEvents_Step16_Statics
-{
-#if WITH_METADATA
-	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Public/Gameplay/GameplayEvents.h" },
-	};
-#endif // WITH_METADATA
-	static const UECodeGen_Private::FFunctionParams FuncParams;
-};
-const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AGameplayEvents_Step16_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AGameplayEvents, nullptr, "Step16", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00040401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AGameplayEvents_Step16_Statics::Function_MetaDataParams), Z_Construct_UFunction_AGameplayEvents_Step16_Statics::Function_MetaDataParams) };
-UFunction* Z_Construct_UFunction_AGameplayEvents_Step16()
-{
-	static UFunction* ReturnFunction = nullptr;
-	if (!ReturnFunction)
-	{
-		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AGameplayEvents_Step16_Statics::FuncParams);
-	}
-	return ReturnFunction;
-}
-DEFINE_FUNCTION(AGameplayEvents::execStep16)
-{
-	P_FINISH;
-	P_NATIVE_BEGIN;
-	P_THIS->Step16();
-	P_NATIVE_END;
-}
-// End Class AGameplayEvents Function Step16
-
-// Begin Class AGameplayEvents Function Step17
-struct Z_Construct_UFunction_AGameplayEvents_Step17_Statics
-{
-#if WITH_METADATA
-	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Public/Gameplay/GameplayEvents.h" },
-	};
-#endif // WITH_METADATA
-	static const UECodeGen_Private::FFunctionParams FuncParams;
-};
-const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AGameplayEvents_Step17_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AGameplayEvents, nullptr, "Step17", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00040401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AGameplayEvents_Step17_Statics::Function_MetaDataParams), Z_Construct_UFunction_AGameplayEvents_Step17_Statics::Function_MetaDataParams) };
-UFunction* Z_Construct_UFunction_AGameplayEvents_Step17()
-{
-	static UFunction* ReturnFunction = nullptr;
-	if (!ReturnFunction)
-	{
-		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AGameplayEvents_Step17_Statics::FuncParams);
-	}
-	return ReturnFunction;
-}
-DEFINE_FUNCTION(AGameplayEvents::execStep17)
-{
-	P_FINISH;
-	P_NATIVE_BEGIN;
-	P_THIS->Step17();
-	P_NATIVE_END;
-}
-// End Class AGameplayEvents Function Step17
-
-// Begin Class AGameplayEvents Function Step18
-struct Z_Construct_UFunction_AGameplayEvents_Step18_Statics
-{
-#if WITH_METADATA
-	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Public/Gameplay/GameplayEvents.h" },
-	};
-#endif // WITH_METADATA
-	static const UECodeGen_Private::FFunctionParams FuncParams;
-};
-const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AGameplayEvents_Step18_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AGameplayEvents, nullptr, "Step18", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00040401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AGameplayEvents_Step18_Statics::Function_MetaDataParams), Z_Construct_UFunction_AGameplayEvents_Step18_Statics::Function_MetaDataParams) };
-UFunction* Z_Construct_UFunction_AGameplayEvents_Step18()
-{
-	static UFunction* ReturnFunction = nullptr;
-	if (!ReturnFunction)
-	{
-		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AGameplayEvents_Step18_Statics::FuncParams);
-	}
-	return ReturnFunction;
-}
-DEFINE_FUNCTION(AGameplayEvents::execStep18)
-{
-	P_FINISH;
-	P_NATIVE_BEGIN;
-	P_THIS->Step18();
-	P_NATIVE_END;
-}
-// End Class AGameplayEvents Function Step18
-
-// Begin Class AGameplayEvents Function Step19
-struct Z_Construct_UFunction_AGameplayEvents_Step19_Statics
-{
-#if WITH_METADATA
-	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Public/Gameplay/GameplayEvents.h" },
-	};
-#endif // WITH_METADATA
-	static const UECodeGen_Private::FFunctionParams FuncParams;
-};
-const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AGameplayEvents_Step19_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AGameplayEvents, nullptr, "Step19", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00040401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AGameplayEvents_Step19_Statics::Function_MetaDataParams), Z_Construct_UFunction_AGameplayEvents_Step19_Statics::Function_MetaDataParams) };
-UFunction* Z_Construct_UFunction_AGameplayEvents_Step19()
-{
-	static UFunction* ReturnFunction = nullptr;
-	if (!ReturnFunction)
-	{
-		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AGameplayEvents_Step19_Statics::FuncParams);
-	}
-	return ReturnFunction;
-}
-DEFINE_FUNCTION(AGameplayEvents::execStep19)
-{
-	P_FINISH;
-	P_NATIVE_BEGIN;
-	P_THIS->Step19();
-	P_NATIVE_END;
-}
-// End Class AGameplayEvents Function Step19
-
 // Begin Class AGameplayEvents Function Step2
 struct Z_Construct_UFunction_AGameplayEvents_Step2_Statics
 {
@@ -520,35 +259,6 @@ DEFINE_FUNCTION(AGameplayEvents::execStep2)
 	P_NATIVE_END;
 }
 // End Class AGameplayEvents Function Step2
-
-// Begin Class AGameplayEvents Function Step20
-struct Z_Construct_UFunction_AGameplayEvents_Step20_Statics
-{
-#if WITH_METADATA
-	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Public/Gameplay/GameplayEvents.h" },
-	};
-#endif // WITH_METADATA
-	static const UECodeGen_Private::FFunctionParams FuncParams;
-};
-const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AGameplayEvents_Step20_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AGameplayEvents, nullptr, "Step20", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00040401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AGameplayEvents_Step20_Statics::Function_MetaDataParams), Z_Construct_UFunction_AGameplayEvents_Step20_Statics::Function_MetaDataParams) };
-UFunction* Z_Construct_UFunction_AGameplayEvents_Step20()
-{
-	static UFunction* ReturnFunction = nullptr;
-	if (!ReturnFunction)
-	{
-		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AGameplayEvents_Step20_Statics::FuncParams);
-	}
-	return ReturnFunction;
-}
-DEFINE_FUNCTION(AGameplayEvents::execStep20)
-{
-	P_FINISH;
-	P_NATIVE_BEGIN;
-	P_THIS->Step20();
-	P_NATIVE_END;
-}
-// End Class AGameplayEvents Function Step20
 
 // Begin Class AGameplayEvents Function Step3
 struct Z_Construct_UFunction_AGameplayEvents_Step3_Statics
@@ -877,17 +587,7 @@ void AGameplayEvents::StaticRegisterNativesAGameplayEvents()
 		{ "Step0", &AGameplayEvents::execStep0 },
 		{ "Step1", &AGameplayEvents::execStep1 },
 		{ "Step10", &AGameplayEvents::execStep10 },
-		{ "Step11", &AGameplayEvents::execStep11 },
-		{ "Step12", &AGameplayEvents::execStep12 },
-		{ "Step13", &AGameplayEvents::execStep13 },
-		{ "Step14", &AGameplayEvents::execStep14 },
-		{ "Step15", &AGameplayEvents::execStep15 },
-		{ "Step16", &AGameplayEvents::execStep16 },
-		{ "Step17", &AGameplayEvents::execStep17 },
-		{ "Step18", &AGameplayEvents::execStep18 },
-		{ "Step19", &AGameplayEvents::execStep19 },
 		{ "Step2", &AGameplayEvents::execStep2 },
-		{ "Step20", &AGameplayEvents::execStep20 },
 		{ "Step3", &AGameplayEvents::execStep3 },
 		{ "Step4", &AGameplayEvents::execStep4 },
 		{ "Step5", &AGameplayEvents::execStep5 },
@@ -1079,17 +779,7 @@ struct Z_Construct_UClass_AGameplayEvents_Statics
 		{ &Z_Construct_UFunction_AGameplayEvents_Step0, "Step0" }, // 140066084
 		{ &Z_Construct_UFunction_AGameplayEvents_Step1, "Step1" }, // 3744467042
 		{ &Z_Construct_UFunction_AGameplayEvents_Step10, "Step10" }, // 4183978094
-		{ &Z_Construct_UFunction_AGameplayEvents_Step11, "Step11" }, // 3519674019
-		{ &Z_Construct_UFunction_AGameplayEvents_Step12, "Step12" }, // 1474196349
-		{ &Z_Construct_UFunction_AGameplayEvents_Step13, "Step13" }, // 2231726236
-		{ &Z_Construct_UFunction_AGameplayEvents_Step14, "Step14" }, // 4282671231
-		{ &Z_Construct_UFunction_AGameplayEvents_Step15, "Step15" }, // 971862320
-		{ &Z_Construct_UFunction_AGameplayEvents_Step16, "Step16" }, // 1093199370
-		{ &Z_Construct_UFunction_AGameplayEvents_Step17, "Step17" }, // 69831471
-		{ &Z_Construct_UFunction_AGameplayEvents_Step18, "Step18" }, // 2732384840
-		{ &Z_Construct_UFunction_AGameplayEvents_Step19, "Step19" }, // 729867157
 		{ &Z_Construct_UFunction_AGameplayEvents_Step2, "Step2" }, // 3647741597
-		{ &Z_Construct_UFunction_AGameplayEvents_Step20, "Step20" }, // 1373972910
 		{ &Z_Construct_UFunction_AGameplayEvents_Step3, "Step3" }, // 2240352314
 		{ &Z_Construct_UFunction_AGameplayEvents_Step4, "Step4" }, // 3015971388
 		{ &Z_Construct_UFunction_AGameplayEvents_Step5, "Step5" }, // 3982976046
@@ -1222,10 +912,10 @@ AGameplayEvents::~AGameplayEvents() {}
 struct Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_GameplayEvents_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AGameplayEvents, AGameplayEvents::StaticClass, TEXT("AGameplayEvents"), &Z_Registration_Info_UClass_AGameplayEvents, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AGameplayEvents), 748170331U) },
+		{ Z_Construct_UClass_AGameplayEvents, AGameplayEvents::StaticClass, TEXT("AGameplayEvents"), &Z_Registration_Info_UClass_AGameplayEvents, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AGameplayEvents), 3685979555U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_GameplayEvents_h_1495049529(TEXT("/Script/Into_The_Light"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_GameplayEvents_h_1024819686(TEXT("/Script/Into_The_Light"),
 	Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_GameplayEvents_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_GameplayEvents_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

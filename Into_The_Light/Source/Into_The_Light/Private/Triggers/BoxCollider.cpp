@@ -57,7 +57,7 @@ void ABoxCollider::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* O
 	if (OtherActor && OtherActor->ActorHasTag(MichaelTagName))
 	{
 		//////////////////////////////////////////////////---ACTIONS---//////////////////////////////////////////////////
-		if (bIsMeetCole)
+		if (bIsMeetCole) // STEP # ACTIVE
 		{
 			FName TagName = "Cole_StorageRoom";
 			TArray<AActor*> TaggedActors;
@@ -89,19 +89,19 @@ void ABoxCollider::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* O
 			if (IsValid(EventSteps)) EventSteps->NextStep(3);
 			bIsMeetCole = false;
 		}
-		else if (bIsMissingCole)
+		else if (bIsMissingCole) // STEP & ACTIVE
 		{
 			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Cyan, TEXT("OBJECTIVE: Look for Electric-Key."));
 			if (IsValid(EventSteps)) EventSteps->NextStep(6);
 			bIsMissingCole = false;
 		}
-		else if (bIsExitFuseBoxRoom)
+		else if (bIsExitFuseBoxRoom) // SUBLEVEL LOAD
 		{
 			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Cyan, TEXT("Light ON!"));
 			if (IsValid(EventSteps)) EventSteps->LoadSublevel(TEXT("LightsF1"));
 			bIsExitFuseBoxRoom = false;
 		}
-		else if (bIsExitReceptionPhone)
+		else if (bIsExitReceptionPhone) // STEP 10 ACTIVE
 		{
 			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Cyan, TEXT("LightsB1Reception ON!"));
 			EventSteps->UnloadSublevel(TEXT("LightsB1Reception"));
@@ -110,16 +110,12 @@ void ABoxCollider::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* O
 		}
 		else if (bIsExitWithKeyCard)
 		{
-			if (IsValid(EventSteps)) EventSteps->NextStep(13);
+			//if (IsValid(EventSteps)) EventSteps->NextStep(13); // DELETE ????????????????????????????????????????????????????????????????????????
 
 			bIsExitWithKeyCard = false;
 		}
 		//////////////////////////////////////////////////---ACTIONS---//////////////////////////////////////////////////
 	}
-	/*else
-	{
-		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("***Michael Not Found inside a trigger***"));
-	}*/
 }
 
 /*

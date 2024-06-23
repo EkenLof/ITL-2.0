@@ -124,10 +124,16 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 	//{}
 	UWorld* World = GetWorld();
 
+	bool bIsValueFlashlightPickUP = PlayerInventory->IsFlshlight && !BIsStepActive && !PlayerInventory->IsFuse10a && !PlayerInventory->bIsOfficeKey && !PlayerInventory->IsColeKeycard;
+	bool bIsValueFusePickUp = PlayerInventory->IsFuse10a && !PlayerInventory->IsElectricKey && BIsStepActive && !PlayerInventory->bIsOfficeKey && !PlayerInventory->IsColeKeycard;
+	bool bIsValueElectricKeyPickUp = PlayerInventory->IsElectricKey && !BIsStepActive && !PlayerInventory->bIsOfficeKey && !PlayerInventory->IsColeKeycard;
+	bool bIsValueOfficeKeyPickUp = PlayerInventory->bIsOfficeKey && BIsStepActive && !PlayerInventory->IsColeKeycard;
+	bool bIsValueKeycardPickUp = PlayerInventory->IsColeKeycard && !BIsStepActive;
+
 	if (GetWorld()->TimeSince(InteractionData.LastInteractionCheckTime) > InteractionCheckFrequency) PerformInteractionCheck();
 
 	///////////////////////////////////////////---TEMP---/////////////////////////////////////////////
-	else if (PlayerInventory->IsFlshlight && !BIsStepActive && !PlayerInventory->IsFuse10a && !PlayerInventory->bIsOfficeKey && !PlayerInventory->IsColeKeycard) // Flashlight Pickup.
+	else if (bIsValueFlashlightPickUP) // Flashlight Pickup.
 	{
 		// Objective
 		bIsObjectiveFlashlight = true;
@@ -144,7 +150,7 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 		BIsStepActive = true;
 	}
 
-	else if (PlayerInventory->IsFuse10a && !PlayerInventory->IsElectricKey && BIsStepActive && !PlayerInventory->bIsOfficeKey && !PlayerInventory->IsColeKeycard) // Fuse10a Pickup
+	else if (bIsValueFusePickUp) // Fuse10a Pickup
 	{
 		// Objective
 		bIsObjectiveFuseCollected = true;
@@ -162,7 +168,7 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 		BIsStepActive = false;
 	}
 
-	else if (PlayerInventory->IsElectricKey && !BIsStepActive && !PlayerInventory->bIsOfficeKey && !PlayerInventory->IsColeKeycard) // ElectricKey Pickup
+	else if (bIsValueElectricKeyPickUp) // ElectricKey Pickup
 	{
 		// Objective
 		bIsObjectiveElectricKeyCollected = true;
@@ -181,7 +187,7 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 		BIsStepActive = true;
 	}
 
-	else if (PlayerInventory->bIsOfficeKey && BIsStepActive && !PlayerInventory->IsColeKeycard) // OfficeKey Pickup
+	else if (bIsValueOfficeKeyPickUp) // OfficeKey Pickup
 	{
 		// Objective
 		bIsObjectiveOfficeKeyCollected = true;
@@ -196,12 +202,10 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 		}
 		else UE_LOG(LogTemp, Error, TEXT("Objective is null"));
 
-		// STEP
-		if (IsValid(EventSteps)) EventSteps->NextStep(11);
 		BIsStepActive = false;
 	}
 
-	else if (PlayerInventory->IsColeKeycard && !BIsStepActive) // Cole's Keycard Pickup
+	else if (bIsValueKeycardPickUp) // Cole's Keycard Pickup
 	{
 		// Objective
 		bIsObjectiveKeycardCollected = true;
