@@ -64,12 +64,61 @@ DEFINE_FUNCTION(ACole::execColeMeet)
 }
 // End Class ACole Function ColeMeet
 
+// Begin Class ACole Function ColeSearchIdle
+struct Z_Construct_UFunction_ACole_ColeSearchIdle_Statics
+{
+	struct Cole_eventColeSearchIdle_Parms
+	{
+		bool bIsColeMeetActivety;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "Elevator | Event | Activity" },
+		{ "ModuleRelativePath", "Public/Characters/Cole.h" },
+	};
+#endif // WITH_METADATA
+	static void NewProp_bIsColeMeetActivety_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsColeMeetActivety;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+void Z_Construct_UFunction_ACole_ColeSearchIdle_Statics::NewProp_bIsColeMeetActivety_SetBit(void* Obj)
+{
+	((Cole_eventColeSearchIdle_Parms*)Obj)->bIsColeMeetActivety = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_ACole_ColeSearchIdle_Statics::NewProp_bIsColeMeetActivety = { "bIsColeMeetActivety", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(Cole_eventColeSearchIdle_Parms), &Z_Construct_UFunction_ACole_ColeSearchIdle_Statics::NewProp_bIsColeMeetActivety_SetBit, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ACole_ColeSearchIdle_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ACole_ColeSearchIdle_Statics::NewProp_bIsColeMeetActivety,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_ACole_ColeSearchIdle_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ACole_ColeSearchIdle_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ACole, nullptr, "ColeSearchIdle", nullptr, nullptr, Z_Construct_UFunction_ACole_ColeSearchIdle_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ACole_ColeSearchIdle_Statics::PropPointers), sizeof(Z_Construct_UFunction_ACole_ColeSearchIdle_Statics::Cole_eventColeSearchIdle_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ACole_ColeSearchIdle_Statics::Function_MetaDataParams), Z_Construct_UFunction_ACole_ColeSearchIdle_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_ACole_ColeSearchIdle_Statics::Cole_eventColeSearchIdle_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_ACole_ColeSearchIdle()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ACole_ColeSearchIdle_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(ACole::execColeSearchIdle)
+{
+	P_GET_UBOOL(Z_Param_bIsColeMeetActivety);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->ColeSearchIdle(Z_Param_bIsColeMeetActivety);
+	P_NATIVE_END;
+}
+// End Class ACole Function ColeSearchIdle
+
 // Begin Class ACole
 void ACole::StaticRegisterNativesACole()
 {
 	UClass* Class = ACole::StaticClass();
 	static const FNameNativePtrPair Funcs[] = {
 		{ "ColeMeet", &ACole::execColeMeet },
+		{ "ColeSearchIdle", &ACole::execColeSearchIdle },
 	};
 	FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 }
@@ -86,6 +135,14 @@ struct Z_Construct_UClass_ACole_Statics
 		{ "IncludePath", "Characters/Cole.h" },
 		{ "ModuleRelativePath", "Public/Characters/Cole.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bIsColeStartCutscene_MetaData[] = {
+		{ "Category", "Elevator | Event | Activity" },
+		{ "ModuleRelativePath", "Public/Characters/Cole.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bIsColeSearchIdle_MetaData[] = {
+		{ "Category", "Elevator | Event | Activity" },
+		{ "ModuleRelativePath", "Public/Characters/Cole.h" },
+	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bIsColeMeetOn_MetaData[] = {
 		{ "Category", "Elevator | Event | Activity" },
 		{ "ModuleRelativePath", "Public/Characters/Cole.h" },
@@ -95,6 +152,10 @@ struct Z_Construct_UClass_ACole_Statics
 		{ "ModuleRelativePath", "Public/Characters/Cole.h" },
 	};
 #endif // WITH_METADATA
+	static void NewProp_bIsColeStartCutscene_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsColeStartCutscene;
+	static void NewProp_bIsColeSearchIdle_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsColeSearchIdle;
 	static void NewProp_bIsColeMeetOn_SetBit(void* Obj);
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsColeMeetOn;
 	static void NewProp_bIsColeFuseTakenOn_SetBit(void* Obj);
@@ -103,6 +164,7 @@ struct Z_Construct_UClass_ACole_Statics
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
 		{ &Z_Construct_UFunction_ACole_ColeMeet, "ColeMeet" }, // 4255230734
+		{ &Z_Construct_UFunction_ACole_ColeSearchIdle, "ColeSearchIdle" }, // 4109553450
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -110,6 +172,16 @@ struct Z_Construct_UClass_ACole_Statics
 	};
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
+void Z_Construct_UClass_ACole_Statics::NewProp_bIsColeStartCutscene_SetBit(void* Obj)
+{
+	((ACole*)Obj)->bIsColeStartCutscene = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ACole_Statics::NewProp_bIsColeStartCutscene = { "bIsColeStartCutscene", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(ACole), &Z_Construct_UClass_ACole_Statics::NewProp_bIsColeStartCutscene_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bIsColeStartCutscene_MetaData), NewProp_bIsColeStartCutscene_MetaData) };
+void Z_Construct_UClass_ACole_Statics::NewProp_bIsColeSearchIdle_SetBit(void* Obj)
+{
+	((ACole*)Obj)->bIsColeSearchIdle = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ACole_Statics::NewProp_bIsColeSearchIdle = { "bIsColeSearchIdle", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(ACole), &Z_Construct_UClass_ACole_Statics::NewProp_bIsColeSearchIdle_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bIsColeSearchIdle_MetaData), NewProp_bIsColeSearchIdle_MetaData) };
 void Z_Construct_UClass_ACole_Statics::NewProp_bIsColeMeetOn_SetBit(void* Obj)
 {
 	((ACole*)Obj)->bIsColeMeetOn = 1;
@@ -121,6 +193,8 @@ void Z_Construct_UClass_ACole_Statics::NewProp_bIsColeFuseTakenOn_SetBit(void* O
 }
 const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ACole_Statics::NewProp_bIsColeFuseTakenOn = { "bIsColeFuseTakenOn", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(ACole), &Z_Construct_UClass_ACole_Statics::NewProp_bIsColeFuseTakenOn_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bIsColeFuseTakenOn_MetaData), NewProp_bIsColeFuseTakenOn_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ACole_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACole_Statics::NewProp_bIsColeStartCutscene,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACole_Statics::NewProp_bIsColeSearchIdle,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACole_Statics::NewProp_bIsColeMeetOn,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACole_Statics::NewProp_bIsColeFuseTakenOn,
 };
@@ -165,10 +239,10 @@ ACole::~ACole() {}
 struct Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Characters_Cole_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ACole, ACole::StaticClass, TEXT("ACole"), &Z_Registration_Info_UClass_ACole, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ACole), 158769868U) },
+		{ Z_Construct_UClass_ACole, ACole::StaticClass, TEXT("ACole"), &Z_Registration_Info_UClass_ACole, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ACole), 587141656U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Characters_Cole_h_3265389785(TEXT("/Script/Into_The_Light"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Characters_Cole_h_1943674121(TEXT("/Script/Into_The_Light"),
 	Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Characters_Cole_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Characters_Cole_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

@@ -17,6 +17,7 @@ ABoxCollider::ABoxCollider()
 	// Set this actor to call Tick() every frame. You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = false;
 
+	bIsBeforeMeetCole = false;
 	bIsMeetCole = false;
 	bIsMissingCole = false;
 	bIsExitFuseBoxRoom = false;
@@ -57,7 +58,35 @@ void ABoxCollider::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* O
 	if (OtherActor && OtherActor->ActorHasTag(MichaelTagName))
 	{
 		//////////////////////////////////////////////////---ACTIONS---//////////////////////////////////////////////////
-		if (bIsMeetCole) // STEP # ACTIVE
+		if (bIsBeforeMeetCole) // STEP # ACTIVE
+		{
+			FName TagName = "Cole_StorageRoom";
+			TArray<AActor*> TaggedActors;
+			UGameplayStatics::GetAllActorsWithTag(GetWorld(), TagName, TaggedActors);
+
+			// Assuming ColeState is a member variable of ABoxTrigger
+			this->ColeState = nullptr;
+
+			if (TaggedActors.Num() > 0)
+			{
+				// Iterate through the tagged actors and find the first valid ACole
+				for (AActor* Actor : TaggedActors)
+				{
+					ACole* PotentialCole = Cast<ACole>(Actor);
+					if (IsValid(PotentialCole))
+					{
+						this->ColeState = PotentialCole;
+						break;
+					}
+				}
+			}
+
+			if (IsValid(this->ColeState)) this->ColeState->ColeSearchIdle(true);
+			else UE_LOG(LogTemp, Warning, TEXT("Cole ignores me..."));
+
+			bIsBeforeMeetCole = false;
+		}
+		else if (bIsMeetCole) // STEP # ACTIVE
 		{
 			FName TagName = "Cole_StorageRoom";
 			TArray<AActor*> TaggedActors;
@@ -81,10 +110,7 @@ void ABoxCollider::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* O
 			}
 
 			if (IsValid(this->ColeState)) this->ColeState->ColeMeet(true);
-			else
-			{
-				if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Cyan, TEXT("Cole ignores me..."));
-			}
+			else UE_LOG(LogTemp, Warning, TEXT("Cole ignores me..."));
 
 			if (IsValid(EventSteps)) EventSteps->NextStep(3);
 			bIsMeetCole = false;

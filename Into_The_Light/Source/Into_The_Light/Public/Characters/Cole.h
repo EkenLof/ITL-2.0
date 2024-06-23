@@ -16,7 +16,16 @@ public:
 	ACole();
 
 	UFUNCTION(BlueprintCallable, Category = "Elevator | Event | Activity")
+	void ColeSearchIdle(bool bIsColeMeetActivety);
+
+	UFUNCTION(BlueprintCallable, Category = "Elevator | Event | Activity")
 	void ColeMeet(bool bIsColeMeetActivety);
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Elevator | Event | Activity")
+	bool bIsColeStartCutscene;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Elevator | Event | Activity")
+	bool bIsColeSearchIdle;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Elevator | Event | Activity")
 	bool bIsColeMeetOn;

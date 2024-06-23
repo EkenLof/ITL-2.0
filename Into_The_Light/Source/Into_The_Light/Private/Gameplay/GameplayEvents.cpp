@@ -285,7 +285,6 @@ void AGameplayEvents::NextStep(int32 StepUp)
 void AGameplayEvents::Step0() 
 {
 	// Blacksceen StoryScene Before entering Buildning.
-	// Getting a message from Cole (With instructions of Flashlight and Where he is).
 	// NEVER ACTIVE BECAUSE OF TEMP ---BEGINPLAY()---
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 0 Active---"));
 }
@@ -293,6 +292,7 @@ void AGameplayEvents::Step0()
 void AGameplayEvents::Step1() 
 {
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 1 Active---"));
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("*Message from Cole*"));
 }
 
 void AGameplayEvents::Step2() 
@@ -435,7 +435,5 @@ void AGameplayEvents::Step10()
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 10 Active---"));
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---Footsteps runnging from F1 (Above) \nF1 Footprint to F2---"));
 
-
-	// Door To OfficeKey OPEN
-
+	// Footstep sounds from above
 }

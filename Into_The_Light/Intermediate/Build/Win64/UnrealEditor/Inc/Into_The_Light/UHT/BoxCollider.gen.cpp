@@ -130,7 +130,7 @@ struct Z_Construct_UClass_ABoxCollider_Statics
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Public/Triggers/BoxCollider.h" },
 	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bIsMeetCole_MetaData[] = {
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bIsBeforeMeetCole_MetaData[] = {
 		{ "Category", "Event | Trigger" },
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "////////////////////////////---ACTIVE STATE---////////////////////////////\n" },
@@ -139,6 +139,10 @@ struct Z_Construct_UClass_ABoxCollider_Statics
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "/---ACTIVE STATE---/" },
 #endif
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bIsMeetCole_MetaData[] = {
+		{ "Category", "Event | Trigger" },
+		{ "ModuleRelativePath", "Public/Triggers/BoxCollider.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bIsMissingCole_MetaData[] = {
 		{ "Category", "Event | Trigger" },
@@ -170,6 +174,8 @@ struct Z_Construct_UClass_ABoxCollider_Statics
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_CollisionBox;
+	static void NewProp_bIsBeforeMeetCole_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsBeforeMeetCole;
 	static void NewProp_bIsMeetCole_SetBit(void* Obj);
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsMeetCole;
 	static void NewProp_bIsMissingCole_SetBit(void* Obj);
@@ -195,6 +201,11 @@ struct Z_Construct_UClass_ABoxCollider_Statics
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABoxCollider_Statics::NewProp_CollisionBox = { "CollisionBox", nullptr, (EPropertyFlags)0x00100000000a000d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABoxCollider, CollisionBox), Z_Construct_UClass_UBoxComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CollisionBox_MetaData), NewProp_CollisionBox_MetaData) };
+void Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsBeforeMeetCole_SetBit(void* Obj)
+{
+	((ABoxCollider*)Obj)->bIsBeforeMeetCole = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsBeforeMeetCole = { "bIsBeforeMeetCole", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(ABoxCollider), &Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsBeforeMeetCole_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bIsBeforeMeetCole_MetaData), NewProp_bIsBeforeMeetCole_MetaData) };
 void Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsMeetCole_SetBit(void* Obj)
 {
 	((ABoxCollider*)Obj)->bIsMeetCole = 1;
@@ -225,6 +236,7 @@ const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABoxCollider_S
 const UECodeGen_Private::FNamePropertyParams Z_Construct_UClass_ABoxCollider_Statics::NewProp_MichaelTagName = { "MichaelTagName", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Name, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABoxCollider, MichaelTagName), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_MichaelTagName_MetaData), NewProp_MichaelTagName_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ABoxCollider_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABoxCollider_Statics::NewProp_CollisionBox,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsBeforeMeetCole,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsMeetCole,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsMissingCole,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsExitFuseBoxRoom,
@@ -275,10 +287,10 @@ ABoxCollider::~ABoxCollider() {}
 struct Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Triggers_BoxCollider_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ABoxCollider, ABoxCollider::StaticClass, TEXT("ABoxCollider"), &Z_Registration_Info_UClass_ABoxCollider, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABoxCollider), 2015996797U) },
+		{ Z_Construct_UClass_ABoxCollider, ABoxCollider::StaticClass, TEXT("ABoxCollider"), &Z_Registration_Info_UClass_ABoxCollider, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABoxCollider), 4116005916U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Triggers_BoxCollider_h_1103005784(TEXT("/Script/Into_The_Light"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Triggers_BoxCollider_h_1437337621(TEXT("/Script/Into_The_Light"),
 	Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Triggers_BoxCollider_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Triggers_BoxCollider_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

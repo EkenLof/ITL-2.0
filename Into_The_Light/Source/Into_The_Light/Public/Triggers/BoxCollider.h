@@ -32,6 +32,8 @@ public:
 
 	////////////////////////////---ACTIVE STATE---////////////////////////////
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Trigger")
+	bool bIsBeforeMeetCole;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Trigger")
 	bool bIsMeetCole;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Trigger")
 	bool bIsMissingCole;

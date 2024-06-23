@@ -15,7 +15,8 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define INTO_THE_LIGHT_Cole_generated_h
 
 #define FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Characters_Cole_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
-	DECLARE_FUNCTION(execColeMeet);
+	DECLARE_FUNCTION(execColeMeet); \
+	DECLARE_FUNCTION(execColeSearchIdle);
 
 
 #define FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Characters_Cole_h_12_INCLASS_NO_PURE_DECLS \

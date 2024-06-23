@@ -7,7 +7,9 @@ ACole::ACole()
 	PrimaryActorTick.bCanEverTick = true;
 
 	bIsColeMeetOn = false;
+	bIsColeSearchIdle = false;
 	bIsColeFuseTakenOn = false;
+	bIsColeStartCutscene = false;
 
 	// Trigger_1_ACT1
 }
@@ -17,7 +19,7 @@ void ACole::BeginPlay()
 	Super::BeginPlay();
 
 	// TEMP
-	bIsColeFuseTakenOn = true;
+	bIsColeStartCutscene = true;
 }
 
 void ACole::Tick(float DeltaTime)
@@ -26,10 +28,17 @@ void ACole::Tick(float DeltaTime)
 
 }
 
+void ACole::ColeSearchIdle(bool bIsColeMeetActivety)
+{
+	bIsColeStartCutscene = false;
+
+	bIsColeSearchIdle = bIsColeMeetActivety;
+}
+
 void ACole::ColeMeet(bool bIsColeMeetActivety)
 {
 	// TEMP
-	bIsColeFuseTakenOn = false;
+	bIsColeSearchIdle = false;
 
 	bIsColeMeetOn = bIsColeMeetActivety;
 }
