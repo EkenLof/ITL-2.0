@@ -285,6 +285,9 @@
     <ClCompile Include="..\..\Source\Into_The_Light\Private\Characters\Cole.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
+    <ClCompile Include="..\..\Source\Into_The_Light\Private\Characters\WhiteFace.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
     <ClCompile Include="..\..\Source\Into_The_Light\Private\Components\InventoryComponent.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
@@ -338,6 +341,7 @@
     </ClCompile>
     <ClInclude Include="..\..\Source\Into_The_Light\Public\Audio\ActorSoundSystem.h"/>
     <ClInclude Include="..\..\Source\Into_The_Light\Public\Characters\Cole.h"/>
+    <ClInclude Include="..\..\Source\Into_The_Light\Public\Characters\WhiteFace.h"/>
     <ClInclude Include="..\..\Source\Into_The_Light\Public\Components\InventoryComponent.h"/>
     <ClInclude Include="..\..\Source\Into_The_Light\Public\Gameplay\Elevator_System.h"/>
     <ClInclude Include="..\..\Source\Into_The_Light\Public\Gameplay\GameplayEvents.h"/>

@@ -15,22 +15,22 @@ public:
 	// Sets default values for this actor's properties
 	ACole();
 
-	UFUNCTION(BlueprintCallable, Category = "Elevator | Event | Activity")
+	UFUNCTION(BlueprintCallable, Category = "Event | Activity")
 	void ColeSearchIdle(bool bIsColeMeetActivety);
 
-	UFUNCTION(BlueprintCallable, Category = "Elevator | Event | Activity")
+	UFUNCTION(BlueprintCallable, Category = "Event | Activity")
 	void ColeMeet(bool bIsColeMeetActivety);
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Elevator | Event | Activity")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Activity")
 	bool bIsColeStartCutscene;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Elevator | Event | Activity")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Activity")
 	bool bIsColeSearchIdle;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Elevator | Event | Activity")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Activity")
 	bool bIsColeMeetOn;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Elevator | Event | Activity")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Activity")
 	bool bIsColeFuseTakenOn;
 
 protected:

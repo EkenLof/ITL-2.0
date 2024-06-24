@@ -25,7 +25,7 @@ struct Z_Construct_UFunction_ACole_ColeMeet_Statics
 	};
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "Category", "Elevator | Event | Activity" },
+		{ "Category", "Event | Activity" },
 		{ "ModuleRelativePath", "Public/Characters/Cole.h" },
 	};
 #endif // WITH_METADATA
@@ -73,7 +73,7 @@ struct Z_Construct_UFunction_ACole_ColeSearchIdle_Statics
 	};
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "Category", "Elevator | Event | Activity" },
+		{ "Category", "Event | Activity" },
 		{ "ModuleRelativePath", "Public/Characters/Cole.h" },
 	};
 #endif // WITH_METADATA
@@ -136,19 +136,19 @@ struct Z_Construct_UClass_ACole_Statics
 		{ "ModuleRelativePath", "Public/Characters/Cole.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bIsColeStartCutscene_MetaData[] = {
-		{ "Category", "Elevator | Event | Activity" },
+		{ "Category", "Event | Activity" },
 		{ "ModuleRelativePath", "Public/Characters/Cole.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bIsColeSearchIdle_MetaData[] = {
-		{ "Category", "Elevator | Event | Activity" },
+		{ "Category", "Event | Activity" },
 		{ "ModuleRelativePath", "Public/Characters/Cole.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bIsColeMeetOn_MetaData[] = {
-		{ "Category", "Elevator | Event | Activity" },
+		{ "Category", "Event | Activity" },
 		{ "ModuleRelativePath", "Public/Characters/Cole.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bIsColeFuseTakenOn_MetaData[] = {
-		{ "Category", "Elevator | Event | Activity" },
+		{ "Category", "Event | Activity" },
 		{ "ModuleRelativePath", "Public/Characters/Cole.h" },
 	};
 #endif // WITH_METADATA
@@ -163,8 +163,8 @@ struct Z_Construct_UClass_ACole_Statics
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
-		{ &Z_Construct_UFunction_ACole_ColeMeet, "ColeMeet" }, // 4255230734
-		{ &Z_Construct_UFunction_ACole_ColeSearchIdle, "ColeSearchIdle" }, // 4109553450
+		{ &Z_Construct_UFunction_ACole_ColeMeet, "ColeMeet" }, // 2712699172
+		{ &Z_Construct_UFunction_ACole_ColeSearchIdle, "ColeSearchIdle" }, // 2647222641
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -239,10 +239,10 @@ ACole::~ACole() {}
 struct Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Characters_Cole_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ACole, ACole::StaticClass, TEXT("ACole"), &Z_Registration_Info_UClass_ACole, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ACole), 587141656U) },
+		{ Z_Construct_UClass_ACole, ACole::StaticClass, TEXT("ACole"), &Z_Registration_Info_UClass_ACole, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ACole), 3541846328U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Characters_Cole_h_1943674121(TEXT("/Script/Into_The_Light"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Characters_Cole_h_2537794844(TEXT("/Script/Into_The_Light"),
 	Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Characters_Cole_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Characters_Cole_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
