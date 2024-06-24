@@ -68,6 +68,12 @@ void UObjectivePanel::SetInfoText()
 			InfoText(ActiveText);
 		}
 		// Finding the fusebox key ADD
+		else if (Player->bIsObjectiveFindElectricKey)
+		{
+			UE_LOG(LogTemp, Error, TEXT("bIsObjectiveFindElectricKey True!"));
+			ActiveText = FText::FromString(TEXT("Go to the storageroom and find the Electric key."));
+			InfoText(ActiveText);
+		}
 		else if (Player->bIsObjectiveElectricKeyCollected) // Electric key
 		{
 			UE_LOG(LogTemp, Error, TEXT("bIsObjectiveElectricKeyCollected True!"));

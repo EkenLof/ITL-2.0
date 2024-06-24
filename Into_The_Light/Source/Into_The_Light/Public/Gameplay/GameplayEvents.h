@@ -50,26 +50,11 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Activity")
 	bool bIsTempWaitForInteractibleFuseBox;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Activity")
-	bool bIsStep1; //
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Activity")
-	bool bIsStep2; //
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Activity")
-	bool bIsStep3; //
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Activity")
-	bool bIsStep4; //
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Activity")
-	bool bIsStep5; //
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Activity")
-	bool bIsStep6; //
-
-
 	////////////////////////////---ASSIGN---///////////////////////////
 	// --- Triggers --- //
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Trigger")
 	AActor* MissingColeTriggerStart;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Trigger")
-	AActor* ExitFuseBoxRoomActor;
+	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Trigger")
 	AActor* ExitReceptionPhoneActor;
 	// --- Triggers --- //
@@ -85,8 +70,7 @@ public:
 	AActor* ElectricKeyActor;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")
 	AActor* ElectricKey_KeyActor;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")
-	AActor* Fuse10A_ToFuseBoxActor;
+	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")
 	AActor* LighterActor;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")
@@ -127,13 +111,13 @@ protected:
 	FName ElectricKeyTagName;
 	FName ElectricKey_KeyTagName;
 
-	FName Fuse10A_ToFuseBoxTagName;
+	
 	FName LighterTagName;
 	FName ReceptionPhoneTagName;
 	FName ReceptionPhoneKeyTagName;
 
 	FName Trig2TagName;
-	FName Trig3TagName;
+
 	FName Trig4TagName;
 
 

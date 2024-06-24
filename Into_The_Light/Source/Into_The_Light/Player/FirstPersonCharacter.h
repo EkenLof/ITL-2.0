@@ -4,7 +4,6 @@
 #include "GameFramework/Character.h"
 #include "GameFramework/Actor.h"
 #include "Components/ActorComponent.h"
-
 #include "Interfaces/InteractionInterface.h"
 #include "FirstPersonCharacter.generated.h"
 
@@ -15,6 +14,7 @@ class AGameplayEvents;
 class ABoxCollider;
 class AElevator_System;
 class UObjectivePanel;
+class AWhiteFace;
 
 USTRUCT()
 struct FInteractionData
@@ -49,6 +49,8 @@ public:
 	FORCEINLINE bool IsInteracting() const { return GetWorldTimerManager().IsTimerActive(TimerHandle_Interaction); };
 	FORCEINLINE UInventoryComponent* GetInventory() const { return PlayerInventory; };
 
+	FORCEINLINE AWhiteFace* SetWhiteFace() const { return WhiteFace; };
+
 	void UpdateInteractionWidget() const;
 
 	void DropItem(UItemBase* ItemToDrop, const int32 QuantityToDrop);
@@ -60,6 +62,8 @@ public:
 	bool bIsObjectiveFlashlight;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Value")
 	bool bIsObjectiveFuseCollected;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Value")
+	bool bIsObjectiveFindElectricKey;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Value")
 	bool bIsObjectiveElectricKeyCollected;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Value")
@@ -81,6 +85,8 @@ protected:
 	AMainHUD* HUD;
 
 	AGameplayEvents* EventSteps;
+
+	AWhiteFace* WhiteFace;
 
 	// --- Player + Movment ---
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FirstPersonCharacter | Camera")
@@ -114,6 +120,8 @@ protected:
 	// Item Logic
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FirstPersonCharacter | ItemLogic")
 	bool isFlashlightEquiped;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FirstPersonCharacter | ItemLogic")
+	bool isFlashlightInInventory;
 
 	////////////////////////////////////--- UI System ---////////////////////////////////////
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FirstPersonCharacter | UiLogic")
@@ -156,13 +164,21 @@ protected:
 
 	// --- Tags --- //
 	FName Fuse10A_InFuseBoxTransTagName;
+	FName Fuse10A_ToFuseBoxTagName;
 	FName ReceptionPhoneKeyTagName;
+
+	FName Trig3TagName;
 	// --- Tags --- //
 	// --- Actors --- //
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")
 	AActor* Fuse10A_InFuseBoxTransActor;
-	UPROPERTY()
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")
+	AActor* Fuse10A_ToFuseBoxActor;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")
 	AActor* ReceptionPhoneKeyActor;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Trigger")
+	AActor* ExitFuseBoxRoomActor;
 	// --- Actors --- //
 
 	FTimerHandle TimerHandle_Interaction;

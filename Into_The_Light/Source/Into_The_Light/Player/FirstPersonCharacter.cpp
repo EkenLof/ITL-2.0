@@ -34,6 +34,8 @@
 
 #include "Kismet/GameplayStatics.h" // For the Assign Function.
 
+#include "Characters/WhiteFace.h"
+
 AFirstPersonCharacter::AFirstPersonCharacter()
 {
 	PrimaryActorTick.bCanEverTick = true;
@@ -82,9 +84,12 @@ AFirstPersonCharacter::AFirstPersonCharacter()
 
 	EventSteps = CreateDefaultSubobject<AGameplayEvents>(TEXT("EventSteps"));
 	TriggerBox = CreateDefaultSubobject<ABoxCollider>(TEXT("TriggerBox"));
+	WhiteFace = CreateDefaultSubobject<AWhiteFace>(TEXT("WhiteFace"));
 
 	Fuse10A_InFuseBoxTransTagName = FName(TEXT("Fuse10A_InFuseBoxTransparent")); // Fuse10A_InFuseBoxTransparent
 	ReceptionPhoneKeyTagName = FName(TEXT("ReceptionPhone_Key")); // ReceptionPhone_Key
+	Fuse10A_ToFuseBoxTagName = FName(TEXT("Fuse10A_InFuseBox")); //Fuse10A_InFuseBox
+	Trig3TagName = FName(TEXT("Trigger_3_ACT1")); //Trigger_3_ACT1
 
 	//BaseEyeHeight = 75.0f;
 }
@@ -94,6 +99,12 @@ void AFirstPersonCharacter::BeginPlay()
 	Super::BeginPlay();
 
 	HUD = Cast<AMainHUD>(GetWorld()->GetFirstPlayerController()->GetHUD());
+
+	UpdateVaribleState(Fuse10A_ToFuseBoxActor, Fuse10A_ToFuseBoxTagName);
+	UpdateVaribleState(ExitFuseBoxRoomActor, Trig3TagName);
+
+	if (IsValid(ExitFuseBoxRoomActor)) ExitFuseBoxRoomActor->SetActorEnableCollision(false);
+	else UE_LOG(LogTemp, Warning, TEXT("ExitFuseBoxRoomActor is NOT Valid"));
 
 	if(ObjectiveClass)
 	{
@@ -172,6 +183,7 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 	{
 		// Objective
 		bIsObjectiveElectricKeyCollected = true;
+		bIsObjectiveFindElectricKey = false;
 		bIsObjectiveFuseCollected = false;
 		bIsObjectiveFlashlight = false;
 
@@ -201,6 +213,32 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 			UE_LOG(LogTemp, Log, TEXT("Objective's SetInfoText called"));
 		}
 		else UE_LOG(LogTemp, Error, TEXT("Objective is null"));
+
+
+		FName TagName = "WhiteFace_F2";
+		TArray<AActor*> TaggedActors;
+		UGameplayStatics::GetAllActorsWithTag(GetWorld(), TagName, TaggedActors);
+
+		// Assuming Actor is a member variable of ABoxTrigger
+		this->WhiteFace = nullptr;
+
+		if (TaggedActors.Num() > 0)
+		{
+			// Iterate through the tagged actors and find the first valid ACole
+			for (AActor* Actor : TaggedActors)
+			{
+				AWhiteFace* PotentialWhiteFace = Cast<AWhiteFace>(Actor);
+				if (IsValid(PotentialWhiteFace))
+				{
+					this->WhiteFace = PotentialWhiteFace;
+					break;
+				}
+			}
+		}
+
+		if (IsValid(this->WhiteFace)) this->WhiteFace->WhiteFaceClapp(true);
+		else UE_LOG(LogTemp, Warning, TEXT("WhiteFace ignores me..."));
+
 
 		BIsStepActive = false;
 	}
@@ -261,8 +299,19 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 	if (CheckLookAtObject() && CheckLeftMouseButtonDown() && bIsFuseBox && bIsLookingAtFuBox && !bIsLookingAtRecDoor && !bIsLookingAtFuseBox_Interactible && !bIsLookingReceptionPhone
 		|| CheckLookAtObject() && CheckRightMouseButtonDown() && bIsFuseBox && bIsLookingAtFuBox && !bIsLookingAtRecDoor && !bIsLookingAtFuseBox_Interactible && !bIsLookingReceptionPhone)
 	{
-		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Blue, TEXT("OBJECTIVE: Find the Electric Key."));
+		// Objective
+		bIsObjectiveFindElectricKey = true;
+		bIsObjectiveFuseCollected = false;
+		bIsObjectiveFlashlight = false;
 
+		if (Objective)
+		{
+			Objective->SetInfoText();
+			UE_LOG(LogTemp, Log, TEXT("Objective's SetInfoText called"));
+		}
+		else UE_LOG(LogTemp, Error, TEXT("Objective is null"));
+
+		// STEP 5
 		if (IsValid(EventSteps)) EventSteps->NextStep(5);
 		bIsFuseBox = false;
 	}
@@ -274,18 +323,31 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 		bIsReceptionDoor = false;
 	}
 	// FuseBox Fuse 10A to Box.
-	else if (CheckLookAtObject() && CheckLeftMouseButtonDown() && bIsTempWaitForInteractibleFuseBox && bIsFuseBox_Interactible && bIsLookingAtFuseBox_Interactible && !bIsLookingAtRecDoor && !bIsLookingAtFuBox && !bIsLookingReceptionPhone)
+	else if (CheckLookAtObject() && CheckLeftMouseButtonDown() && bIsTempWaitForInteractibleFuseBox && bIsFuseBox_Interactible && bIsLookingAtFuseBox_Interactible 
+		&& !bIsLookingAtRecDoor && !bIsLookingAtFuBox && !bIsLookingReceptionPhone)
 	{
 		// ReceptionPhoneKeyActor
 		UpdateVaribleState(ReceptionPhoneKeyActor, ReceptionPhoneKeyTagName);
 		if (IsValid(ReceptionPhoneKeyActor)) ReceptionPhoneKeyActor->SetActorEnableCollision(true);
 		else UE_LOG(LogTemp, Warning, TEXT("ReceptionPhoneKeyActor is NOT Valid"));
 
-		if (IsValid(EventSteps)) EventSteps->NextStep(8); // Lights Restored, fuse10a in place.
+		// Fuse10A_ToFuseBoxActor
+		UpdateVaribleState(Fuse10A_ToFuseBoxActor, Fuse10A_ToFuseBoxTagName);
+		if (IsValid(Fuse10A_ToFuseBoxActor)) Fuse10A_ToFuseBoxActor->SetActorHiddenInGame(false);
+		else UE_LOG(LogTemp, Warning, TEXT("Fuse10A_ToFuseBoxActor is NOT Valid"));
+
+		// Trigger for Lights
+		UpdateVaribleState(ExitFuseBoxRoomActor, Trig3TagName);
+		if (IsValid(ExitFuseBoxRoomActor)) ExitFuseBoxRoomActor->SetActorEnableCollision(true);
+		else UE_LOG(LogTemp, Warning, TEXT("ExitFuseBoxRoomActor is NOT Valid"));
+
+		// STEP 8
+		if (IsValid(EventSteps)) EventSteps->NextStep(8); // Phone Ringing
 		bIsFuseBox_Interactible = false;
 	}
 	// Reception Phone.
-	else if (CheckLookAtObject() && CheckLeftMouseButtonDown() && bIsReceptionPhone && bIsLookingReceptionPhone && !bIsLookingAtFuseBox_Interactible && !bIsLookingAtRecDoor && !bIsLookingAtFuBox)
+	else if (CheckLookAtObject() && CheckLeftMouseButtonDown() && bIsReceptionPhone && bIsLookingReceptionPhone 
+		&& !bIsLookingAtFuseBox_Interactible && !bIsLookingAtRecDoor && !bIsLookingAtFuBox)
 	{
 		if (IsValid(EventSteps)) EventSteps->NextStep(9); // Phone dies & Light att B1 goes out.
 		bIsReceptionPhone = false;
@@ -472,13 +534,15 @@ void AFirstPersonCharacter::CamLookUp(float InputValue)
 
 void AFirstPersonCharacter::UseFlashlight() // FLashlight LOGIC
 {
-	if (!isFlashlightEquiped && PlayerInventory->IsFlshlight)
+	isFlashlightInInventory = PlayerInventory->IsFlshlight;
+
+	if (!isFlashlightEquiped && isFlashlightInInventory)
 	{
 		//FlashlightMesh->bHiddenInGame = false;
 		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Red, TEXT("Equip Flishlight TRUE!"));
 		isFlashlightEquiped = true;
 	}
-	else if (isFlashlightEquiped)
+	else if (isFlashlightEquiped && isFlashlightInInventory)
 	{
 		//FlashlightMesh->bHiddenInGame = true;
 		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Red, TEXT("Equip Flashlight False!"));

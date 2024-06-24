@@ -32,15 +32,6 @@ AGameplayEvents::AGameplayEvents()
 	PrimaryActorTick.bCanEverTick = true;
 
 	bIsTempWaitForInteractibleFuseBox = false;
-
-	bIsStep1 = false;
-	bIsStep2 = false;
-	bIsStep3 = false;
-	bIsStep4 = false;
-	bIsStep5 = false;
-	bIsStep6 = false;
-
-	//Objective = CreateDefaultSubobject<UObjectivePanel>(TEXT("Objective"));
 	
 	ReceptionLightsTagName = FName(TEXT("Reception_Lights"));
 	F1LightsTagName = FName(TEXT("F1_Lights"));
@@ -52,7 +43,7 @@ AGameplayEvents::AGameplayEvents()
 	ColeStorageRoomTagName = FName(TEXT("Cole_StorageRoom"));
 	ElectricKeyTagName = FName(TEXT("ElectricKey"));
 	ElectricKey_KeyTagName = FName(TEXT("ElectricKey_Key")); // ElectricKey_Key
-	Fuse10A_ToFuseBoxTagName = FName(TEXT("Fuse10A_InFuseBox")); //Fuse10A_InFuseBox
+	
 	ReceptionPhoneTagName = FName(TEXT("ReceptionPhone")); // ReceptionPhone
 	LighterTagName = FName(TEXT("Lighter")); // Lighter
 	Trig2TagName = FName(TEXT("Trigger_2_ACT1")); // MissingCole
@@ -60,7 +51,6 @@ AGameplayEvents::AGameplayEvents()
 	LightsB1Reception_SL = FName(TEXT("LightsB1Reception"));
 	LightsF1_SL = FName(TEXT("LightsF1"));
 
-	Trig3TagName = FName(TEXT("Trigger_3_ACT1")); //Trigger_3_ACT1
 	Trig4TagName = FName(TEXT("Trigger_4_ACT1"));
 
 	
@@ -76,7 +66,7 @@ void AGameplayEvents::BeginPlay()
 
 	// Varible Check & assign. 
 	UpdateVaribleState(MissingColeTriggerStart, Trig2TagName);
-	UpdateVaribleState(ExitFuseBoxRoomActor, Trig3TagName);
+	
 	UpdateVaribleState(ExitReceptionPhoneActor, Trig4TagName);
 
 	UpdateVaribleState(LanternActor, LanternTagName);
@@ -85,7 +75,7 @@ void AGameplayEvents::BeginPlay()
 	UpdateVaribleState(ElectricKeyActor, ElectricKeyTagName);
 	UpdateVaribleState(ElectricKey_KeyActor, ElectricKey_KeyTagName);
 
-	UpdateVaribleState(Fuse10A_ToFuseBoxActor, Fuse10A_ToFuseBoxTagName);
+	//UpdateVaribleState(Fuse10A_ToFuseBoxActor, Fuse10A_ToFuseBoxTagName);
 	UpdateVaribleState(LighterActor, LighterTagName);
 	UpdateVaribleState(ReceptionPhoneActor, ReceptionPhoneTagName);
 	UpdateVaribleState(ReceptionPhoneKeyActor, ReceptionPhoneKeyTagName);
@@ -253,9 +243,6 @@ void AGameplayEvents::ToggleOff()
 	if (IsValid(ReceptionPhoneKeyActor)) ReceptionPhoneKeyActor->SetActorEnableCollision(false);
 	else UE_LOG(LogTemp, Warning, TEXT("ReceptionPhoneKeyActor is NOT Valid"));
 
-	if (IsValid(ExitFuseBoxRoomActor)) ExitFuseBoxRoomActor->SetActorEnableCollision(false);
-	else UE_LOG(LogTemp, Warning, TEXT("ExitFuseBoxRoomActor is NOT Valid"));
-
 	if (IsValid(ExitReceptionPhoneActor)) ExitReceptionPhoneActor->SetActorEnableCollision(false);
 	else UE_LOG(LogTemp, Warning, TEXT("ExitReceptionPhoneActor is NOT Valid"));
 }
@@ -390,22 +377,11 @@ void AGameplayEvents::Step7()
 void AGameplayEvents::Step8()
 {
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 8 Active---"));
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---Light Restored---"));
-
-	// Fuse10A_ToFuseBoxActor
-	UpdateVaribleState(Fuse10A_ToFuseBoxActor, Fuse10A_ToFuseBoxTagName);
-	if (IsValid(Fuse10A_ToFuseBoxActor)) Fuse10A_ToFuseBoxActor->SetActorHiddenInGame(false);
-	else UE_LOG(LogTemp, Warning, TEXT("Fuse10A_ToFuseBoxActor is NOT Valid"));
 
 	// ReceptionPhoneActor
 	UpdateVaribleState(ReceptionPhoneActor, ReceptionPhoneTagName);
 	if (IsValid(ReceptionPhoneActor)) ReceptionPhoneActor->SetActorEnableCollision(true);
 	else UE_LOG(LogTemp, Warning, TEXT("ReceptionPhoneActor is NOT Valid"));
-
-	// Trigger for Lights
-	UpdateVaribleState(ExitFuseBoxRoomActor, Trig3TagName);
-	if (IsValid(ExitFuseBoxRoomActor)) ExitFuseBoxRoomActor->SetActorEnableCollision(true);
-	else UE_LOG(LogTemp, Warning, TEXT("ExitFuseBoxRoomActor is NOT Valid"));
 
 	// Play Reception Phone audio
 	InitializeActorSoundSystem();
