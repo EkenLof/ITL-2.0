@@ -122,6 +122,8 @@ protected:
 	bool isFlashlightEquiped;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FirstPersonCharacter | ItemLogic")
 	bool isFlashlightInInventory;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FirstPersonCharacter | ItemLogic")
+	bool isElectricKeyInInventory;
 
 	////////////////////////////////////--- UI System ---////////////////////////////////////
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FirstPersonCharacter | UiLogic")
@@ -147,6 +149,11 @@ protected:
 	UPROPERTY(EditAnywhere)
 	float InteractionCheckDistance;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FirstPersonCharacter | Interactible | Logic")
+	bool bIsNeedFlashlight;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FirstPersonCharacter | Interactible | Logic")
+	bool bIsNeedElectricKey;
+
 	bool BIsStepActive;
 
 	bool bIsTempOnOff;
@@ -168,6 +175,8 @@ protected:
 	FName ReceptionPhoneKeyTagName;
 
 	FName Trig3TagName;
+
+	FName WhiteFaceTagName;
 	// --- Tags --- //
 	// --- Actors --- //
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")

@@ -289,14 +289,7 @@ void AGameplayEvents::Step2()
 
 void AGameplayEvents::Step3()
 {
-	// Cole Meet Cutscene
-
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 3 Active---"));
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---Meeting Cole---"));
-
-	// Anim Play.
-
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---Take 10A fuse from Cole---"));
 }
 
 void AGameplayEvents::Step4()
@@ -307,7 +300,6 @@ void AGameplayEvents::Step4()
 void AGameplayEvents::Step5()
 {
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 5 Active---"));
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---The Fusebox is Locked, you need a key---"));
 
 	UpdateVaribleState(LanternActor, LanternTagName);
 	UpdateVaribleState(LanternBrockenActor, LanternBrokenTagName);
@@ -348,7 +340,7 @@ void AGameplayEvents::Step5()
 	
 	if (IsValid(MissingColeTriggerStart))
 	{
-		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("---MissinColeTrigger ON---"));
+		UE_LOG(LogTemp, Warning, TEXT("---MissinColeTrigger ON---"));
 		MissingColeTriggerStart->SetActorEnableCollision(true);
 	}
 	else UE_LOG(LogTemp, Warning, TEXT("---*MissinColeTrigger ON* NOT POSSIBLE---"));
@@ -357,13 +349,9 @@ void AGameplayEvents::Step5()
 void AGameplayEvents::Step6()
 {
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 6 Active---"));
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---Look for the Electric-KEY---"));
 
 	delete ColeStorageRoomActor;
 	delete LanternActor;
-
-	// Message from cole informing that he is in the Manegers.Office.
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("*Message from cole: \nInforming that he is in the Manegers_Office*"));
 }
 
 void AGameplayEvents::Step7()

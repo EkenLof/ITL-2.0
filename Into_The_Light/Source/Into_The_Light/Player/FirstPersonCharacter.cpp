@@ -82,6 +82,12 @@ AFirstPersonCharacter::AFirstPersonCharacter()
 	bIsLookingAtFuseBox_Interactible = false;
 	bIsLookingReceptionPhone = false;
 
+	isFlashlightInInventory = false;
+	isElectricKeyInInventory = false;
+
+	bIsNeedFlashlight = false;
+	bIsNeedElectricKey = false;
+
 	EventSteps = CreateDefaultSubobject<AGameplayEvents>(TEXT("EventSteps"));
 	TriggerBox = CreateDefaultSubobject<ABoxCollider>(TEXT("TriggerBox"));
 	WhiteFace = CreateDefaultSubobject<AWhiteFace>(TEXT("WhiteFace"));
@@ -90,6 +96,7 @@ AFirstPersonCharacter::AFirstPersonCharacter()
 	ReceptionPhoneKeyTagName = FName(TEXT("ReceptionPhone_Key")); // ReceptionPhone_Key
 	Fuse10A_ToFuseBoxTagName = FName(TEXT("Fuse10A_InFuseBox")); //Fuse10A_InFuseBox
 	Trig3TagName = FName(TEXT("Trigger_3_ACT1")); //Trigger_3_ACT1
+	WhiteFaceTagName = FName(TEXT("WhiteFace_F2"));
 
 	//BaseEyeHeight = 75.0f;
 }
@@ -146,6 +153,8 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 	///////////////////////////////////////////---TEMP---/////////////////////////////////////////////
 	else if (bIsValueFlashlightPickUP) // Flashlight Pickup.
 	{
+		isFlashlightInInventory = true;
+
 		// Objective
 		bIsObjectiveFlashlight = true;
 		
@@ -181,6 +190,8 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 
 	else if (bIsValueElectricKeyPickUp) // ElectricKey Pickup
 	{
+		isElectricKeyInInventory = true;
+
 		// Objective
 		bIsObjectiveElectricKeyCollected = true;
 		bIsObjectiveFindElectricKey = false;
@@ -213,32 +224,6 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 			UE_LOG(LogTemp, Log, TEXT("Objective's SetInfoText called"));
 		}
 		else UE_LOG(LogTemp, Error, TEXT("Objective is null"));
-
-
-		FName TagName = "WhiteFace_F2";
-		TArray<AActor*> TaggedActors;
-		UGameplayStatics::GetAllActorsWithTag(GetWorld(), TagName, TaggedActors);
-
-		// Assuming Actor is a member variable of ABoxTrigger
-		this->WhiteFace = nullptr;
-
-		if (TaggedActors.Num() > 0)
-		{
-			// Iterate through the tagged actors and find the first valid ACole
-			for (AActor* Actor : TaggedActors)
-			{
-				AWhiteFace* PotentialWhiteFace = Cast<AWhiteFace>(Actor);
-				if (IsValid(PotentialWhiteFace))
-				{
-					this->WhiteFace = PotentialWhiteFace;
-					break;
-				}
-			}
-		}
-
-		if (IsValid(this->WhiteFace)) this->WhiteFace->WhiteFaceClapp(true);
-		else UE_LOG(LogTemp, Warning, TEXT("WhiteFace ignores me..."));
-
 
 		BIsStepActive = false;
 	}
@@ -299,6 +284,8 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 	if (CheckLookAtObject() && CheckLeftMouseButtonDown() && bIsFuseBox && bIsLookingAtFuBox && !bIsLookingAtRecDoor && !bIsLookingAtFuseBox_Interactible && !bIsLookingReceptionPhone
 		|| CheckLookAtObject() && CheckRightMouseButtonDown() && bIsFuseBox && bIsLookingAtFuBox && !bIsLookingAtRecDoor && !bIsLookingAtFuseBox_Interactible && !bIsLookingReceptionPhone)
 	{
+		if (!isElectricKeyInInventory) bIsNeedElectricKey = true;
+
 		// Objective
 		bIsObjectiveFindElectricKey = true;
 		bIsObjectiveFuseCollected = false;
@@ -319,7 +306,9 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 	else if (CheckLookAtObject() && CheckLeftMouseButtonDown() && bIsReceptionDoor && bIsLookingAtRecDoor && !bIsLookingAtFuBox && !bIsLookingAtFuseBox_Interactible && !bIsLookingReceptionPhone
 		|| CheckLookAtObject() && CheckRightMouseButtonDown() && bIsReceptionDoor && bIsLookingAtRecDoor && !bIsLookingAtFuBox && !bIsLookingAtFuseBox_Interactible && !bIsLookingReceptionPhone)
 	{
-		// REMOVE???????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????
+		//Play Sound
+		if(!isFlashlightInInventory) bIsNeedFlashlight = true;
+
 		bIsReceptionDoor = false;
 	}
 	// FuseBox Fuse 10A to Box.
@@ -394,10 +383,7 @@ void AFirstPersonCharacter::UpdateVaribleState(AActor*& ActorReference, const FN
 			UE_LOG(LogTemp, Error, TEXT("FOUND"));
 			ActorReference = FoundActors[0];
 		}
-		else
-		{
-			UE_LOG(LogTemp, Error, TEXT("NOT-FOUND"));
-		}
+		else UE_LOG(LogTemp, Error, TEXT("NOT-FOUND"));
 	}
 }
 
@@ -408,10 +394,13 @@ bool AFirstPersonCharacter::CheckLookAtObject()
 	FName ReceptionDoorTagName = FName(TEXT("ReceptionDoor"));
 	FName FuseTagName = FName(TEXT("FuseBox"));
 	FName FuseBox_Interactible = FName(TEXT("FuseBox_Interactible"));
-	FName ReceptionPhoneTagName =FName(TEXT("ReceptionPhone")); // ReceptionPhone
+	FName ReceptionPhoneTagName = FName(TEXT("ReceptionPhone")); // ReceptionPhone
+
+	float LongcheckDistance = 2500.0f;
 
 	FVector Start = GetWorld()->GetFirstPlayerController()->PlayerCameraManager->GetCameraLocation();
 	FVector End = Start + GetWorld()->GetFirstPlayerController()->GetControlRotation().Vector() * InteractionCheckDistance;
+	FVector EndLong = Start + GetWorld()->GetFirstPlayerController()->GetControlRotation().Vector() * LongcheckDistance;
 
 	FHitResult HitResult;
 	FCollisionQueryParams CollisionParams;
@@ -478,6 +467,36 @@ bool AFirstPersonCharacter::CheckLookAtObject()
 			return true;
 		}
 	}
+	else if (GetWorld()->LineTraceSingleByChannel(HitResult, Start, EndLong, ECollisionChannel::ECC_Visibility, CollisionParams))
+	{
+		if (HitResult.GetActor() && HitResult.GetActor()->ActorHasTag(WhiteFaceTagName) && bIsObjectiveOfficeKeyCollected) // CLapp Started
+		{
+			TArray<AActor*> TaggedActors;
+			UGameplayStatics::GetAllActorsWithTag(GetWorld(), WhiteFaceTagName, TaggedActors);
+
+			// Assuming Actor is a member variable of ABoxTrigger
+			this->WhiteFace = nullptr;
+
+			if (TaggedActors.Num() > 0)
+			{
+				// Iterate through the tagged actors and find the first valid ACole
+				for (AActor* Actor : TaggedActors)
+				{
+					AWhiteFace* PotentialWhiteFace = Cast<AWhiteFace>(Actor);
+					if (IsValid(PotentialWhiteFace))
+					{
+						this->WhiteFace = PotentialWhiteFace; break;
+					}
+				}
+			}
+
+			if (IsValid(this->WhiteFace)) this->WhiteFace->WhiteFaceClapp(true);
+			else UE_LOG(LogTemp, Warning, TEXT("WhiteFace ignores me..."));
+
+			return true;
+		}
+	}
+
 	bIsLookingAtFuBox = false;
 	bIsLookingAtRecDoor = false;
 	bIsLookingAtFuseBox_Interactible = false;
@@ -534,8 +553,6 @@ void AFirstPersonCharacter::CamLookUp(float InputValue)
 
 void AFirstPersonCharacter::UseFlashlight() // FLashlight LOGIC
 {
-	isFlashlightInInventory = PlayerInventory->IsFlshlight;
-
 	if (!isFlashlightEquiped && isFlashlightInInventory)
 	{
 		//FlashlightMesh->bHiddenInGame = false;
