@@ -31,6 +31,9 @@ public:
 	//void OnOverlapEnd(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
 
 	////////////////////////////---ACTIVE STATE---////////////////////////////
+	bool bIsTempValue;
+	bool bIsTempValue2;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Trigger")
 	bool bIsBeforeMeetCole;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Trigger")
@@ -39,6 +42,8 @@ public:
 	bool bIsMissingCole;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Trigger")
 	bool bIsExitFuseBoxRoom;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Trigger")
+	bool bIsGoingToReceptionPhone;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Trigger")
 	bool bIsExitReceptionPhone;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Trigger")
@@ -55,7 +60,21 @@ protected:
 	UPROPERTY(EditAnywhere, Category = "Events | TagNames")
 	FName MichaelTagName;
 
-
 	virtual void BeginPlay() override;
+
+	//ACTORS
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")
+	AActor* ReceptionPhoneActor;
+
+	//TAGS
+	FName ReceptionPhoneTagName;
+
+	void HandleBeforeMeetCole();
+	void HandleMeetCole();
+	void HandleMissingCole();
+	void HandleExitFuseBoxRoom();
+	void HandleGoingToReceptionPhone();
+	void HandleExitReceptionPhone();
+	void HandleExitWithKeyCard();
 };
 

@@ -50,6 +50,7 @@ AGameplayEvents::AGameplayEvents()
 
 	LightsB1Reception_SL = FName(TEXT("LightsB1Reception"));
 	LightsF1_SL = FName(TEXT("LightsF1"));
+	LightsF2_SL = FName(TEXT("LightsF2"));
 
 	Trig4TagName = FName(TEXT("Trigger_4_ACT1"));
 
@@ -63,6 +64,7 @@ void AGameplayEvents::BeginPlay()
 	Super::BeginPlay();
 
 	LoadSublevel(LightsB1Reception_SL);
+	
 
 	// Varible Check & assign. 
 	UpdateVaribleState(MissingColeTriggerStart, Trig2TagName);
@@ -285,6 +287,7 @@ void AGameplayEvents::Step1()
 void AGameplayEvents::Step2() 
 {
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 2 Active---"));
+	LoadSublevel(LightsF2_SL);
 }
 
 void AGameplayEvents::Step3()
@@ -365,11 +368,6 @@ void AGameplayEvents::Step7()
 void AGameplayEvents::Step8()
 {
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 8 Active---"));
-
-	// ReceptionPhoneActor
-	UpdateVaribleState(ReceptionPhoneActor, ReceptionPhoneTagName);
-	if (IsValid(ReceptionPhoneActor)) ReceptionPhoneActor->SetActorEnableCollision(true);
-	else UE_LOG(LogTemp, Warning, TEXT("ReceptionPhoneActor is NOT Valid"));
 
 	// Play Reception Phone audio
 	InitializeActorSoundSystem();

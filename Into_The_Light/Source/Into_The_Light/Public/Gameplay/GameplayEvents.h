@@ -46,6 +46,11 @@ public:
 	void ToggleOff();
 	// ---Toggle--- //
 
+	//Actor Update state
+	void UpdateVaribleState(AActor*& ActorReference, const FName& TagName);
+	// Find and assign the ActorSoundSystem
+	void InitializeActorSoundSystem();
+
 	// Activity
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Activity")
 	bool bIsTempWaitForInteractibleFuseBox;
@@ -84,6 +89,8 @@ public:
 	FName LightsB1Reception_SL;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | SubLevels")
 	FName LightsF1_SL;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | SubLevels")
+	FName LightsF2_SL;
 	// --- Sublevels --- //
 	////////////////////////////---ASSIGN---///////////////////////////
 
@@ -120,9 +127,6 @@ protected:
 
 	FName Trig4TagName;
 
-
-	void UpdateVaribleState(AActor*& ActorReference, const FName& TagName);
-
 	virtual void BeginPlay() override;
 	virtual void Tick(float DeltaTime) override;
 
@@ -132,10 +136,6 @@ protected:
 private:
 	UFUNCTION()
 	void OnSublevelLoaded();
-
-	// Find and assign the ActorSoundSystem
-	void InitializeActorSoundSystem();
-
 
 	UFUNCTION()
 	void Step0(); 

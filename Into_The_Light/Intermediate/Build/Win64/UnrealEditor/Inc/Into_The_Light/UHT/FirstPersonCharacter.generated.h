@@ -21,6 +21,12 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
 template<> INTO_THE_LIGHT_API UScriptStruct* StaticStruct<struct FInteractionData>();
 
+#define FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Player_FirstPersonCharacter_h_36_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execOnSublevelLoaded); \
+	DECLARE_FUNCTION(execUnloadSublevel); \
+	DECLARE_FUNCTION(execLoadSublevel);
+
+
 #define FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Player_FirstPersonCharacter_h_36_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAFirstPersonCharacter(); \
@@ -46,6 +52,7 @@ public: \
 #define FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Player_FirstPersonCharacter_h_36_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
+	FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Player_FirstPersonCharacter_h_36_RPC_WRAPPERS_NO_PURE_DECLS \
 	FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Player_FirstPersonCharacter_h_36_INCLASS_NO_PURE_DECLS \
 	FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Player_FirstPersonCharacter_h_36_ENHANCED_CONSTRUCTORS \
 private: \

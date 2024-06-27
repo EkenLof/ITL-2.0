@@ -55,6 +55,16 @@ public:
 
 	void DropItem(UItemBase* ItemToDrop, const int32 QuantityToDrop);
 
+	UFUNCTION(BlueprintCallable, Category = "Event | SubLevels")
+	void LoadSublevel(FName LevelName);
+
+	UFUNCTION(BlueprintCallable, Category = "Event | SubLevels")
+	void UnloadSublevel(FName LevelName);
+
+	// TIMER LOGIC
+	void StartTimer(float Duration);
+	void OnTimerEnd();
+
 	bool isWalkingForward;
 	bool isWalkingBackward;
 
@@ -209,6 +219,21 @@ protected:
 
 private:
 	UObjectivePanel* Objective;
+
+	UFUNCTION()
+	void OnSublevelLoaded();
+
+	// Handle for the timer
+	FTimerHandle CountdownTimerHandle;
+
+	// Timer duration
+	float TimerDuration;
+	// Current time remaining
+	float TimeRemaining;
+
+	// Timer tick function
+	void TimerTick();
+
 
 	void UpdateVaribleState(AActor*& ActorReference, const FName& TagName);
 

@@ -27,6 +27,8 @@
 
 #include "DrawDebugHelpers.h"
 
+#include "TimerManager.h"
+
 #include "Gameplay/GameplayEvents.h"
 #include "Triggers/BoxCollider.h"
 #include "Gameplay/Elevator_System.h"
@@ -330,8 +332,6 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 		if (IsValid(ExitFuseBoxRoomActor)) ExitFuseBoxRoomActor->SetActorEnableCollision(true);
 		else UE_LOG(LogTemp, Warning, TEXT("ExitFuseBoxRoomActor is NOT Valid"));
 
-		// STEP 8
-		if (IsValid(EventSteps)) EventSteps->NextStep(8); // Phone Ringing
 		bIsFuseBox_Interactible = false;
 	}
 	// Reception Phone.
@@ -367,6 +367,109 @@ void AFirstPersonCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInp
 	PlayerInputComponent->BindAction("ToggleMenu", IE_Pressed, this, &AFirstPersonCharacter::ToggleMenu);
 	PlayerInputComponent->BindAction("TogglePauseMenu", IE_Pressed, this, &AFirstPersonCharacter::TogglePauseMenu);
 }
+
+// *********************************************************** TIMER ***********************************************************
+void AFirstPersonCharacter::StartTimer(float Duration)
+{
+	// Set the timer duration
+	TimerDuration = Duration;
+	TimeRemaining = TimerDuration;
+
+	// Start the timer
+	UE_LOG(LogTemp, Warning, TEXT("Timer has Started!"));
+	GetWorld()->GetTimerManager().SetTimer(CountdownTimerHandle, this, &AFirstPersonCharacter::TimerTick, 1.0f, true);
+}
+
+void AFirstPersonCharacter::TimerTick()
+{
+	// Decrease the remaining time
+	TimeRemaining -= 1.0f;
+
+	// Check if the timer has reached zero
+	if (TimeRemaining <= 0.0f)
+	{
+		// Clear the timer
+		GetWorld()->GetTimerManager().ClearTimer(CountdownTimerHandle);
+
+		// Call the function that should be executed when the timer ends
+		OnTimerEnd();
+	}
+}
+
+void AFirstPersonCharacter::OnTimerEnd()
+{
+	// Perform the action you want to execute when the timer ends
+	UE_LOG(LogTemp, Warning, TEXT("Timer has ended!"));
+
+	UnloadSublevel(TEXT("LightsF2"));
+}
+//*********************************************************** TIMER ***********************************************************
+
+//*********************************************************** SUBLVL ***********************************************************
+void AFirstPersonCharacter::LoadSublevel(FName LevelName)
+{
+	UWorld* World = GetWorld();
+	if (!World)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("World is null"));
+		return;
+	}
+	else
+	{
+		if (LevelName.IsNone())
+		{
+			UE_LOG(LogTemp, Warning, TEXT("LevelName is None"));
+			return;
+		}
+
+		UE_LOG(LogTemp, Warning, TEXT("World and LevelName are valid. Attempting to load sublevel: %s"), *LevelName.ToString());
+
+		FLatentActionInfo LatentInfo;
+		LatentInfo.CallbackTarget = this;
+		LatentInfo.ExecutionFunction = "OnSublevelLoaded";
+		LatentInfo.Linkage = 0;
+		LatentInfo.UUID = __LINE__;
+
+		// Attempt to load the level
+		UGameplayStatics::LoadStreamLevel(this, LevelName, true, true, LatentInfo);
+
+		UE_LOG(LogTemp, Warning, TEXT("LoadStreamLevel called for sublevel: %s"), *LevelName.ToString());
+	}
+}
+
+void AFirstPersonCharacter::OnSublevelLoaded()
+{
+	UE_LOG(LogTemp, Warning, TEXT("Sublevel successfully loaded"));
+}
+
+void AFirstPersonCharacter::UnloadSublevel(FName LevelName)
+{
+	UWorld* World = GetWorld();
+	if (!World)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("World is null"));
+		return;
+	}
+	else
+	{
+		if (LevelName.IsNone())
+		{
+			UE_LOG(LogTemp, Warning, TEXT("LevelName is None"));
+			return;
+		}
+
+		else if (!LevelName.IsNone())
+		{
+			UE_LOG(LogTemp, Warning, TEXT("Attempting to unload sublevel: %s"), *LevelName.ToString());
+
+			UGameplayStatics::UnloadStreamLevel(this, LevelName, FLatentActionInfo(), false); // ShouldBlockOnLoad: True = loaded before anything else runs / False = Loading in the background and gives a smoother gamplay.
+		}
+		else UE_LOG(LogTemp, Warning, TEXT("LevelName is None"));
+	}
+
+	//UGameplayStatics::UnloadStreamLevel(this, LevelName, FLatentActionInfo(), true); // Change to 'false' if you want non-blocking
+}
+//*********************************************************** SUBLVL ***********************************************************
 
 void AFirstPersonCharacter::UpdateVaribleState(AActor*& ActorReference, const FName& TagName)
 {
@@ -490,7 +593,14 @@ bool AFirstPersonCharacter::CheckLookAtObject()
 				}
 			}
 
-			if (IsValid(this->WhiteFace)) this->WhiteFace->WhiteFaceClapp(true);
+			UnloadSublevel(TEXT("LightsF1"));
+
+			StartTimer(2.5f);
+
+			if (IsValid(this->WhiteFace)) 
+			{
+				this->WhiteFace->WhiteFaceClapp(true);
+			}
 			else UE_LOG(LogTemp, Warning, TEXT("WhiteFace ignores me..."));
 
 			return true;
