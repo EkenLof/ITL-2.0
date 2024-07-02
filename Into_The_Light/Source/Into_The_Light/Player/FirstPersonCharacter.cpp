@@ -98,7 +98,7 @@ AFirstPersonCharacter::AFirstPersonCharacter()
 	ReceptionPhoneKeyTagName = FName(TEXT("ReceptionPhone_Key")); // ReceptionPhone_Key
 	Fuse10A_ToFuseBoxTagName = FName(TEXT("Fuse10A_InFuseBox")); //Fuse10A_InFuseBox
 	Trig3TagName = FName(TEXT("Trigger_3_ACT1")); //Trigger_3_ACT1
-	WhiteFaceTagName = FName(TEXT("WhiteFace_F2"));
+	WhiteFaceTagName = FName(TEXT("WhiteFace_F2")); // WhiteFace_F2
 
 	//BaseEyeHeight = 75.0f;
 }

@@ -195,6 +195,8 @@ protected:
 	AActor* Fuse10A_ToFuseBoxActor;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")
 	AActor* ReceptionPhoneKeyActor;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")
+	AActor* WhiteFaceF2Actor;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Trigger")
 	AActor* ExitFuseBoxRoomActor;
