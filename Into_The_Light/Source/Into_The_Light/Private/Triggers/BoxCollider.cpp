@@ -41,7 +41,6 @@ ABoxCollider::ABoxCollider()
 	ElectricKeyTagName = FName(TEXT("ElectricKey"));
 	ElectricKey_KeyTagName = FName(TEXT("ElectricKey_Key"));
 
-    ToReceptionPhoneTrigTagName = FName(TEXT("ToReceptionPhoneTrigger"));
 	ColeMissingTrigTagName = FName(TEXT("ColeMissingTrigger")); // MissingCole
 
 	ColeStorageTagName = FName(TEXT("Cole_StorageRoom"));
