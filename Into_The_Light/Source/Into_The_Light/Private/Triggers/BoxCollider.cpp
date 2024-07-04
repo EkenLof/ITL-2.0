@@ -15,16 +15,12 @@ ABoxCollider::ABoxCollider()
 {
 	PrimaryActorTick.bCanEverTick = false;
 
-	bIsTempValue = true;
-	bIsTempValue2 = true;
-
 	bIsBeforeMeetCole = false;
 	bIsMeetCole = false;
+    bIsGoingToMissingCole = false;
 	bIsMissingCole = false;
 	bIsExitFuseBoxRoom = false;
-    bIsGoingToReceptionPhone = false;
 	bIsExitReceptionPhone = false;
-	bIsExitWithKeyCard = false;
 
 	CollisionBox = CreateDefaultSubobject<UBoxComponent>(TEXT("BoxComponent"));
 	CollisionBox->SetBoxExtent(FVector(32.f, 32.f, 32.f));
@@ -39,6 +35,16 @@ ABoxCollider::ABoxCollider()
 
 	MichaelTagName = FName(TEXT("Michael"));
 	ReceptionPhoneTagName = FName(TEXT("ReceptionPhone")); // ReceptionPhone
+
+	LanternTagName = FName(TEXT("Lantern"));
+	LanternBrokenTagName = FName(TEXT("LanternBroken"));
+	ElectricKeyTagName = FName(TEXT("ElectricKey"));
+	ElectricKey_KeyTagName = FName(TEXT("ElectricKey_Key"));
+
+    ToReceptionPhoneTrigTagName = FName(TEXT("ToReceptionPhoneTrigger"));
+	ColeMissingTrigTagName = FName(TEXT("ColeMissingTrigger")); // MissingCole
+
+	ColeStorageTagName = FName(TEXT("Cole_StorageRoom"));
 }
 
 void ABoxCollider::BeginPlay()
@@ -53,182 +59,62 @@ void ABoxCollider::Tick(float DeltaTime)
 
 }
 
-void ABoxCollider::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool BFromSweep, const FHitResult& SeepResult)
+void ABoxCollider::UpdateVaribleState(AActor*& ActorReference, const FName& TagName)
 {
-	if (OtherActor && OtherActor->ActorHasTag(MichaelTagName))
+	UWorld* World = GetWorld();
+
+	if (!World)
 	{
-		//////////////////////////////////////////////////---ACTIONS---//////////////////////////////////////////////////
-        /*
-        if (bIsBeforeMeetCole) // STEP # ACTIVE
+		UE_LOG(LogTemp, Error, TEXT("World is null in UpdateVaribleState"));
+		return;
+	}
+	else
+	{
+		if (!IsValid(ActorReference))
 		{
-			FName TagName = "Cole_StorageRoom";
-			TArray<AActor*> TaggedActors;
-			UGameplayStatics::GetAllActorsWithTag(GetWorld(), TagName, TaggedActors);
+			//ActorReference = nullptr;
 
-			// Assuming ColeState is a member variable of ABoxTrigger
-			this->ColeState = nullptr;
+			TArray<AActor*> FoundActors;
 
-			if (TaggedActors.Num() > 0)
+			UGameplayStatics::GetAllActorsWithTag(World, TagName, FoundActors);
+
+			if (FoundActors.Num() > 0)
 			{
-				// Iterate through the tagged actors and find the first valid ACole
-				for (AActor* Actor : TaggedActors)
-				{
-					ACole* PotentialCole = Cast<ACole>(Actor);
-					if (IsValid(PotentialCole))
-					{
-						this->ColeState = PotentialCole;
-						break;
-					}
-				}
-			}
-
-			if (IsValid(this->ColeState)) this->ColeState->ColeSearchIdle(true);
-			else UE_LOG(LogTemp, Warning, TEXT("Cole ignores me..."));
-
-			bIsBeforeMeetCole = false;
-		}
-		else if (bIsMeetCole) // STEP # ACTIVE
-		{
-			FName TagName = "Cole_StorageRoom";
-			TArray<AActor*> TaggedActors;
-			UGameplayStatics::GetAllActorsWithTag(GetWorld(), TagName, TaggedActors);
-
-			// Assuming ColeState is a member variable of ABoxTrigger
-			this->ColeState = nullptr;
-
-			if (TaggedActors.Num() > 0)
-			{
-				// Iterate through the tagged actors and find the first valid ACole
-				for (AActor* Actor : TaggedActors)
-				{
-					ACole* PotentialCole = Cast<ACole>(Actor);
-					if (IsValid(PotentialCole))
-					{
-						this->ColeState = PotentialCole;
-						break;
-					}
-				}
-			}
-
-			if (IsValid(this->ColeState)) this->ColeState->ColeMeet(true);
-			else UE_LOG(LogTemp, Warning, TEXT("Cole ignores me..."));
-
-			if (IsValid(EventSteps)) EventSteps->NextStep(3);
-			bIsMeetCole = false;
-		}
-		else if (bIsMissingCole) // STEP & ACTIVE
-		{
-			UE_LOG(LogTemp, Warning, TEXT("OBJECTIVE: Look for Electric-Key."));
-			if (IsValid(EventSteps)) EventSteps->NextStep(6);
-			bIsMissingCole = false;
-		}
-		else if (bIsExitFuseBoxRoom) // SUBLEVEL LOAD
-		{
-			UE_LOG(LogTemp, Warning, TEXT("Light ON!"));
-			if (IsValid(EventSteps)) 
-			{
-				EventSteps->LoadSublevel(TEXT("LightsF1"));
-
-				// ********************* Phone ring sound ************************
-				EventSteps->UpdateVaribleState(ReceptionPhoneActor, ReceptionPhoneTagName);
-			}
-
-			//
-			UWorld* World = GetWorld();
-
-			if (!World)
-			{
-				UE_LOG(LogTemp, Error, TEXT("World is null in UpdateVaribleState"));
-				return;
+				UE_LOG(LogTemp, Log, TEXT("FOUND"));
+				ActorReference = FoundActors[0];
 			}
 			else
 			{
-				if (!IsValid(ReceptionPhoneActor))
-				{
-					TArray<AActor*> FoundActors;
-
-					UGameplayStatics::GetAllActorsWithTag(World, ReceptionPhoneTagName, FoundActors);
-
-					if (FoundActors.Num() > 0)
-					{
-						UE_LOG(LogTemp, Error, TEXT("FOUND"));
-						ReceptionPhoneActor = FoundActors[0];
-					}
-					else
-					{
-						UE_LOG(LogTemp, Error, TEXT("NOT-FOUND"));
-					}
-				}
+				UE_LOG(LogTemp, Error, TEXT("NOT-FOUND"));
 			}
-
-			if (IsValid(ReceptionPhoneActor)) ReceptionPhoneActor->SetActorEnableCollision(true);
-			else UE_LOG(LogTemp, Warning, TEXT("ReceptionPhoneActor is NOT Valid"));
-
-			bIsTempValue = false;
-			bIsExitFuseBoxRoom = false;
 		}
-		else if (bIsGoingToReceptionPhone && !bIsTempValue)
-		{
-			if (IsValid(EventSteps)) EventSteps->NextStep(8); // Phone Ringing
-
-            bIsGoingToReceptionPhone = false;
-		}
-		else if (bIsExitReceptionPhone) // STEP 10 ACTIVE
-		{
-			UE_LOG(LogTemp, Warning, TEXT("LightsB1Reception OFF!"));
-			
-			if (IsValid(EventSteps)) 
-			{
-				EventSteps->UnloadSublevel(TEXT("LightsB1Reception"));
-				EventSteps->NextStep(10);
-			}
-
-			bIsExitReceptionPhone = false;
-		}
-		else if (bIsExitWithKeyCard)
-		{
-			//if (IsValid(EventSteps)) EventSteps->NextStep(13); // DELETE ????????????????????????????????????????????????????????????????????????
-
-			bIsExitWithKeyCard = false;
-		}
-        */
-		
-        if (bIsBeforeMeetCole) // STEP # ACTIVE
-        {
-            HandleBeforeMeetCole();
-        }
-        else if (bIsMeetCole) // STEP # ACTIVE
-        {
-            HandleMeetCole();
+	}
 }
-        else if (bIsMissingCole) // STEP # ACTIVE
-        {
-            HandleMissingCole();
-        }
-        else if (bIsExitFuseBoxRoom) // SUBLEVEL LOAD
-        {
-            HandleExitFuseBoxRoom();
-        }
-        else if (bIsGoingToReceptionPhone && !bIsTempValue)
-        {
-            HandleGoingToReceptionPhone();
-        }
-        else if (bIsExitReceptionPhone) // STEP 10 ACTIVE
-        {
-            HandleExitReceptionPhone();
-        }
-        else if (bIsExitWithKeyCard)
-        {
-            HandleExitWithKeyCard();
-        }
+
+void ABoxCollider::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool BFromSweep, const FHitResult& SeepResult)
+{
+	if (OtherActor && OtherActor->ActorHasTag(MichaelTagName))
+	{	
+        if (bIsBeforeMeetCole) HandleBeforeMeetCole();
+
+        else if (bIsMeetCole) HandleMeetCole();
+
+        else if (bIsGoingToMissingCole) HandlebGoingToMissingCole();
+
+        else if (bIsMissingCole) HandleMissingCole();
+
+        else if (bIsExitFuseBoxRoom) HandleExitFuseBoxRoom();
+
+        else if (bIsExitReceptionPhone) HandleExitReceptionPhone();
 	}
 }
 
 void ABoxCollider::HandleBeforeMeetCole()
 {
-    FName TagName = "Cole_StorageRoom";
+	UE_LOG(LogTemp, Log, TEXT("HandleBeforeMeetCole Overlaped"));
+
     TArray<AActor*> TaggedActors;
-    UGameplayStatics::GetAllActorsWithTag(GetWorld(), TagName, TaggedActors);
+    UGameplayStatics::GetAllActorsWithTag(GetWorld(), ColeStorageTagName, TaggedActors);
 
     this->ColeState = nullptr;
 
@@ -245,16 +131,40 @@ void ABoxCollider::HandleBeforeMeetCole()
         }
     }
 
-    if (IsValid(this->ColeState))
-        this->ColeState->ColeSearchIdle(true);
-    else
-        UE_LOG(LogTemp, Warning, TEXT("Cole ignores me..."));
+    if (IsValid(this->ColeState)) this->ColeState->ColeSearchIdle(true);
+    else UE_LOG(LogTemp, Warning, TEXT("Cole ignores me..."));
 
+	// Actors OFF
+	UpdateVaribleState(LanternBrokenActor, LanternBrokenTagName);
+	if (IsValid(LanternBrokenActor)) // LanternBroken
+	{
+		LanternBrokenActor->SetActorHiddenInGame(true);
+		LanternBrokenActor->SetActorEnableCollision(false);
+	}
+	else UE_LOG(LogTemp, Warning, TEXT("LanternBrockenActor is NOT Valid"));
+
+	UpdateVaribleState(ElectricKeyActor, ElectricKeyTagName);
+	UpdateVaribleState(ElectricKey_KeyActor, ElectricKey_KeyTagName);
+	if (IsValid(ElectricKeyActor) && IsValid(ElectricKey_KeyActor)) // ElectricKey
+	{
+		ElectricKeyActor->SetActorHiddenInGame(true);
+		ElectricKeyActor->SetActorEnableCollision(false);
+		ElectricKey_KeyActor->SetActorEnableCollision(false);
+	}
+	else UE_LOG(LogTemp, Warning, TEXT("ElectricKeyActor OR ElectricKey_KeyActor is NOT Valid"));
+
+	UpdateVaribleState(MissingColeTriggerStart, ColeMissingTrigTagName);
+	if (IsValid(MissingColeTriggerStart)) MissingColeTriggerStart->SetActorEnableCollision(false);
+	else UE_LOG(LogTemp, Warning, TEXT("MissingColeTriggerStart is NOT Valid"));
+
+    Destroy();
     bIsBeforeMeetCole = false;
 }
 
 void ABoxCollider::HandleMeetCole()
 {
+	UE_LOG(LogTemp, Log, TEXT("HandleMeetCole Overlaped"));
+
     FName TagName = "Cole_StorageRoom";
     TArray<AActor*> TaggedActors;
     UGameplayStatics::GetAllActorsWithTag(GetWorld(), TagName, TaggedActors);
@@ -282,71 +192,91 @@ void ABoxCollider::HandleMeetCole()
     if (IsValid(EventSteps))
         EventSteps->NextStep(3);
 
+    Destroy();
     bIsMeetCole = false;
+}
+
+void ABoxCollider::HandlebGoingToMissingCole()
+{
+	UE_LOG(LogTemp, Log, TEXT("HandlebGoingToMissingCole Overlaped"));
+
+	UpdateVaribleState(LanternActor, LanternTagName);
+	UpdateVaribleState(LanternBrokenActor, LanternBrokenTagName);
+	UpdateVaribleState(ColeStorageRoomActor, ColeStorageTagName);
+	UpdateVaribleState(ElectricKeyActor, ElectricKeyTagName);
+	UpdateVaribleState(ElectricKey_KeyActor, ElectricKey_KeyTagName);
+	UpdateVaribleState(MissingColeTriggerStart, ColeMissingTrigTagName);
+
+
+	if (IsValid(LanternActor)) // Lantern
+	{
+		LanternActor->SetActorHiddenInGame(true);
+		LanternActor->SetActorEnableCollision(false);
+	}
+	else UE_LOG(LogTemp, Warning, TEXT("---*Lantern ON* NOT POSSIBLE---"));
+
+	if (IsValid(LanternBrokenActor)) // LanternBroken
+	{
+		LanternBrokenActor->SetActorHiddenInGame(false);
+		LanternBrokenActor->SetActorEnableCollision(true);
+	}
+	else UE_LOG(LogTemp, Warning, TEXT("---*LanternBroken ON* NOT POSSIBLE---"));
+
+	if (IsValid(ColeStorageRoomActor)) // Cole
+	{
+		ColeStorageRoomActor->SetActorHiddenInGame(true);
+		ColeStorageRoomActor->SetActorEnableCollision(false);
+	}
+	else UE_LOG(LogTemp, Warning, TEXT("---*Cole ON* NOT POSSIBLE---"));
+
+	if (IsValid(ElectricKeyActor) && IsValid(ElectricKey_KeyActor)) // ElectricKey
+	{
+		ElectricKeyActor->SetActorHiddenInGame(false);
+		ElectricKeyActor->SetActorEnableCollision(true);
+		ElectricKey_KeyActor->SetActorEnableCollision(true);
+	}
+	else UE_LOG(LogTemp, Warning, TEXT("---*ElectricKey ON* NOT POSSIBLE---"));
+
+	if (IsValid(MissingColeTriggerStart))
+	{
+		UE_LOG(LogTemp, Warning, TEXT("---MissinColeTrigger ON---"));
+		MissingColeTriggerStart->SetActorEnableCollision(true);
+	}
+	else UE_LOG(LogTemp, Warning, TEXT("---*MissinColeTrigger ON* NOT POSSIBLE---"));
+
+    bIsGoingToMissingCole = false;
 }
 
 void ABoxCollider::HandleMissingCole()
 {
-    UE_LOG(LogTemp, Warning, TEXT("OBJECTIVE: Look for Electric-Key."));
-    if (IsValid(EventSteps))
-        EventSteps->NextStep(6);
+	UE_LOG(LogTemp, Log, TEXT("HandleMissingCole Overlaped"));
+
+    if (IsValid(EventSteps)) EventSteps->NextStep(6);
 
     bIsMissingCole = false;
 }
 
 void ABoxCollider::HandleExitFuseBoxRoom()
 {
-    UE_LOG(LogTemp, Warning, TEXT("Light ON!"));
-    if (IsValid(EventSteps))
-    {
-        EventSteps->LoadSublevel(TEXT("LightsF1"));
-        EventSteps->UpdateVaribleState(ReceptionPhoneActor, ReceptionPhoneTagName);
-    }
+	UE_LOG(LogTemp, Log, TEXT("HandleExitFuseBoxRoom Overlaped"));
 
-    UWorld* World = GetWorld();
-    if (!World)
-    {
-        UE_LOG(LogTemp, Error, TEXT("World is null in UpdateVaribleState"));
-        return;
-    }
-    else
-    {
-        if (!IsValid(ReceptionPhoneActor))
-        {
-            TArray<AActor*> FoundActors;
-            UGameplayStatics::GetAllActorsWithTag(World, ReceptionPhoneTagName, FoundActors);
+    UE_LOG(LogTemp, Log, TEXT("Light ON!"));
 
-            if (FoundActors.Num() > 0)
-            {
-                UE_LOG(LogTemp, Error, TEXT("FOUND"));
-                ReceptionPhoneActor = FoundActors[0];
-            }
-            else
-            {
-                UE_LOG(LogTemp, Error, TEXT("NOT-FOUND"));
-            }
-        }
-    }
+    if (IsValid(EventSteps)) EventSteps->LoadSublevel(TEXT("LightsF1"));
+	else UE_LOG(LogTemp, Warning, TEXT("EventSteps is NOT Valid"));
 
-    if (IsValid(ReceptionPhoneActor))
-        ReceptionPhoneActor->SetActorEnableCollision(true);
-    else
-        UE_LOG(LogTemp, Warning, TEXT("ReceptionPhoneActor is NOT Valid"));
+	UpdateVaribleState(ReceptionPhoneActor, ReceptionPhoneTagName);
+    if (IsValid(ReceptionPhoneActor)) ReceptionPhoneActor->SetActorEnableCollision(true);
+    else UE_LOG(LogTemp, Warning, TEXT("ReceptionPhoneActor is NOT Valid"));
 
-    bIsTempValue = false;
     bIsExitFuseBoxRoom = false;
-}
-
-void ABoxCollider::HandleGoingToReceptionPhone()
-{
-    if (IsValid(EventSteps)) EventSteps->NextStep(8); // Phone Ringing
-
-    bIsGoingToReceptionPhone = false;
 }
 
 void ABoxCollider::HandleExitReceptionPhone()
 {
-    UE_LOG(LogTemp, Warning, TEXT("LightsB1Reception OFF!"));
+	UE_LOG(LogTemp, Log, TEXT("HandleExitReceptionPhone Overlaped"));
+
+    UE_LOG(LogTemp, Log, TEXT("LightsB1Reception OFF!"));
     if (IsValid(EventSteps))
     {
         EventSteps->UnloadSublevel(TEXT("LightsB1Reception"));
@@ -354,14 +284,6 @@ void ABoxCollider::HandleExitReceptionPhone()
     }
 
     bIsExitReceptionPhone = false;
-}
-
-void ABoxCollider::HandleExitWithKeyCard()
-{
-    // Uncomment if needed
-    // if (IsValid(EventSteps)) EventSteps->NextStep(13);
-
-    bIsExitWithKeyCard = false;
 }
 
 /*

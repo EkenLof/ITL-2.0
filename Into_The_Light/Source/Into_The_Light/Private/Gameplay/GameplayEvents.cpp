@@ -38,25 +38,18 @@ AGameplayEvents::AGameplayEvents()
 	F1OfficeLightsTagName = FName(TEXT("F1_Office_Lights"));
 	F1ConferanceLightsTagName = FName(TEXT("F1_Conferance_Lights"));
 	F1StorageRoomLightsTagName = FName(TEXT("F1_StorageRoom_Lights"));
-	LanternTagName = FName(TEXT("Lantern"));
-	LanternBrokenTagName = FName(TEXT("LanternBroken"));
-	ColeStorageRoomTagName = FName(TEXT("Cole_StorageRoom"));
-	ElectricKeyTagName = FName(TEXT("ElectricKey"));
-	ElectricKey_KeyTagName = FName(TEXT("ElectricKey_Key")); // ElectricKey_Key
 	
-	ReceptionPhoneTagName = FName(TEXT("ReceptionPhone")); // ReceptionPhone
+	ReceptionPhoneTagName = FName(TEXT("ReceptionPhone")); // ReceptionPhone **
 	LighterTagName = FName(TEXT("Lighter")); // Lighter
-	Trig2TagName = FName(TEXT("Trigger_2_ACT1")); // MissingCole
 
 	LightsB1Reception_SL = FName(TEXT("LightsB1Reception"));
 	LightsF1_SL = FName(TEXT("LightsF1"));
 	LightsF2_SL = FName(TEXT("LightsF2"));
 
-	Trig4TagName = FName(TEXT("Trigger_4_ACT1"));
-
-	
 	ReceptionPhoneKeyTagName = FName(TEXT("ReceptionPhone_Key")); // ReceptionPhone_Key
 	// Door_To_OfficeKey
+
+	//ReceptionPhoneTrigTagName = FName(TEXT("ReceptionPhoneTrigger"));
 }
 
 void AGameplayEvents::BeginPlay()
@@ -67,22 +60,11 @@ void AGameplayEvents::BeginPlay()
 	
 
 	// Varible Check & assign. 
-	UpdateVaribleState(MissingColeTriggerStart, Trig2TagName);
-	
-	UpdateVaribleState(ExitReceptionPhoneActor, Trig4TagName);
-
-	UpdateVaribleState(LanternActor, LanternTagName);
-	UpdateVaribleState(LanternBrockenActor, LanternBrokenTagName);
-	UpdateVaribleState(ColeStorageRoomActor, ColeStorageRoomTagName);
-	UpdateVaribleState(ElectricKeyActor, ElectricKeyTagName);
-	UpdateVaribleState(ElectricKey_KeyActor, ElectricKey_KeyTagName);
-
-	//UpdateVaribleState(Fuse10A_ToFuseBoxActor, Fuse10A_ToFuseBoxTagName);
 	UpdateVaribleState(LighterActor, LighterTagName);
 	UpdateVaribleState(ReceptionPhoneActor, ReceptionPhoneTagName);
 	UpdateVaribleState(ReceptionPhoneKeyActor, ReceptionPhoneKeyTagName);
 
-	InitializeActorSoundSystem();
+	//InitializeActorSoundSystem();
 
 	ToggleOff(); // Start Values
 	NextStep(1); // Temp. Change to some action to Active for Events
@@ -125,6 +107,8 @@ void AGameplayEvents::UpdateVaribleState(AActor*& ActorReference, const FName& T
 	}
 }
 
+//InitializeActorSoundSystem()
+/*
 void AGameplayEvents::InitializeActorSoundSystem()
 {
 
@@ -147,7 +131,7 @@ void AGameplayEvents::InitializeActorSoundSystem()
 			UE_LOG(LogTemp, Error, TEXT("ActorSoundSystem not found!"));
 		}
 	}
-}
+} */
 
 // Function to load a sublevel
 void AGameplayEvents::LoadSublevel(FName LevelName)
@@ -228,25 +212,9 @@ void AGameplayEvents::ToggleOff()
 	LighterActor->SetActorEnableCollision(false);
 
 	// EventActors
-	if (IsValid(LanternBrockenActor)) // LanternBroken
-	{
-		LanternBrockenActor->SetActorHiddenInGame(true);
-		LanternBrockenActor->SetActorEnableCollision(false);
-	}
-	if (IsValid(ElectricKeyActor) && IsValid(ElectricKey_KeyActor)) // ElectricKey
-	{
-		ElectricKeyActor->SetActorHiddenInGame(true);
-		ElectricKeyActor->SetActorEnableCollision(false);
-		ElectricKey_KeyActor->SetActorEnableCollision(false);
-	}
-
-	if (IsValid(MissingColeTriggerStart)) MissingColeTriggerStart->SetActorEnableCollision(false);
 
 	if (IsValid(ReceptionPhoneKeyActor)) ReceptionPhoneKeyActor->SetActorEnableCollision(false);
 	else UE_LOG(LogTemp, Warning, TEXT("ReceptionPhoneKeyActor is NOT Valid"));
-
-	if (IsValid(ExitReceptionPhoneActor)) ExitReceptionPhoneActor->SetActorEnableCollision(false);
-	else UE_LOG(LogTemp, Warning, TEXT("ExitReceptionPhoneActor is NOT Valid"));
 }
 
 void AGameplayEvents::NextStep(int32 StepUp)
@@ -303,58 +271,12 @@ void AGameplayEvents::Step4()
 void AGameplayEvents::Step5()
 {
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 5 Active---"));
-
-	UpdateVaribleState(LanternActor, LanternTagName);
-	UpdateVaribleState(LanternBrockenActor, LanternBrokenTagName);
-	UpdateVaribleState(ColeStorageRoomActor, ColeStorageRoomTagName);
-	UpdateVaribleState(ElectricKeyActor, ElectricKeyTagName);
-	UpdateVaribleState(ElectricKey_KeyActor, ElectricKey_KeyTagName);
-	UpdateVaribleState(MissingColeTriggerStart, Trig2TagName);
-
-	
-	if (IsValid(LanternActor)) // Lantern
-	{
-		LanternActor->SetActorHiddenInGame(true);
-		LanternActor->SetActorEnableCollision(false);
-	}
-	else UE_LOG(LogTemp, Warning, TEXT("---*Lantern ON* NOT POSSIBLE---"));
-
-	if (IsValid(LanternBrockenActor)) // LanternBroken
-	{
-		LanternBrockenActor->SetActorHiddenInGame(false);
-		LanternBrockenActor->SetActorEnableCollision(true);
-	}
-	else UE_LOG(LogTemp, Warning, TEXT("---*LanternBroken ON* NOT POSSIBLE---"));
-
-	if (IsValid(ColeStorageRoomActor)) // Cole
-	{
-		ColeStorageRoomActor->SetActorHiddenInGame(true);
-		ColeStorageRoomActor->SetActorEnableCollision(false);
-	}
-	else UE_LOG(LogTemp, Warning, TEXT("---*Cole ON* NOT POSSIBLE---"));
-
-	if (IsValid(ElectricKeyActor) && IsValid(ElectricKey_KeyActor)) // ElectricKey
-	{
-		ElectricKeyActor->SetActorHiddenInGame(false);
-		ElectricKeyActor->SetActorEnableCollision(true);
-		ElectricKey_KeyActor->SetActorEnableCollision(true);
-	}
-	else UE_LOG(LogTemp, Warning, TEXT("---*ElectricKey ON* NOT POSSIBLE---"));
-	
-	if (IsValid(MissingColeTriggerStart))
-	{
-		UE_LOG(LogTemp, Warning, TEXT("---MissinColeTrigger ON---"));
-		MissingColeTriggerStart->SetActorEnableCollision(true);
-	}
-	else UE_LOG(LogTemp, Warning, TEXT("---*MissinColeTrigger ON* NOT POSSIBLE---"));
+    // BC 
 }
 
 void AGameplayEvents::Step6()
 {
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 6 Active---"));
-
-	delete ColeStorageRoomActor;
-	delete LanternActor;
 }
 
 void AGameplayEvents::Step7()
@@ -369,28 +291,43 @@ void AGameplayEvents::Step8()
 {
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 8 Active---"));
 
+	//PlaySound *FPC
+	/*
+	
 	// Play Reception Phone audio
 	InitializeActorSoundSystem();
 	if (IsValid(ActorSoundSystem)) ActorSoundSystem->PlayReceptionPhoneAudio();
 	else UE_LOG(LogTemp, Warning, TEXT("ActorSoundSystem is NOT Valid"));
+	
+	*/
 }
 
 void AGameplayEvents::Step9()
 {
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 9 Active---"));
 
-	// Stop the PhoneSound // Collision Not Active
-	UpdateVaribleState(ReceptionPhoneActor, ReceptionPhoneTagName);
-	if (IsValid(ReceptionPhoneActor)) ReceptionPhoneActor->SetActorEnableCollision(false);
-	else UE_LOG(LogTemp, Warning, TEXT("NOT Valid *ReceptionPhoneActor*"));
-
+	//StopSound *FPC
+	/*
+	
+	// Stop the PhoneSound 
 	InitializeActorSoundSystem();
 	if (IsValid(ActorSoundSystem))ActorSoundSystem->StopReceptionPhoneAudio();
-	else UE_LOG(LogTemp, Warning, TEXT("NOT Valid *ActorSoundSystem*"));
-
-	UpdateVaribleState(ExitReceptionPhoneActor, Trig4TagName);
+	else UE_LOG(LogTemp, Warning, TEXT("ActorSoundSystem is NOT Valid"));
+	
+	*/
+	
+	/*
+	UpdateVaribleState(ReceptionPhoneActor, ReceptionPhoneTagName);
+	if (IsValid(ReceptionPhoneActor)) ReceptionPhoneActor->SetActorEnableCollision(false);
+	else UE_LOG(LogTemp, Warning, TEXT("ReceptionPhoneActor is NOT Valid"));
+	
+	
+	UpdateVaribleState(ExitReceptionPhoneActor, ReceptionPhoneTrigTagName);
 	if (IsValid(ExitReceptionPhoneActor)) ExitReceptionPhoneActor->SetActorEnableCollision(true);
 	else UE_LOG(LogTemp, Warning, TEXT("ExitReceptionPhoneActor is NOT Valid"));
+
+	*/
+	
 }
 void AGameplayEvents::Step10()
 {

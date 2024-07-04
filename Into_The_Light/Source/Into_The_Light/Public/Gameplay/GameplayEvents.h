@@ -20,7 +20,7 @@ class INTO_THE_LIGHT_API AGameplayEvents : public AActor
 public:
 	AGameplayEvents();
 
-	FORCEINLINE AActorSoundSystem* GetInventory() const { return ActorSoundSystem; };
+	//FORCEINLINE AActorSoundSystem* GetInventory() const { return ActorSoundSystem; };
 
 	/////////////////////////////---NEXTSTEP ACTIVE---////////////////////////////////////
 	UFUNCTION(BlueprintCallable)
@@ -49,7 +49,7 @@ public:
 	//Actor Update state
 	void UpdateVaribleState(AActor*& ActorReference, const FName& TagName);
 	// Find and assign the ActorSoundSystem
-	void InitializeActorSoundSystem();
+	//void InitializeActorSoundSystem();
 
 	// Activity
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Activity")
@@ -58,24 +58,10 @@ public:
 	////////////////////////////---ASSIGN---///////////////////////////
 	// --- Triggers --- //
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Trigger")
-	AActor* MissingColeTriggerStart;
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Trigger")
-	AActor* ExitReceptionPhoneActor;
+	AActor* ExitReceptionPhoneTrigActor;
 	// --- Triggers --- //
 	
-	// --- Actors --- //
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")
-	AActor* LanternActor;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")
-	AActor* LanternBrockenActor;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")
-	AActor* ColeStorageRoomActor;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")
-	AActor* ElectricKeyActor;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")
-	AActor* ElectricKey_KeyActor;
-	
+	// --- Actors --- //	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")
 	AActor* LighterActor;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")
@@ -95,16 +81,10 @@ public:
 	////////////////////////////---ASSIGN---///////////////////////////
 
 protected:
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Audio")
-	AActorSoundSystem* ActorSoundSystem;
-	
-
-	////////////////////////////---LevelSequence---///////////////////////////
-	//UPROPERTY(EditAnywhere, Category = "Animations | Cole")
-	//class UAnimSequence* ColeInteractAnimSeq;
+	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Audio")
+	//AActorSoundSystem* ActorSoundSystem;
 	
 	UObject* WorldContextObject;
-	////////////////////////////---LevelSequence---///////////////////////////
 
 	FName ReceptionLightsTagName;
 	FName F1LightsTagName;
@@ -112,26 +92,15 @@ protected:
 	FName F1ConferanceLightsTagName;
 	FName F1StorageRoomLightsTagName;
 
-	FName ColeStorageRoomTagName;
-	FName LanternTagName;
-	FName LanternBrokenTagName;
-	FName ElectricKeyTagName;
-	FName ElectricKey_KeyTagName;
-
 	
 	FName LighterTagName;
 	FName ReceptionPhoneTagName;
 	FName ReceptionPhoneKeyTagName;
 
-	FName Trig2TagName;
-
-	FName Trig4TagName;
+	//FName ReceptionPhoneTrigTagName; // Trig4TagName
 
 	virtual void BeginPlay() override;
 	virtual void Tick(float DeltaTime) override;
-
-	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "UI")
-	//TSubclassOf<UObjectivePanel> widgetclass;
 
 private:
 	UFUNCTION()

@@ -1,6 +1,5 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
 #include "FirstPersonCharacter.h"
+
 #include "Components/InventoryComponent.h"
 #include "Camera/CameraComponent.h"
 #include "World/PickUp.h"
@@ -37,6 +36,9 @@
 #include "Kismet/GameplayStatics.h" // For the Assign Function.
 
 #include "Characters/WhiteFace.h"
+
+#include "Audio/ActorSoundSystem.h"
+#include "Sound/SoundCue.h"
 
 AFirstPersonCharacter::AFirstPersonCharacter()
 {
@@ -97,7 +99,11 @@ AFirstPersonCharacter::AFirstPersonCharacter()
 	Fuse10A_InFuseBoxTransTagName = FName(TEXT("Fuse10A_InFuseBoxTransparent")); // Fuse10A_InFuseBoxTransparent
 	ReceptionPhoneKeyTagName = FName(TEXT("ReceptionPhone_Key")); // ReceptionPhone_Key
 	Fuse10A_ToFuseBoxTagName = FName(TEXT("Fuse10A_InFuseBox")); //Fuse10A_InFuseBox
-	Trig3TagName = FName(TEXT("Trigger_3_ACT1")); //Trigger_3_ACT1
+
+	ExitFuseB1RoomTrigTagName = FName(TEXT("ExitFuseB1RoomTrigger"));
+	GoingToMissingColeTrigTagName = FName(TEXT("GoingToMissingColeTrigger"));
+	ReceptionPhoneTrigTagName = FName(TEXT("ReceptionPhoneTrigger"));
+
 	WhiteFaceTagName = FName(TEXT("WhiteFace_F2")); // WhiteFace_F2
 
 	//BaseEyeHeight = 75.0f;
@@ -110,10 +116,19 @@ void AFirstPersonCharacter::BeginPlay()
 	HUD = Cast<AMainHUD>(GetWorld()->GetFirstPlayerController()->GetHUD());
 
 	UpdateVaribleState(Fuse10A_ToFuseBoxActor, Fuse10A_ToFuseBoxTagName);
-	UpdateVaribleState(ExitFuseBoxRoomActor, Trig3TagName);
 
+	// TRIGGER
+	UpdateVaribleState(GoingToMissingColeTrigActor, GoingToMissingColeTrigTagName);
+	if (IsValid(GoingToMissingColeTrigActor)) GoingToMissingColeTrigActor->SetActorEnableCollision(false);
+	else UE_LOG(LogTemp, Warning, TEXT("GoingToMissingColeTrigActor is NOT Valid"));
+
+	UpdateVaribleState(ExitFuseBoxRoomActor, ExitFuseB1RoomTrigTagName);
 	if (IsValid(ExitFuseBoxRoomActor)) ExitFuseBoxRoomActor->SetActorEnableCollision(false);
 	else UE_LOG(LogTemp, Warning, TEXT("ExitFuseBoxRoomActor is NOT Valid"));
+
+	UpdateVaribleState(ExitReceptionPhoneTrigActor, ReceptionPhoneTrigTagName);
+	if (IsValid(ExitReceptionPhoneTrigActor)) ExitReceptionPhoneTrigActor->SetActorEnableCollision(false);
+	else UE_LOG(LogTemp, Warning, TEXT("ExitReceptionPhoneActor is NOT Valid"));
 
 	if(ObjectiveClass)
 	{
@@ -300,8 +315,11 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 		}
 		else UE_LOG(LogTemp, Error, TEXT("Objective is null"));
 
-		// STEP 5
-		if (IsValid(EventSteps)) EventSteps->NextStep(5);
+		// TRIGGER
+		UpdateVaribleState(GoingToMissingColeTrigActor, GoingToMissingColeTrigTagName);
+		if (IsValid(GoingToMissingColeTrigActor)) GoingToMissingColeTrigActor->SetActorEnableCollision(true);
+		else UE_LOG(LogTemp, Warning, TEXT("GoingToMissingColeTrigActor is NOT Valid"));
+
 		bIsFuseBox = false;
 	}
 	// Reception Door.
@@ -322,23 +340,39 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 		if (IsValid(ReceptionPhoneKeyActor)) ReceptionPhoneKeyActor->SetActorEnableCollision(true);
 		else UE_LOG(LogTemp, Warning, TEXT("ReceptionPhoneKeyActor is NOT Valid"));
 
-		// Fuse10A_ToFuseBoxActor
+		// Fuse10A_ToFuseBoxActor *VISABLE IN GAME
 		UpdateVaribleState(Fuse10A_ToFuseBoxActor, Fuse10A_ToFuseBoxTagName);
 		if (IsValid(Fuse10A_ToFuseBoxActor)) Fuse10A_ToFuseBoxActor->SetActorHiddenInGame(false);
 		else UE_LOG(LogTemp, Warning, TEXT("Fuse10A_ToFuseBoxActor is NOT Valid"));
 
 		// Trigger for Lights
-		UpdateVaribleState(ExitFuseBoxRoomActor, Trig3TagName);
+		UpdateVaribleState(ExitFuseBoxRoomActor, ExitFuseB1RoomTrigTagName);
 		if (IsValid(ExitFuseBoxRoomActor)) ExitFuseBoxRoomActor->SetActorEnableCollision(true);
 		else UE_LOG(LogTemp, Warning, TEXT("ExitFuseBoxRoomActor is NOT Valid"));
+
+		// Play Reception Phone audio // FUSE TO BOX
+		InitializeActorSoundSystem();
+		if (IsValid(ActorSoundSystem)) ActorSoundSystem->PlayReceptionPhoneAudio();
+		else UE_LOG(LogTemp, Warning, TEXT("ActorSoundSystem is NOT Valid"));
 
 		bIsFuseBox_Interactible = false;
 	}
 	// Reception Phone.
-	else if (CheckLookAtObject() && CheckLeftMouseButtonDown() && bIsReceptionPhone && bIsLookingReceptionPhone 
-		&& !bIsLookingAtFuseBox_Interactible && !bIsLookingAtRecDoor && !bIsLookingAtFuBox)
+	else if (CheckLookAtObject() && CheckLeftMouseButtonDown() && bIsReceptionPhone && bIsLookingReceptionPhone && !bIsLookingAtFuseBox_Interactible && !bIsLookingAtRecDoor && !bIsLookingAtFuBox)
 	{
-		if (IsValid(EventSteps)) EventSteps->NextStep(9); // Phone dies & Light att B1 goes out.
+		///////////////////////////////////////////// *** FIX *** /////////////////////////////////////////////////
+		// Stop the PhoneSound 
+		InitializeActorSoundSystem();
+		if (IsValid(ActorSoundSystem))ActorSoundSystem->StopReceptionPhoneAudio();
+		else UE_LOG(LogTemp, Warning, TEXT("ActorSoundSystem is NOT Valid"));
+
+		UpdateVaribleState(ExitReceptionPhoneTrigActor, ReceptionPhoneTrigTagName);
+		if (IsValid(ExitReceptionPhoneTrigActor)) ExitReceptionPhoneTrigActor->SetActorEnableCollision(true);
+		else UE_LOG(LogTemp, Warning, TEXT("ExitReceptionPhoneActor is NOT Valid"));
+
+		// DELETE Below
+		//if (IsValid(EventSteps)) EventSteps->NextStep(9);
+
 		bIsReceptionPhone = false;
 	}
 	else return;
@@ -368,6 +402,30 @@ void AFirstPersonCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInp
 	PlayerInputComponent->BindAction("TogglePauseMenu", IE_Pressed, this, &AFirstPersonCharacter::TogglePauseMenu);
 }
 
+void AFirstPersonCharacter::InitializeActorSoundSystem()
+{
+
+	UWorld* World = GetWorld();
+	if (!World)
+	{
+		UE_LOG(LogTemp, Error, TEXT("World is null in InitializeActorSoundSystem"));
+		return;
+	}
+	else
+	{
+		for (TActorIterator<AActorSoundSystem> It(World); It; ++It)
+		{
+			ActorSoundSystem = *It;
+			break;
+		}
+
+		if (!ActorSoundSystem)
+		{
+			UE_LOG(LogTemp, Error, TEXT("ActorSoundSystem not found!"));
+		}
+	}
+}
+
 // *********************************************************** TIMER ***********************************************************
 void AFirstPersonCharacter::StartTimer(float Duration)
 {
@@ -376,7 +434,7 @@ void AFirstPersonCharacter::StartTimer(float Duration)
 	TimeRemaining = TimerDuration;
 
 	// Start the timer
-	UE_LOG(LogTemp, Warning, TEXT("Timer has Started!"));
+	UE_LOG(LogTemp, Log, TEXT("Timer has Started!"));
 	GetWorld()->GetTimerManager().SetTimer(CountdownTimerHandle, this, &AFirstPersonCharacter::TimerTick, 1.0f, true);
 }
 
@@ -399,7 +457,7 @@ void AFirstPersonCharacter::TimerTick()
 void AFirstPersonCharacter::OnTimerEnd()
 {
 	// Perform the action you want to execute when the timer ends
-	UE_LOG(LogTemp, Warning, TEXT("Timer has ended!"));
+	UE_LOG(LogTemp, Log, TEXT("Timer has ended!"));
 
 	UnloadSublevel(TEXT("LightsF2"));
 }
@@ -422,7 +480,7 @@ void AFirstPersonCharacter::LoadSublevel(FName LevelName)
 			return;
 		}
 
-		UE_LOG(LogTemp, Warning, TEXT("World and LevelName are valid. Attempting to load sublevel: %s"), *LevelName.ToString());
+		UE_LOG(LogTemp, Log, TEXT("World and LevelName are valid. Attempting to load sublevel: %s"), *LevelName.ToString());
 
 		FLatentActionInfo LatentInfo;
 		LatentInfo.CallbackTarget = this;
@@ -433,13 +491,13 @@ void AFirstPersonCharacter::LoadSublevel(FName LevelName)
 		// Attempt to load the level
 		UGameplayStatics::LoadStreamLevel(this, LevelName, true, true, LatentInfo);
 
-		UE_LOG(LogTemp, Warning, TEXT("LoadStreamLevel called for sublevel: %s"), *LevelName.ToString());
+		UE_LOG(LogTemp, Log, TEXT("LoadStreamLevel called for sublevel: %s"), *LevelName.ToString());
 	}
 }
 
 void AFirstPersonCharacter::OnSublevelLoaded()
 {
-	UE_LOG(LogTemp, Warning, TEXT("Sublevel successfully loaded"));
+	UE_LOG(LogTemp, Log, TEXT("Sublevel successfully loaded"));
 }
 
 void AFirstPersonCharacter::UnloadSublevel(FName LevelName)
@@ -460,11 +518,11 @@ void AFirstPersonCharacter::UnloadSublevel(FName LevelName)
 
 		else if (!LevelName.IsNone())
 		{
-			UE_LOG(LogTemp, Warning, TEXT("Attempting to unload sublevel: %s"), *LevelName.ToString());
+			UE_LOG(LogTemp, Log, TEXT("Attempting to unload sublevel: %s"), *LevelName.ToString());
 
 			UGameplayStatics::UnloadStreamLevel(this, LevelName, FLatentActionInfo(), false); // ShouldBlockOnLoad: True = loaded before anything else runs / False = Loading in the background and gives a smoother gamplay.
 		}
-		else UE_LOG(LogTemp, Warning, TEXT("LevelName is None"));
+		else UE_LOG(LogTemp, Log, TEXT("LevelName is None"));
 	}
 
 	//UGameplayStatics::UnloadStreamLevel(this, LevelName, FLatentActionInfo(), true); // Change to 'false' if you want non-blocking
@@ -483,7 +541,7 @@ void AFirstPersonCharacter::UpdateVaribleState(AActor*& ActorReference, const FN
 
 		if (FoundActors.Num() > 0)
 		{
-			UE_LOG(LogTemp, Error, TEXT("FOUND"));
+			UE_LOG(LogTemp, Log, TEXT("FOUND"));
 			ActorReference = FoundActors[0];
 		}
 		else UE_LOG(LogTemp, Error, TEXT("NOT-FOUND"));
@@ -666,13 +724,13 @@ void AFirstPersonCharacter::UseFlashlight() // FLashlight LOGIC
 	if (!isFlashlightEquiped && isFlashlightInInventory)
 	{
 		//FlashlightMesh->bHiddenInGame = false;
-		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Red, TEXT("Equip Flishlight TRUE!"));
+		UE_LOG(LogTemp, Log, TEXT("Equip Flishlight TRUE!"));
 		isFlashlightEquiped = true;
 	}
 	else if (isFlashlightEquiped && isFlashlightInInventory)
 	{
 		//FlashlightMesh->bHiddenInGame = true;
-		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 2.0f, FColor::Red, TEXT("Equip Flashlight False!"));
+		UE_LOG(LogTemp, Log, TEXT("Equip Flashlight FALSE!"));
 		isFlashlightEquiped = false;
 	}
 }

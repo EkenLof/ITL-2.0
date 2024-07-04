@@ -132,9 +132,19 @@ struct Z_Construct_UClass_ABoxCollider_Statics
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bIsBeforeMeetCole_MetaData[] = {
 		{ "Category", "Event | Trigger" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "////////////////////////////---ACTIVE STATE---////////////////////////////\n" },
+#endif
 		{ "ModuleRelativePath", "Public/Triggers/BoxCollider.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "/---ACTIVE STATE---/" },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bIsMeetCole_MetaData[] = {
+		{ "Category", "Event | Trigger" },
+		{ "ModuleRelativePath", "Public/Triggers/BoxCollider.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bIsGoingToMissingCole_MetaData[] = {
 		{ "Category", "Event | Trigger" },
 		{ "ModuleRelativePath", "Public/Triggers/BoxCollider.h" },
 	};
@@ -154,8 +164,48 @@ struct Z_Construct_UClass_ABoxCollider_Statics
 		{ "Category", "Event | Trigger" },
 		{ "ModuleRelativePath", "Public/Triggers/BoxCollider.h" },
 	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bIsExitWithKeyCard_MetaData[] = {
-		{ "Category", "Event | Trigger" },
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ToReceptionPhoneTrigActor_MetaData[] = {
+		{ "Category", "Event | Assign | Actors" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "//TRIGGERS\n" },
+#endif
+		{ "ModuleRelativePath", "Public/Triggers/BoxCollider.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "TRIGGERS" },
+#endif
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_MissingColeTriggerStart_MetaData[] = {
+		{ "Category", "Event | Assign | Trigger" },
+		{ "ModuleRelativePath", "Public/Triggers/BoxCollider.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_LanternActor_MetaData[] = {
+		{ "Category", "Event | Assign | Actors" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "//ACTORS\n" },
+#endif
+		{ "ModuleRelativePath", "Public/Triggers/BoxCollider.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "ACTORS" },
+#endif
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_LanternBrokenActor_MetaData[] = {
+		{ "Category", "Event | Assign | Actors" },
+		{ "ModuleRelativePath", "Public/Triggers/BoxCollider.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ColeStorageRoomActor_MetaData[] = {
+		{ "Category", "Event | Assign | Actors" },
+		{ "ModuleRelativePath", "Public/Triggers/BoxCollider.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ElectricKeyActor_MetaData[] = {
+		{ "Category", "Event | Assign | Actors" },
+		{ "ModuleRelativePath", "Public/Triggers/BoxCollider.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ElectricKey_KeyActor_MetaData[] = {
+		{ "Category", "Event | Assign | Actors" },
+		{ "ModuleRelativePath", "Public/Triggers/BoxCollider.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ReceptionPhoneActor_MetaData[] = {
+		{ "Category", "Event | Assign | Actors" },
 		{ "ModuleRelativePath", "Public/Triggers/BoxCollider.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ColeState_MetaData[] = {
@@ -170,22 +220,14 @@ struct Z_Construct_UClass_ABoxCollider_Statics
 		{ "Category", "Events | TagNames" },
 		{ "ModuleRelativePath", "Public/Triggers/BoxCollider.h" },
 	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ReceptionPhoneActor_MetaData[] = {
-		{ "Category", "Event | Assign | Actors" },
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "//ACTORS\n" },
-#endif
-		{ "ModuleRelativePath", "Public/Triggers/BoxCollider.h" },
-#if !UE_BUILD_SHIPPING
-		{ "ToolTip", "ACTORS" },
-#endif
-	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_CollisionBox;
 	static void NewProp_bIsBeforeMeetCole_SetBit(void* Obj);
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsBeforeMeetCole;
 	static void NewProp_bIsMeetCole_SetBit(void* Obj);
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsMeetCole;
+	static void NewProp_bIsGoingToMissingCole_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsGoingToMissingCole;
 	static void NewProp_bIsMissingCole_SetBit(void* Obj);
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsMissingCole;
 	static void NewProp_bIsExitFuseBoxRoom_SetBit(void* Obj);
@@ -194,12 +236,17 @@ struct Z_Construct_UClass_ABoxCollider_Statics
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsGoingToReceptionPhone;
 	static void NewProp_bIsExitReceptionPhone_SetBit(void* Obj);
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsExitReceptionPhone;
-	static void NewProp_bIsExitWithKeyCard_SetBit(void* Obj);
-	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsExitWithKeyCard;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_ToReceptionPhoneTrigActor;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_MissingColeTriggerStart;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_LanternActor;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_LanternBrokenActor;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_ColeStorageRoomActor;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_ElectricKeyActor;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_ElectricKey_KeyActor;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_ReceptionPhoneActor;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_ColeState;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_EventSteps;
 	static const UECodeGen_Private::FNamePropertyParams NewProp_MichaelTagName;
-	static const UECodeGen_Private::FObjectPropertyParams NewProp_ReceptionPhoneActor;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
@@ -222,6 +269,11 @@ void Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsMeetCole_SetBit(void* O
 	((ABoxCollider*)Obj)->bIsMeetCole = 1;
 }
 const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsMeetCole = { "bIsMeetCole", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(ABoxCollider), &Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsMeetCole_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bIsMeetCole_MetaData), NewProp_bIsMeetCole_MetaData) };
+void Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsGoingToMissingCole_SetBit(void* Obj)
+{
+	((ABoxCollider*)Obj)->bIsGoingToMissingCole = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsGoingToMissingCole = { "bIsGoingToMissingCole", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(ABoxCollider), &Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsGoingToMissingCole_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bIsGoingToMissingCole_MetaData), NewProp_bIsGoingToMissingCole_MetaData) };
 void Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsMissingCole_SetBit(void* Obj)
 {
 	((ABoxCollider*)Obj)->bIsMissingCole = 1;
@@ -242,28 +294,37 @@ void Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsExitReceptionPhone_SetB
 	((ABoxCollider*)Obj)->bIsExitReceptionPhone = 1;
 }
 const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsExitReceptionPhone = { "bIsExitReceptionPhone", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(ABoxCollider), &Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsExitReceptionPhone_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bIsExitReceptionPhone_MetaData), NewProp_bIsExitReceptionPhone_MetaData) };
-void Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsExitWithKeyCard_SetBit(void* Obj)
-{
-	((ABoxCollider*)Obj)->bIsExitWithKeyCard = 1;
-}
-const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsExitWithKeyCard = { "bIsExitWithKeyCard", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(ABoxCollider), &Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsExitWithKeyCard_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bIsExitWithKeyCard_MetaData), NewProp_bIsExitWithKeyCard_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABoxCollider_Statics::NewProp_ToReceptionPhoneTrigActor = { "ToReceptionPhoneTrigActor", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABoxCollider, ToReceptionPhoneTrigActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ToReceptionPhoneTrigActor_MetaData), NewProp_ToReceptionPhoneTrigActor_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABoxCollider_Statics::NewProp_MissingColeTriggerStart = { "MissingColeTriggerStart", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABoxCollider, MissingColeTriggerStart), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_MissingColeTriggerStart_MetaData), NewProp_MissingColeTriggerStart_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABoxCollider_Statics::NewProp_LanternActor = { "LanternActor", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABoxCollider, LanternActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_LanternActor_MetaData), NewProp_LanternActor_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABoxCollider_Statics::NewProp_LanternBrokenActor = { "LanternBrokenActor", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABoxCollider, LanternBrokenActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_LanternBrokenActor_MetaData), NewProp_LanternBrokenActor_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABoxCollider_Statics::NewProp_ColeStorageRoomActor = { "ColeStorageRoomActor", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABoxCollider, ColeStorageRoomActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ColeStorageRoomActor_MetaData), NewProp_ColeStorageRoomActor_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABoxCollider_Statics::NewProp_ElectricKeyActor = { "ElectricKeyActor", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABoxCollider, ElectricKeyActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ElectricKeyActor_MetaData), NewProp_ElectricKeyActor_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABoxCollider_Statics::NewProp_ElectricKey_KeyActor = { "ElectricKey_KeyActor", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABoxCollider, ElectricKey_KeyActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ElectricKey_KeyActor_MetaData), NewProp_ElectricKey_KeyActor_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABoxCollider_Statics::NewProp_ReceptionPhoneActor = { "ReceptionPhoneActor", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABoxCollider, ReceptionPhoneActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ReceptionPhoneActor_MetaData), NewProp_ReceptionPhoneActor_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABoxCollider_Statics::NewProp_ColeState = { "ColeState", nullptr, (EPropertyFlags)0x0020080000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABoxCollider, ColeState), Z_Construct_UClass_ACole_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ColeState_MetaData), NewProp_ColeState_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABoxCollider_Statics::NewProp_EventSteps = { "EventSteps", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABoxCollider, EventSteps), Z_Construct_UClass_AGameplayEvents_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_EventSteps_MetaData), NewProp_EventSteps_MetaData) };
 const UECodeGen_Private::FNamePropertyParams Z_Construct_UClass_ABoxCollider_Statics::NewProp_MichaelTagName = { "MichaelTagName", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Name, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABoxCollider, MichaelTagName), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_MichaelTagName_MetaData), NewProp_MichaelTagName_MetaData) };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABoxCollider_Statics::NewProp_ReceptionPhoneActor = { "ReceptionPhoneActor", nullptr, (EPropertyFlags)0x0020080000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABoxCollider, ReceptionPhoneActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ReceptionPhoneActor_MetaData), NewProp_ReceptionPhoneActor_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ABoxCollider_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABoxCollider_Statics::NewProp_CollisionBox,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsBeforeMeetCole,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsMeetCole,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsGoingToMissingCole,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsMissingCole,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsExitFuseBoxRoom,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsGoingToReceptionPhone,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsExitReceptionPhone,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABoxCollider_Statics::NewProp_bIsExitWithKeyCard,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABoxCollider_Statics::NewProp_ToReceptionPhoneTrigActor,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABoxCollider_Statics::NewProp_MissingColeTriggerStart,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABoxCollider_Statics::NewProp_LanternActor,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABoxCollider_Statics::NewProp_LanternBrokenActor,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABoxCollider_Statics::NewProp_ColeStorageRoomActor,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABoxCollider_Statics::NewProp_ElectricKeyActor,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABoxCollider_Statics::NewProp_ElectricKey_KeyActor,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABoxCollider_Statics::NewProp_ReceptionPhoneActor,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABoxCollider_Statics::NewProp_ColeState,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABoxCollider_Statics::NewProp_EventSteps,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABoxCollider_Statics::NewProp_MichaelTagName,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABoxCollider_Statics::NewProp_ReceptionPhoneActor,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ABoxCollider_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_ABoxCollider_Statics::DependentSingletons[])() = {
@@ -306,10 +367,10 @@ ABoxCollider::~ABoxCollider() {}
 struct Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Triggers_BoxCollider_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ABoxCollider, ABoxCollider::StaticClass, TEXT("ABoxCollider"), &Z_Registration_Info_UClass_ABoxCollider, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABoxCollider), 194787893U) },
+		{ Z_Construct_UClass_ABoxCollider, ABoxCollider::StaticClass, TEXT("ABoxCollider"), &Z_Registration_Info_UClass_ABoxCollider, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABoxCollider), 2388493606U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Triggers_BoxCollider_h_947508560(TEXT("/Script/Into_The_Light"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Triggers_BoxCollider_h_957591112(TEXT("/Script/Into_The_Light"),
 	Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Triggers_BoxCollider_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Triggers_BoxCollider_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

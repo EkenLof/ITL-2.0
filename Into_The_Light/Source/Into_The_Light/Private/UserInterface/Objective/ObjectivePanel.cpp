@@ -42,7 +42,7 @@ void UObjectivePanel::SetInfoText()
 	for (TActorIterator<AFirstPersonCharacter> It(World); It; ++It)
 	{
 		Player = *It;
-		UE_LOG(LogTemp, Error, TEXT("AFirstPersonCharacter Found!"));
+		UE_LOG(LogTemp, Log, TEXT("AFirstPersonCharacter Found!"));
 		break;
 	}
 
@@ -54,41 +54,41 @@ void UObjectivePanel::SetInfoText()
 
 	if (IsValid(Player))
 	{
-		UE_LOG(LogTemp, Error, TEXT("AFirstPersonCharacter Valid!"));
+		UE_LOG(LogTemp, Log, TEXT("AFirstPersonCharacter Valid!"));
 		if (Player->bIsObjectiveFlashlight) // Flashlight
 		{
-			UE_LOG(LogTemp, Error, TEXT("bIsObjectiveFlashlight True!"));
+			UE_LOG(LogTemp, Log, TEXT("bIsObjectiveFlashlight True!"));
 			ActiveText = FText::FromString(TEXT("Go up to Cole."));
 			InfoText(ActiveText);
 		}
 		else if (Player->bIsObjectiveFuseCollected) // Fuse
 		{
-			UE_LOG(LogTemp, Error, TEXT("bIsObjectiveFuseCollected True!"));
+			UE_LOG(LogTemp, Log, TEXT("bIsObjectiveFuseCollected True!"));
 			ActiveText = FText::FromString(TEXT("Head to the Fusebox and place the fuse."));
 			InfoText(ActiveText);
 		}
 		// Finding the fusebox key ADD
 		else if (Player->bIsObjectiveFindElectricKey)
 		{
-			UE_LOG(LogTemp, Error, TEXT("bIsObjectiveFindElectricKey True!"));
+			UE_LOG(LogTemp, Log, TEXT("bIsObjectiveFindElectricKey True!"));
 			ActiveText = FText::FromString(TEXT("Go to the storageroom and find the Electric key."));
 			InfoText(ActiveText);
 		}
 		else if (Player->bIsObjectiveElectricKeyCollected) // Electric key
 		{
-			UE_LOG(LogTemp, Error, TEXT("bIsObjectiveElectricKeyCollected True!"));
+			UE_LOG(LogTemp, Log, TEXT("bIsObjectiveElectricKeyCollected True!"));
 			ActiveText = FText::FromString(TEXT("Head down to the Fusebox and place the fuse."));
 			InfoText(ActiveText);
 		}
 		else if (Player->bIsObjectiveOfficeKeyCollected) // Office KEy
 		{
-			UE_LOG(LogTemp, Error, TEXT("bIsObjectiveOfficeKeyCollected True!"));
+			UE_LOG(LogTemp, Log, TEXT("bIsObjectiveOfficeKeyCollected True!"));
 			ActiveText = FText::FromString(TEXT("Head to the F1 Office."));
 			InfoText(ActiveText);
 		}
 		else if (Player->bIsObjectiveKeycardCollected) // Keycard
 		{
-			UE_LOG(LogTemp, Error, TEXT("bIsObjectiveKeycardCollected True!"));
+			UE_LOG(LogTemp, Log, TEXT("bIsObjectiveKeycardCollected True!"));
 			ActiveText = FText::FromString(TEXT("Head to the Manager's office and find Cole."));
 			InfoText(ActiveText);
 		}

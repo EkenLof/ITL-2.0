@@ -5,6 +5,8 @@
 #include "GameFramework/Actor.h"
 #include "Components/ActorComponent.h"
 #include "Interfaces/InteractionInterface.h"
+#include "Components/AudioComponent.h"
+
 #include "FirstPersonCharacter.generated.h"
 
 class AMainHUD;
@@ -15,6 +17,7 @@ class ABoxCollider;
 class AElevator_System;
 class UObjectivePanel;
 class AWhiteFace;
+class AActorSoundSystem;
 
 USTRUCT()
 struct FInteractionData
@@ -42,6 +45,8 @@ public:
 
 	FORCEINLINE UObjectivePanel* SetObjective() const { return Objective; };
 
+	FORCEINLINE AActorSoundSystem* GetAudio() const { return ActorSoundSystem; };
+
 	FORCEINLINE ABoxCollider* SetTriggerBox() const { return TriggerBox; };
 	//FORCEINLINE AElevator_System* GetInteract() const { return ElevatorSystem; };
 
@@ -54,6 +59,9 @@ public:
 	void UpdateInteractionWidget() const;
 
 	void DropItem(UItemBase* ItemToDrop, const int32 QuantityToDrop);
+
+	// Find and assign the ActorSoundSystem
+	void InitializeActorSoundSystem();
 
 	UFUNCTION(BlueprintCallable, Category = "Event | SubLevels")
 	void LoadSublevel(FName LevelName);
@@ -184,10 +192,21 @@ protected:
 	FName Fuse10A_ToFuseBoxTagName;
 	FName ReceptionPhoneKeyTagName;
 
-	FName Trig3TagName;
+	FName ReceptionPhoneTrigTagName; // Trig4TagName
+	FName ExitFuseB1RoomTrigTagName; // Trig3TagName
+	FName GoingToMissingColeTrigTagName;
 
 	FName WhiteFaceTagName;
 	// --- Tags --- //
+
+	// --- Triggers --- //
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Trigger")
+	AActor* ExitReceptionPhoneTrigActor;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Trigger")
+	AActor* ExitFuseBoxRoomActor;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Trigger")
+	AActor* GoingToMissingColeTrigActor;
+
 	// --- Actors --- //
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")
 	AActor* Fuse10A_InFuseBoxTransActor;
@@ -197,9 +216,6 @@ protected:
 	AActor* ReceptionPhoneKeyActor;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")
 	AActor* WhiteFaceF2Actor;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Trigger")
-	AActor* ExitFuseBoxRoomActor;
 	// --- Actors --- //
 
 	FTimerHandle TimerHandle_Interaction;
@@ -220,6 +236,9 @@ protected:
 	TSubclassOf<UObjectivePanel> ObjectiveClass;
 
 private:
+	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Audio")
+	AActorSoundSystem* ActorSoundSystem;
+
 	UObjectivePanel* Objective;
 
 	UFUNCTION()
