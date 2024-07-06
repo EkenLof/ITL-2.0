@@ -183,7 +183,7 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 		else UE_LOG(LogTemp, Error, TEXT("Objective is null"));
 
 		// STEP
-		if (IsValid(EventSteps)) EventSteps->NextStep(2);
+		//if (IsValid(EventSteps)) EventSteps->NextStep(2);
 		BIsStepActive = true;
 	}
 

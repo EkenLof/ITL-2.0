@@ -43,8 +43,8 @@ AGameplayEvents::AGameplayEvents()
 	LighterTagName = FName(TEXT("Lighter")); // Lighter
 
 	LightsB1Reception_SL = FName(TEXT("LightsB1Reception"));
-	LightsF1_SL = FName(TEXT("LightsF1"));
-	LightsF2_SL = FName(TEXT("LightsF2"));
+	//LightsF1_SL = FName(TEXT("LightsF1"));
+	//LightsF2_SL = FName(TEXT("LightsF2"));
 
 	ReceptionPhoneKeyTagName = FName(TEXT("ReceptionPhone_Key")); // ReceptionPhone_Key
 	// Door_To_OfficeKey
@@ -56,7 +56,7 @@ void AGameplayEvents::BeginPlay()
 {
 	Super::BeginPlay();
 
-	LoadSublevel(LightsB1Reception_SL);
+	//LoadSublevel(LightsB1Reception_SL);
 	
 
 	// Varible Check & assign. 
@@ -67,7 +67,6 @@ void AGameplayEvents::BeginPlay()
 	//InitializeActorSoundSystem();
 
 	ToggleOff(); // Start Values
-	NextStep(1); // Temp. Change to some action to Active for Events
 }
 
 void AGameplayEvents::Tick(float DeltaTime)
@@ -255,7 +254,7 @@ void AGameplayEvents::Step1()
 void AGameplayEvents::Step2() 
 {
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 2 Active---"));
-	LoadSublevel(LightsF2_SL);
+	//LoadSublevel(LightsF2_SL);
 }
 
 void AGameplayEvents::Step3()
