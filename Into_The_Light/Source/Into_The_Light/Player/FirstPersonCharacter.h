@@ -110,7 +110,7 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FirstPersonCharacter | Camera")
 	class UCameraComponent* Camera;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FirstPersonCharacter | Movement")
 	class UCharacterMovementComponent* PlayerMovementsValues = GetCharacterMovement();
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
