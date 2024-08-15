@@ -92,6 +92,8 @@ AFirstPersonCharacter::AFirstPersonCharacter()
 	bIsNeedFlashlight = false;
 	bIsNeedElectricKey = false;
 
+	bIsValueFusePickedUp = false;
+
 	EventSteps = CreateDefaultSubobject<AGameplayEvents>(TEXT("EventSteps"));
 	TriggerBox = CreateDefaultSubobject<ABoxCollider>(TEXT("TriggerBox"));
 	WhiteFace = CreateDefaultSubobject<AWhiteFace>(TEXT("WhiteFace"));
@@ -189,6 +191,8 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 
 	else if (bIsValueFusePickUp) // Fuse10a Pickup
 	{
+		bIsValueFusePickedUp = true;
+
 		// Objective
 		bIsObjectiveFuseCollected = true;
 		bIsObjectiveFlashlight = false;

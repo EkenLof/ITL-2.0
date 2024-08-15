@@ -88,6 +88,8 @@ public:
 	bool bIsObjectiveOfficeKeyCollected;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Value")
 	bool bIsObjectiveKeycardCollected;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Value")
+	bool bIsValueFusePickedUp;
 
 	float WalkSpeed;
 	float RunSpeed;
