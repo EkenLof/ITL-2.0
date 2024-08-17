@@ -39,19 +39,6 @@ struct Z_Construct_UClass_APickUp_Statics
 		{ "IncludePath", "World/PickUp.h" },
 		{ "ModuleRelativePath", "Public/World/PickUp.h" },
 	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_PickupMesh_MetaData[] = {
-		{ "Category", "Pickup | Components" },
-		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "Public/World/PickUp.h" },
-	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ItemReferance_MetaData[] = {
-		{ "Category", "Pickup | Item Referance" },
-		{ "ModuleRelativePath", "Public/World/PickUp.h" },
-	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_InstanceInteractableData_MetaData[] = {
-		{ "Category", "Pickup | Interaction" },
-		{ "ModuleRelativePath", "Public/World/PickUp.h" },
-	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ItemQuantity_MetaData[] = {
 		{ "Category", "Pickup | Item Initialization" },
 		{ "ModuleRelativePath", "Public/World/PickUp.h" },
@@ -66,12 +53,25 @@ struct Z_Construct_UClass_APickUp_Statics
 		{ "ToolTip", "NEW VERSION" },
 #endif
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_PickupMesh_MetaData[] = {
+		{ "Category", "Pickup | Components" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Public/World/PickUp.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ItemReferance_MetaData[] = {
+		{ "Category", "Pickup | Item Referance" },
+		{ "ModuleRelativePath", "Public/World/PickUp.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_InstanceInteractableData_MetaData[] = {
+		{ "Category", "Pickup | Interaction" },
+		{ "ModuleRelativePath", "Public/World/PickUp.h" },
+	};
 #endif // WITH_METADATA
+	static const UECodeGen_Private::FIntPropertyParams NewProp_ItemQuantity;
+	static const UECodeGen_Private::FStructPropertyParams NewProp_ItemRowHandle;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_PickupMesh;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_ItemReferance;
 	static const UECodeGen_Private::FStructPropertyParams NewProp_InstanceInteractableData;
-	static const UECodeGen_Private::FIntPropertyParams NewProp_ItemQuantity;
-	static const UECodeGen_Private::FStructPropertyParams NewProp_ItemRowHandle;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static const UECodeGen_Private::FImplementedInterfaceParams InterfaceParams[];
@@ -80,17 +80,17 @@ struct Z_Construct_UClass_APickUp_Statics
 	};
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_APickUp_Statics::NewProp_ItemQuantity = { "ItemQuantity", nullptr, (EPropertyFlags)0x0020080000000801, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(APickUp, ItemQuantity), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ItemQuantity_MetaData), NewProp_ItemQuantity_MetaData) };
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_APickUp_Statics::NewProp_ItemRowHandle = { "ItemRowHandle", nullptr, (EPropertyFlags)0x0020080000000801, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(APickUp, ItemRowHandle), Z_Construct_UScriptStruct_FDataTableRowHandle, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ItemRowHandle_MetaData), NewProp_ItemRowHandle_MetaData) }; // 1360917958
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_APickUp_Statics::NewProp_PickupMesh = { "PickupMesh", nullptr, (EPropertyFlags)0x00200800000a0009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(APickUp, PickupMesh), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_PickupMesh_MetaData), NewProp_PickupMesh_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_APickUp_Statics::NewProp_ItemReferance = { "ItemReferance", nullptr, (EPropertyFlags)0x0020080000020001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(APickUp, ItemReferance), Z_Construct_UClass_UItemBase_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ItemReferance_MetaData), NewProp_ItemReferance_MetaData) };
 const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_APickUp_Statics::NewProp_InstanceInteractableData = { "InstanceInteractableData", nullptr, (EPropertyFlags)0x0020080000020801, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(APickUp, InstanceInteractableData), Z_Construct_UScriptStruct_FInteractableData, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_InstanceInteractableData_MetaData), NewProp_InstanceInteractableData_MetaData) }; // 3223735885
-const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_APickUp_Statics::NewProp_ItemQuantity = { "ItemQuantity", nullptr, (EPropertyFlags)0x0020080000000801, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(APickUp, ItemQuantity), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ItemQuantity_MetaData), NewProp_ItemQuantity_MetaData) };
-const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_APickUp_Statics::NewProp_ItemRowHandle = { "ItemRowHandle", nullptr, (EPropertyFlags)0x0020080000000801, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(APickUp, ItemRowHandle), Z_Construct_UScriptStruct_FDataTableRowHandle, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ItemRowHandle_MetaData), NewProp_ItemRowHandle_MetaData) }; // 1360917958
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_APickUp_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APickUp_Statics::NewProp_ItemQuantity,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APickUp_Statics::NewProp_ItemRowHandle,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APickUp_Statics::NewProp_PickupMesh,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APickUp_Statics::NewProp_ItemReferance,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APickUp_Statics::NewProp_InstanceInteractableData,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APickUp_Statics::NewProp_ItemQuantity,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APickUp_Statics::NewProp_ItemRowHandle,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_APickUp_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_APickUp_Statics::DependentSingletons[])() = {
@@ -136,10 +136,10 @@ APickUp::~APickUp() {}
 struct Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_World_PickUp_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_APickUp, APickUp::StaticClass, TEXT("APickUp"), &Z_Registration_Info_UClass_APickUp, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(APickUp), 1926486079U) },
+		{ Z_Construct_UClass_APickUp, APickUp::StaticClass, TEXT("APickUp"), &Z_Registration_Info_UClass_APickUp, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(APickUp), 4197107839U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_World_PickUp_h_2064933476(TEXT("/Script/Into_The_Light"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_World_PickUp_h_2602516732(TEXT("/Script/Into_The_Light"),
 	Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_World_PickUp_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_World_PickUp_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

@@ -399,7 +399,7 @@ void AFirstPersonCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInp
 
 	PlayerInputComponent->BindAction("Flashlight", IE_Pressed, this, &AFirstPersonCharacter::UseFlashlight);
 
-	PlayerInputComponent->BindAction("Interact", IE_Pressed, this, &AFirstPersonCharacter::BeginInteract);
+	PlayerInputComponent->BindAction("Interact", IE_Pressed, this, &AFirstPersonCharacter::BeginInteract); // For Inventory Pick Up
 	PlayerInputComponent->BindAction("Interact", IE_Released, this, &AFirstPersonCharacter::EndInteract);
 
 	PlayerInputComponent->BindAction("ToggleMenu", IE_Pressed, this, &AFirstPersonCharacter::ToggleMenu);
@@ -828,7 +828,7 @@ void AFirstPersonCharacter::NoInteractableFound()
 	}
 }
 
-void AFirstPersonCharacter::BeginInteract()
+void AFirstPersonCharacter::BeginInteract() //At Picking Up.
 {
 	// Verify nothing had changed with the interactable state since beginning interaction
 	PerformInteractionCheck();
@@ -837,9 +837,9 @@ void AFirstPersonCharacter::BeginInteract()
 	{
 		if (IsValid(TargetInteractable.GetObject()))
 		{
-			TargetInteractable->BeginInteract();
+			TargetInteractable->BeginInteract(); ////////////////////////////--- InteractionInterface.cpp ---//////////////////////////////
 
-			if (FMath::IsNearlyZero(TargetInteractable->InteractableData.InteractionDuration, 0.1f))
+			if (FMath::IsNearlyZero(TargetInteractable->InteractableData.InteractionDuration, 0.1f)) // Interact Start??
 			{
 				Interact();
 			}

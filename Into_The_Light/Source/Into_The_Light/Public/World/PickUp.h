@@ -28,15 +28,6 @@ public:
 	FORCEINLINE UItemBase* GetItemData() { return ItemReferance; }
 
 protected:
-	UPROPERTY (VisibleAnywhere, Category = "Pickup | Components")
-	UStaticMeshComponent* PickupMesh;
-
-	UPROPERTY(VisibleAnywhere, Category = "Pickup | Item Referance")
-	UItemBase* ItemReferance;
-
-	UPROPERTY(VisibleInstanceOnly, Category = "Pickup | Interaction")
-	FInteractableData InstanceInteractableData;
-
 	UPROPERTY(EditInstanceOnly, Category = "Pickup | Item Initialization")
 	int32 ItemQuantity;
 
@@ -52,6 +43,15 @@ protected:
 	// NEW VERSION
 	UPROPERTY(EditInstanceOnly, Category = "Pickup | Item Initialization")
 	FDataTableRowHandle ItemRowHandle;
+
+	UPROPERTY (VisibleAnywhere, Category = "Pickup | Components")
+	UStaticMeshComponent* PickupMesh;
+
+	UPROPERTY(VisibleAnywhere, Category = "Pickup | Item Referance")
+	UItemBase* ItemReferance;
+
+	UPROPERTY(VisibleInstanceOnly, Category = "Pickup | Interaction")
+	FInteractableData InstanceInteractableData;
 
 	virtual void BeginPlay() override;
 

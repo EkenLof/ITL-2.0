@@ -72,10 +72,39 @@ FReply UInventoryItemSlot::NativeOnMouseButtonDown(const FGeometry& InGeometry, 
 
 	if (InMouseEvent.GetEffectingButton() == EKeys::LeftMouseButton)
 	{
-		return Reply.Handled().DetectDrag(TakeWidget(), EKeys::LeftMouseButton);
+		FString FlashlightText = "Flashlight";
+		FString LighterText = "Lighter";
+
+		FString OfficeKeyText = "Office Key";
+		FString ColeKeycardText = "Cole's Keycard";
+		FString ElectricKeyText = "Electic Key";
+		FString Fuse10aText = "Fuse 10A";
+
+		FString ItemClickOrDragTemp = ItemReference->ItemTextData.Name.ToString();
+
+		if (ItemClickOrDragTemp == FlashlightText || 
+			ItemClickOrDragTemp == LighterText ||
+			ItemClickOrDragTemp == OfficeKeyText ||
+			ItemClickOrDragTemp == ColeKeycardText ||
+			ItemClickOrDragTemp == ElectricKeyText ||
+			ItemClickOrDragTemp == Fuse10aText)
+		{
+			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---UI Item_Not_Dropable---"));
+
+			return FReply::Handled();
+		}
+		else
+		{
+			return Reply.Handled().DetectDrag(TakeWidget(), EKeys::LeftMouseButton);
+		}
+	}
+	else if (InMouseEvent.GetEffectingButton() == EKeys::RightMouseButton) 	// SubMenu RightClick.
+	{
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---UI R_Interact---"));
+
+		return FReply::Handled();
 	}
 
-	// SubMenu RightClick.
 
 	return Reply.Unhandled();
 }

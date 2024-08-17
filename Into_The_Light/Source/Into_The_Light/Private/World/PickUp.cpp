@@ -68,7 +68,7 @@ void APickUp::UpdateInteractableData()
 	InteractableData = InstanceInteractableData;
 }
 
-void APickUp::BeginFocus()
+void APickUp::BeginFocus() // Looking at Pick-up
 {
 	if (PickupMesh)
 	{
@@ -76,7 +76,7 @@ void APickUp::BeginFocus()
 	}
 }
 
-void APickUp::EndFocus()
+void APickUp::EndFocus() // Not looking at Pick-up
 {
 	if (PickupMesh)
 	{
