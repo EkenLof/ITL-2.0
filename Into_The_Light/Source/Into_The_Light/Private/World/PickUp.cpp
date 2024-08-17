@@ -1,4 +1,5 @@
 #include "World/PickUp.h"
+
 #include "Components/InventoryComponent.h"
 #include "Items/ItemBase.h"
 
@@ -21,9 +22,16 @@ void APickUp::BeginPlay()
 
 void APickUp::InitializePickup(const TSubclassOf<UItemBase> BaseClase, const int32 InQuantity)
 {
+	// OLD
+	/*
 	if (ItemDataTable && !DesiredItemID.IsNone())
 	{
 		const FItemData* ItemData = ItemDataTable->FindRow<FItemData>(DesiredItemID, DesiredItemID.ToString());
+	*/
+	// NEW
+	if (!ItemRowHandle.IsNull())
+	{
+		const FItemData* ItemData = ItemRowHandle.GetRow<FItemData>(ItemRowHandle.RowName.ToString());
 
 		ItemReferance = NewObject<UItemBase>(this, BaseClase);
 
@@ -120,12 +128,15 @@ void APickUp::TakePickup(const AFirstPersonCharacter* Taker)
 	}
 }
 
+#if WITH_EDITOR
 void APickUp::PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent)
 {
 	Super::PostEditChangeProperty(PropertyChangedEvent);
 
 	const FName ChangedPropertyName = PropertyChangedEvent.Property ? PropertyChangedEvent.Property->GetFName() : NAME_None;
-
+	
+	// OLD
+	/*
 	if (ChangedPropertyName == GET_MEMBER_NAME_CHECKED(APickUp, DesiredItemID))
 	{
 		if (const FItemData* ItemData = ItemDataTable->FindRow<FItemData>(DesiredItemID, DesiredItemID.ToString()))
@@ -133,5 +144,16 @@ void APickUp::PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent
 			PickupMesh->SetStaticMesh(ItemData->ItemAssetData.Mesh);
 		}
 	}
-}
+	*/
 
+	// NEW
+	if (ChangedPropertyName == GET_MEMBER_NAME_CHECKED(FDataTableRowHandle, RowName))
+	{
+		if (!ItemRowHandle.IsNull())
+		{
+			const FItemData* ItemData = ItemRowHandle.GetRow<FItemData>(ItemRowHandle.RowName.ToString());
+			PickupMesh->SetStaticMesh(ItemData->ItemAssetData.Mesh);
+		}
+	}
+}
+#endif

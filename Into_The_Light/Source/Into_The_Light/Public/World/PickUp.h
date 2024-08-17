@@ -2,8 +2,8 @@
 
 #include "Interfaces/InteractionInterface.h"
 #include "..\Player/FirstPersonCharacter.h"
-
 #include "CoreMinimal.h"
+#include "Engine/DataTable.h"
 #include "GameFramework/Actor.h"
 #include "PickUp.generated.h"
 
@@ -31,20 +31,27 @@ protected:
 	UPROPERTY (VisibleAnywhere, Category = "Pickup | Components")
 	UStaticMeshComponent* PickupMesh;
 
+	UPROPERTY(VisibleAnywhere, Category = "Pickup | Item Referance")
+	UItemBase* ItemReferance;
+
+	UPROPERTY(VisibleInstanceOnly, Category = "Pickup | Interaction")
+	FInteractableData InstanceInteractableData;
+
+	UPROPERTY(EditInstanceOnly, Category = "Pickup | Item Initialization")
+	int32 ItemQuantity;
+
+	// OLD VERSION
+	/*
 	UPROPERTY(EditInstanceOnly, Category = "Pickup | Item Initialization")
 	UDataTable* ItemDataTable;
 
 	UPROPERTY(EditInstanceOnly, Category = "Pickup | Item Initialization")
 	FName DesiredItemID;
+	*/
 
-	UPROPERTY(VisibleAnywhere, Category = "Pickup | Item Referance")
-	UItemBase* ItemReferance;
-
+	// NEW VERSION
 	UPROPERTY(EditInstanceOnly, Category = "Pickup | Item Initialization")
-	int32 ItemQuantity;
-
-	UPROPERTY(VisibleInstanceOnly, Category = "Pickup | Interaction")
-	FInteractableData InstanceInteractableData;
+	FDataTableRowHandle ItemRowHandle;
 
 	virtual void BeginPlay() override;
 

@@ -25,7 +25,7 @@ void UInventoryComponent::ExposeItem(UItemBase* ItemOut)
 {
 	FString ItemInTemp = ItemOut->ItemTextData.Name.ToString();
 
-	if (ItemInTemp == Flashlight)
+	if (ItemInTemp == Flashlight) // FString Flashlight = "Flashlight";
 	{
 		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Purple, TEXT("Flaslight Pick-Up-List is ---TRUE---"));
 		IsFlshlight = true;
