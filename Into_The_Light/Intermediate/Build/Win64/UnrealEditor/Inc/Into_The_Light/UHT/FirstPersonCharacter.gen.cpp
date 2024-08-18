@@ -24,6 +24,7 @@ INTO_THE_LIGHT_API UClass* Z_Construct_UClass_AFirstPersonCharacter();
 INTO_THE_LIGHT_API UClass* Z_Construct_UClass_AFirstPersonCharacter_NoRegister();
 INTO_THE_LIGHT_API UClass* Z_Construct_UClass_UInteractionInterface_NoRegister();
 INTO_THE_LIGHT_API UClass* Z_Construct_UClass_UInventoryComponent_NoRegister();
+INTO_THE_LIGHT_API UClass* Z_Construct_UClass_UInventoryItemSlot_NoRegister();
 INTO_THE_LIGHT_API UClass* Z_Construct_UClass_UObjectivePanel_NoRegister();
 INTO_THE_LIGHT_API UScriptStruct* Z_Construct_UScriptStruct_FInteractionData();
 UPackage* Z_Construct_UPackage__Script_Into_The_Light();
@@ -234,6 +235,18 @@ struct Z_Construct_UClass_AFirstPersonCharacter_Statics
 		{ "IncludePath", "Player/FirstPersonCharacter.h" },
 		{ "ModuleRelativePath", "Player/FirstPersonCharacter.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bIsFuse10a_MetaData[] = {
+		{ "Category", "Inventory | Items" },
+		{ "ModuleRelativePath", "Player/FirstPersonCharacter.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bIsElectricKey_MetaData[] = {
+		{ "Category", "Inventory | Items" },
+		{ "ModuleRelativePath", "Player/FirstPersonCharacter.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bIsOfficeKey_MetaData[] = {
+		{ "Category", "Inventory | Items" },
+		{ "ModuleRelativePath", "Player/FirstPersonCharacter.h" },
+	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bIsObjectiveFlashlight_MetaData[] = {
 		{ "Category", "Event | Value" },
 		{ "ModuleRelativePath", "Player/FirstPersonCharacter.h" },
@@ -266,6 +279,16 @@ struct Z_Construct_UClass_AFirstPersonCharacter_Statics
 		{ "Category", "Event | Assign" },
 		{ "ModuleRelativePath", "Player/FirstPersonCharacter.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_FlashlightMesh_MetaData[] = {
+		{ "Category", "FirstPersonCharacter" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Player/FirstPersonCharacter.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_RightHandMesh_MetaData[] = {
+		{ "Category", "FirstPersonCharacter" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Player/FirstPersonCharacter.h" },
+	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Camera_MetaData[] = {
 		{ "Category", "FirstPersonCharacter | Camera" },
 #if !UE_BUILD_SHIPPING
@@ -279,11 +302,6 @@ struct Z_Construct_UClass_AFirstPersonCharacter_Statics
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_PlayerMovementsValues_MetaData[] = {
 		{ "Category", "FirstPersonCharacter | Movement" },
-		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "Player/FirstPersonCharacter.h" },
-	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_FlashlightMesh_MetaData[] = {
-		{ "Category", "FirstPersonCharacter" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Player/FirstPersonCharacter.h" },
 	};
@@ -349,6 +367,11 @@ struct Z_Construct_UClass_AFirstPersonCharacter_Statics
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Player/FirstPersonCharacter.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_PlayerInventoryItemSlot_MetaData[] = {
+		{ "Category", "Character | Inventory" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Player/FirstPersonCharacter.h" },
+	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_InteractionCheckFrequency_MetaData[] = {
 		{ "Category", "FirstPersonCharacter" },
 		{ "ModuleRelativePath", "Player/FirstPersonCharacter.h" },
@@ -410,6 +433,12 @@ struct Z_Construct_UClass_AFirstPersonCharacter_Statics
 		{ "ModuleRelativePath", "Player/FirstPersonCharacter.h" },
 	};
 #endif // WITH_METADATA
+	static void NewProp_bIsFuse10a_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsFuse10a;
+	static void NewProp_bIsElectricKey_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsElectricKey;
+	static void NewProp_bIsOfficeKey_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsOfficeKey;
 	static void NewProp_bIsObjectiveFlashlight_SetBit(void* Obj);
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsObjectiveFlashlight;
 	static void NewProp_bIsObjectiveFuseCollected_SetBit(void* Obj);
@@ -425,9 +454,10 @@ struct Z_Construct_UClass_AFirstPersonCharacter_Statics
 	static void NewProp_bIsValueFusePickedUp_SetBit(void* Obj);
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsValueFusePickedUp;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_ElevatorSystem;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_FlashlightMesh;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_RightHandMesh;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_Camera;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_PlayerMovementsValues;
-	static const UECodeGen_Private::FObjectPropertyParams NewProp_FlashlightMesh;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_WalkForwardAnim;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_WalkBackwardAnim;
 	static void NewProp_isFlashlightEquiped_SetBit(void* Obj);
@@ -443,6 +473,7 @@ struct Z_Construct_UClass_AFirstPersonCharacter_Statics
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_UiMeshComponent;
 	static const UECodeGen_Private::FInterfacePropertyParams NewProp_TargetInteractable;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_PlayerInventory;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_PlayerInventoryItemSlot;
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_InteractionCheckFrequency;
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_InteractionCheckDistance;
 	static void NewProp_bIsNeedFlashlight_SetBit(void* Obj);
@@ -470,6 +501,21 @@ struct Z_Construct_UClass_AFirstPersonCharacter_Statics
 	};
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
+void Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsFuse10a_SetBit(void* Obj)
+{
+	((AFirstPersonCharacter*)Obj)->bIsFuse10a = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsFuse10a = { "bIsFuse10a", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AFirstPersonCharacter), &Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsFuse10a_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bIsFuse10a_MetaData), NewProp_bIsFuse10a_MetaData) };
+void Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsElectricKey_SetBit(void* Obj)
+{
+	((AFirstPersonCharacter*)Obj)->bIsElectricKey = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsElectricKey = { "bIsElectricKey", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AFirstPersonCharacter), &Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsElectricKey_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bIsElectricKey_MetaData), NewProp_bIsElectricKey_MetaData) };
+void Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsOfficeKey_SetBit(void* Obj)
+{
+	((AFirstPersonCharacter*)Obj)->bIsOfficeKey = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsOfficeKey = { "bIsOfficeKey", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AFirstPersonCharacter), &Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsOfficeKey_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bIsOfficeKey_MetaData), NewProp_bIsOfficeKey_MetaData) };
 void Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsObjectiveFlashlight_SetBit(void* Obj)
 {
 	((AFirstPersonCharacter*)Obj)->bIsObjectiveFlashlight = 1;
@@ -506,9 +552,10 @@ void Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsValueFusePicke
 }
 const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsValueFusePickedUp = { "bIsValueFusePickedUp", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AFirstPersonCharacter), &Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsValueFusePickedUp_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bIsValueFusePickedUp_MetaData), NewProp_bIsValueFusePickedUp_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_ElevatorSystem = { "ElevatorSystem", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFirstPersonCharacter, ElevatorSystem), Z_Construct_UClass_AElevator_System_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ElevatorSystem_MetaData), NewProp_ElevatorSystem_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_FlashlightMesh = { "FlashlightMesh", nullptr, (EPropertyFlags)0x001000000008000d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFirstPersonCharacter, FlashlightMesh), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_FlashlightMesh_MetaData), NewProp_FlashlightMesh_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_RightHandMesh = { "RightHandMesh", nullptr, (EPropertyFlags)0x001000000008000d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFirstPersonCharacter, RightHandMesh), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_RightHandMesh_MetaData), NewProp_RightHandMesh_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_Camera = { "Camera", nullptr, (EPropertyFlags)0x002008000008000d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFirstPersonCharacter, Camera), Z_Construct_UClass_UCameraComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Camera_MetaData), NewProp_Camera_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_PlayerMovementsValues = { "PlayerMovementsValues", nullptr, (EPropertyFlags)0x002008000008000d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFirstPersonCharacter, PlayerMovementsValues), Z_Construct_UClass_UCharacterMovementComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_PlayerMovementsValues_MetaData), NewProp_PlayerMovementsValues_MetaData) };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_FlashlightMesh = { "FlashlightMesh", nullptr, (EPropertyFlags)0x002008000008000d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFirstPersonCharacter, FlashlightMesh), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_FlashlightMesh_MetaData), NewProp_FlashlightMesh_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_WalkForwardAnim = { "WalkForwardAnim", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFirstPersonCharacter, WalkForwardAnim), Z_Construct_UClass_UAnimSequence_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_WalkForwardAnim_MetaData), NewProp_WalkForwardAnim_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_WalkBackwardAnim = { "WalkBackwardAnim", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFirstPersonCharacter, WalkBackwardAnim), Z_Construct_UClass_UAnimSequence_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_WalkBackwardAnim_MetaData), NewProp_WalkBackwardAnim_MetaData) };
 void Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_isFlashlightEquiped_SetBit(void* Obj)
@@ -536,6 +583,7 @@ const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFirstPersonCh
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_UiMeshComponent = { "UiMeshComponent", nullptr, (EPropertyFlags)0x0020080000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFirstPersonCharacter, UiMeshComponent), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_UiMeshComponent_MetaData), NewProp_UiMeshComponent_MetaData) };
 const UECodeGen_Private::FInterfacePropertyParams Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_TargetInteractable = { "TargetInteractable", nullptr, (EPropertyFlags)0x0024080000020001, UECodeGen_Private::EPropertyGenFlags::Interface, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFirstPersonCharacter, TargetInteractable), Z_Construct_UClass_UInteractionInterface_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_TargetInteractable_MetaData), NewProp_TargetInteractable_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_PlayerInventory = { "PlayerInventory", nullptr, (EPropertyFlags)0x00200800000a0009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFirstPersonCharacter, PlayerInventory), Z_Construct_UClass_UInventoryComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_PlayerInventory_MetaData), NewProp_PlayerInventory_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_PlayerInventoryItemSlot = { "PlayerInventoryItemSlot", nullptr, (EPropertyFlags)0x00200800000a0009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFirstPersonCharacter, PlayerInventoryItemSlot), Z_Construct_UClass_UInventoryItemSlot_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_PlayerInventoryItemSlot_MetaData), NewProp_PlayerInventoryItemSlot_MetaData) };
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_InteractionCheckFrequency = { "InteractionCheckFrequency", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFirstPersonCharacter, InteractionCheckFrequency), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_InteractionCheckFrequency_MetaData), NewProp_InteractionCheckFrequency_MetaData) };
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_InteractionCheckDistance = { "InteractionCheckDistance", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFirstPersonCharacter, InteractionCheckDistance), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_InteractionCheckDistance_MetaData), NewProp_InteractionCheckDistance_MetaData) };
 void Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsNeedFlashlight_SetBit(void* Obj)
@@ -557,6 +605,9 @@ const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFirstPersonCh
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_WhiteFaceF2Actor = { "WhiteFaceF2Actor", nullptr, (EPropertyFlags)0x0020080000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFirstPersonCharacter, WhiteFaceF2Actor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_WhiteFaceF2Actor_MetaData), NewProp_WhiteFaceF2Actor_MetaData) };
 const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_ObjectiveClass = { "ObjectiveClass", nullptr, (EPropertyFlags)0x0024080000000005, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFirstPersonCharacter, ObjectiveClass), Z_Construct_UClass_UClass, Z_Construct_UClass_UObjectivePanel_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ObjectiveClass_MetaData), NewProp_ObjectiveClass_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AFirstPersonCharacter_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsFuse10a,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsElectricKey,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsOfficeKey,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsObjectiveFlashlight,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsObjectiveFuseCollected,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsObjectiveFindElectricKey,
@@ -565,9 +616,10 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AFirstPer
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsObjectiveKeycardCollected,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsValueFusePickedUp,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_ElevatorSystem,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_FlashlightMesh,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_RightHandMesh,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_Camera,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_PlayerMovementsValues,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_FlashlightMesh,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_WalkForwardAnim,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_WalkBackwardAnim,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_isFlashlightEquiped,
@@ -579,6 +631,7 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AFirstPer
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_UiMeshComponent,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_TargetInteractable,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_PlayerInventory,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_PlayerInventoryItemSlot,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_InteractionCheckFrequency,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_InteractionCheckDistance,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsNeedFlashlight,
@@ -636,10 +689,10 @@ struct Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Sou
 		{ FInteractionData::StaticStruct, Z_Construct_UScriptStruct_FInteractionData_Statics::NewStructOps, TEXT("InteractionData"), &Z_Registration_Info_UScriptStruct_InteractionData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FInteractionData), 2377451553U) },
 	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AFirstPersonCharacter, AFirstPersonCharacter::StaticClass, TEXT("AFirstPersonCharacter"), &Z_Registration_Info_UClass_AFirstPersonCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFirstPersonCharacter), 3789782987U) },
+		{ Z_Construct_UClass_AFirstPersonCharacter, AFirstPersonCharacter::StaticClass, TEXT("AFirstPersonCharacter"), &Z_Registration_Info_UClass_AFirstPersonCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFirstPersonCharacter), 2847911368U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Player_FirstPersonCharacter_h_1236384995(TEXT("/Script/Into_The_Light"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Player_FirstPersonCharacter_h_615458029(TEXT("/Script/Into_The_Light"),
 	Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Player_FirstPersonCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Player_FirstPersonCharacter_h_Statics::ClassInfo),
 	Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Player_FirstPersonCharacter_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Player_FirstPersonCharacter_h_Statics::ScriptStructInfo),
 	nullptr, 0);

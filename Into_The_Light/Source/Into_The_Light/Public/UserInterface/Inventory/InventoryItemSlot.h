@@ -20,6 +20,13 @@ public:
 	FORCEINLINE void SetItemReference(UItemBase* ItemIn) { ItemReference = ItemIn; };
 	FORCEINLINE UItemBase* GetItemReference() const { return ItemReference; };
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory | Items")
+	bool bIsFuse10a;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory | Items")
+	bool bIsElectricKey;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory | Items")
+	bool bIsOfficeKey;
+
 protected:
 	UPROPERTY(EditDefaultsOnly, Category = "Inventory Slot")
 	TSubclassOf<UDragItemVisual> DragItemVisualClass;

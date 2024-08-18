@@ -1,6 +1,7 @@
 #include "FirstPersonCharacter.h"
 
 #include "Components/InventoryComponent.h"
+#include "UserInterface/Inventory/InventoryItemSlot.h"
 #include "Camera/CameraComponent.h"
 #include "World/PickUp.h"
 #include "Items/ItemBase.h" // Test for witch item is picked up
@@ -51,7 +52,6 @@ AFirstPersonCharacter::AFirstPersonCharacter()
 		ObjectiveClass = WidgetBPClass.Class;
 	}
 
-	//PlayerMovementsValues->MaxWalkSpeed = WalkSpeed;
 	WalkSpeed = 187.5;
 	RunSpeed = 437.5;
 
@@ -63,14 +63,23 @@ AFirstPersonCharacter::AFirstPersonCharacter()
 	Camera->bUsePawnControlRotation = true;
 
 	FlashlightMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("FlashlightMesh"));
-	FlashlightMesh->SetupAttachment(GetMesh(), FName("Light-Holder"));
+	FlashlightMesh->SetupAttachment(GetMesh(), FName("Light-Holder")); // Light-Holder
+
+	RightHandMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("RightHandMesh"));
+	RightHandMesh->SetupAttachment(GetMesh(), FName("Hand_Socket_R")); // Hand_Socket_R
 
 	PlayerInventory = CreateDefaultSubobject<UInventoryComponent>(TEXT("PlayerInventory"));
 	PlayerInventory->SetSlotsCapacity(30); // 20 YT
 	PlayerInventory->SetWeightCapacity(80.0f); // 50 YT
 
+	PlayerInventoryItemSlot = CreateDefaultSubobject<UInventoryItemSlot>(TEXT("PlayerInventoryItemSlot"));
+
 	InteractionCheckFrequency = 0.1; // Interaction time update
 	InteractionCheckDistance = 200.0f; // Check if all distances match
+
+	bIsFuse10a = false;
+	bIsElectricKey = false;
+	bIsOfficeKey = false;
 
 	BIsStepActive = false;
 	bIsTempOnOff = false;
@@ -160,6 +169,10 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 	//if (bIsUiActive)
 	//{}
 	UWorld* World = GetWorld();
+
+	bIsFuse10a = PlayerInventoryItemSlot->bIsFuse10a;
+	bIsElectricKey = PlayerInventoryItemSlot->bIsElectricKey;
+	bIsOfficeKey = PlayerInventoryItemSlot->bIsOfficeKey;
 
 	bool bIsValueFlashlightPickUP = PlayerInventory->IsFlshlight && !BIsStepActive && !PlayerInventory->IsFuse10a && !PlayerInventory->bIsOfficeKey && !PlayerInventory->IsColeKeycard;
 	bool bIsValueFusePickUp = PlayerInventory->IsFuse10a && !PlayerInventory->IsElectricKey && BIsStepActive && !PlayerInventory->bIsOfficeKey && !PlayerInventory->IsColeKeycard;

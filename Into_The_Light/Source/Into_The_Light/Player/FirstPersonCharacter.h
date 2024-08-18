@@ -6,7 +6,6 @@
 #include "Components/ActorComponent.h"
 #include "Interfaces/InteractionInterface.h"
 #include "Components/AudioComponent.h"
-
 #include "FirstPersonCharacter.generated.h"
 
 class AMainHUD;
@@ -18,6 +17,7 @@ class AElevator_System;
 class UObjectivePanel;
 class AWhiteFace;
 class AActorSoundSystem;
+class UInventoryItemSlot;
 
 USTRUCT()
 struct FInteractionData
@@ -53,6 +53,7 @@ public:
 	FORCEINLINE AGameplayEvents* SetEventStep() const { return EventSteps; };
 	FORCEINLINE bool IsInteracting() const { return GetWorldTimerManager().IsTimerActive(TimerHandle_Interaction); };
 	FORCEINLINE UInventoryComponent* GetInventory() const { return PlayerInventory; };
+	FORCEINLINE UInventoryItemSlot* GetInventoryItemSlot() const { return PlayerInventoryItemSlot; };
 
 	FORCEINLINE AWhiteFace* SetWhiteFace() const { return WhiteFace; };
 
@@ -76,6 +77,13 @@ public:
 	bool isWalkingForward;
 	bool isWalkingBackward;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory | Items")
+	bool bIsFuse10a;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory | Items")
+	bool bIsElectricKey;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory | Items")
+	bool bIsOfficeKey;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Value")
 	bool bIsObjectiveFlashlight;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Value")
@@ -97,6 +105,12 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign")
 	AElevator_System* ElevatorSystem;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	class UStaticMeshComponent* FlashlightMesh;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	class UStaticMeshComponent* RightHandMesh;
+
 protected:
 	virtual void BeginPlay() override;
 
@@ -114,9 +128,6 @@ protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FirstPersonCharacter | Movement")
 	class UCharacterMovementComponent* PlayerMovementsValues = GetCharacterMovement();
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	class UStaticMeshComponent* FlashlightMesh;
 
 	UPROPERTY(EditAnyWhere)
 	class UAnimSequence* WalkForwardAnim;
@@ -163,6 +174,9 @@ protected:
 
 	UPROPERTY(VisibleAnywhere, Category = "Character | Inventory")
 	UInventoryComponent* PlayerInventory;
+
+	UPROPERTY(VisibleAnywhere, Category = "Character | Inventory")
+	UInventoryItemSlot* PlayerInventoryItemSlot;
 
 	UPROPERTY(EditAnywhere)
 	float InteractionCheckFrequency;

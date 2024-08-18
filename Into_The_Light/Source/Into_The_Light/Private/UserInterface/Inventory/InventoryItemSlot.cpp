@@ -70,18 +70,18 @@ FReply UInventoryItemSlot::NativeOnMouseButtonDown(const FGeometry& InGeometry, 
 {
 	FReply Reply = Super::NativeOnMouseButtonDown(InGeometry, InMouseEvent);
 
+	FString ItemClickOrDragTemp = ItemReference->ItemTextData.Name.ToString();
+
+	FString FlashlightText = "Flashlight";
+	FString LighterText = "Lighter";
+
+	FString OfficeKeyText = "Office Key";
+	FString ElectricKeyText = "Electic Key";
+	FString Fuse10aText = "Fuse 10A";
+	FString ColeKeycardText = "Cole's Keycard";
+
 	if (InMouseEvent.GetEffectingButton() == EKeys::LeftMouseButton)
 	{
-		FString FlashlightText = "Flashlight";
-		FString LighterText = "Lighter";
-
-		FString OfficeKeyText = "Office Key";
-		FString ColeKeycardText = "Cole's Keycard";
-		FString ElectricKeyText = "Electic Key";
-		FString Fuse10aText = "Fuse 10A";
-
-		FString ItemClickOrDragTemp = ItemReference->ItemTextData.Name.ToString();
-
 		if (ItemClickOrDragTemp == FlashlightText || 
 			ItemClickOrDragTemp == LighterText ||
 			ItemClickOrDragTemp == OfficeKeyText ||
@@ -101,6 +101,47 @@ FReply UInventoryItemSlot::NativeOnMouseButtonDown(const FGeometry& InGeometry, 
 	else if (InMouseEvent.GetEffectingButton() == EKeys::RightMouseButton) 	// SubMenu RightClick.
 	{
 		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---UI R_Interact---"));
+
+		if (ItemClickOrDragTemp == Fuse10aText)
+		{
+			bIsFuse10a = true;
+			bIsElectricKey = false;
+			bIsOfficeKey = false;
+
+			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---UI Fuse10A_Selected---"));
+
+			return FReply::Handled();
+		}
+		else if (ItemClickOrDragTemp == ElectricKeyText)
+		{
+			bIsElectricKey = true;
+			bIsFuse10a = false;
+			bIsOfficeKey = false;
+
+			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---UI ElectricKey_Selected---"));
+
+			return FReply::Handled();
+		}
+		else if (ItemClickOrDragTemp == OfficeKeyText)
+		{
+			bIsOfficeKey = true;
+			bIsFuse10a = false;
+			bIsElectricKey = false;
+
+			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---UI OfficeKey_Selected---"));
+
+			return FReply::Handled();
+		}
+		else
+		{
+			bIsFuse10a = false;
+			bIsElectricKey = false;
+			bIsOfficeKey = false;
+
+			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---UI No_Item_Selected\nOr No_Identified_Item_Selected---"));
+
+			return FReply::Handled();
+		}
 
 		return FReply::Handled();
 	}
