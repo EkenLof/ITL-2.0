@@ -54,11 +54,17 @@ public:
 	FORCEINLINE bool IsInteracting() const { return GetWorldTimerManager().IsTimerActive(TimerHandle_Interaction); };
 	FORCEINLINE UInventoryComponent* GetInventory() const { return PlayerInventory; };
 
+
+	FORCEINLINE void SetItemReference(UItemBase* ItemIn) { ItemReference = ItemIn; };
+	FORCEINLINE UItemBase* GetItemReference() const { return ItemReference; };
+
+
 	FORCEINLINE AWhiteFace* SetWhiteFace() const { return WhiteFace; };
 
 	void UpdateInteractionWidget() const;
 
 	void DropItem(UItemBase* ItemToDrop, const int32 QuantityToDrop);
+	//void RemoveItem(UItemBase* ItemToDrop, const int32 QuantityToDrop);
 
 	// Find and assign the ActorSoundSystem
 	void InitializeActorSoundSystem();
@@ -112,6 +118,9 @@ public:
 
 protected:
 	virtual void BeginPlay() override;
+
+	UPROPERTY(VisibleAnywhere, Category = "Inventory Slot")
+	UItemBase* ItemReference;
 
 	ABoxCollider* TriggerBox;
 	

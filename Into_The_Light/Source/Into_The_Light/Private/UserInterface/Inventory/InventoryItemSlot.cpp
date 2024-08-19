@@ -114,10 +114,6 @@ FReply UInventoryItemSlot::NativeOnMouseButtonDown(const FGeometry& InGeometry, 
 			OwningCharacter->bIsElectricKey = false;
 			OwningCharacter->bIsOfficeKey = false;
 
-			//bIsFuse10a = true;
-			//bIsElectricKey = false;
-			//bIsOfficeKey = false;
-
 			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---UI Fuse10A_Selected---"));
 
 			return FReply::Handled();

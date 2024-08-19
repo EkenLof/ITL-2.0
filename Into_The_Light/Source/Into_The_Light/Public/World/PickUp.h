@@ -25,6 +25,8 @@ public:
 
 	void InitializeDrop(UItemBase* ItemToDrop, const int32 InQuantity);
 
+	void UpdateInteractableData(); // Flyttad från Protected 2024-8-19
+
 	FORCEINLINE UItemBase* GetItemData() { return ItemReferance; }
 
 protected:
@@ -56,7 +58,7 @@ protected:
 	virtual void BeginPlay() override;
 
 	virtual void Interact(AFirstPersonCharacter* PlayerCharacter) override;
-	void UpdateInteractableData();
+
 	void TakePickup(const AFirstPersonCharacter* Taker);
 
 #if WITH_EDITOR
