@@ -17,7 +17,7 @@ class AElevator_System;
 class UObjectivePanel;
 class AWhiteFace;
 class AActorSoundSystem;
-class UInventoryItemSlot;
+
 
 USTRUCT()
 struct FInteractionData
@@ -53,7 +53,6 @@ public:
 	FORCEINLINE AGameplayEvents* SetEventStep() const { return EventSteps; };
 	FORCEINLINE bool IsInteracting() const { return GetWorldTimerManager().IsTimerActive(TimerHandle_Interaction); };
 	FORCEINLINE UInventoryComponent* GetInventory() const { return PlayerInventory; };
-	FORCEINLINE UInventoryItemSlot* GetInventoryItemSlot() const { return PlayerInventoryItemSlot; };
 
 	FORCEINLINE AWhiteFace* SetWhiteFace() const { return WhiteFace; };
 
@@ -78,11 +77,11 @@ public:
 	bool isWalkingBackward;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory | Items")
-	bool bIsFuse10a;
+	bool bIsFuse10a; // bIsFuse10a Selected
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory | Items")
-	bool bIsElectricKey;
+	bool bIsElectricKey; // bIsElectricKey Selected
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory | Items")
-	bool bIsOfficeKey;
+	bool bIsOfficeKey; // bIsOfficeKey Selected
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Value")
 	bool bIsObjectiveFlashlight;
@@ -174,9 +173,6 @@ protected:
 
 	UPROPERTY(VisibleAnywhere, Category = "Character | Inventory")
 	UInventoryComponent* PlayerInventory;
-
-	UPROPERTY(VisibleAnywhere, Category = "Character | Inventory")
-	UInventoryItemSlot* PlayerInventoryItemSlot;
 
 	UPROPERTY(EditAnywhere)
 	float InteractionCheckFrequency;

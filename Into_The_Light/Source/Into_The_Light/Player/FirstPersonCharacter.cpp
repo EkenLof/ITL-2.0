@@ -72,8 +72,6 @@ AFirstPersonCharacter::AFirstPersonCharacter()
 	PlayerInventory->SetSlotsCapacity(30); // 20 YT
 	PlayerInventory->SetWeightCapacity(80.0f); // 50 YT
 
-	PlayerInventoryItemSlot = CreateDefaultSubobject<UInventoryItemSlot>(TEXT("PlayerInventoryItemSlot"));
-
 	InteractionCheckFrequency = 0.1; // Interaction time update
 	InteractionCheckDistance = 200.0f; // Check if all distances match
 
@@ -169,10 +167,6 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 	//if (bIsUiActive)
 	//{}
 	UWorld* World = GetWorld();
-
-	bIsFuse10a = PlayerInventoryItemSlot->bIsFuse10a;
-	bIsElectricKey = PlayerInventoryItemSlot->bIsElectricKey;
-	bIsOfficeKey = PlayerInventoryItemSlot->bIsOfficeKey;
 
 	bool bIsValueFlashlightPickUP = PlayerInventory->IsFlshlight && !BIsStepActive && !PlayerInventory->IsFuse10a && !PlayerInventory->bIsOfficeKey && !PlayerInventory->IsColeKeycard;
 	bool bIsValueFusePickUp = PlayerInventory->IsFuse10a && !PlayerInventory->IsElectricKey && BIsStepActive && !PlayerInventory->bIsOfficeKey && !PlayerInventory->IsColeKeycard;
@@ -348,8 +342,9 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 
 		bIsReceptionDoor = false;
 	}
-	// FuseBox Fuse 10A to Box.
-	else if (CheckLookAtObject() && CheckLeftMouseButtonDown() && bIsTempWaitForInteractibleFuseBox && bIsFuseBox_Interactible && bIsLookingAtFuseBox_Interactible 
+	// FuseBox Fuse 10A to Box. // bIsFuse10a = Fuse10a Selected
+	else if (CheckLookAtObject() && CheckLeftMouseButtonDown() && bIsFuse10a
+		&& bIsTempWaitForInteractibleFuseBox && bIsFuseBox_Interactible && bIsLookingAtFuseBox_Interactible 
 		&& !bIsLookingAtRecDoor && !bIsLookingAtFuBox && !bIsLookingReceptionPhone)
 	{
 		// ReceptionPhoneKeyActor
@@ -375,7 +370,9 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 		bIsFuseBox_Interactible = false;
 	}
 	// Reception Phone.
-	else if (CheckLookAtObject() && CheckLeftMouseButtonDown() && bIsReceptionPhone && bIsLookingReceptionPhone && !bIsLookingAtFuseBox_Interactible && !bIsLookingAtRecDoor && !bIsLookingAtFuBox)
+	else if (CheckLookAtObject() && CheckLeftMouseButtonDown() 
+		&& bIsReceptionPhone && bIsLookingReceptionPhone 
+		&& !bIsLookingAtFuseBox_Interactible && !bIsLookingAtRecDoor && !bIsLookingAtFuBox)
 	{
 		///////////////////////////////////////////// *** FIX *** /////////////////////////////////////////////////
 		// Stop the PhoneSound 

@@ -1,6 +1,3 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
-
 #include "UserInterface/Inventory/InventoryItemSlot.h"
 
 #include "UserInterface/Inventory/InventoryTooltip.h"
@@ -11,6 +8,8 @@
 #include "Components/Image.h"
 #include "Components/TextBlock.h"
 #include "Items/ItemBase.h"
+
+#include "..\Player/FirstPersonCharacter.h"
 
 void UInventoryItemSlot::NativeOnInitialized()
 {
@@ -70,6 +69,13 @@ FReply UInventoryItemSlot::NativeOnMouseButtonDown(const FGeometry& InGeometry, 
 {
 	FReply Reply = Super::NativeOnMouseButtonDown(InGeometry, InMouseEvent);
 
+	AFirstPersonCharacter* OwningCharacter = Cast<AFirstPersonCharacter>(GetOwningPlayerPawn());
+	if (!OwningCharacter)
+	{
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("Failed to get OwningCharacter"));
+		return Reply.Unhandled();
+	}
+
 	FString ItemClickOrDragTemp = ItemReference->ItemTextData.Name.ToString();
 
 	FString FlashlightText = "Flashlight";
@@ -104,9 +110,13 @@ FReply UInventoryItemSlot::NativeOnMouseButtonDown(const FGeometry& InGeometry, 
 
 		if (ItemClickOrDragTemp == Fuse10aText)
 		{
-			bIsFuse10a = true;
-			bIsElectricKey = false;
-			bIsOfficeKey = false;
+			OwningCharacter->bIsFuse10a = true;
+			OwningCharacter->bIsElectricKey = false;
+			OwningCharacter->bIsOfficeKey = false;
+
+			//bIsFuse10a = true;
+			//bIsElectricKey = false;
+			//bIsOfficeKey = false;
 
 			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---UI Fuse10A_Selected---"));
 
@@ -114,9 +124,9 @@ FReply UInventoryItemSlot::NativeOnMouseButtonDown(const FGeometry& InGeometry, 
 		}
 		else if (ItemClickOrDragTemp == ElectricKeyText)
 		{
-			bIsElectricKey = true;
-			bIsFuse10a = false;
-			bIsOfficeKey = false;
+			OwningCharacter->bIsElectricKey = true;
+			OwningCharacter->bIsFuse10a = false;
+			OwningCharacter->bIsOfficeKey = false;
 
 			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---UI ElectricKey_Selected---"));
 
@@ -124,9 +134,9 @@ FReply UInventoryItemSlot::NativeOnMouseButtonDown(const FGeometry& InGeometry, 
 		}
 		else if (ItemClickOrDragTemp == OfficeKeyText)
 		{
-			bIsOfficeKey = true;
-			bIsFuse10a = false;
-			bIsElectricKey = false;
+			OwningCharacter->bIsOfficeKey = true;
+			OwningCharacter->bIsFuse10a = false;
+			OwningCharacter->bIsElectricKey = false;
 
 			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---UI OfficeKey_Selected---"));
 
@@ -134,9 +144,9 @@ FReply UInventoryItemSlot::NativeOnMouseButtonDown(const FGeometry& InGeometry, 
 		}
 		else
 		{
-			bIsFuse10a = false;
-			bIsElectricKey = false;
-			bIsOfficeKey = false;
+			OwningCharacter->bIsFuse10a = false;
+			OwningCharacter->bIsElectricKey = false;
+			OwningCharacter->bIsOfficeKey = false;
 
 			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---UI No_Item_Selected\nOr No_Identified_Item_Selected---"));
 
