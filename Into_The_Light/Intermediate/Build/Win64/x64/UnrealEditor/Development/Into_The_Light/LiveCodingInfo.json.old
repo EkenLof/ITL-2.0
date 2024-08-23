@@ -35,6 +35,7 @@
 			"Elevator_System.cpp.obj",
 			"GameplayEvents.cpp.obj",
 			"InteractionInterface.cpp.obj",
+			"ItemBase.cpp.obj",
 			"BoxCollider.cpp.obj",
 			"InteractionWidget.cpp.obj",
 			"DragItemVisual.cpp.obj",
@@ -47,7 +48,6 @@
 			"InterfaceActorT.cpp.obj",
 			"PickUp.cpp.obj",
 			"FirstPersonCharacter.cpp.obj",
-			"ItemBase.cpp.obj",
 			"InventoryItemSlot.cpp.obj"
 		]
 	}

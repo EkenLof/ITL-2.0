@@ -17,6 +17,10 @@ class AElevator_System;
 class UObjectivePanel;
 class AWhiteFace;
 class AActorSoundSystem;
+class UInventoryItemSlot; // TEST 23-08-2024
+class UTextBlock; // TEST 23-08-2024
+class UBorder; // TEST 23-08-2024
+class UImage; // TEST 23-08-2024
 
 
 USTRUCT()
@@ -106,6 +110,25 @@ public:
 
 	float WalkSpeed;
 	float RunSpeed;
+
+
+	////////////////////////////////////////////////////////////////
+	UPROPERTY(VisibleAnywhere)
+	UInventoryItemSlot* InventorySlotBeingHovered;
+
+	UPROPERTY(meta = (BindWidget))
+	UTextBlock* ItemName;
+
+	UPROPERTY(VisibleAnywhere, Category = "Inventory Slot", meta = (BindWidget))
+	UBorder* ItemBorder;
+
+	UPROPERTY(VisibleAnywhere, Category = "Inventory Slot", meta = (BindWidget))
+	UImage* ItemIcon;
+
+	UPROPERTY(VisibleAnywhere, Category = "Inventory Slot", meta = (BindWidget))
+	UTextBlock* ItemQuantity;
+	////////////////////////////////////////////////////////////////
+
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign")
 	AElevator_System* ElevatorSystem;
