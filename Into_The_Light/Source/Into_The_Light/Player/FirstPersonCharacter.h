@@ -21,7 +21,7 @@ class UInventoryItemSlot; // TEST 23-08-2024
 class UTextBlock; // TEST 23-08-2024
 class UBorder; // TEST 23-08-2024
 class UImage; // TEST 23-08-2024
-
+class UDragDropOperation;
 
 USTRUCT()
 struct FInteractionData
@@ -113,6 +113,9 @@ public:
 
 
 	////////////////////////////////////////////////////////////////
+	UPROPERTY(VisibleAnywhere, Category = "Inventory Slot")
+	UDragDropOperation* InOperation; 
+	/*
 	UPROPERTY(VisibleAnywhere)
 	UInventoryItemSlot* InventorySlotBeingHovered;
 
@@ -127,6 +130,7 @@ public:
 
 	UPROPERTY(VisibleAnywhere, Category = "Inventory Slot", meta = (BindWidget))
 	UTextBlock* ItemQuantity;
+	*/
 	////////////////////////////////////////////////////////////////
 
 

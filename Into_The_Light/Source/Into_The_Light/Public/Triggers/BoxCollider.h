@@ -89,7 +89,7 @@ protected:
 	FName ColeMissingTrigTagName;
 
 	void HandleBeforeMeetCole();
-	void HandleMeetCole();
+	//void HandleMeetCole();
 	void HandlebGoingToMissingCole();
 	void HandleMissingCole();
 	void HandleExitFuseBoxRoom();

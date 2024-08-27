@@ -8,12 +8,10 @@
 			"DoorSystem.gen.cpp.obj",
 			"DragItemVisual.gen.cpp.obj",
 			"Elevator_System.gen.cpp.obj",
-			"FirstPersonCharacter.gen.cpp.obj",
 			"GameplayEvents.gen.cpp.obj",
 			"InteractionInterface.gen.cpp.obj",
 			"InteractionWidget.gen.cpp.obj",
 			"InterfaceActorT.gen.cpp.obj",
-			"Into_The_Light.init.gen.cpp.obj",
 			"InventoryComponent.gen.cpp.obj",
 			"InventoryItemSlot.gen.cpp.obj",
 			"InventoryPanel.gen.cpp.obj",
@@ -22,7 +20,6 @@
 			"ItemDataSystem.gen.cpp.obj",
 			"ItemDragDropOperation.gen.cpp.obj",
 			"MainHUD.gen.cpp.obj",
-			"MainMenu.gen.cpp.obj",
 			"ObjectivePanel.gen.cpp.obj",
 			"PickUp.gen.cpp.obj",
 			"WhiteFace.gen.cpp.obj",
@@ -39,16 +36,19 @@
 			"BoxCollider.cpp.obj",
 			"InteractionWidget.cpp.obj",
 			"DragItemVisual.cpp.obj",
+			"InventoryItemSlot.cpp.obj",
 			"InventoryPanel.cpp.obj",
 			"InventoryTooltip.cpp.obj",
 			"ItemDragDropOperation.cpp.obj",
 			"MainHUD.cpp.obj",
-			"MainMenu.cpp.obj",
 			"ObjectivePanel.cpp.obj",
 			"InterfaceActorT.cpp.obj",
 			"PickUp.cpp.obj",
+			"FirstPersonCharacter.gen.cpp.obj",
+			"Into_The_Light.init.gen.cpp.obj",
+			"MainMenu.gen.cpp.obj",
 			"FirstPersonCharacter.cpp.obj",
-			"InventoryItemSlot.cpp.obj"
+			"MainMenu.cpp.obj"
 		]
 	}
 }

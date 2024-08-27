@@ -10,8 +10,6 @@ ACole::ACole()
 	bIsColeSearchIdle = false;
 	bIsColeFuseTakenOn = false;
 	bIsColeStartCutscene = false;
-
-	// Trigger_1_ACT1
 }
 
 void ACole::BeginPlay()

@@ -96,7 +96,7 @@ void ABoxCollider::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* O
 	{	
         if (bIsBeforeMeetCole) HandleBeforeMeetCole();
 
-        else if (bIsMeetCole) HandleMeetCole();
+        //else if (bIsMeetCole) HandleMeetCole();
 
         else if (bIsGoingToMissingCole) HandlebGoingToMissingCole();
 
@@ -112,6 +112,8 @@ void ABoxCollider::HandleBeforeMeetCole()
 {
 	UE_LOG(LogTemp, Log, TEXT("HandleBeforeMeetCole Overlaped"));
 
+
+	/*
     TArray<AActor*> TaggedActors;
     UGameplayStatics::GetAllActorsWithTag(GetWorld(), ColeStorageTagName, TaggedActors);
 
@@ -132,6 +134,7 @@ void ABoxCollider::HandleBeforeMeetCole()
 
     if (IsValid(this->ColeState)) this->ColeState->ColeSearchIdle(true);
     else UE_LOG(LogTemp, Warning, TEXT("Cole ignores me..."));
+	*/
 
 	// Actors OFF
 	UpdateVaribleState(LanternBrokenActor, LanternBrokenTagName);
@@ -160,6 +163,7 @@ void ABoxCollider::HandleBeforeMeetCole()
     bIsBeforeMeetCole = false;
 }
 
+/*
 void ABoxCollider::HandleMeetCole()
 {
 	UE_LOG(LogTemp, Log, TEXT("HandleMeetCole Overlaped"));
@@ -188,12 +192,9 @@ void ABoxCollider::HandleMeetCole()
     else
         UE_LOG(LogTemp, Warning, TEXT("Cole ignores me..."));
 
-    if (IsValid(EventSteps))
-        EventSteps->NextStep(3);
-
     Destroy();
     bIsMeetCole = false;
-}
+}*/
 
 void ABoxCollider::HandlebGoingToMissingCole()
 {

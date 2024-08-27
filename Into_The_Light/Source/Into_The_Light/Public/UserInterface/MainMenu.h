@@ -7,8 +7,8 @@
 #include "MainMenu.generated.h"
 
 class AFirstPersonCharacter;
-/** 
- */
+
+
 UCLASS()
 class INTO_THE_LIGHT_API UMainMenu : public UUserWidget
 {
