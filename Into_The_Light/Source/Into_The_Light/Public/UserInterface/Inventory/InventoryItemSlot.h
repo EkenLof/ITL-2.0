@@ -20,14 +20,14 @@ public:
 	FORCEINLINE void SetItemReference(UItemBase* ItemIn) { ItemReference = ItemIn; };
 	FORCEINLINE UItemBase* GetItemReference() const { return ItemReference; };
 
-	/*
+	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory | Items")
-	bool bIsFuse10a;
+	bool bIsFuse10a = false;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory | Items")
-	bool bIsElectricKey;
+	bool bIsElectricKey = false;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory | Items")
-	bool bIsOfficeKey;
-	*/
+	bool bIsOfficeKey = false;
+	
 
 protected:
 	UPROPERTY(EditDefaultsOnly, Category = "Inventory Slot")

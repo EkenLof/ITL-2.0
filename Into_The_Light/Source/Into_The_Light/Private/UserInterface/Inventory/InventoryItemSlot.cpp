@@ -108,8 +108,12 @@ FReply UInventoryItemSlot::NativeOnMouseButtonDown(const FGeometry& InGeometry, 
 	{
 		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---UI R_Interact---"));
 
-		if (ItemClickOrDragTemp == Fuse10aText)
+		if (ItemClickOrDragTemp == Fuse10aText && !bIsFuse10a)
 		{
+			bIsFuse10a = true;
+			bIsElectricKey = false;
+			bIsOfficeKey = false;
+
 			OwningCharacter->bIsFuse10a = true;
 			OwningCharacter->bIsElectricKey = false;
 			OwningCharacter->bIsOfficeKey = false;
@@ -118,8 +122,12 @@ FReply UInventoryItemSlot::NativeOnMouseButtonDown(const FGeometry& InGeometry, 
 
 			return FReply::Handled();
 		}
-		else if (ItemClickOrDragTemp == ElectricKeyText)
+		else if (ItemClickOrDragTemp == ElectricKeyText && !bIsElectricKey)
 		{
+			bIsElectricKey = true;
+			bIsFuse10a = false;
+			bIsOfficeKey = false;
+
 			OwningCharacter->bIsElectricKey = true;
 			OwningCharacter->bIsFuse10a = false;
 			OwningCharacter->bIsOfficeKey = false;
@@ -128,13 +136,33 @@ FReply UInventoryItemSlot::NativeOnMouseButtonDown(const FGeometry& InGeometry, 
 
 			return FReply::Handled();
 		}
-		else if (ItemClickOrDragTemp == OfficeKeyText)
+		else if (ItemClickOrDragTemp == OfficeKeyText && !bIsOfficeKey)
 		{
+			bIsOfficeKey = true;
+			bIsFuse10a = false;
+			bIsElectricKey = false;
+
 			OwningCharacter->bIsOfficeKey = true;
 			OwningCharacter->bIsFuse10a = false;
 			OwningCharacter->bIsElectricKey = false;
 
 			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---UI OfficeKey_Selected---"));
+
+			return FReply::Handled();
+		}
+		else if (ItemClickOrDragTemp == Fuse10aText && bIsFuse10a
+			|| ItemClickOrDragTemp == ElectricKeyText && bIsElectricKey
+			|| ItemClickOrDragTemp == OfficeKeyText && bIsOfficeKey)
+		{
+			bIsFuse10a = false;
+			bIsElectricKey = false;
+			bIsOfficeKey = false;
+
+			OwningCharacter->bIsFuse10a = false;
+			OwningCharacter->bIsElectricKey = false;
+			OwningCharacter->bIsOfficeKey = false;
+
+			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---UI Item_Unselected---"));
 
 			return FReply::Handled();
 		}

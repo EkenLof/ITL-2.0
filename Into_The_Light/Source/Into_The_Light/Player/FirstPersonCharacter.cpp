@@ -316,10 +316,10 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 	/////////////////////////////////---ReceptionDoor & FuseBox & ReceptionPhone---////////////////////////////////////
 	// FuseBox Door.
 	if (CheckLookAtObject() && CheckLeftMouseButtonDown() 
-		&& bIsFuseBox && bIsLookingAtFuBox 
+		&& bIsFuseBox && bIsLookingAtFuBox && bIsValueFusePickedUp
 		&& !bIsLookingAtRecDoor && !bIsLookingAtFuseBox_Interactible && !bIsLookingReceptionPhone
 		|| CheckLookAtObject() && CheckRightMouseButtonDown() 
-		&& bIsFuseBox && bIsLookingAtFuBox 
+		&& bIsFuseBox && bIsLookingAtFuBox && bIsValueFusePickedUp
 		&& !bIsLookingAtRecDoor && !bIsLookingAtFuseBox_Interactible && !bIsLookingReceptionPhone)
 	{
 		if (!isElectricKeyInInventory) bIsNeedElectricKey = true;
@@ -356,6 +356,8 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 
 		bIsReceptionDoor = false;
 	}
+	/////////////////////////////////---ReceptionDoor & FuseBox & ReceptionPhone---////////////////////////////////////
+
 	// FuseBox Fuse 10A to Box. // bIsFuse10a = Fuse10a Selected
 	else if (CheckLookAtObject() && CheckLeftMouseButtonDown() && bIsFuse10a
 		&& bIsTempWaitForInteractibleFuseBox && bIsFuseBox_Interactible && bIsLookingAtFuseBox_Interactible 
