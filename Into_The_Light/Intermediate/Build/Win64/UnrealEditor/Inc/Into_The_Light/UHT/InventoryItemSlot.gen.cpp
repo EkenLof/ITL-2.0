@@ -39,6 +39,22 @@ struct Z_Construct_UClass_UInventoryItemSlot_Statics
 		{ "IncludePath", "UserInterface/Inventory/InventoryItemSlot.h" },
 		{ "ModuleRelativePath", "Public/UserInterface/Inventory/InventoryItemSlot.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bIsFuse10a_MetaData[] = {
+		{ "Category", "Inventory | Items" },
+		{ "ModuleRelativePath", "Public/UserInterface/Inventory/InventoryItemSlot.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bIsElectricKey_MetaData[] = {
+		{ "Category", "Inventory | Items" },
+		{ "ModuleRelativePath", "Public/UserInterface/Inventory/InventoryItemSlot.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bIsOfficeKey_MetaData[] = {
+		{ "Category", "Inventory | Items" },
+		{ "ModuleRelativePath", "Public/UserInterface/Inventory/InventoryItemSlot.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bIsKeycard_MetaData[] = {
+		{ "Category", "Inventory | Items" },
+		{ "ModuleRelativePath", "Public/UserInterface/Inventory/InventoryItemSlot.h" },
+	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_DragItemVisualClass_MetaData[] = {
 		{ "Category", "Inventory Slot" },
 		{ "ModuleRelativePath", "Public/UserInterface/Inventory/InventoryItemSlot.h" },
@@ -70,6 +86,14 @@ struct Z_Construct_UClass_UInventoryItemSlot_Statics
 		{ "ModuleRelativePath", "Public/UserInterface/Inventory/InventoryItemSlot.h" },
 	};
 #endif // WITH_METADATA
+	static void NewProp_bIsFuse10a_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsFuse10a;
+	static void NewProp_bIsElectricKey_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsElectricKey;
+	static void NewProp_bIsOfficeKey_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsOfficeKey;
+	static void NewProp_bIsKeycard_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsKeycard;
 	static const UECodeGen_Private::FClassPropertyParams NewProp_DragItemVisualClass;
 	static const UECodeGen_Private::FClassPropertyParams NewProp_ToolTipClass;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_ItemReference;
@@ -83,6 +107,26 @@ struct Z_Construct_UClass_UInventoryItemSlot_Statics
 	};
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
+void Z_Construct_UClass_UInventoryItemSlot_Statics::NewProp_bIsFuse10a_SetBit(void* Obj)
+{
+	((UInventoryItemSlot*)Obj)->bIsFuse10a = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UInventoryItemSlot_Statics::NewProp_bIsFuse10a = { "bIsFuse10a", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(UInventoryItemSlot), &Z_Construct_UClass_UInventoryItemSlot_Statics::NewProp_bIsFuse10a_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bIsFuse10a_MetaData), NewProp_bIsFuse10a_MetaData) };
+void Z_Construct_UClass_UInventoryItemSlot_Statics::NewProp_bIsElectricKey_SetBit(void* Obj)
+{
+	((UInventoryItemSlot*)Obj)->bIsElectricKey = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UInventoryItemSlot_Statics::NewProp_bIsElectricKey = { "bIsElectricKey", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(UInventoryItemSlot), &Z_Construct_UClass_UInventoryItemSlot_Statics::NewProp_bIsElectricKey_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bIsElectricKey_MetaData), NewProp_bIsElectricKey_MetaData) };
+void Z_Construct_UClass_UInventoryItemSlot_Statics::NewProp_bIsOfficeKey_SetBit(void* Obj)
+{
+	((UInventoryItemSlot*)Obj)->bIsOfficeKey = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UInventoryItemSlot_Statics::NewProp_bIsOfficeKey = { "bIsOfficeKey", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(UInventoryItemSlot), &Z_Construct_UClass_UInventoryItemSlot_Statics::NewProp_bIsOfficeKey_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bIsOfficeKey_MetaData), NewProp_bIsOfficeKey_MetaData) };
+void Z_Construct_UClass_UInventoryItemSlot_Statics::NewProp_bIsKeycard_SetBit(void* Obj)
+{
+	((UInventoryItemSlot*)Obj)->bIsKeycard = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UInventoryItemSlot_Statics::NewProp_bIsKeycard = { "bIsKeycard", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(UInventoryItemSlot), &Z_Construct_UClass_UInventoryItemSlot_Statics::NewProp_bIsKeycard_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bIsKeycard_MetaData), NewProp_bIsKeycard_MetaData) };
 const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_UInventoryItemSlot_Statics::NewProp_DragItemVisualClass = { "DragItemVisualClass", nullptr, (EPropertyFlags)0x0024080000010001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UInventoryItemSlot, DragItemVisualClass), Z_Construct_UClass_UClass, Z_Construct_UClass_UDragItemVisual_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_DragItemVisualClass_MetaData), NewProp_DragItemVisualClass_MetaData) };
 const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_UInventoryItemSlot_Statics::NewProp_ToolTipClass = { "ToolTipClass", nullptr, (EPropertyFlags)0x0024080000010001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UInventoryItemSlot, ToolTipClass), Z_Construct_UClass_UClass, Z_Construct_UClass_UInventoryTooltip_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ToolTipClass_MetaData), NewProp_ToolTipClass_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UInventoryItemSlot_Statics::NewProp_ItemReference = { "ItemReference", nullptr, (EPropertyFlags)0x0020080000020001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UInventoryItemSlot, ItemReference), Z_Construct_UClass_UItemBase_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ItemReference_MetaData), NewProp_ItemReference_MetaData) };
@@ -90,6 +134,10 @@ const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UInventoryItem
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UInventoryItemSlot_Statics::NewProp_ItemIcon = { "ItemIcon", nullptr, (EPropertyFlags)0x00200800000a0009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UInventoryItemSlot, ItemIcon), Z_Construct_UClass_UImage_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ItemIcon_MetaData), NewProp_ItemIcon_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UInventoryItemSlot_Statics::NewProp_ItemQuantity = { "ItemQuantity", nullptr, (EPropertyFlags)0x00200800000a0009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UInventoryItemSlot, ItemQuantity), Z_Construct_UClass_UTextBlock_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ItemQuantity_MetaData), NewProp_ItemQuantity_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UInventoryItemSlot_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInventoryItemSlot_Statics::NewProp_bIsFuse10a,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInventoryItemSlot_Statics::NewProp_bIsElectricKey,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInventoryItemSlot_Statics::NewProp_bIsOfficeKey,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInventoryItemSlot_Statics::NewProp_bIsKeycard,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInventoryItemSlot_Statics::NewProp_DragItemVisualClass,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInventoryItemSlot_Statics::NewProp_ToolTipClass,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInventoryItemSlot_Statics::NewProp_ItemReference,
@@ -139,10 +187,10 @@ UInventoryItemSlot::~UInventoryItemSlot() {}
 struct Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_UserInterface_Inventory_InventoryItemSlot_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UInventoryItemSlot, UInventoryItemSlot::StaticClass, TEXT("UInventoryItemSlot"), &Z_Registration_Info_UClass_UInventoryItemSlot, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UInventoryItemSlot), 3252700788U) },
+		{ Z_Construct_UClass_UInventoryItemSlot, UInventoryItemSlot::StaticClass, TEXT("UInventoryItemSlot"), &Z_Registration_Info_UClass_UInventoryItemSlot, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UInventoryItemSlot), 2724757837U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_UserInterface_Inventory_InventoryItemSlot_h_2497396454(TEXT("/Script/Into_The_Light"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_UserInterface_Inventory_InventoryItemSlot_h_3671517705(TEXT("/Script/Into_The_Light"),
 	Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_UserInterface_Inventory_InventoryItemSlot_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_UserInterface_Inventory_InventoryItemSlot_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

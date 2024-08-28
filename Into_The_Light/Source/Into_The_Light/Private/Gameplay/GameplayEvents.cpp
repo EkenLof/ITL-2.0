@@ -216,6 +216,7 @@ void AGameplayEvents::ToggleOff()
 	else UE_LOG(LogTemp, Warning, TEXT("ReceptionPhoneKeyActor is NOT Valid"));
 }
 
+/*
 void AGameplayEvents::NextStep(int32 StepUp)
 {
 	switch (StepUp)
@@ -236,8 +237,9 @@ void AGameplayEvents::NextStep(int32 StepUp)
 		break;
 	}
 }
+*/
 
-
+/*
 void AGameplayEvents::Step0() 
 {
 	// Blacksceen StoryScene Before entering Buildning.
@@ -283,22 +285,23 @@ void AGameplayEvents::Step7()
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 7 Active---"));
 	
 	// Value To FirstPersonCharacter
-	bIsTempWaitForInteractibleFuseBox = true;
+	//bIsTempWaitForInteractibleFuseBox = true;
 
 }
+
 void AGameplayEvents::Step8()
 {
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 8 Active---"));
 
 	//PlaySound *FPC
-	/*
+	
 	
 	// Play Reception Phone audio
-	InitializeActorSoundSystem();
-	if (IsValid(ActorSoundSystem)) ActorSoundSystem->PlayReceptionPhoneAudio();
-	else UE_LOG(LogTemp, Warning, TEXT("ActorSoundSystem is NOT Valid"));
+	//InitializeActorSoundSystem();
+	//if (IsValid(ActorSoundSystem)) ActorSoundSystem->PlayReceptionPhoneAudio();
+	//else UE_LOG(LogTemp, Warning, TEXT("ActorSoundSystem is NOT Valid"));
 	
-	*/
+	
 }
 
 void AGameplayEvents::Step9()
@@ -306,28 +309,29 @@ void AGameplayEvents::Step9()
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 9 Active---"));
 
 	//StopSound *FPC
-	/*
+
 	
 	// Stop the PhoneSound 
-	InitializeActorSoundSystem();
-	if (IsValid(ActorSoundSystem))ActorSoundSystem->StopReceptionPhoneAudio();
-	else UE_LOG(LogTemp, Warning, TEXT("ActorSoundSystem is NOT Valid"));
+	//InitializeActorSoundSystem();
+	//if (IsValid(ActorSoundSystem))ActorSoundSystem->StopReceptionPhoneAudio();
+	//else UE_LOG(LogTemp, Warning, TEXT("ActorSoundSystem is NOT Valid"));
 	
-	*/
-	
-	/*
-	UpdateVaribleState(ReceptionPhoneActor, ReceptionPhoneTagName);
-	if (IsValid(ReceptionPhoneActor)) ReceptionPhoneActor->SetActorEnableCollision(false);
-	else UE_LOG(LogTemp, Warning, TEXT("ReceptionPhoneActor is NOT Valid"));
-	
-	
-	UpdateVaribleState(ExitReceptionPhoneActor, ReceptionPhoneTrigTagName);
-	if (IsValid(ExitReceptionPhoneActor)) ExitReceptionPhoneActor->SetActorEnableCollision(true);
-	else UE_LOG(LogTemp, Warning, TEXT("ExitReceptionPhoneActor is NOT Valid"));
 
-	*/
+	
+
+	//UpdateVaribleState(ReceptionPhoneActor, ReceptionPhoneTagName);
+	//if (IsValid(ReceptionPhoneActor)) ReceptionPhoneActor->SetActorEnableCollision(false);
+	//else UE_LOG(LogTemp, Warning, TEXT("ReceptionPhoneActor is NOT Valid"));
+	
+	
+	//UpdateVaribleState(ExitReceptionPhoneActor, ReceptionPhoneTrigTagName);
+	//if (IsValid(ExitReceptionPhoneActor)) ExitReceptionPhoneActor->SetActorEnableCollision(true);
+	//else UE_LOG(LogTemp, Warning, TEXT("ExitReceptionPhoneActor is NOT Valid"));
+
+
 	
 }
+
 void AGameplayEvents::Step10()
 {
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---Step 10 Active---"));
@@ -335,3 +339,4 @@ void AGameplayEvents::Step10()
 
 	// Footstep sounds from above
 }
+*/

@@ -113,10 +113,12 @@ FReply UInventoryItemSlot::NativeOnMouseButtonDown(const FGeometry& InGeometry, 
 			bIsFuse10a = true;
 			bIsElectricKey = false;
 			bIsOfficeKey = false;
+			bIsKeycard = false;
 
 			OwningCharacter->bIsFuse10a = true;
 			OwningCharacter->bIsElectricKey = false;
 			OwningCharacter->bIsOfficeKey = false;
+			OwningCharacter->bIsKeycard = false;
 
 			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---UI Fuse10A_Selected---"));
 
@@ -127,10 +129,13 @@ FReply UInventoryItemSlot::NativeOnMouseButtonDown(const FGeometry& InGeometry, 
 			bIsElectricKey = true;
 			bIsFuse10a = false;
 			bIsOfficeKey = false;
+			bIsKeycard = false;
 
 			OwningCharacter->bIsElectricKey = true;
 			OwningCharacter->bIsFuse10a = false;
 			OwningCharacter->bIsOfficeKey = false;
+			OwningCharacter->bIsKeycard = false;
+
 
 			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---UI ElectricKey_Selected---"));
 
@@ -141,8 +146,26 @@ FReply UInventoryItemSlot::NativeOnMouseButtonDown(const FGeometry& InGeometry, 
 			bIsOfficeKey = true;
 			bIsFuse10a = false;
 			bIsElectricKey = false;
+			bIsKeycard = false;
 
 			OwningCharacter->bIsOfficeKey = true;
+			OwningCharacter->bIsFuse10a = false;
+			OwningCharacter->bIsElectricKey = false;
+			OwningCharacter->bIsKeycard = false;
+
+			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---UI OfficeKey_Selected---"));
+
+			return FReply::Handled();
+		}
+		else if (ItemClickOrDragTemp == ColeKeycardText && !bIsKeycard)
+		{
+			bIsKeycard = true;
+			bIsOfficeKey = false;
+			bIsFuse10a = false;
+			bIsElectricKey = false;
+
+			OwningCharacter->bIsKeycard = true;
+			OwningCharacter->bIsOfficeKey = false;
 			OwningCharacter->bIsFuse10a = false;
 			OwningCharacter->bIsElectricKey = false;
 
@@ -152,15 +175,18 @@ FReply UInventoryItemSlot::NativeOnMouseButtonDown(const FGeometry& InGeometry, 
 		}
 		else if (ItemClickOrDragTemp == Fuse10aText && bIsFuse10a
 			|| ItemClickOrDragTemp == ElectricKeyText && bIsElectricKey
-			|| ItemClickOrDragTemp == OfficeKeyText && bIsOfficeKey)
+			|| ItemClickOrDragTemp == OfficeKeyText && bIsOfficeKey
+			|| ItemClickOrDragTemp == ColeKeycardText && !bIsKeycard)
 		{
 			bIsFuse10a = false;
 			bIsElectricKey = false;
 			bIsOfficeKey = false;
+			bIsKeycard = false;
 
 			OwningCharacter->bIsFuse10a = false;
 			OwningCharacter->bIsElectricKey = false;
 			OwningCharacter->bIsOfficeKey = false;
+			OwningCharacter->bIsKeycard = false;
 
 			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---UI Item_Unselected---"));
 
@@ -168,9 +194,15 @@ FReply UInventoryItemSlot::NativeOnMouseButtonDown(const FGeometry& InGeometry, 
 		}
 		else
 		{
+			bIsFuse10a = false;
+			bIsElectricKey = false;
+			bIsOfficeKey = false;
+			bIsKeycard = false;
+
 			OwningCharacter->bIsFuse10a = false;
 			OwningCharacter->bIsElectricKey = false;
 			OwningCharacter->bIsOfficeKey = false;
+			OwningCharacter->bIsKeycard = false;
 
 			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---UI No_Item_Selected\nOr No_Identified_Item_Selected---"));
 
