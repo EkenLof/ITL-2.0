@@ -92,6 +92,8 @@ public:
 	bool bIsElectricKey; // bIsElectricKey Selected
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory | Items")
 	bool bIsOfficeKey; // bIsOfficeKey Selected
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory | Items")
+	bool bIsKeycard; // bIsKeycard Selected
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Value")
 	bool bIsObjectiveFlashlight;
