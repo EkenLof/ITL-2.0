@@ -27,8 +27,6 @@ public:
 	bool bIsElectricKey = false;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory | Items")
 	bool bIsOfficeKey = false;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory | Items")
-	bool bIsKeycard = false;
 	
 
 protected:

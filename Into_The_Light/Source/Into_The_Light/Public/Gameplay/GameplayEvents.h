@@ -23,9 +23,9 @@ public:
 	//FORCEINLINE AActorSoundSystem* GetInventory() const { return ActorSoundSystem; };
 
 	/////////////////////////////---NEXTSTEP ACTIVE---////////////////////////////////////
-	//UFUNCTION(BlueprintCallable)
+	UFUNCTION(BlueprintCallable)
 	// void NextStep();
-	//void NextStep(int32 StepUp);
+	void NextStep(int32 StepUp);
 	/////////////////////////////---NEXTSTEP ACTIVE---////////////////////////////////////
 
 
@@ -106,7 +106,6 @@ private:
 	UFUNCTION()
 	void OnSublevelLoaded();
 
-	/*
 	UFUNCTION()
 	void Step0(); 
 
@@ -139,5 +138,4 @@ private:
 
 	UFUNCTION()
 	void Step10();
-	*/
 };
