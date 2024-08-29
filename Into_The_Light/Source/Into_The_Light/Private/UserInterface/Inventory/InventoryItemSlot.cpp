@@ -212,7 +212,6 @@ FReply UInventoryItemSlot::NativeOnMouseButtonDown(const FGeometry& InGeometry, 
 		return FReply::Handled();
 	}
 
-
 	return Reply.Unhandled();
 }
 
