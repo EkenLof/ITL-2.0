@@ -84,7 +84,6 @@ AFirstPersonCharacter::AFirstPersonCharacter()
 	bIsFuse10a = false;
 	bIsElectricKey = false;
 	bIsOfficeKey = false;
-	bIsKeycard = false;
 
 	BIsStepActive = false;
 	bIsTempOnOff = false;
@@ -219,7 +218,7 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 		else UE_LOG(LogTemp, Error, TEXT("Objective is null"));
 
 		// STEP
-		//if (IsValid(EventSteps)) EventSteps->NextStep(4);
+		if (IsValid(EventSteps)) EventSteps->NextStep(4);
 		BIsStepActive = false;
 	}
 
@@ -241,10 +240,7 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 		else UE_LOG(LogTemp, Error, TEXT("Objective is null"));
 
 		// STEP
-		//if (IsValid(EventSteps)) EventSteps->NextStep(7);
-		// FuseBoxInteractible 
-		bIsTempWaitForInteractibleFuseBox = true;
-
+		if (IsValid(EventSteps)) EventSteps->NextStep(7);
 		BIsStepActive = true;
 	}
 
@@ -661,11 +657,8 @@ bool AFirstPersonCharacter::CheckLookAtObject()
 
 			bIsLookingAtFuseBox_Interactible = true;
 
-			// DELETE THIS IF OK // From GameplayEvent Activity
-			//if (IsValid(EventSteps)) bIsTempWaitForInteractibleFuseBox = EventSteps->bIsTempWaitForInteractibleFuseBox;
-
-			// FUSEBOX INTERACTIBLE TRUE
-			bIsTempWaitForInteractibleFuseBox = true;
+			// From GameplayEvent Activity
+			if (IsValid(EventSteps)) bIsTempWaitForInteractibleFuseBox = EventSteps->bIsTempWaitForInteractibleFuseBox;
 
 			bIsUiActive = true; // NOT IN USE YET 
 

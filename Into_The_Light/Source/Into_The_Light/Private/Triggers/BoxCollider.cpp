@@ -251,7 +251,7 @@ void ABoxCollider::HandleMissingCole()
 {
 	UE_LOG(LogTemp, Log, TEXT("HandleMissingCole Overlaped"));
 
-    //if (IsValid(EventSteps)) EventSteps->NextStep(6);
+    if (IsValid(EventSteps)) EventSteps->NextStep(6);
 
     bIsMissingCole = false;
 }
@@ -280,8 +280,7 @@ void ABoxCollider::HandleExitReceptionPhone()
     if (IsValid(EventSteps))
     {
         EventSteps->UnloadSublevel(TEXT("LightsB1Reception"));
-        //EventSteps->NextStep(10);
-		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---Footsteps runnging from F1 (Above) \nF1 Footprint to F2---"));
+        EventSteps->NextStep(10);
     }
 
     bIsExitReceptionPhone = false;
