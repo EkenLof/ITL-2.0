@@ -92,6 +92,12 @@ void UObjectivePanel::SetInfoText()
 			ActiveText = FText::FromString(TEXT("Head to the Manager's office and find Cole."));
 			InfoText(ActiveText);
 		}
+		else if (Player->bIsObjectiveFuse16aCollected) // Fuse
+		{
+			UE_LOG(LogTemp, Log, TEXT("bIsObjectiveFuseCollected True!"));
+			ActiveText = FText::FromString(TEXT("Head to the Basement Fusebox and place the 16 amp fuse."));
+			InfoText(ActiveText);
+		}
 		else
 		{
 			UE_LOG(LogTemp, Error, TEXT("Else True!"));

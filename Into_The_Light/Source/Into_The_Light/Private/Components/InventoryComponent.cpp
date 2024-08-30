@@ -45,6 +45,11 @@ void UInventoryComponent::ExposeItem(UItemBase* ItemOut)
 		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Purple, TEXT("Fuse10A Pick-Up-List is ---TRUE---"));
 		IsFuse10a = true;
 	}
+	else if (ItemInTemp == Fuse16a)
+	{
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Purple, TEXT("Fuse10A Pick-Up-List is ---TRUE---"));
+		IsFuse16a = true;
+	}
 	else if (ItemInTemp == ColeKeycard)
 	{
 		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Purple, TEXT("ColeKeycard Pick-Up-List is ---TRUE---"));

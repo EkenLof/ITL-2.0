@@ -81,6 +81,8 @@ AFirstPersonCharacter::AFirstPersonCharacter()
 	InteractionCheckFrequency = 0.1; // Interaction time update
 	InteractionCheckDistance = 200.0f; // Check if all distances match
 
+	bIsFuse16APlaced = false;
+
 	bIsFuse10a = false;
 	bIsElectricKey = false;
 	bIsOfficeKey = false;
@@ -90,14 +92,22 @@ AFirstPersonCharacter::AFirstPersonCharacter()
 	bIsTempOnOff = false;
 	bIsTempWaitForInteractibleFuseBox = false;
 
+	bIsTempReadyForFuse16a = false;
+
 	bIsReceptionDoor = true;
 	bIsFuseBox = true;
+
 	bIsFuseBox_Interactible = true;
+	bIsFuseBox_Interactible_Basement = true;
+
 	bIsReceptionPhone = true;
 
 	bIsLookingAtFuBox = false;
 	bIsLookingAtRecDoor = false;
+
 	bIsLookingAtFuseBox_Interactible = false;
+	bIsLookingAtFuseBox_Interactible_Basement = false;
+
 	bIsLookingReceptionPhone = false;
 
 	isFlashlightInInventory = false;
@@ -107,6 +117,7 @@ AFirstPersonCharacter::AFirstPersonCharacter()
 	bIsNeedElectricKey = false;
 
 	bIsValueFusePickedUp = false;
+	bIsValueFuse16aPickedUp = false;
 
 	EventSteps = CreateDefaultSubobject<AGameplayEvents>(TEXT("EventSteps"));
 	TriggerBox = CreateDefaultSubobject<ABoxCollider>(TEXT("TriggerBox"));
@@ -115,6 +126,9 @@ AFirstPersonCharacter::AFirstPersonCharacter()
 	Fuse10A_InFuseBoxTransTagName = FName(TEXT("Fuse10A_InFuseBoxTransparent")); // Fuse10A_InFuseBoxTransparent
 	ReceptionPhoneKeyTagName = FName(TEXT("ReceptionPhone_Key")); // ReceptionPhone_Key
 	Fuse10A_ToFuseBoxTagName = FName(TEXT("Fuse10A_InFuseBox")); //Fuse10A_InFuseBox
+
+	Fuse16A_InFuseBoxTransTagName = FName(TEXT("Fuse16A_InFuseBoxTransparent")); // Fuse16A_InFuseBoxTransparent // THE TRANSPARENT FUSE HOVER
+	Fuse16A_ToFuseBoxTagName = FName(TEXT("Fuse16A_InFuseBox")); // Fuse16A_InFuseBox // THE PLACED FUSE.
 
 	ExitFuseB1RoomTrigTagName = FName(TEXT("ExitFuseB1RoomTrigger"));
 	GoingToMissingColeTrigTagName = FName(TEXT("GoingToMissingColeTrigger"));
@@ -177,6 +191,7 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 
 	bool bIsValueFlashlightPickUP = PlayerInventory->IsFlshlight && !BIsStepActive && !PlayerInventory->IsFuse10a && !PlayerInventory->bIsOfficeKey && !PlayerInventory->IsColeKeycard;
 	bool bIsValueFusePickUp = PlayerInventory->IsFuse10a && !PlayerInventory->IsElectricKey && BIsStepActive && !PlayerInventory->bIsOfficeKey && !PlayerInventory->IsColeKeycard;
+	bool bIsValueFuse16aPickUp = PlayerInventory->IsFuse16a;
 	bool bIsValueElectricKeyPickUp = PlayerInventory->IsElectricKey && !BIsStepActive && !PlayerInventory->bIsOfficeKey && !PlayerInventory->IsColeKeycard;
 	bool bIsValueOfficeKeyPickUp = PlayerInventory->bIsOfficeKey && BIsStepActive && !PlayerInventory->IsColeKeycard;
 	bool bIsValueKeycardPickUp = PlayerInventory->IsColeKeycard && !BIsStepActive;
@@ -293,11 +308,32 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 
 		BIsStepActive = true;
 	}
+	else if (bIsValueFuse16aPickUp)
+	{
+		bIsValueFuse16aPickedUp = true;
+
+		// Objective
+		bIsObjectiveFuse16aCollected = true;
+		bIsObjectiveKeycardCollected = false;
+		bIsObjectiveOfficeKeyCollected = false;
+		bIsObjectiveElectricKeyCollected = false;
+		bIsObjectiveFuseCollected = false;
+		bIsObjectiveFlashlight = false;
+
+		if (Objective)
+		{
+			Objective->SetInfoText();
+			UE_LOG(LogTemp, Log, TEXT("Objective's SetInfoText called"));
+		}
+		else UE_LOG(LogTemp, Error, TEXT("Objective is null"));
+	}
 	///////////////////////////////////////////---TEMP---/////////////////////////////////////////////
 
 	/////////////////////////////////---Looking On or Off---////////////////////////////////////
+	////////////////////////////*********** Fuse 10A **********///////////////////////////
 	// Looking & Visable
-	if (bIsLookingAtFuseBox_Interactible && bIsFuseBox_Interactible && !bIsTempOnOff && bIsTempWaitForInteractibleFuseBox)
+	if (bIsLookingAtFuseBox_Interactible && bIsFuseBox_Interactible 
+		&& !bIsTempOnOff && bIsTempWaitForInteractibleFuseBox)
 	{
 		UpdateVaribleState(Fuse10A_InFuseBoxTransActor, Fuse10A_InFuseBoxTransTagName);
 		if (IsValid(Fuse10A_InFuseBoxTransActor)) Fuse10A_InFuseBoxTransActor->SetActorHiddenInGame(false);
@@ -312,6 +348,28 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 	{
 		UpdateVaribleState(Fuse10A_InFuseBoxTransActor, Fuse10A_InFuseBoxTransTagName);
 		if (IsValid(Fuse10A_InFuseBoxTransActor)) Fuse10A_InFuseBoxTransActor->SetActorHiddenInGame(true);
+
+		bIsTempOnOff = false;
+	}
+
+	////////////////////////////*********** Fuse 16A **********///////////////////////////
+	// Looking & Visable
+	if (bIsLookingAtFuseBox_Interactible_Basement && bIsFuseBox_Interactible_Basement && bIsTempReadyForFuse16a
+		&& !bIsTempOnOff && bIsTempWaitForInteractibleFuseBox)
+	{
+		UpdateVaribleState(Fuse16A_InFuseBoxTransActor, Fuse16A_InFuseBoxTransTagName);
+		if (IsValid(Fuse16A_InFuseBoxTransActor)) Fuse16A_InFuseBoxTransActor->SetActorHiddenInGame(false);
+
+		bIsTempOnOff = true;
+	}
+	// Not Looking & Not Visable
+	else if (!bIsFuseBox_Interactible_Basement && bIsTempOnOff && bIsTempReadyForFuse16a
+		|| !bIsLookingAtFuseBox_Interactible_Basement && bIsTempOnOff && bIsTempReadyForFuse16a
+		|| !bIsTempOnOff && bIsTempReadyForFuse16a
+		|| !bIsTempWaitForInteractibleFuseBox && bIsTempReadyForFuse16a)
+	{
+		UpdateVaribleState(Fuse16A_InFuseBoxTransActor, Fuse16A_InFuseBoxTransTagName);
+		if (IsValid(Fuse16A_InFuseBoxTransActor)) Fuse16A_InFuseBoxTransActor->SetActorHiddenInGame(true);
 
 		bIsTempOnOff = false;
 	}
@@ -370,17 +428,10 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		//////////////////////////////////////////////////////////// ??? REMOVE ITEM ??? ////////////////////////////////////////////////////////////////
-		
-		/*
-		const UItemDragDropOperation* ItemDragDrop = Cast<UItemDragDropOperation>(InOperation);
-		
-		if (ItemDragDrop->SourceItem)
-		{
-			DropItem(ItemDragDrop->SourceItem, ItemDragDrop->SourceItem->Quantity);
-		}*/
 
 		//PlayerInventory->RemoveSingleInstanceOfItem(ItemReference);
 		//PickUp->InitializeDrop(ItemReference, 0);
+		bIsTempReadyForFuse16a = true;
 
 		bIsFuse10a = false;
 		//////////////////////////////////////////////////////////// ??? REMOVE ITEM ??? ////////////////////////////////////////////////////////////////
@@ -429,6 +480,29 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 
 		bIsReceptionPhone = false;
 	}
+	// Fuse 16a to Box // bIsFuse16a = Fuse16a Selected
+	else if (CheckLookAtObject() && CheckLeftMouseButtonDown() && bIsFuse16a && !bIsFuse10a
+		&& bIsTempWaitForInteractibleFuseBox && bIsFuseBox_Interactible_Basement && bIsLookingAtFuseBox_Interactible_Basement
+		&& !bIsLookingAtRecDoor && !bIsLookingAtFuBox && !bIsLookingReceptionPhone)
+		{
+			/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+			/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+			//////////////////////////////////////////////////////////// ??? REMOVE ITEM ??? ////////////////////////////////////////////////////////////////
+			bIsFuse16APlaced = true;
+
+			bIsFuse16a = false;
+			//////////////////////////////////////////////////////////// ??? REMOVE ITEM ??? ////////////////////////////////////////////////////////////////
+			/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+			/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+			// Fuse10A_ToFuseBoxActor *VISABLE IN GAME
+			UpdateVaribleState(Fuse16A_ToFuseBoxActor, Fuse16A_ToFuseBoxTagName);
+			if (IsValid(Fuse16A_ToFuseBoxActor)) Fuse16A_ToFuseBoxActor->SetActorHiddenInGame(false);
+			else UE_LOG(LogTemp, Warning, TEXT("Fuse16A_ToFuseBoxActor is NOT Valid"));
+
+			bIsFuseBox_Interactible_Basement = false;
+			}
+
 	else return;
 	/////////////////////////////////---ReceptionDoor & FuseBox & ReceptionPhone---////////////////////////////////////
 }
@@ -609,6 +683,7 @@ bool AFirstPersonCharacter::CheckLookAtObject()
 	FName ReceptionDoorTagName = FName(TEXT("ReceptionDoor"));
 	FName FuseTagName = FName(TEXT("FuseBox"));
 	FName FuseBox_Interactible = FName(TEXT("FuseBox_Interactible"));
+	FName FuseBox_Interactible_Basement = FName(TEXT("FuseBox_Interactible_Basement")); // Interactible ColliderBox
 	FName ReceptionPhoneTagName = FName(TEXT("ReceptionPhone")); // ReceptionPhone
 
 	float LongcheckDistance = 2500.0f;
@@ -645,6 +720,7 @@ bool AFirstPersonCharacter::CheckLookAtObject()
 			bIsLookingAtRecDoor = false;
 			bIsLookingAtFuseBox_Interactible = false;
 			bIsLookingReceptionPhone = false;
+			bIsLookingAtFuseBox_Interactible_Basement = false;
 
 			bIsLookingAtFuBox = true;
 
@@ -658,11 +734,9 @@ bool AFirstPersonCharacter::CheckLookAtObject()
 			bIsLookingAtFuBox = false;
 			bIsLookingAtRecDoor = false;
 			bIsLookingReceptionPhone = false;
+			bIsLookingAtFuseBox_Interactible_Basement = false;
 
 			bIsLookingAtFuseBox_Interactible = true;
-
-			// DELETE THIS IF OK // From GameplayEvent Activity
-			//if (IsValid(EventSteps)) bIsTempWaitForInteractibleFuseBox = EventSteps->bIsTempWaitForInteractibleFuseBox;
 
 			// FUSEBOX INTERACTIBLE TRUE
 			bIsTempWaitForInteractibleFuseBox = true;
@@ -677,8 +751,26 @@ bool AFirstPersonCharacter::CheckLookAtObject()
 			bIsLookingAtFuBox = false;
 			bIsLookingAtRecDoor = false;
 			bIsLookingAtFuseBox_Interactible = false;
+			bIsLookingAtFuseBox_Interactible_Basement = false;
 
 			bIsLookingReceptionPhone = true;
+
+			bIsUiActive = true; // NOT IN USE YET 
+
+			return true;
+		}
+		// FuseBox Fuse 16A to box
+		else if (HitResult.GetActor() && HitResult.GetActor()->ActorHasTag(FuseBox_Interactible_Basement) && bIsFuseBox_Interactible_Basement)
+		{
+			bIsLookingAtFuBox = false;
+			bIsLookingAtRecDoor = false;
+			bIsLookingReceptionPhone = false;
+			bIsLookingAtFuseBox_Interactible = false;
+
+			bIsLookingAtFuseBox_Interactible_Basement = true;
+
+			// FUSEBOX INTERACTIBLE TRUE
+			bIsTempWaitForInteractibleFuseBox = true;
 
 			bIsUiActive = true; // NOT IN USE YET 
 
@@ -725,6 +817,7 @@ bool AFirstPersonCharacter::CheckLookAtObject()
 	bIsLookingAtFuBox = false;
 	bIsLookingAtRecDoor = false;
 	bIsLookingAtFuseBox_Interactible = false;
+	bIsLookingAtFuseBox_Interactible_Basement = false;
 	bIsLookingReceptionPhone = false;
 
 	bIsUiActive = false;

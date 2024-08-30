@@ -86,19 +86,25 @@ public:
 	bool isWalkingForward;
 	bool isWalkingBackward;
 
+	////////////////////////////////////////////////////////////////////// INVENTORY SELECTED //////////////////////////////////////////////////////////////////////
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory | Items")
 	bool bIsFuse10a; // bIsFuse10a Selected
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory | Items")
+	bool bIsFuse16a; // bIsFuse10a Selected
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory | Items")
 	bool bIsElectricKey; // bIsElectricKey Selected
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory | Items")
 	bool bIsOfficeKey; // bIsOfficeKey Selected
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory | Items")
 	bool bIsKeycard; // bIsKeycard Selected
+	////////////////////////////////////////////////////////////////////// INVENTORY SELECTED //////////////////////////////////////////////////////////////////////
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Value")
 	bool bIsObjectiveFlashlight;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Value")
 	bool bIsObjectiveFuseCollected;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Value")
+	bool bIsObjectiveFuse16aCollected;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Value")
 	bool bIsObjectiveFindElectricKey;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Value")
@@ -107,8 +113,13 @@ public:
 	bool bIsObjectiveOfficeKeyCollected;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Value")
 	bool bIsObjectiveKeycardCollected;
+
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Value")
 	bool bIsValueFusePickedUp;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Value")
+	bool bIsValueFuse16aPickedUp;
+
 
 	float WalkSpeed;
 	float RunSpeed;
@@ -222,24 +233,35 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FirstPersonCharacter | Interactible | Logic")
 	bool bIsNeedElectricKey;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Item | Logic")
+	bool bIsFuse16APlaced;
+
 	bool BIsStepActive;
 
 	bool bIsTempOnOff;
 	bool bIsTempWaitForInteractibleFuseBox;
 
+	bool bIsTempReadyForFuse16a;
+
 	bool bIsReceptionDoor;
 	bool bIsFuseBox;
 	bool bIsFuseBox_Interactible;
+	bool bIsFuseBox_Interactible_Basement;
 	bool bIsReceptionPhone;
 
 	bool bIsLookingAtRecDoor;
 	bool bIsLookingAtFuBox;
 	bool bIsLookingAtFuseBox_Interactible;
+	bool bIsLookingAtFuseBox_Interactible_Basement;
 	bool bIsLookingReceptionPhone;
 
 	// --- Tags --- //
 	FName Fuse10A_InFuseBoxTransTagName;
 	FName Fuse10A_ToFuseBoxTagName;
+
+	FName Fuse16A_InFuseBoxTransTagName;
+	FName Fuse16A_ToFuseBoxTagName;
+
 	FName ReceptionPhoneKeyTagName;
 
 	FName ReceptionPhoneTrigTagName; // Trig4TagName
@@ -262,6 +284,12 @@ protected:
 	AActor* Fuse10A_InFuseBoxTransActor;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")
 	AActor* Fuse10A_ToFuseBoxActor;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")
+	AActor* Fuse16A_InFuseBoxTransActor;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")
+	AActor* Fuse16A_ToFuseBoxActor;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")
 	AActor* ReceptionPhoneKeyActor;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")

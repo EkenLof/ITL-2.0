@@ -919,6 +919,10 @@ struct Z_Construct_UClass_UInventoryComponent_Statics
 		{ "Category", "Inventory | ItemID" },
 		{ "ModuleRelativePath", "Public/Components/InventoryComponent.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_IsFuse16a_MetaData[] = {
+		{ "Category", "Inventory | ItemID" },
+		{ "ModuleRelativePath", "Public/Components/InventoryComponent.h" },
+	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Flashlight_MetaData[] = {
 		{ "Category", "Inventory | ItemID" },
 #if !UE_BUILD_SHIPPING
@@ -965,6 +969,10 @@ struct Z_Construct_UClass_UInventoryComponent_Statics
 		{ "Category", "Inventory | ItemID" },
 		{ "ModuleRelativePath", "Public/Components/InventoryComponent.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Fuse16a_MetaData[] = {
+		{ "Category", "Inventory | ItemID" },
+		{ "ModuleRelativePath", "Public/Components/InventoryComponent.h" },
+	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_InventoryTotalWeight_MetaData[] = {
 		{ "Category", "Inventory" },
 		{ "ModuleRelativePath", "Public/Components/InventoryComponent.h" },
@@ -996,6 +1004,8 @@ struct Z_Construct_UClass_UInventoryComponent_Statics
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_IsElectricKey;
 	static void NewProp_IsFuse10a_SetBit(void* Obj);
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_IsFuse10a;
+	static void NewProp_IsFuse16a_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_IsFuse16a;
 	static const UECodeGen_Private::FStrPropertyParams NewProp_Flashlight;
 	static const UECodeGen_Private::FStrPropertyParams NewProp_Lighter;
 	static const UECodeGen_Private::FStrPropertyParams NewProp_Battery;
@@ -1003,6 +1013,7 @@ struct Z_Construct_UClass_UInventoryComponent_Statics
 	static const UECodeGen_Private::FStrPropertyParams NewProp_ColeKeycard;
 	static const UECodeGen_Private::FStrPropertyParams NewProp_ElectricKey;
 	static const UECodeGen_Private::FStrPropertyParams NewProp_Fuse10a;
+	static const UECodeGen_Private::FStrPropertyParams NewProp_Fuse16a;
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_InventoryTotalWeight;
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_InventoryWeightCapacity;
 	static const UECodeGen_Private::FIntPropertyParams NewProp_InventorySlotsCapacity;
@@ -1067,6 +1078,11 @@ void Z_Construct_UClass_UInventoryComponent_Statics::NewProp_IsFuse10a_SetBit(vo
 	((UInventoryComponent*)Obj)->IsFuse10a = 1;
 }
 const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UInventoryComponent_Statics::NewProp_IsFuse10a = { "IsFuse10a", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(UInventoryComponent), &Z_Construct_UClass_UInventoryComponent_Statics::NewProp_IsFuse10a_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_IsFuse10a_MetaData), NewProp_IsFuse10a_MetaData) };
+void Z_Construct_UClass_UInventoryComponent_Statics::NewProp_IsFuse16a_SetBit(void* Obj)
+{
+	((UInventoryComponent*)Obj)->IsFuse16a = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UInventoryComponent_Statics::NewProp_IsFuse16a = { "IsFuse16a", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(UInventoryComponent), &Z_Construct_UClass_UInventoryComponent_Statics::NewProp_IsFuse16a_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_IsFuse16a_MetaData), NewProp_IsFuse16a_MetaData) };
 const UECodeGen_Private::FStrPropertyParams Z_Construct_UClass_UInventoryComponent_Statics::NewProp_Flashlight = { "Flashlight", nullptr, (EPropertyFlags)0x0010000000020005, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UInventoryComponent, Flashlight), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Flashlight_MetaData), NewProp_Flashlight_MetaData) };
 const UECodeGen_Private::FStrPropertyParams Z_Construct_UClass_UInventoryComponent_Statics::NewProp_Lighter = { "Lighter", nullptr, (EPropertyFlags)0x0010000000020005, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UInventoryComponent, Lighter), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Lighter_MetaData), NewProp_Lighter_MetaData) };
 const UECodeGen_Private::FStrPropertyParams Z_Construct_UClass_UInventoryComponent_Statics::NewProp_Battery = { "Battery", nullptr, (EPropertyFlags)0x0010000000020005, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UInventoryComponent, Battery), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Battery_MetaData), NewProp_Battery_MetaData) };
@@ -1074,6 +1090,7 @@ const UECodeGen_Private::FStrPropertyParams Z_Construct_UClass_UInventoryCompone
 const UECodeGen_Private::FStrPropertyParams Z_Construct_UClass_UInventoryComponent_Statics::NewProp_ColeKeycard = { "ColeKeycard", nullptr, (EPropertyFlags)0x0010000000020005, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UInventoryComponent, ColeKeycard), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ColeKeycard_MetaData), NewProp_ColeKeycard_MetaData) };
 const UECodeGen_Private::FStrPropertyParams Z_Construct_UClass_UInventoryComponent_Statics::NewProp_ElectricKey = { "ElectricKey", nullptr, (EPropertyFlags)0x0010000000020005, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UInventoryComponent, ElectricKey), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ElectricKey_MetaData), NewProp_ElectricKey_MetaData) };
 const UECodeGen_Private::FStrPropertyParams Z_Construct_UClass_UInventoryComponent_Statics::NewProp_Fuse10a = { "Fuse10a", nullptr, (EPropertyFlags)0x0010000000020005, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UInventoryComponent, Fuse10a), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Fuse10a_MetaData), NewProp_Fuse10a_MetaData) };
+const UECodeGen_Private::FStrPropertyParams Z_Construct_UClass_UInventoryComponent_Statics::NewProp_Fuse16a = { "Fuse16a", nullptr, (EPropertyFlags)0x0010000000020005, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UInventoryComponent, Fuse16a), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Fuse16a_MetaData), NewProp_Fuse16a_MetaData) };
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UInventoryComponent_Statics::NewProp_InventoryTotalWeight = { "InventoryTotalWeight", nullptr, (EPropertyFlags)0x0020080000020001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UInventoryComponent, InventoryTotalWeight), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_InventoryTotalWeight_MetaData), NewProp_InventoryTotalWeight_MetaData) };
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UInventoryComponent_Statics::NewProp_InventoryWeightCapacity = { "InventoryWeightCapacity", nullptr, (EPropertyFlags)0x0020080000000801, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UInventoryComponent, InventoryWeightCapacity), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_InventoryWeightCapacity_MetaData), NewProp_InventoryWeightCapacity_MetaData) };
 const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_UInventoryComponent_Statics::NewProp_InventorySlotsCapacity = { "InventorySlotsCapacity", nullptr, (EPropertyFlags)0x0020080000000801, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UInventoryComponent, InventorySlotsCapacity), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_InventorySlotsCapacity_MetaData), NewProp_InventorySlotsCapacity_MetaData) };
@@ -1087,6 +1104,7 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UInventor
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInventoryComponent_Statics::NewProp_IsColeKeycard,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInventoryComponent_Statics::NewProp_IsElectricKey,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInventoryComponent_Statics::NewProp_IsFuse10a,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInventoryComponent_Statics::NewProp_IsFuse16a,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInventoryComponent_Statics::NewProp_Flashlight,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInventoryComponent_Statics::NewProp_Lighter,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInventoryComponent_Statics::NewProp_Battery,
@@ -1094,6 +1112,7 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UInventor
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInventoryComponent_Statics::NewProp_ColeKeycard,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInventoryComponent_Statics::NewProp_ElectricKey,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInventoryComponent_Statics::NewProp_Fuse10a,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInventoryComponent_Statics::NewProp_Fuse16a,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInventoryComponent_Statics::NewProp_InventoryTotalWeight,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInventoryComponent_Statics::NewProp_InventoryWeightCapacity,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInventoryComponent_Statics::NewProp_InventorySlotsCapacity,
@@ -1147,10 +1166,10 @@ struct Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Sou
 		{ FItemAddResult::StaticStruct, Z_Construct_UScriptStruct_FItemAddResult_Statics::NewStructOps, TEXT("ItemAddResult"), &Z_Registration_Info_UScriptStruct_ItemAddResult, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FItemAddResult), 2715229806U) },
 	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UInventoryComponent, UInventoryComponent::StaticClass, TEXT("UInventoryComponent"), &Z_Registration_Info_UClass_UInventoryComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UInventoryComponent), 3900210339U) },
+		{ Z_Construct_UClass_UInventoryComponent, UInventoryComponent::StaticClass, TEXT("UInventoryComponent"), &Z_Registration_Info_UClass_UInventoryComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UInventoryComponent), 1565581008U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Components_InventoryComponent_h_532438794(TEXT("/Script/Into_The_Light"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Components_InventoryComponent_h_2388259114(TEXT("/Script/Into_The_Light"),
 	Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Components_InventoryComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Components_InventoryComponent_h_Statics::ClassInfo),
 	Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Components_InventoryComponent_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Components_InventoryComponent_h_Statics::ScriptStructInfo),
 	Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Components_InventoryComponent_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Components_InventoryComponent_h_Statics::EnumInfo));
