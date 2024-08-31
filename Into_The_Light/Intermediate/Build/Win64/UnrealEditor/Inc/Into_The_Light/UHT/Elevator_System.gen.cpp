@@ -89,9 +89,21 @@ struct Z_Construct_UClass_AElevator_System_Statics
 		{ "Category", "Elevator | Event | Activity" },
 		{ "ModuleRelativePath", "Public/Gameplay/Elevator_System.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bISCrElevator_MetaData[] = {
+		{ "Category", "Elevator | Event | Activity" },
+		{ "ModuleRelativePath", "Public/Gameplay/Elevator_System.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bIsFuse16aPlaced_MetaData[] = {
+		{ "Category", "Elevator | Event | Activity" },
+		{ "ModuleRelativePath", "Public/Gameplay/Elevator_System.h" },
+	};
 #endif // WITH_METADATA
 	static void NewProp_bIsElevatorOn_SetBit(void* Obj);
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsElevatorOn;
+	static void NewProp_bISCrElevator_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bISCrElevator;
+	static void NewProp_bIsFuse16aPlaced_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsFuse16aPlaced;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
@@ -108,8 +120,20 @@ void Z_Construct_UClass_AElevator_System_Statics::NewProp_bIsElevatorOn_SetBit(v
 	((AElevator_System*)Obj)->bIsElevatorOn = 1;
 }
 const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AElevator_System_Statics::NewProp_bIsElevatorOn = { "bIsElevatorOn", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AElevator_System), &Z_Construct_UClass_AElevator_System_Statics::NewProp_bIsElevatorOn_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bIsElevatorOn_MetaData), NewProp_bIsElevatorOn_MetaData) };
+void Z_Construct_UClass_AElevator_System_Statics::NewProp_bISCrElevator_SetBit(void* Obj)
+{
+	((AElevator_System*)Obj)->bISCrElevator = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AElevator_System_Statics::NewProp_bISCrElevator = { "bISCrElevator", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AElevator_System), &Z_Construct_UClass_AElevator_System_Statics::NewProp_bISCrElevator_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bISCrElevator_MetaData), NewProp_bISCrElevator_MetaData) };
+void Z_Construct_UClass_AElevator_System_Statics::NewProp_bIsFuse16aPlaced_SetBit(void* Obj)
+{
+	((AElevator_System*)Obj)->bIsFuse16aPlaced = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AElevator_System_Statics::NewProp_bIsFuse16aPlaced = { "bIsFuse16aPlaced", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AElevator_System), &Z_Construct_UClass_AElevator_System_Statics::NewProp_bIsFuse16aPlaced_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bIsFuse16aPlaced_MetaData), NewProp_bIsFuse16aPlaced_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AElevator_System_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AElevator_System_Statics::NewProp_bIsElevatorOn,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AElevator_System_Statics::NewProp_bISCrElevator,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AElevator_System_Statics::NewProp_bIsFuse16aPlaced,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AElevator_System_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_AElevator_System_Statics::DependentSingletons[])() = {
@@ -152,10 +176,10 @@ AElevator_System::~AElevator_System() {}
 struct Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_Elevator_System_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AElevator_System, AElevator_System::StaticClass, TEXT("AElevator_System"), &Z_Registration_Info_UClass_AElevator_System, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AElevator_System), 165641943U) },
+		{ Z_Construct_UClass_AElevator_System, AElevator_System::StaticClass, TEXT("AElevator_System"), &Z_Registration_Info_UClass_AElevator_System, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AElevator_System), 2457507306U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_Elevator_System_h_654731017(TEXT("/Script/Into_The_Light"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_Elevator_System_h_333464545(TEXT("/Script/Into_The_Light"),
 	Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_Elevator_System_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Gameplay_Elevator_System_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

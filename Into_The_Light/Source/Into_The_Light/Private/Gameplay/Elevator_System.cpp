@@ -6,8 +6,8 @@ AElevator_System::AElevator_System()
 	PrimaryActorTick.bCanEverTick = true;
 
 	bIsElevatorOn = false;
-
-	// Tag: ElevatorCardReader
+	bISCrElevator = false;
+	bIsFuse16aPlaced = false;
 }
 
 void AElevator_System::BeginPlay()
@@ -25,6 +25,8 @@ void AElevator_System::Tick(float DeltaTime)
 void AElevator_System::ElevatorActive(bool bIsElevatorActivety)
 {
 	bIsElevatorOn = bIsElevatorActivety;
+	bIsFuse16aPlaced = bIsElevatorActivety;
+
 	UE_LOG(LogTemp, Error, TEXT("Succeded to set bIsElevatorOn ACTIVE!"));
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 10.0f, FColor::Red, TEXT("Succeded to set bIsElevatorOn ACTIVE!"));
 }

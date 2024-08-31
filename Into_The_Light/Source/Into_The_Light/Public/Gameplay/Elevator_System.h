@@ -19,6 +19,10 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Elevator | Event | Activity")
 	bool bIsElevatorOn;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Elevator | Event | Activity")
+	bool bISCrElevator;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Elevator | Event | Activity")
+	bool bIsFuse16aPlaced;
 
 protected:
 	virtual void BeginPlay() override;

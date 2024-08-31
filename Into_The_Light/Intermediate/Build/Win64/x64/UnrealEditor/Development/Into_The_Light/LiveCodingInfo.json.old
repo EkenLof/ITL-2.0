@@ -28,9 +28,11 @@
 			"WhiteFace.gen.cpp.obj",
 			"DoorSystem.cpp.obj",
 			"Into_The_Light.cpp.obj",
+			"FirstPersonCharacter.cpp.obj",
 			"ActorSoundSystem.cpp.obj",
 			"Cole.cpp.obj",
 			"WhiteFace.cpp.obj",
+			"InventoryComponent.cpp.obj",
 			"Elevator_System.cpp.obj",
 			"GameplayEvents.cpp.obj",
 			"InteractionInterface.cpp.obj",
@@ -44,11 +46,9 @@
 			"ItemDragDropOperation.cpp.obj",
 			"MainHUD.cpp.obj",
 			"MainMenu.cpp.obj",
+			"ObjectivePanel.cpp.obj",
 			"InterfaceActorT.cpp.obj",
-			"PickUp.cpp.obj",
-			"FirstPersonCharacter.cpp.obj",
-			"InventoryComponent.cpp.obj",
-			"ObjectivePanel.cpp.obj"
+			"PickUp.cpp.obj"
 		]
 	}
 }
