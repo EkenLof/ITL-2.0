@@ -24,6 +24,8 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory | Items")
 	bool bIsFuse10a = false;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory | Items")
+	bool bIsFuse16a = false;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory | Items")
 	bool bIsElectricKey = false;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory | Items")
 	bool bIsOfficeKey = false;
