@@ -473,6 +473,9 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 		if (IsValid(ExitReceptionPhoneTrigActor)) ExitReceptionPhoneTrigActor->SetActorEnableCollision(true);
 		else UE_LOG(LogTemp, Warning, TEXT("ExitReceptionPhoneActor is NOT Valid"));
 
+		// Load Lights F2
+		LoadSublevel(TEXT("LightsF2")); // 11-09-2024
+
 		bIsReceptionPhone = false;
 	}
 	// Fuse 16a to Box // bIsFuse16a = Fuse16a Selected
