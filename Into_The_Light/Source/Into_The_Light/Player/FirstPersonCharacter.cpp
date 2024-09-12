@@ -92,8 +92,6 @@ AFirstPersonCharacter::AFirstPersonCharacter()
 	bIsTempOnOff = false;
 	bIsTempWaitForInteractibleFuseBox = false;
 
-	bIsTempReadyForFuse16a = false;
-
 	bIsReceptionDoor = true;
 	bIsFuseBox = true;
 
@@ -354,7 +352,7 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 
 	////////////////////////////*********** Fuse 16A **********///////////////////////////
 	// Looking & Visable
-	if (bIsLookingAtFuseBox_Interactible_Basement && bIsFuseBox_Interactible_Basement && bIsTempReadyForFuse16a
+	if (bIsLookingAtFuseBox_Interactible_Basement && bIsFuseBox_Interactible_Basement
 		&& !bIsTempOnOff && bIsTempWaitForInteractibleFuseBox)
 	{
 		UpdateVaribleState(Fuse16A_InFuseBoxTransActor, Fuse16A_InFuseBoxTransTagName);
@@ -363,10 +361,10 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 		bIsTempOnOff = true;
 	}
 	// Not Looking & Not Visable
-	else if (!bIsFuseBox_Interactible_Basement && bIsTempOnOff && bIsTempReadyForFuse16a
-		|| !bIsLookingAtFuseBox_Interactible_Basement && bIsTempOnOff && bIsTempReadyForFuse16a
-		|| !bIsTempOnOff && bIsTempReadyForFuse16a
-		|| !bIsTempWaitForInteractibleFuseBox && bIsTempReadyForFuse16a)
+	else if (!bIsFuseBox_Interactible_Basement && bIsTempOnOff
+		|| !bIsLookingAtFuseBox_Interactible_Basement && bIsTempOnOff
+		|| !bIsTempOnOff
+		|| !bIsTempWaitForInteractibleFuseBox)
 	{
 		UpdateVaribleState(Fuse16A_InFuseBoxTransActor, Fuse16A_InFuseBoxTransTagName);
 		if (IsValid(Fuse16A_InFuseBoxTransActor)) Fuse16A_InFuseBoxTransActor->SetActorHiddenInGame(true);
@@ -425,7 +423,6 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 		&& bIsTempWaitForInteractibleFuseBox && bIsFuseBox_Interactible && bIsLookingAtFuseBox_Interactible 
 		&& !bIsLookingAtRecDoor && !bIsLookingAtFuBox && !bIsLookingReceptionPhone)
 	{
-		bIsTempReadyForFuse16a = true;
 		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		//////////////////////////////////////////////////////////// ??? REMOVE ITEM ??? ////////////////////////////////////////////////////////////////
 
@@ -479,7 +476,7 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 		bIsReceptionPhone = false;
 	}
 	// Fuse 16a to Box // bIsFuse16a = Fuse16a Selected
-	else if (CheckLookAtObject() && CheckLeftMouseButtonDown() && bIsFuse16a && !bIsFuse10a
+	else if (CheckLookAtObject() && CheckLeftMouseButtonDown() && bIsFuse16a
 		&& bIsTempWaitForInteractibleFuseBox && bIsFuseBox_Interactible_Basement && bIsLookingAtFuseBox_Interactible_Basement
 		&& !bIsLookingAtRecDoor && !bIsLookingAtFuBox && !bIsLookingReceptionPhone)
 		{

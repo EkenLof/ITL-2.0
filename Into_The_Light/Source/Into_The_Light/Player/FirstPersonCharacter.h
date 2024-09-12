@@ -241,8 +241,6 @@ protected:
 	bool bIsTempOnOff;
 	bool bIsTempWaitForInteractibleFuseBox;
 
-	bool bIsTempReadyForFuse16a;
-
 	bool bIsReceptionDoor;
 	bool bIsFuseBox;
 	bool bIsFuseBox_Interactible;
