@@ -81,6 +81,8 @@ AFirstPersonCharacter::AFirstPersonCharacter()
 	InteractionCheckFrequency = 0.1; // Interaction time update
 	InteractionCheckDistance = 200.0f; // Check if all distances match
 
+	bIsObjectiveLighter = false;
+
 	bIsFuse16APlaced = false;
 
 	bIsFuse10a = false;
@@ -193,6 +195,7 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 	bool bIsValueElectricKeyPickUp = PlayerInventory->IsElectricKey && !BIsStepActive && !PlayerInventory->bIsOfficeKey && !PlayerInventory->IsColeKeycard;
 	bool bIsValueOfficeKeyPickUp = PlayerInventory->bIsOfficeKey && BIsStepActive && !PlayerInventory->IsColeKeycard;
 	bool bIsValueKeycardPickUp = PlayerInventory->IsColeKeycard && !BIsStepActive;
+	bool bIsValueLighterPickUp = PlayerInventory->IsLighter && BIsStepActive;
 
 	if (GetWorld()->TimeSince(InteractionData.LastInteractionCheckTime) > InteractionCheckFrequency) PerformInteractionCheck();
 
@@ -325,6 +328,29 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 		}
 		else UE_LOG(LogTemp, Error, TEXT("Objective is null"));
 	}
+
+	else if (bIsValueLighterPickUp) // Cole's Keycard Pickup
+	{
+		bIsObjectiveLighter = true;
+
+		/*// Objective
+		bIsObjectiveKeycardCollected = true;
+		bIsObjectiveOfficeKeyCollected = false;
+		bIsObjectiveElectricKeyCollected = false;
+		bIsObjectiveFuseCollected = false;
+		bIsObjectiveFlashlight = false;
+
+		if (Objective)
+		{
+			Objective->SetInfoText();
+			UE_LOG(LogTemp, Log, TEXT("Objective's SetInfoText called"));
+		}
+		else UE_LOG(LogTemp, Error, TEXT("Objective is null"));
+		*/
+
+		BIsStepActive = false;
+	}
+
 	///////////////////////////////////////////---TEMP---/////////////////////////////////////////////
 
 	/////////////////////////////////---Looking On or Off---////////////////////////////////////
