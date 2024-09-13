@@ -32,6 +32,16 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Event | Activity | Objective")
 	void SetInfoText();
 
+	bool bIsObjectiveNone = true;
+	bool bIsObjectiveFlashlight = true;
+	bool bIsObjectiveFuseCollected = true;
+	bool bIsObjectiveFindElectricKey = true;
+	bool bIsObjectiveElectricKeyCollected = true;
+	bool bIsObjectiveOfficeKeyCollected = true;
+	bool bIsObjectiveKeycardCollected = true;
+	bool bIsObjectiveFuse16aCollected = true;
+	bool bIsObjectiveLighter = true;
+
 protected:
 	AFirstPersonCharacter* Player;
 

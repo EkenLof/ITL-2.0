@@ -118,6 +118,10 @@ AFirstPersonCharacter::AFirstPersonCharacter()
 
 	bIsValueFusePickedUp = false;
 	bIsValueFuse16aPickedUp = false;
+	bIsValueLighterPickedUp = false;
+
+
+	bIsEndStepPartOne = false;
 
 	EventSteps = CreateDefaultSubobject<AGameplayEvents>(TEXT("EventSteps"));
 	TriggerBox = CreateDefaultSubobject<ABoxCollider>(TEXT("TriggerBox"));
@@ -191,11 +195,11 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 
 	bool bIsValueFlashlightPickUP = PlayerInventory->IsFlshlight && !BIsStepActive && !PlayerInventory->IsFuse10a && !PlayerInventory->bIsOfficeKey && !PlayerInventory->IsColeKeycard;
 	bool bIsValueFusePickUp = PlayerInventory->IsFuse10a && !PlayerInventory->IsElectricKey && BIsStepActive && !PlayerInventory->bIsOfficeKey && !PlayerInventory->IsColeKeycard;
-	bool bIsValueFuse16aPickUp = PlayerInventory->IsFuse16a;
+	bool bIsValueFuse16aPickUp = PlayerInventory->IsFuse16a && !bIsValueFuse16aPickedUp;
 	bool bIsValueElectricKeyPickUp = PlayerInventory->IsElectricKey && !BIsStepActive && !PlayerInventory->bIsOfficeKey && !PlayerInventory->IsColeKeycard;
 	bool bIsValueOfficeKeyPickUp = PlayerInventory->bIsOfficeKey && BIsStepActive && !PlayerInventory->IsColeKeycard;
 	bool bIsValueKeycardPickUp = PlayerInventory->IsColeKeycard && !BIsStepActive;
-	bool bIsValueLighterPickUp = PlayerInventory->IsLighter && BIsStepActive;
+	bool bIsValueLighterPickUp = PlayerInventory->IsLighter && !bIsEndStepPartOne;
 
 	if (GetWorld()->TimeSince(InteractionData.LastInteractionCheckTime) > InteractionCheckFrequency) PerformInteractionCheck();
 
@@ -298,15 +302,6 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 		}
 		else UE_LOG(LogTemp, Error, TEXT("Objective is null"));
 
-		// Elevator
-		for (TActorIterator<AElevator_System> It(GetWorld()); It; ++It)
-		{
-			ElevatorSystem = *It;
-			break;  // Assuming there's only one elevator system, break after finding it
-		}
-
-		//if (IsValid(ElevatorSystem)) ElevatorSystem->ElevatorActive(true); // Elevator system MOVED TO OTHER LOCATION IN SCRIPT
-
 		BIsStepActive = true;
 	}
 	else if (bIsValueFuse16aPickUp)
@@ -329,12 +324,14 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 		else UE_LOG(LogTemp, Error, TEXT("Objective is null"));
 	}
 
-	else if (bIsValueLighterPickUp) // Cole's Keycard Pickup
+	else if (bIsValueLighterPickUp) // Cole's Lighter Pickup
 	{
-		bIsObjectiveLighter = true;
+		bIsValueLighterPickedUp = true;
 
-		/*// Objective
-		bIsObjectiveKeycardCollected = true;
+		// Objective
+		bIsObjectiveLighter = true;
+		bIsObjectiveFuse16aCollected = false;
+		bIsObjectiveKeycardCollected = false;
 		bIsObjectiveOfficeKeyCollected = false;
 		bIsObjectiveElectricKeyCollected = false;
 		bIsObjectiveFuseCollected = false;
@@ -346,9 +343,10 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 			UE_LOG(LogTemp, Log, TEXT("Objective's SetInfoText called"));
 		}
 		else UE_LOG(LogTemp, Error, TEXT("Objective is null"));
-		*/
+		
 
-		BIsStepActive = false;
+		UE_LOG(LogTemp, Log, TEXT("FPC: Lighter Collected\nLighter TRUE"));
+		bIsEndStepPartOne = true;
 	}
 
 	///////////////////////////////////////////---TEMP---/////////////////////////////////////////////
@@ -506,6 +504,12 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 		&& bIsTempWaitForInteractibleFuseBox && bIsFuseBox_Interactible_Basement && bIsLookingAtFuseBox_Interactible_Basement
 		&& !bIsLookingAtRecDoor && !bIsLookingAtFuBox && !bIsLookingReceptionPhone)
 		{
+			// Elevator
+			for (TActorIterator<AElevator_System> It(GetWorld()); It; ++It)
+			{
+				ElevatorSystem = *It;
+				break;  // Assuming there's only one elevator system, break after finding it
+			}
 			if (IsValid(ElevatorSystem)) ElevatorSystem->ElevatorActive(true); // Elevator system 
 
 			bIsFuse16APlaced = true;

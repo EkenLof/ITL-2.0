@@ -63,8 +63,6 @@ public:
 	
 	// --- Actors --- //	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")
-	AActor* LighterActor;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")
 	AActor* ReceptionPhoneActor;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")
 	AActor* ReceptionPhoneKeyActor;
@@ -92,8 +90,6 @@ protected:
 	FName F1ConferanceLightsTagName;
 	FName F1StorageRoomLightsTagName;
 
-	
-	FName LighterTagName;
 	FName ReceptionPhoneTagName;
 	FName ReceptionPhoneKeyTagName;
 

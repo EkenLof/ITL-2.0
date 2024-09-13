@@ -121,6 +121,8 @@ public:
 	bool bIsValueFusePickedUp;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Value")
 	bool bIsValueFuse16aPickedUp;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Value")
+	bool bIsValueLighterPickedUp;
 
 
 	float WalkSpeed;
@@ -239,6 +241,7 @@ protected:
 	bool bIsFuse16APlaced;
 
 	bool BIsStepActive;
+	bool bIsEndStepPartOne;
 
 	bool bIsTempOnOff;
 	bool bIsTempWaitForInteractibleFuseBox;

@@ -40,7 +40,6 @@ AGameplayEvents::AGameplayEvents()
 	F1StorageRoomLightsTagName = FName(TEXT("F1_StorageRoom_Lights"));
 	
 	ReceptionPhoneTagName = FName(TEXT("ReceptionPhone")); // ReceptionPhone **
-	LighterTagName = FName(TEXT("Lighter")); // Lighter
 
 	LightsB1Reception_SL = FName(TEXT("LightsB1Reception"));
 	//LightsF1_SL = FName(TEXT("LightsF1"));
@@ -60,7 +59,6 @@ void AGameplayEvents::BeginPlay()
 	
 
 	// Varible Check & assign. 
-	UpdateVaribleState(LighterActor, LighterTagName);
 	UpdateVaribleState(ReceptionPhoneActor, ReceptionPhoneTagName);
 	UpdateVaribleState(ReceptionPhoneKeyActor, ReceptionPhoneKeyTagName);
 
@@ -207,8 +205,6 @@ void AGameplayEvents::ToggleOn()
 void AGameplayEvents::ToggleOff()
 {
 	if (IsValid(ReceptionPhoneActor)) ReceptionPhoneActor->SetActorEnableCollision(false);
-
-	LighterActor->SetActorEnableCollision(false);
 
 	// EventActors
 
