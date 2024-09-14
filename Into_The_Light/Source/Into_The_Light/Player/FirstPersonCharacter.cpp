@@ -58,8 +58,8 @@ AFirstPersonCharacter::AFirstPersonCharacter()
 		ObjectiveClass = WidgetBPClass.Class;
 	}
 
-	WalkSpeed = 187.5;
-	RunSpeed = 437.5;
+	WalkSpeed = 190.0; // 187.5
+	RunSpeed = 480.0; // 437.5
 
 	PlayerMovementsValues->MaxWalkSpeed = WalkSpeed;
 

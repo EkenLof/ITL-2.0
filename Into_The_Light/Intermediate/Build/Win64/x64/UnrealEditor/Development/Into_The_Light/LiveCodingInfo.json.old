@@ -42,13 +42,13 @@
 			"ItemDragDropOperation.cpp.obj",
 			"MainHUD.cpp.obj",
 			"MainMenu.cpp.obj",
-			"ObjectivePanel.cpp.obj",
 			"InterfaceActorT.cpp.obj",
 			"PickUp.cpp.obj",
 			"GameplayEvents.gen.cpp.obj",
 			"Into_The_Light.init.gen.cpp.obj",
 			"FirstPersonCharacter.cpp.obj",
-			"GameplayEvents.cpp.obj"
+			"GameplayEvents.cpp.obj",
+			"ObjectivePanel.cpp.obj"
 		]
 	}
 }
