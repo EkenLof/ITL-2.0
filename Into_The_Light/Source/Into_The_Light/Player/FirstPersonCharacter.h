@@ -207,6 +207,8 @@ protected:
 	bool isFlashlightInInventory;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FirstPersonCharacter | ItemLogic")
 	bool isElectricKeyInInventory;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FirstPersonCharacter | ItemLogic")
+	bool bIsOfficeKeyInInventory;
 
 	////////////////////////////////////--- UI System ---////////////////////////////////////
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FirstPersonCharacter | UiLogic")
@@ -239,6 +241,9 @@ protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Item | Logic")
 	bool bIsFuse16APlaced;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Item | Logic")
+	bool bIsTimerEnd;
 
 	bool BIsStepActive;
 	bool bIsEndStepPartOne;

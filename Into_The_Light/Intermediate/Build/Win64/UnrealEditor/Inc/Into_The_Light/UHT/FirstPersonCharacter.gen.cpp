@@ -409,6 +409,10 @@ struct Z_Construct_UClass_AFirstPersonCharacter_Statics
 		{ "Category", "FirstPersonCharacter | ItemLogic" },
 		{ "ModuleRelativePath", "Player/FirstPersonCharacter.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bIsOfficeKeyInInventory_MetaData[] = {
+		{ "Category", "FirstPersonCharacter | ItemLogic" },
+		{ "ModuleRelativePath", "Player/FirstPersonCharacter.h" },
+	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bIsUiActive_MetaData[] = {
 		{ "Category", "FirstPersonCharacter | UiLogic" },
 #if !UE_BUILD_SHIPPING
@@ -462,6 +466,10 @@ struct Z_Construct_UClass_AFirstPersonCharacter_Statics
 		{ "ModuleRelativePath", "Player/FirstPersonCharacter.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bIsFuse16APlaced_MetaData[] = {
+		{ "Category", "Event | Item | Logic" },
+		{ "ModuleRelativePath", "Player/FirstPersonCharacter.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bIsTimerEnd_MetaData[] = {
 		{ "Category", "Event | Item | Logic" },
 		{ "ModuleRelativePath", "Player/FirstPersonCharacter.h" },
 	};
@@ -565,6 +573,8 @@ struct Z_Construct_UClass_AFirstPersonCharacter_Statics
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_isFlashlightInInventory;
 	static void NewProp_isElectricKeyInInventory_SetBit(void* Obj);
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_isElectricKeyInInventory;
+	static void NewProp_bIsOfficeKeyInInventory_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsOfficeKeyInInventory;
 	static void NewProp_bIsUiActive_SetBit(void* Obj);
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsUiActive;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_UiTexture;
@@ -580,6 +590,8 @@ struct Z_Construct_UClass_AFirstPersonCharacter_Statics
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsNeedElectricKey;
 	static void NewProp_bIsFuse16APlaced_SetBit(void* Obj);
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsFuse16APlaced;
+	static void NewProp_bIsTimerEnd_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsTimerEnd;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_ExitReceptionPhoneTrigActor;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_ExitFuseBoxRoomActor;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_GoingToMissingColeTrigActor;
@@ -707,6 +719,11 @@ void Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_isElectricKeyInIn
 	((AFirstPersonCharacter*)Obj)->isElectricKeyInInventory = 1;
 }
 const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_isElectricKeyInInventory = { "isElectricKeyInInventory", nullptr, (EPropertyFlags)0x0020080000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AFirstPersonCharacter), &Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_isElectricKeyInInventory_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_isElectricKeyInInventory_MetaData), NewProp_isElectricKeyInInventory_MetaData) };
+void Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsOfficeKeyInInventory_SetBit(void* Obj)
+{
+	((AFirstPersonCharacter*)Obj)->bIsOfficeKeyInInventory = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsOfficeKeyInInventory = { "bIsOfficeKeyInInventory", nullptr, (EPropertyFlags)0x0020080000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AFirstPersonCharacter), &Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsOfficeKeyInInventory_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bIsOfficeKeyInInventory_MetaData), NewProp_bIsOfficeKeyInInventory_MetaData) };
 void Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsUiActive_SetBit(void* Obj)
 {
 	((AFirstPersonCharacter*)Obj)->bIsUiActive = 1;
@@ -734,6 +751,11 @@ void Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsFuse16APlaced_
 	((AFirstPersonCharacter*)Obj)->bIsFuse16APlaced = 1;
 }
 const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsFuse16APlaced = { "bIsFuse16APlaced", nullptr, (EPropertyFlags)0x0020080000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AFirstPersonCharacter), &Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsFuse16APlaced_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bIsFuse16APlaced_MetaData), NewProp_bIsFuse16APlaced_MetaData) };
+void Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsTimerEnd_SetBit(void* Obj)
+{
+	((AFirstPersonCharacter*)Obj)->bIsTimerEnd = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsTimerEnd = { "bIsTimerEnd", nullptr, (EPropertyFlags)0x0020080000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AFirstPersonCharacter), &Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsTimerEnd_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bIsTimerEnd_MetaData), NewProp_bIsTimerEnd_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_ExitReceptionPhoneTrigActor = { "ExitReceptionPhoneTrigActor", nullptr, (EPropertyFlags)0x0020080000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFirstPersonCharacter, ExitReceptionPhoneTrigActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ExitReceptionPhoneTrigActor_MetaData), NewProp_ExitReceptionPhoneTrigActor_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_ExitFuseBoxRoomActor = { "ExitFuseBoxRoomActor", nullptr, (EPropertyFlags)0x0020080000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFirstPersonCharacter, ExitFuseBoxRoomActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ExitFuseBoxRoomActor_MetaData), NewProp_ExitFuseBoxRoomActor_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_GoingToMissingColeTrigActor = { "GoingToMissingColeTrigActor", nullptr, (EPropertyFlags)0x0020080000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFirstPersonCharacter, GoingToMissingColeTrigActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_GoingToMissingColeTrigActor_MetaData), NewProp_GoingToMissingColeTrigActor_MetaData) };
@@ -773,6 +795,7 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AFirstPer
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_isFlashlightEquiped,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_isFlashlightInInventory,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_isElectricKeyInInventory,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsOfficeKeyInInventory,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsUiActive,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_UiTexture,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_UiMaterial,
@@ -784,6 +807,7 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AFirstPer
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsNeedFlashlight,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsNeedElectricKey,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsFuse16APlaced,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsTimerEnd,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_ExitReceptionPhoneTrigActor,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_ExitFuseBoxRoomActor,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_GoingToMissingColeTrigActor,
@@ -839,10 +863,10 @@ struct Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Sou
 		{ FInteractionData::StaticStruct, Z_Construct_UScriptStruct_FInteractionData_Statics::NewStructOps, TEXT("InteractionData"), &Z_Registration_Info_UScriptStruct_InteractionData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FInteractionData), 2377451553U) },
 	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AFirstPersonCharacter, AFirstPersonCharacter::StaticClass, TEXT("AFirstPersonCharacter"), &Z_Registration_Info_UClass_AFirstPersonCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFirstPersonCharacter), 2504645818U) },
+		{ Z_Construct_UClass_AFirstPersonCharacter, AFirstPersonCharacter::StaticClass, TEXT("AFirstPersonCharacter"), &Z_Registration_Info_UClass_AFirstPersonCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFirstPersonCharacter), 3530154444U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Player_FirstPersonCharacter_h_857953111(TEXT("/Script/Into_The_Light"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Player_FirstPersonCharacter_h_1093953254(TEXT("/Script/Into_The_Light"),
 	Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Player_FirstPersonCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Player_FirstPersonCharacter_h_Statics::ClassInfo),
 	Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Player_FirstPersonCharacter_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Player_FirstPersonCharacter_h_Statics::ScriptStructInfo),
 	nullptr, 0);

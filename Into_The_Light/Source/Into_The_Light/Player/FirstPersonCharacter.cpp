@@ -112,6 +112,9 @@ AFirstPersonCharacter::AFirstPersonCharacter()
 
 	isFlashlightInInventory = false;
 	isElectricKeyInInventory = false;
+	bIsOfficeKeyInInventory = false;
+
+	bIsTimerEnd = false;
 
 	bIsNeedFlashlight = false;
 	bIsNeedElectricKey = false;
@@ -139,6 +142,9 @@ AFirstPersonCharacter::AFirstPersonCharacter()
 	ReceptionPhoneTrigTagName = FName(TEXT("ReceptionPhoneTrigger"));
 
 	WhiteFaceTagName = FName(TEXT("WhiteFace_F2")); // WhiteFace_F2
+
+	// Face_WhiteFace Tag for face
+	// WhiteFace_F2 Tag for WhitefaceBP Actor
 
 	//BaseEyeHeight = 75.0f;
 }
@@ -260,9 +266,6 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 		}
 		else UE_LOG(LogTemp, Error, TEXT("Objective is null"));
 
-		// STEP
-		//if (IsValid(EventSteps)) EventSteps->NextStep(7);
-		// FuseBoxInteractible 
 		bIsTempWaitForInteractibleFuseBox = true;
 
 		BIsStepActive = true;
@@ -270,6 +273,8 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 
 	else if (bIsValueOfficeKeyPickUp) // OfficeKey Pickup
 	{
+		bIsOfficeKeyInInventory = true;
+
 		// Objective
 		bIsObjectiveOfficeKeyCollected = true;
 		bIsObjectiveElectricKeyCollected = false;
@@ -613,6 +618,8 @@ void AFirstPersonCharacter::OnTimerEnd()
 	UE_LOG(LogTemp, Log, TEXT("Timer has ended!"));
 
 	UnloadSublevel(TEXT("LightsF2"));
+
+	bIsTimerEnd = true;
 }
 //*********************************************************** TIMER ***********************************************************
 
@@ -804,7 +811,7 @@ bool AFirstPersonCharacter::CheckLookAtObject()
 	}
 	else if (GetWorld()->LineTraceSingleByChannel(HitResult, Start, EndLong, ECollisionChannel::ECC_Visibility, CollisionParams))
 	{
-		if (HitResult.GetActor() && HitResult.GetActor()->ActorHasTag(WhiteFaceTagName) && bIsObjectiveOfficeKeyCollected) // CLapp Started
+		if (HitResult.GetActor() && HitResult.GetActor()->ActorHasTag(WhiteFaceTagName) && bIsOfficeKeyInInventory) // CLapp Started
 		{
 			TArray<AActor*> TaggedActors;
 			UGameplayStatics::GetAllActorsWithTag(GetWorld(), WhiteFaceTagName, TaggedActors);
@@ -827,7 +834,7 @@ bool AFirstPersonCharacter::CheckLookAtObject()
 
 			UnloadSublevel(TEXT("LightsF1"));
 
-			StartTimer(2.5f);
+			StartTimer(1.25f);
 
 			if (IsValid(this->WhiteFace)) 
 			{
