@@ -85,6 +85,10 @@
 		{
 			"Name": "AnimationLocomotionLibrary",
 			"Enabled": true
+		},
+		{
+			"Name": "LiveLinkHub",
+			"Enabled": true
 		}
 	]
 }
