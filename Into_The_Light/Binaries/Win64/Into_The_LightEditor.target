@@ -1430,6 +1430,10 @@
 			"Type": "DynamicLibrary"
 		},
 		{
+			"Path": "$(EngineDir)/Binaries/Win64/UnrealEditor-StandaloneRenderer.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
 			"Path": "$(EngineDir)/Binaries/Win64/UnrealEditor-StaticMeshDescription.dll",
 			"Type": "DynamicLibrary"
 		},
@@ -1967,6 +1971,22 @@
 		},
 		{
 			"Path": "$(EngineDir)/Plugins/Animation/IKRig/Binaries/Win64/UnrealEditor.modules",
+			"Type": "RequiredResource"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Animation/LiveLinkHub/Binaries/Win64/UnrealEditor-LiveLinkHub.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Animation/LiveLinkHub/Binaries/Win64/UnrealEditor-LiveLinkHubEditor.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Animation/LiveLinkHub/Binaries/Win64/UnrealEditor-LiveLinkHubMessaging.dll",
+			"Type": "DynamicLibrary"
+		},
+		{
+			"Path": "$(EngineDir)/Plugins/Animation/LiveLinkHub/Binaries/Win64/UnrealEditor.modules",
 			"Type": "RequiredResource"
 		},
 		{
@@ -26396,6 +26416,10 @@
 			"Type": "UFS"
 		},
 		{
+			"Path": "$(EngineDir)/Plugins/Animation/LiveLinkHub/LiveLinkHub.uplugin",
+			"Type": "UFS"
+		},
+		{
 			"Path": "$(EngineDir)/Plugins/Animation/LiveLink/LiveLink.uplugin",
 			"Type": "UFS"
 		},
@@ -27088,6 +27112,34 @@
 			"Type": "UFS"
 		},
 		{
+			"Path": "$(EngineDir)/Shaders/StandaloneRenderer/D3D/GammaCorrectionCommon.hlsl",
+			"Type": "UFS"
+		},
+		{
+			"Path": "$(EngineDir)/Shaders/StandaloneRenderer/D3D/SlateDefaultVertexShader.hlsl",
+			"Type": "UFS"
+		},
+		{
+			"Path": "$(EngineDir)/Shaders/StandaloneRenderer/D3D/SlateElementPixelShader.hlsl",
+			"Type": "UFS"
+		},
+		{
+			"Path": "$(EngineDir)/Shaders/StandaloneRenderer/OpenGL/SlateElementPixelShader.glsl",
+			"Type": "UFS"
+		},
+		{
+			"Path": "$(EngineDir)/Shaders/StandaloneRenderer/OpenGL/SlateVertexShader.glsl",
+			"Type": "UFS"
+		},
+		{
+			"Path": "$(EngineDir)/Shaders/StandaloneRenderer/OpenGL/SplashFragmentShader.glsl",
+			"Type": "UFS"
+		},
+		{
+			"Path": "$(EngineDir)/Shaders/StandaloneRenderer/OpenGL/SplashVertexShader.glsl",
+			"Type": "UFS"
+		},
+		{
 			"Path": "$(ProjectDir)/Into_The_Light.uproject",
 			"Type": "UFS"
 		}
@@ -27199,6 +27251,7 @@
 		"LinuxDeviceProfileSelector",
 		"LiveLink",
 		"LiveLinkControlRig",
+		"LiveLinkHub",
 		"LocalizableMessage",
 		"LocationServicesBPLibrary",
 		"MacGraphicsSwitching",
