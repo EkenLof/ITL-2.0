@@ -277,12 +277,17 @@ void ABoxCollider::HandleExitReceptionPhone()
 	UE_LOG(LogTemp, Log, TEXT("HandleExitReceptionPhone Overlaped"));
 
     UE_LOG(LogTemp, Log, TEXT("LightsB1Reception OFF!"));
-    if (IsValid(EventSteps))
+	UE_LOG(LogTemp, Log, TEXT("LightsF1 OFF!"));
+
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---LightsB1Reception OFF! \nLightsF1 OFF!---"));
+
+    /*if (IsValid(EventSteps))
     {
         EventSteps->UnloadSublevel(TEXT("LightsB1Reception"));
-        //EventSteps->NextStep(10);
-		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---Footsteps runnging from F1 (Above) \nF1 Footprint to F2---"));
-    }
+		EventSteps->UnloadSublevel(TEXT("LightsF1"));
+
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---Footsteps in the distance \nA door opens---"));
+    }*/
 
     bIsExitReceptionPhone = false;
 }

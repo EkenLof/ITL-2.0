@@ -108,6 +108,8 @@ AFirstPersonCharacter::AFirstPersonCharacter()
 	bIsLookingAtFuseBox_Interactible = false;
 	bIsLookingAtFuseBox_Interactible_Basement = false;
 
+	bIsLookingAtDoorToLocker = false;
+
 	bIsLookingReceptionPhone = false;
 
 	isFlashlightInInventory = false;
@@ -123,6 +125,7 @@ AFirstPersonCharacter::AFirstPersonCharacter()
 	bIsValueFuse16aPickedUp = false;
 	bIsValueLighterPickedUp = false;
 
+	bIsDoorToLocker = false;
 
 	bIsEndStepPartOne = false;
 
@@ -495,14 +498,20 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 		if (IsValid(ActorSoundSystem))ActorSoundSystem->StopReceptionPhoneAudio();
 		else UE_LOG(LogTemp, Warning, TEXT("ActorSoundSystem is NOT Valid"));
 
-		UpdateVaribleState(ExitReceptionPhoneTrigActor, ReceptionPhoneTrigTagName);
-		if (IsValid(ExitReceptionPhoneTrigActor)) ExitReceptionPhoneTrigActor->SetActorEnableCollision(true);
-		else UE_LOG(LogTemp, Warning, TEXT("ExitReceptionPhoneActor is NOT Valid"));
-
 		// Load Lights F2
 		LoadSublevel(TEXT("LightsF2")); // 11-09-2024
 
 		bIsReceptionPhone = false;
+	}
+	else if (CheckLookAtObject() && CheckLeftMouseButtonDown() 
+		&& bIsLookingAtDoorToLocker && !bIsDoorToLocker)
+	{
+		//Collision after Banging Door
+		UpdateVaribleState(ExitReceptionPhoneTrigActor, ReceptionPhoneTrigTagName);
+		if (IsValid(ExitReceptionPhoneTrigActor)) ExitReceptionPhoneTrigActor->SetActorEnableCollision(true);
+		else UE_LOG(LogTemp, Warning, TEXT("ExitReceptionPhoneActor is NOT Valid"));
+
+		bIsDoorToLocker = true;
 	}
 	// Fuse 16a to Box // bIsFuse16a = Fuse16a Selected
 	else if (CheckLookAtObject() && CheckLeftMouseButtonDown() && bIsFuse16a
@@ -717,6 +726,7 @@ bool AFirstPersonCharacter::CheckLookAtObject()
 	FName FuseBox_Interactible = FName(TEXT("FuseBox_Interactible"));
 	FName FuseBox_Interactible_Basement = FName(TEXT("FuseBox_Interactible_Basement")); // Interactible ColliderBox
 	FName ReceptionPhoneTagName = FName(TEXT("ReceptionPhone")); // ReceptionPhone
+	FName DoorToLockerTagName = FName(TEXT("DoorToLocker")); // DoorToLocker
 
 	float LongcheckDistance = 2500.0f;
 
@@ -738,6 +748,7 @@ bool AFirstPersonCharacter::CheckLookAtObject()
 			bIsLookingAtFuBox = false;
 			bIsLookingAtFuseBox_Interactible = false;
 			bIsLookingReceptionPhone = false;
+			bIsLookingAtDoorToLocker = false;
 
 			bIsLookingAtRecDoor = true;
 
@@ -753,6 +764,7 @@ bool AFirstPersonCharacter::CheckLookAtObject()
 			bIsLookingAtFuseBox_Interactible = false;
 			bIsLookingReceptionPhone = false;
 			bIsLookingAtFuseBox_Interactible_Basement = false;
+			bIsLookingAtDoorToLocker = false;
 
 			bIsLookingAtFuBox = true;
 
@@ -767,6 +779,7 @@ bool AFirstPersonCharacter::CheckLookAtObject()
 			bIsLookingAtRecDoor = false;
 			bIsLookingReceptionPhone = false;
 			bIsLookingAtFuseBox_Interactible_Basement = false;
+			bIsLookingAtDoorToLocker = false;
 
 			bIsLookingAtFuseBox_Interactible = true;
 
@@ -784,8 +797,24 @@ bool AFirstPersonCharacter::CheckLookAtObject()
 			bIsLookingAtRecDoor = false;
 			bIsLookingAtFuseBox_Interactible = false;
 			bIsLookingAtFuseBox_Interactible_Basement = false;
+			bIsLookingAtDoorToLocker = false;
 
 			bIsLookingReceptionPhone = true;
+
+			bIsUiActive = true; // NOT IN USE YET 
+
+			return true;
+		}
+		// Door To Locker [BANGING DOOR]
+		else if (HitResult.GetActor() && HitResult.GetActor()->ActorHasTag(DoorToLockerTagName) && !bIsReceptionPhone && !bIsDoorToLocker)
+		{
+			bIsLookingAtRecDoor = false;
+			bIsLookingAtFuseBox_Interactible = false;
+			bIsLookingReceptionPhone = false;
+			bIsLookingAtFuseBox_Interactible_Basement = false;
+			bIsLookingAtFuBox = false;
+
+			bIsLookingAtDoorToLocker = true;
 
 			bIsUiActive = true; // NOT IN USE YET 
 
@@ -798,6 +827,7 @@ bool AFirstPersonCharacter::CheckLookAtObject()
 			bIsLookingAtRecDoor = false;
 			bIsLookingReceptionPhone = false;
 			bIsLookingAtFuseBox_Interactible = false;
+			bIsLookingAtDoorToLocker = false;
 
 			bIsLookingAtFuseBox_Interactible_Basement = true;
 
@@ -851,6 +881,7 @@ bool AFirstPersonCharacter::CheckLookAtObject()
 	bIsLookingAtFuseBox_Interactible = false;
 	bIsLookingAtFuseBox_Interactible_Basement = false;
 	bIsLookingReceptionPhone = false;
+	bIsLookingAtDoorToLocker = false;
 
 	bIsUiActive = false;
 

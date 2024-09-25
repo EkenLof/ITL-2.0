@@ -124,6 +124,11 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Value")
 	bool bIsValueLighterPickedUp;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Value")
+	bool bIsReceptionPhone;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Value")
+	bool bIsDoorToLocker;
+
 
 	float WalkSpeed;
 	float RunSpeed;
@@ -255,13 +260,13 @@ protected:
 	bool bIsFuseBox;
 	bool bIsFuseBox_Interactible;
 	bool bIsFuseBox_Interactible_Basement;
-	bool bIsReceptionPhone;
 
 	bool bIsLookingAtRecDoor;
 	bool bIsLookingAtFuBox;
 	bool bIsLookingAtFuseBox_Interactible;
 	bool bIsLookingAtFuseBox_Interactible_Basement;
 	bool bIsLookingReceptionPhone;
+	bool bIsLookingAtDoorToLocker;
 
 	// --- Tags --- //
 	FName Fuse10A_InFuseBoxTransTagName;
