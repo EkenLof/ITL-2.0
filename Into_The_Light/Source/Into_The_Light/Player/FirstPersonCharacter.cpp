@@ -126,6 +126,8 @@ AFirstPersonCharacter::AFirstPersonCharacter()
 	bIsValueLighterPickedUp = false;
 
 	bIsDoorToLocker = false;
+	bIsWhiteFaceClose = false;
+	bIsWhiteFaceComes = false;
 
 	bIsEndStepPartOne = false;
 
@@ -227,8 +229,6 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 		}
 		else UE_LOG(LogTemp, Error, TEXT("Objective is null"));
 
-		// STEP
-		//if (IsValid(EventSteps)) EventSteps->NextStep(2);
 		BIsStepActive = true;
 	}
 
@@ -247,8 +247,6 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 		}
 		else UE_LOG(LogTemp, Error, TEXT("Objective is null"));
 
-		// STEP
-		//if (IsValid(EventSteps)) EventSteps->NextStep(4);
 		BIsStepActive = false;
 	}
 
@@ -276,6 +274,7 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 
 	else if (bIsValueOfficeKeyPickUp) // OfficeKey Pickup
 	{
+		bIsWhiteFaceComes = true;
 		bIsOfficeKeyInInventory = true;
 
 		// Objective
@@ -626,7 +625,7 @@ void AFirstPersonCharacter::OnTimerEnd()
 	// Perform the action you want to execute when the timer ends
 	UE_LOG(LogTemp, Log, TEXT("Timer has ended!"));
 
-	UnloadSublevel(TEXT("LightsF2"));
+	//UnloadSublevel(TEXT("LightsF2")); // INSIDE MAIN-BP
 
 	bIsTimerEnd = true;
 }
@@ -862,9 +861,9 @@ bool AFirstPersonCharacter::CheckLookAtObject()
 				}
 			}
 
-			UnloadSublevel(TEXT("LightsF1"));
+			bIsWhiteFaceClose = true;
 
-			StartTimer(1.25f);
+			//StartTimer(1.25f); Temp DELETED // MEYBE DELETED FOR GOOD
 
 			if (IsValid(this->WhiteFace)) 
 			{

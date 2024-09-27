@@ -344,6 +344,14 @@ struct Z_Construct_UClass_AFirstPersonCharacter_Statics
 		{ "Category", "Event | Value" },
 		{ "ModuleRelativePath", "Player/FirstPersonCharacter.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bIsWhiteFaceComes_MetaData[] = {
+		{ "Category", "Event | Value" },
+		{ "ModuleRelativePath", "Player/FirstPersonCharacter.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bIsWhiteFaceClose_MetaData[] = {
+		{ "Category", "Event | Value" },
+		{ "ModuleRelativePath", "Player/FirstPersonCharacter.h" },
+	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_InOperation_MetaData[] = {
 		{ "Category", "Inventory Slot" },
 #if !UE_BUILD_SHIPPING
@@ -570,6 +578,10 @@ struct Z_Construct_UClass_AFirstPersonCharacter_Statics
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsReceptionPhone;
 	static void NewProp_bIsDoorToLocker_SetBit(void* Obj);
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsDoorToLocker;
+	static void NewProp_bIsWhiteFaceComes_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsWhiteFaceComes;
+	static void NewProp_bIsWhiteFaceClose_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsWhiteFaceClose;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_InOperation;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_ElevatorSystem;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_FlashlightMesh;
@@ -717,6 +729,16 @@ void Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsDoorToLocker_S
 	((AFirstPersonCharacter*)Obj)->bIsDoorToLocker = 1;
 }
 const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsDoorToLocker = { "bIsDoorToLocker", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AFirstPersonCharacter), &Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsDoorToLocker_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bIsDoorToLocker_MetaData), NewProp_bIsDoorToLocker_MetaData) };
+void Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsWhiteFaceComes_SetBit(void* Obj)
+{
+	((AFirstPersonCharacter*)Obj)->bIsWhiteFaceComes = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsWhiteFaceComes = { "bIsWhiteFaceComes", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AFirstPersonCharacter), &Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsWhiteFaceComes_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bIsWhiteFaceComes_MetaData), NewProp_bIsWhiteFaceComes_MetaData) };
+void Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsWhiteFaceClose_SetBit(void* Obj)
+{
+	((AFirstPersonCharacter*)Obj)->bIsWhiteFaceClose = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsWhiteFaceClose = { "bIsWhiteFaceClose", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AFirstPersonCharacter), &Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsWhiteFaceClose_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bIsWhiteFaceClose_MetaData), NewProp_bIsWhiteFaceClose_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_InOperation = { "InOperation", nullptr, (EPropertyFlags)0x0010000000020001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFirstPersonCharacter, InOperation), Z_Construct_UClass_UDragDropOperation_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_InOperation_MetaData), NewProp_InOperation_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_ElevatorSystem = { "ElevatorSystem", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFirstPersonCharacter, ElevatorSystem), Z_Construct_UClass_AElevator_System_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ElevatorSystem_MetaData), NewProp_ElevatorSystem_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_FlashlightMesh = { "FlashlightMesh", nullptr, (EPropertyFlags)0x001000000008000d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AFirstPersonCharacter, FlashlightMesh), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_FlashlightMesh_MetaData), NewProp_FlashlightMesh_MetaData) };
@@ -807,6 +829,8 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AFirstPer
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsValueLighterPickedUp,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsReceptionPhone,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsDoorToLocker,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsWhiteFaceComes,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsWhiteFaceClose,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_InOperation,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_ElevatorSystem,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_FlashlightMesh,
@@ -887,10 +911,10 @@ struct Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Sou
 		{ FInteractionData::StaticStruct, Z_Construct_UScriptStruct_FInteractionData_Statics::NewStructOps, TEXT("InteractionData"), &Z_Registration_Info_UScriptStruct_InteractionData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FInteractionData), 2377451553U) },
 	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AFirstPersonCharacter, AFirstPersonCharacter::StaticClass, TEXT("AFirstPersonCharacter"), &Z_Registration_Info_UClass_AFirstPersonCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFirstPersonCharacter), 3128859455U) },
+		{ Z_Construct_UClass_AFirstPersonCharacter, AFirstPersonCharacter::StaticClass, TEXT("AFirstPersonCharacter"), &Z_Registration_Info_UClass_AFirstPersonCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFirstPersonCharacter), 3017636394U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Player_FirstPersonCharacter_h_1626777241(TEXT("/Script/Into_The_Light"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Player_FirstPersonCharacter_h_769587837(TEXT("/Script/Into_The_Light"),
 	Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Player_FirstPersonCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Player_FirstPersonCharacter_h_Statics::ClassInfo),
 	Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Player_FirstPersonCharacter_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Player_FirstPersonCharacter_h_Statics::ScriptStructInfo),
 	nullptr, 0);

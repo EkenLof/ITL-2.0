@@ -129,6 +129,11 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Value")
 	bool bIsDoorToLocker;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Value")
+	bool bIsWhiteFaceComes;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Value")
+	bool bIsWhiteFaceClose;
+
 
 	float WalkSpeed;
 	float RunSpeed;

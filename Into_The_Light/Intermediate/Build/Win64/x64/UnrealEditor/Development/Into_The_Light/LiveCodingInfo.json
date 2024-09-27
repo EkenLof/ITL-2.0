@@ -34,6 +34,7 @@
 			"GameplayEvents.cpp.obj",
 			"InteractionInterface.cpp.obj",
 			"ItemBase.cpp.obj",
+			"BoxCollider.cpp.obj",
 			"InteractionWidget.cpp.obj",
 			"DragItemVisual.cpp.obj",
 			"InventoryItemSlot.cpp.obj",
@@ -47,8 +48,7 @@
 			"PickUp.cpp.obj",
 			"FirstPersonCharacter.gen.cpp.obj",
 			"Into_The_Light.init.gen.cpp.obj",
-			"FirstPersonCharacter.cpp.obj",
-			"BoxCollider.cpp.obj"
+			"FirstPersonCharacter.cpp.obj"
 		]
 	}
 }
