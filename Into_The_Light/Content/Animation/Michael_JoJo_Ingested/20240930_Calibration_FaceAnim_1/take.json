@@ -1,0 +1,23 @@
+{
+  "videoTargetFrameRate" : 60,
+  "startTimestamp" : {
+    "timescale" : 1000000000,
+    "value" : 3792215125784
+  },
+  "slate" : "Calibration_FaceAnim",
+  "subject" : "iPhone",
+  "calibrated" : false,
+  "take" : 1,
+  "frames" : 2521,
+  "startTimecode" : "01:03:12:12.907",
+  "version" : 1,
+  "deviceModel" : "iPhone12,5",
+  "identifier" : "20240930_Calibration_FaceAnim_1",
+  "date" : "2024-09-30T11:27:29Z",
+  "endTimecode" : "01:03:54:13.040",
+  "appVersion" : "v1.3.2 (build 99)",
+  "endTimestamp" : {
+    "timescale" : 1000000000,
+    "value" : 3834217343678
+  }
+}

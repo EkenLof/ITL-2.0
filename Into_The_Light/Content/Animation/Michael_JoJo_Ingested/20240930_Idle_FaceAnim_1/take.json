@@ -1,0 +1,23 @@
+{
+  "identifier" : "20240930_Idle_FaceAnim_1",
+  "slate" : "Idle_FaceAnim",
+  "subject" : "iPhone",
+  "endTimestamp" : {
+    "timescale" : 1000000000,
+    "value" : 3956240444340
+  },
+  "date" : "2024-09-30T11:28:53Z",
+  "version" : 1,
+  "calibrated" : false,
+  "startTimecode" : "01:04:35:51.172",
+  "take" : 1,
+  "appVersion" : "v1.3.2 (build 99)",
+  "videoTargetFrameRate" : 60,
+  "endTimecode" : "01:05:56:14.426",
+  "startTimestamp" : {
+    "timescale" : 1000000000,
+    "value" : 3875852867611
+  },
+  "frames" : 4824,
+  "deviceModel" : "iPhone12,5"
+}
