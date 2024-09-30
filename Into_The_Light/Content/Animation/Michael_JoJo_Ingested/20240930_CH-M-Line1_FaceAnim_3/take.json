@@ -1,0 +1,23 @@
+{
+  "slate" : "CH-M-Line1_FaceAnim",
+  "frames" : 1733,
+  "identifier" : "20240930_CH-M-Line1_FaceAnim_3",
+  "deviceModel" : "iPhone12,5",
+  "endTimecode" : "01:29:17:51.985",
+  "videoTargetFrameRate" : 60,
+  "subject" : "iPhone",
+  "startTimecode" : "01:28:48:59.894",
+  "date" : "2024-09-30T12:51:14Z",
+  "appVersion" : "v1.3.2 (build 99)",
+  "startTimestamp" : {
+    "value" : 5328998233698,
+    "timescale" : 1000000000
+  },
+  "calibrated" : false,
+  "take" : 3,
+  "endTimestamp" : {
+    "value" : 5357866418967,
+    "timescale" : 1000000000
+  },
+  "version" : 1
+}
