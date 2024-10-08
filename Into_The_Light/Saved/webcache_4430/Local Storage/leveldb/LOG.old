@@ -1,2 +1,3 @@
-2024/09/29-17:54:41.283 1f50 Creating DB D:/Github-EkenLof-Games/ITL-2.0/Into_The_Light/Saved/webcache_4430\Local Storage\leveldb since it was missing.
-2024/09/29-17:54:41.295 1f50 Reusing MANIFEST D:/Github-EkenLof-Games/ITL-2.0/Into_The_Light/Saved/webcache_4430\Local Storage\leveldb/MANIFEST-000001
+2024/09/30-12:01:18.342 3cdc Reusing MANIFEST D:/Github-EkenLof-Games/ITL-2.0/Into_The_Light/Saved/webcache_4430\Local Storage\leveldb/MANIFEST-000001
+2024/09/30-12:01:18.344 3cdc Recovering log #3
+2024/09/30-12:01:18.344 3cdc Reusing old log D:/Github-EkenLof-Games/ITL-2.0/Into_The_Light/Saved/webcache_4430\Local Storage\leveldb/000003.log 
