@@ -262,7 +262,11 @@ void ABoxCollider::HandleExitFuseBoxRoom()
 
     UE_LOG(LogTemp, Log, TEXT("Light ON!"));
 
-    if (IsValid(EventSteps)) EventSteps->LoadSublevel(TEXT("LightsF1"));
+    if (IsValid(EventSteps)) 
+	{
+		EventSteps->LoadSublevel(TEXT("LightsF1"));
+		EventSteps->UnloadSublevel(TEXT("LightsF1_OFF"));
+	}
 	else UE_LOG(LogTemp, Warning, TEXT("EventSteps is NOT Valid"));
 
 	UpdateVaribleState(ReceptionPhoneActor, ReceptionPhoneTagName);
