@@ -8781,6 +8781,3 @@ Script Stack (0 frames) :
 [2025.02.14-12.18.40:799][705]LogEOSSDK: FEOSSDKManager::Shutdown EOS_Shutdown Result=[EOS_Success]
 [2025.02.14-12.18.40:799][705]LogStudioTelemetry: Display: Shutdown StudioTelemetry Module
 [2025.02.14-12.18.40:803][705]LogPakFile: Destroying PakPlatformFile
-[2025.02.14-12.18.43:034][705]LogWindows: FPlatformMisc::RequestExit(1, WindowsPlatformCrashContext.EngineUnhandledExceptionFilter)
-[2025.02.14-12.18.43:034][705]LogWindows: FPlatformMisc::RequestExitWithStatus(1, 3, WindowsPlatformCrashContext.EngineUnhandledExceptionFilter)
-[2025.02.14-12.18.43:034][705]LogCore: Engine exit requested (reason: Win RequestExit; note: exit was already requested)
