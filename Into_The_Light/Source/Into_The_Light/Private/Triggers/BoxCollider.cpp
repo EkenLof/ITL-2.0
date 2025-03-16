@@ -34,7 +34,7 @@ ABoxCollider::ABoxCollider()
 	ColeState = CreateDefaultSubobject<ACole>(TEXT("ColeState"));
 
 	MichaelTagName = FName(TEXT("Michael"));
-	ReceptionPhoneTagName = FName(TEXT("ReceptionPhone")); // ReceptionPhone
+	//ReceptionPhoneTagName = FName(TEXT("ReceptionPhone")); // ReceptionPhone
 
 	LanternTagName = FName(TEXT("Lantern"));
 	LanternBrokenTagName = FName(TEXT("LanternBroken"));
@@ -96,8 +96,6 @@ void ABoxCollider::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* O
 	{	
         if (bIsBeforeMeetCole) HandleBeforeMeetCole();
 
-        //else if (bIsMeetCole) HandleMeetCole();
-
         else if (bIsGoingToMissingCole) HandlebGoingToMissingCole();
 
         else if (bIsMissingCole) HandleMissingCole();
@@ -111,30 +109,6 @@ void ABoxCollider::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* O
 void ABoxCollider::HandleBeforeMeetCole()
 {
 	UE_LOG(LogTemp, Log, TEXT("HandleBeforeMeetCole Overlaped"));
-
-
-	/*
-    TArray<AActor*> TaggedActors;
-    UGameplayStatics::GetAllActorsWithTag(GetWorld(), ColeStorageTagName, TaggedActors);
-
-    this->ColeState = nullptr;
-
-    if (TaggedActors.Num() > 0)
-    {
-        for (AActor* Actor : TaggedActors)
-        {
-            ACole* PotentialCole = Cast<ACole>(Actor);
-            if (IsValid(PotentialCole))
-            {
-                this->ColeState = PotentialCole;
-                break;
-            }
-        }
-    }
-
-    if (IsValid(this->ColeState)) this->ColeState->ColeSearchIdle(true);
-    else UE_LOG(LogTemp, Warning, TEXT("Cole ignores me..."));
-	*/
 
 	// Actors OFF
 	UpdateVaribleState(LanternBrokenActor, LanternBrokenTagName);
@@ -162,39 +136,6 @@ void ABoxCollider::HandleBeforeMeetCole()
     Destroy();
     bIsBeforeMeetCole = false;
 }
-
-/*
-void ABoxCollider::HandleMeetCole()
-{
-	UE_LOG(LogTemp, Log, TEXT("HandleMeetCole Overlaped"));
-
-    FName TagName = "Cole_StorageRoom";
-    TArray<AActor*> TaggedActors;
-    UGameplayStatics::GetAllActorsWithTag(GetWorld(), TagName, TaggedActors);
-
-    this->ColeState = nullptr;
-
-    if (TaggedActors.Num() > 0)
-    {
-        for (AActor* Actor : TaggedActors)
-        {
-            ACole* PotentialCole = Cast<ACole>(Actor);
-            if (IsValid(PotentialCole))
-            {
-                this->ColeState = PotentialCole;
-                break;
-            }
-        }
-    }
-
-    if (IsValid(this->ColeState))
-        this->ColeState->ColeMeet(true);
-    else
-        UE_LOG(LogTemp, Warning, TEXT("Cole ignores me..."));
-
-    Destroy();
-    bIsMeetCole = false;
-}*/
 
 void ABoxCollider::HandlebGoingToMissingCole()
 {
@@ -249,9 +190,7 @@ void ABoxCollider::HandlebGoingToMissingCole()
 
 void ABoxCollider::HandleMissingCole()
 {
-	UE_LOG(LogTemp, Log, TEXT("HandleMissingCole Overlaped"));
-
-    //if (IsValid(EventSteps)) EventSteps->NextStep(6);
+	UE_LOG(LogTemp, Log, TEXT("HandleMissingCole Overlaped")); 
 
     bIsMissingCole = false;
 }
@@ -267,11 +206,7 @@ void ABoxCollider::HandleExitFuseBoxRoom()
 		EventSteps->LoadSublevel(TEXT("LightsF1"));
 		EventSteps->UnloadSublevel(TEXT("LightsF1_OFF"));
 	}
-	else UE_LOG(LogTemp, Warning, TEXT("EventSteps is NOT Valid"));
-
-	UpdateVaribleState(ReceptionPhoneActor, ReceptionPhoneTagName);
-    if (IsValid(ReceptionPhoneActor)) ReceptionPhoneActor->SetActorEnableCollision(true);
-    else UE_LOG(LogTemp, Warning, TEXT("ReceptionPhoneActor is NOT Valid"));
+	else UE_LOG(LogTemp, Warning, TEXT("EventSteps is NOT Valid"));                                                                                
 
     bIsExitFuseBoxRoom = false;
 }
@@ -285,24 +220,5 @@ void ABoxCollider::HandleExitReceptionPhone()
 
 	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---LightsB1Reception OFF! \nLightsF1 OFF!---"));
 
-    /*if (IsValid(EventSteps))
-    {
-        EventSteps->UnloadSublevel(TEXT("LightsB1Reception"));
-		EventSteps->UnloadSublevel(TEXT("LightsF1"));
-
-		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("---Footsteps in the distance \nA door opens---"));
-    }*/
-
     bIsExitReceptionPhone = false;
 }
-
-/*
-void ABoxCollider::OnOverlapEnd(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
-{
-	if (OtherActor && OtherActor->ActorHasTag(MichaelTagName))
-	{
-		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("Exit Trigger"));
-	}
-}
-*/
-

@@ -61,11 +61,23 @@ struct Z_Construct_UClass_AActorSoundSystem_Statics
 		{ "ToolTip", "--- Active / Not-Active ---" },
 #endif
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bIsPlaySound_MetaData[] = {
+		{ "Category", "Event | Active" },
+		{ "ModuleRelativePath", "Public/Audio/ActorSoundSystem.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bIsStopSound_MetaData[] = {
+		{ "Category", "Event | Active" },
+		{ "ModuleRelativePath", "Public/Audio/ActorSoundSystem.h" },
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_ReceptionPhone_AudioComponent;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_ReceptionPhone_SoundCue;
 	static void NewProp_bIsManagerCalling_SetBit(void* Obj);
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsManagerCalling;
+	static void NewProp_bIsPlaySound_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsPlaySound;
+	static void NewProp_bIsStopSound_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsStopSound;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -80,10 +92,22 @@ void Z_Construct_UClass_AActorSoundSystem_Statics::NewProp_bIsManagerCalling_Set
 	((AActorSoundSystem*)Obj)->bIsManagerCalling = 1;
 }
 const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AActorSoundSystem_Statics::NewProp_bIsManagerCalling = { "bIsManagerCalling", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AActorSoundSystem), &Z_Construct_UClass_AActorSoundSystem_Statics::NewProp_bIsManagerCalling_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bIsManagerCalling_MetaData), NewProp_bIsManagerCalling_MetaData) };
+void Z_Construct_UClass_AActorSoundSystem_Statics::NewProp_bIsPlaySound_SetBit(void* Obj)
+{
+	((AActorSoundSystem*)Obj)->bIsPlaySound = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AActorSoundSystem_Statics::NewProp_bIsPlaySound = { "bIsPlaySound", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AActorSoundSystem), &Z_Construct_UClass_AActorSoundSystem_Statics::NewProp_bIsPlaySound_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bIsPlaySound_MetaData), NewProp_bIsPlaySound_MetaData) };
+void Z_Construct_UClass_AActorSoundSystem_Statics::NewProp_bIsStopSound_SetBit(void* Obj)
+{
+	((AActorSoundSystem*)Obj)->bIsStopSound = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AActorSoundSystem_Statics::NewProp_bIsStopSound = { "bIsStopSound", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AActorSoundSystem), &Z_Construct_UClass_AActorSoundSystem_Statics::NewProp_bIsStopSound_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bIsStopSound_MetaData), NewProp_bIsStopSound_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AActorSoundSystem_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AActorSoundSystem_Statics::NewProp_ReceptionPhone_AudioComponent,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AActorSoundSystem_Statics::NewProp_ReceptionPhone_SoundCue,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AActorSoundSystem_Statics::NewProp_bIsManagerCalling,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AActorSoundSystem_Statics::NewProp_bIsPlaySound,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AActorSoundSystem_Statics::NewProp_bIsStopSound,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AActorSoundSystem_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_AActorSoundSystem_Statics::DependentSingletons[])() = {
@@ -126,10 +150,10 @@ AActorSoundSystem::~AActorSoundSystem() {}
 struct Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Audio_ActorSoundSystem_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AActorSoundSystem, AActorSoundSystem::StaticClass, TEXT("AActorSoundSystem"), &Z_Registration_Info_UClass_AActorSoundSystem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AActorSoundSystem), 454777791U) },
+		{ Z_Construct_UClass_AActorSoundSystem, AActorSoundSystem::StaticClass, TEXT("AActorSoundSystem"), &Z_Registration_Info_UClass_AActorSoundSystem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AActorSoundSystem), 4118613353U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Audio_ActorSoundSystem_h_1641150048(TEXT("/Script/Into_The_Light"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Audio_ActorSoundSystem_h_3119168267(TEXT("/Script/Into_The_Light"),
 	Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Audio_ActorSoundSystem_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Audio_ActorSoundSystem_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

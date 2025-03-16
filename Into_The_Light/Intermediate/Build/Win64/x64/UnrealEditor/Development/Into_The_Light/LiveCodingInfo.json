@@ -2,18 +2,14 @@
 	"RemapUnityFiles": 
 	{
 		"Module.Into_The_Light.cpp.obj": [
-			"ActorSoundSystem.gen.cpp.obj",
-			"BoxCollider.gen.cpp.obj",
 			"Cole.gen.cpp.obj",
 			"DoorSystem.gen.cpp.obj",
 			"DragItemVisual.gen.cpp.obj",
 			"Elevator_System.gen.cpp.obj",
-			"FirstPersonCharacter.gen.cpp.obj",
 			"GameplayEvents.gen.cpp.obj",
 			"InteractionInterface.gen.cpp.obj",
 			"InteractionWidget.gen.cpp.obj",
 			"InterfaceActorT.gen.cpp.obj",
-			"Into_The_Light.init.gen.cpp.obj",
 			"InventoryComponent.gen.cpp.obj",
 			"InventoryItemSlot.gen.cpp.obj",
 			"InventoryPanel.gen.cpp.obj",
@@ -28,8 +24,6 @@
 			"WhiteFace.gen.cpp.obj",
 			"DoorSystem.cpp.obj",
 			"Into_The_Light.cpp.obj",
-			"FirstPersonCharacter.cpp.obj",
-			"ActorSoundSystem.cpp.obj",
 			"Cole.cpp.obj",
 			"WhiteFace.cpp.obj",
 			"InventoryComponent.cpp.obj",
@@ -48,6 +42,12 @@
 			"ObjectivePanel.cpp.obj",
 			"InterfaceActorT.cpp.obj",
 			"PickUp.cpp.obj",
+			"ActorSoundSystem.gen.cpp.obj",
+			"BoxCollider.gen.cpp.obj",
+			"FirstPersonCharacter.gen.cpp.obj",
+			"Into_The_Light.init.gen.cpp.obj",
+			"FirstPersonCharacter.cpp.obj",
+			"ActorSoundSystem.cpp.obj",
 			"BoxCollider.cpp.obj"
 		]
 	}

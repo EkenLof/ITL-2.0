@@ -62,8 +62,8 @@ public:
 	AActor* ElectricKeyActor;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")
 	AActor* ElectricKey_KeyActor;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")
-	AActor* ReceptionPhoneActor;
+	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")
+	//AActor* ReceptionPhoneActor;
 
 protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign")
@@ -78,7 +78,7 @@ protected:
 	virtual void BeginPlay() override;
 
 	//TAGS
-	FName ReceptionPhoneTagName;
+	//FName ReceptionPhoneTagName;
 
 	FName ColeStorageTagName;
 	FName LanternTagName;

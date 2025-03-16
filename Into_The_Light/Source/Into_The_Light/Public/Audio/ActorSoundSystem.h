@@ -11,15 +11,12 @@ class INTO_THE_LIGHT_API AActorSoundSystem : public AActor
 {
 	GENERATED_BODY()
 	
-public:	
-	// Sets default values for this actor's properties
-	AActorSoundSystem();
-
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
 public:	
+	AActorSoundSystem();
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
@@ -38,5 +35,10 @@ public:
 	// --- Active / Not-Active --- //
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Active")
 	bool bIsManagerCalling;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Active")
+	bool bIsPlaySound;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Active")
+	bool bIsStopSound;
 	// --- Active / Not-Active --- //
 };

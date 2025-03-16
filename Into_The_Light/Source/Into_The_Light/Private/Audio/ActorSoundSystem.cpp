@@ -60,6 +60,13 @@ void AActorSoundSystem::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	if (bIsPlaySound) PlayReceptionPhoneAudio();
+	else if (bIsStopSound)
+	{
+		bIsPlaySound = false;
+		StopReceptionPhoneAudio();
+	}
+
 }
 
 void AActorSoundSystem::PlayReceptionPhoneAudio()

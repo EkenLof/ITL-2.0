@@ -39,7 +39,6 @@
 
 #include "Characters/WhiteFace.h"
 
-#include "Audio/ActorSoundSystem.h"
 #include "Sound/SoundCue.h"
 
 #include "UserInterface/Inventory/InventoryItemSlot.h" // TEST 23-08-2024
@@ -64,7 +63,6 @@ AFirstPersonCharacter::AFirstPersonCharacter()
 	PlayerMovementsValues->MaxWalkSpeed = WalkSpeed;
 
 	Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("PlayerCamera"));
-	//Camera->SetupAttachment(RootComponent);
 	Camera->SetupAttachment(GetMesh(), FName("HeadHolder"));
 	Camera->bUsePawnControlRotation = true;
 
@@ -84,6 +82,7 @@ AFirstPersonCharacter::AFirstPersonCharacter()
 	bIsObjectiveLighter = false;
 
 	bIsFuse16APlaced = false;
+	bIsFuse10APlaced = false;
 
 	bIsFuse10a = false;
 	bIsElectricKey = false;
@@ -101,6 +100,7 @@ AFirstPersonCharacter::AFirstPersonCharacter()
 	bIsFuseBox_Interactible_Basement = true;
 
 	bIsReceptionPhone = true;
+	bIsReceptionPhoneAnswered = false;
 
 	bIsLookingAtFuBox = false;
 	bIsLookingAtRecDoor = false;
@@ -136,7 +136,6 @@ AFirstPersonCharacter::AFirstPersonCharacter()
 	WhiteFace = CreateDefaultSubobject<AWhiteFace>(TEXT("WhiteFace"));
 
 	Fuse10A_InFuseBoxTransTagName = FName(TEXT("Fuse10A_InFuseBoxTransparent")); // Fuse10A_InFuseBoxTransparent
-	ReceptionPhoneKeyTagName = FName(TEXT("ReceptionPhone_Key")); // ReceptionPhone_Key
 	Fuse10A_ToFuseBoxTagName = FName(TEXT("Fuse10A_InFuseBox")); //Fuse10A_InFuseBox
 
 	Fuse16A_InFuseBoxTransTagName = FName(TEXT("Fuse16A_InFuseBoxTransparent")); // Fuse16A_InFuseBoxTransparent // THE TRANSPARENT FUSE HOVER
@@ -456,18 +455,11 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 	{
 		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		//////////////////////////////////////////////////////////// ??? REMOVE ITEM ??? ////////////////////////////////////////////////////////////////
-
-		//PlayerInventory->RemoveSingleInstanceOfItem(ItemReference);
-		//PickUp->InitializeDrop(ItemReference, 0);
+		bIsFuse10APlaced = true;
 
 		bIsFuse10a = false;
 		//////////////////////////////////////////////////////////// ??? REMOVE ITEM ??? ////////////////////////////////////////////////////////////////
 		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		
-		// ReceptionPhoneKeyActor
-		UpdateVaribleState(ReceptionPhoneKeyActor, ReceptionPhoneKeyTagName);
-		if (IsValid(ReceptionPhoneKeyActor)) ReceptionPhoneKeyActor->SetActorEnableCollision(true);
-		else UE_LOG(LogTemp, Warning, TEXT("ReceptionPhoneKeyActor is NOT Valid"));
 
 		// Fuse10A_ToFuseBoxActor *VISABLE IN GAME
 		UpdateVaribleState(Fuse10A_ToFuseBoxActor, Fuse10A_ToFuseBoxTagName);
@@ -479,11 +471,6 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 		if (IsValid(ExitFuseBoxRoomActor)) ExitFuseBoxRoomActor->SetActorEnableCollision(true);
 		else UE_LOG(LogTemp, Warning, TEXT("ExitFuseBoxRoomActor is NOT Valid"));
 
-		// Play Reception Phone audio // FUSE TO BOX
-		InitializeActorSoundSystem();
-		if (IsValid(ActorSoundSystem)) ActorSoundSystem->PlayReceptionPhoneAudio();
-		else UE_LOG(LogTemp, Warning, TEXT("ActorSoundSystem is NOT Valid"));
-
 		bIsFuseBox_Interactible = false;
 	}
 	// Reception Phone.
@@ -491,14 +478,7 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 		&& bIsReceptionPhone && bIsLookingReceptionPhone 
 		&& !bIsLookingAtFuseBox_Interactible && !bIsLookingAtRecDoor && !bIsLookingAtFuBox)
 	{
-		///////////////////////////////////////////// *** FIX *** /////////////////////////////////////////////////
-		// Stop the PhoneSound 
-		InitializeActorSoundSystem();
-		if (IsValid(ActorSoundSystem))ActorSoundSystem->StopReceptionPhoneAudio();
-		else UE_LOG(LogTemp, Warning, TEXT("ActorSoundSystem is NOT Valid"));
-
-		// Load Lights F2
-		LoadSublevel(TEXT("LightsF2")); // 11-09-2024
+		bIsReceptionPhoneAnswered = true;
 
 		bIsReceptionPhone = false;
 	}
@@ -566,30 +546,6 @@ void AFirstPersonCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInp
 
 	PlayerInputComponent->BindAction("ToggleMenu", IE_Pressed, this, &AFirstPersonCharacter::ToggleMenu);
 	PlayerInputComponent->BindAction("TogglePauseMenu", IE_Pressed, this, &AFirstPersonCharacter::TogglePauseMenu);
-}
-
-void AFirstPersonCharacter::InitializeActorSoundSystem()
-{
-
-	UWorld* World = GetWorld();
-	if (!World)
-	{
-		UE_LOG(LogTemp, Error, TEXT("World is null in InitializeActorSoundSystem"));
-		return;
-	}
-	else
-	{
-		for (TActorIterator<AActorSoundSystem> It(World); It; ++It)
-		{
-			ActorSoundSystem = *It;
-			break;
-		}
-
-		if (!ActorSoundSystem)
-		{
-			UE_LOG(LogTemp, Error, TEXT("ActorSoundSystem not found!"));
-		}
-	}
 }
 
 // *********************************************************** TIMER ***********************************************************
@@ -776,7 +732,7 @@ bool AFirstPersonCharacter::CheckLookAtObject()
 		{
 			bIsLookingAtFuBox = false;
 			bIsLookingAtRecDoor = false;
-			bIsLookingReceptionPhone = false;
+			bIsLookingReceptionPhone = false;  
 			bIsLookingAtFuseBox_Interactible_Basement = false;
 			bIsLookingAtDoorToLocker = false;
 
@@ -1128,17 +1084,3 @@ void AFirstPersonCharacter::DropItem(UItemBase* ItemToDrop, const int32 Quantity
 		UE_LOG(LogTemp, Warning, TEXT("Item to Drop was somehow NULL"));
 	}
 }
-
-/*
-void AFirstPersonCharacter::RemoveItem(UItemBase* ItemToRemove, const int32 QuantityToRemove)
-{
-	if (PlayerInventory->FindMatchingItem(ItemToRemove))
-	{
-		const int32 RemovedQuantity
-			= PlayerInventory->RemoveAmountOfItem(ItemToRemove, QuantityToRemove);
-	}
-	else
-	{
-		UE_LOG(LogTemp, Warning, TEXT("Item to Remove was somehow NULL"));
-	}
-}*/

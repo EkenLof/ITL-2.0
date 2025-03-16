@@ -16,7 +16,7 @@ class ABoxCollider;
 class AElevator_System;
 class UObjectivePanel;
 class AWhiteFace;
-class AActorSoundSystem;
+
 class UInventoryItemSlot; // TEST 23-08-2024
 class UTextBlock; // TEST 23-08-2024
 class UBorder; // TEST 23-08-2024
@@ -49,10 +49,7 @@ public:
 
 	FORCEINLINE UObjectivePanel* SetObjective() const { return Objective; };
 
-	FORCEINLINE AActorSoundSystem* GetAudio() const { return ActorSoundSystem; };
-
 	FORCEINLINE ABoxCollider* SetTriggerBox() const { return TriggerBox; };
-	//FORCEINLINE AElevator_System* GetInteract() const { return ElevatorSystem; };
 
 	FORCEINLINE AGameplayEvents* SetEventStep() const { return EventSteps; };
 	FORCEINLINE bool IsInteracting() const { return GetWorldTimerManager().IsTimerActive(TimerHandle_Interaction); };
@@ -68,10 +65,6 @@ public:
 	void UpdateInteractionWidget() const;
 
 	void DropItem(UItemBase* ItemToDrop, const int32 QuantityToDrop);
-	//void RemoveItem(UItemBase* ItemToDrop, const int32 QuantityToDrop);
-
-	// Find and assign the ActorSoundSystem
-	void InitializeActorSoundSystem();
 
 	UFUNCTION(BlueprintCallable, Category = "Event | SubLevels")
 	void LoadSublevel(FName LevelName);
@@ -134,6 +127,10 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Value")
 	bool bIsWhiteFaceClose;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Value")
+	bool bIsFuse10APlaced;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Value")
+	bool bIsReceptionPhoneAnswered;
 
 	float WalkSpeed;
 	float RunSpeed;
@@ -142,22 +139,6 @@ public:
 	////////////////////////////////////////////////////////////////
 	UPROPERTY(VisibleAnywhere, Category = "Inventory Slot")
 	UDragDropOperation* InOperation; 
-	/*
-	UPROPERTY(VisibleAnywhere)
-	UInventoryItemSlot* InventorySlotBeingHovered;
-
-	UPROPERTY(meta = (BindWidget))
-	UTextBlock* ItemName;
-
-	UPROPERTY(VisibleAnywhere, Category = "Inventory Slot", meta = (BindWidget))
-	UBorder* ItemBorder;
-
-	UPROPERTY(VisibleAnywhere, Category = "Inventory Slot", meta = (BindWidget))
-	UImage* ItemIcon;
-
-	UPROPERTY(VisibleAnywhere, Category = "Inventory Slot", meta = (BindWidget))
-	UTextBlock* ItemQuantity;
-	*/
 	////////////////////////////////////////////////////////////////
 
 
@@ -280,8 +261,6 @@ protected:
 	FName Fuse16A_InFuseBoxTransTagName;
 	FName Fuse16A_ToFuseBoxTagName;
 
-	FName ReceptionPhoneKeyTagName;
-
 	FName ReceptionPhoneTrigTagName; // Trig4TagName
 	FName ExitFuseB1RoomTrigTagName; // Trig3TagName
 	FName GoingToMissingColeTrigTagName;
@@ -309,8 +288,6 @@ protected:
 	AActor* Fuse16A_ToFuseBoxActor;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")
-	AActor* ReceptionPhoneKeyActor;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")
 	AActor* WhiteFaceF2Actor;
 	// --- Actors --- //
 
@@ -332,9 +309,6 @@ protected:
 	TSubclassOf<UObjectivePanel> ObjectiveClass;
 
 private:
-	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Audio")
-	AActorSoundSystem* ActorSoundSystem;
-
 	UObjectivePanel* Objective;
 
 	UFUNCTION()
