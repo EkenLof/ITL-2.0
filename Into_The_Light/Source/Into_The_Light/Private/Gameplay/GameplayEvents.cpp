@@ -42,27 +42,17 @@ AGameplayEvents::AGameplayEvents()
 	ReceptionPhoneTagName = FName(TEXT("ReceptionPhone")); // ReceptionPhone **
 
 	LightsB1Reception_SL = FName(TEXT("LightsB1Reception"));
-	//LightsF1_SL = FName(TEXT("LightsF1"));
-	//LightsF2_SL = FName(TEXT("LightsF2"));
 
 	ReceptionPhoneKeyTagName = FName(TEXT("ReceptionPhone_Key")); // ReceptionPhone_Key
-	// Door_To_OfficeKey
-
-	//ReceptionPhoneTrigTagName = FName(TEXT("ReceptionPhoneTrigger"));
 }
 
 void AGameplayEvents::BeginPlay()
 {
 	Super::BeginPlay();
-
-	//LoadSublevel(LightsB1Reception_SL);
 	
-
 	// Varible Check & assign. 
 	UpdateVaribleState(ReceptionPhoneActor, ReceptionPhoneTagName);
 	UpdateVaribleState(ReceptionPhoneKeyActor, ReceptionPhoneKeyTagName);
-
-	//InitializeActorSoundSystem();
 
 	ToggleOff(); // Start Values
 }
@@ -104,31 +94,6 @@ void AGameplayEvents::UpdateVaribleState(AActor*& ActorReference, const FName& T
 	}
 }
 
-//InitializeActorSoundSystem()
-/*
-void AGameplayEvents::InitializeActorSoundSystem()
-{
-
-	UWorld* World = GetWorld();
-	if (!World)
-	{
-		UE_LOG(LogTemp, Error, TEXT("World is null in InitializeActorSoundSystem"));
-		return;
-	}
-	else
-	{
-		for (TActorIterator<AActorSoundSystem> It(World); It; ++It)
-		{
-			ActorSoundSystem = *It;
-			break;
-		}
-
-		if (!ActorSoundSystem)
-		{
-			UE_LOG(LogTemp, Error, TEXT("ActorSoundSystem not found!"));
-		}
-	}
-} */
 
 // Function to load a sublevel
 void AGameplayEvents::LoadSublevel(FName LevelName)

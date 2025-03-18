@@ -16,7 +16,7 @@ ABoxCollider::ABoxCollider()
 	PrimaryActorTick.bCanEverTick = false;
 
 	bIsBeforeMeetCole = false;
-	bIsMeetCole = false;
+	//bIsMeetCole = false;
     bIsGoingToMissingCole = false;
 	bIsMissingCole = false;
 	bIsExitFuseBoxRoom = false;

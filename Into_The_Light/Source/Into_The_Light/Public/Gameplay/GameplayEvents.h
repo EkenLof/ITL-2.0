@@ -48,8 +48,6 @@ public:
 
 	//Actor Update state
 	void UpdateVaribleState(AActor*& ActorReference, const FName& TagName);
-	// Find and assign the ActorSoundSystem
-	//void InitializeActorSoundSystem();
 
 	// Activity
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Activity")
@@ -79,9 +77,6 @@ public:
 	////////////////////////////---ASSIGN---///////////////////////////
 
 protected:
-	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Audio")
-	//AActorSoundSystem* ActorSoundSystem;
-	
 	UObject* WorldContextObject;
 
 	FName ReceptionLightsTagName;
@@ -92,8 +87,6 @@ protected:
 
 	FName ReceptionPhoneTagName;
 	FName ReceptionPhoneKeyTagName;
-
-	//FName ReceptionPhoneTrigTagName; // Trig4TagName
 
 	virtual void BeginPlay() override;
 	virtual void Tick(float DeltaTime) override;
