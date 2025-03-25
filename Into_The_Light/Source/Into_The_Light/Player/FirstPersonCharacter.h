@@ -73,8 +73,8 @@ public:
 	void UnloadSublevel(FName LevelName);
 
 	// TIMER LOGIC
-	void StartTimer(float Duration);
-	void OnTimerEnd();
+	////void StartTimer(float Duration); // OFF 25/3-2025
+	////void OnTimerEnd(); // OFF 25/3-2025
 
 	bool isWalkingForward;
 	bool isWalkingBackward;
@@ -233,9 +233,6 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Item | Logic")
 	bool bIsFuse16APlaced;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Item | Logic")
-	bool bIsTimerEnd;
-
 	bool BIsStepActive;
 	bool bIsEndStepPartOne;
 
@@ -313,18 +310,6 @@ private:
 
 	UFUNCTION()
 	void OnSublevelLoaded();
-
-	// Handle for the timer
-	FTimerHandle CountdownTimerHandle;
-
-	// Timer duration
-	float TimerDuration;
-	// Current time remaining
-	float TimeRemaining;
-
-	// Timer tick function
-	void TimerTick();
-
 
 	void UpdateVaribleState(AActor*& ActorReference, const FName& TagName);
 

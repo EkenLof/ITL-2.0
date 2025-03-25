@@ -106,10 +106,10 @@ AInterfaceActorT::~AInterfaceActorT() {}
 struct Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_World_InterfaceActorT_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AInterfaceActorT, AInterfaceActorT::StaticClass, TEXT("AInterfaceActorT"), &Z_Registration_Info_UClass_AInterfaceActorT, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AInterfaceActorT), 57436485U) },
+		{ Z_Construct_UClass_AInterfaceActorT, AInterfaceActorT::StaticClass, TEXT("AInterfaceActorT"), &Z_Registration_Info_UClass_AInterfaceActorT, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AInterfaceActorT), 1659832484U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_World_InterfaceActorT_h_3995535833(TEXT("/Script/Into_The_Light"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_World_InterfaceActorT_h_3587610960(TEXT("/Script/Into_The_Light"),
 	Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_World_InterfaceActorT_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_World_InterfaceActorT_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

@@ -116,8 +116,6 @@ AFirstPersonCharacter::AFirstPersonCharacter()
 	isElectricKeyInInventory = false;
 	bIsOfficeKeyInInventory = false;
 
-	bIsTimerEnd = false;
-
 	bIsNeedFlashlight = false;
 	bIsNeedElectricKey = false;
 
@@ -146,9 +144,6 @@ AFirstPersonCharacter::AFirstPersonCharacter()
 	ReceptionPhoneTrigTagName = FName(TEXT("ReceptionPhoneTrigger"));
 
 	WhiteFaceTagName = FName(TEXT("WhiteFace_F2")); // WhiteFace_F2
-
-	// Face_WhiteFace Tag for face
-	// WhiteFace_F2 Tag for WhitefaceBP Actor
 
 	//BaseEyeHeight = 75.0f;
 }
@@ -183,8 +178,7 @@ void AFirstPersonCharacter::BeginPlay()
 			// Determine a high Z-order to ensure it's above other UI elements
 			int32 ZOrder = 999; // Adjust this value as needed
 			Objective->AddToViewport(ZOrder);
-			// Call SetInfoText() on the widget instance
-			//Objective->SetInfoText();
+
 
 			 // Set the position of the ObjectivePanel to the top-left corner
 			FVector2D Position(0, 25); // Top-left corner
@@ -453,13 +447,11 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 		&& bIsTempWaitForInteractibleFuseBox && bIsFuseBox_Interactible && bIsLookingAtFuseBox_Interactible 
 		&& !bIsLookingAtRecDoor && !bIsLookingAtFuBox && !bIsLookingReceptionPhone)
 	{
-		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		//////////////////////////////////////////////////////////// ??? REMOVE ITEM ??? ////////////////////////////////////////////////////////////////
 		bIsFuse10APlaced = true;
 
 		bIsFuse10a = false;
 		//////////////////////////////////////////////////////////// ??? REMOVE ITEM ??? ////////////////////////////////////////////////////////////////
-		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 		// Fuse10A_ToFuseBoxActor *VISABLE IN GAME
 		UpdateVaribleState(Fuse10A_ToFuseBoxActor, Fuse10A_ToFuseBoxTagName);
@@ -548,45 +540,6 @@ void AFirstPersonCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInp
 	PlayerInputComponent->BindAction("TogglePauseMenu", IE_Pressed, this, &AFirstPersonCharacter::TogglePauseMenu);
 }
 
-// *********************************************************** TIMER ***********************************************************
-void AFirstPersonCharacter::StartTimer(float Duration)
-{
-	// Set the timer duration
-	TimerDuration = Duration;
-	TimeRemaining = TimerDuration;
-
-	// Start the timer
-	UE_LOG(LogTemp, Log, TEXT("Timer has Started!"));
-	GetWorld()->GetTimerManager().SetTimer(CountdownTimerHandle, this, &AFirstPersonCharacter::TimerTick, 1.0f, true);
-}
-
-void AFirstPersonCharacter::TimerTick()
-{
-	// Decrease the remaining time
-	TimeRemaining -= 1.0f;
-
-	// Check if the timer has reached zero
-	if (TimeRemaining <= 0.0f)
-	{
-		// Clear the timer
-		GetWorld()->GetTimerManager().ClearTimer(CountdownTimerHandle);
-
-		// Call the function that should be executed when the timer ends
-		OnTimerEnd();
-	}
-}
-
-void AFirstPersonCharacter::OnTimerEnd()
-{
-	// Perform the action you want to execute when the timer ends
-	UE_LOG(LogTemp, Log, TEXT("Timer has ended!"));
-
-	//UnloadSublevel(TEXT("LightsF2")); // INSIDE MAIN-BP
-
-	bIsTimerEnd = true;
-}
-//*********************************************************** TIMER ***********************************************************
-
 //*********************************************************** SUBLVL ***********************************************************
 void AFirstPersonCharacter::LoadSublevel(FName LevelName)
 {
@@ -648,8 +601,6 @@ void AFirstPersonCharacter::UnloadSublevel(FName LevelName)
 		}
 		else UE_LOG(LogTemp, Log, TEXT("LevelName is None"));
 	}
-
-	//UGameplayStatics::UnloadStreamLevel(this, LevelName, FLatentActionInfo(), true); // Change to 'false' if you want non-blocking
 }
 //*********************************************************** SUBLVL ***********************************************************
 
@@ -696,8 +647,7 @@ bool AFirstPersonCharacter::CheckLookAtObject()
 	// Perform Raycast
 	if (GetWorld()->LineTraceSingleByChannel(HitResult, Start, End, ECollisionChannel::ECC_Visibility, CollisionParams))
 	{
-		// Check if hit actor has the desired tag
-		// Reception door
+		// Reception door // Check if hit actor has the desired tag
 		if (HitResult.GetActor() && HitResult.GetActor()->ActorHasTag(ReceptionDoorTagName) && bIsReceptionDoor)
 		{
 			bIsLookingAtFuBox = false;
@@ -819,8 +769,6 @@ bool AFirstPersonCharacter::CheckLookAtObject()
 
 			bIsWhiteFaceClose = true;
 
-			//StartTimer(1.25f); Temp DELETED // MEYBE DELETED FOR GOOD
-
 			if (IsValid(this->WhiteFace)) 
 			{
 				this->WhiteFace->WhiteFaceClapp(true);
@@ -891,13 +839,11 @@ void AFirstPersonCharacter::UseFlashlight() // FLashlight LOGIC
 {
 	if (!isFlashlightEquiped && isFlashlightInInventory)
 	{
-		//FlashlightMesh->bHiddenInGame = false;
 		UE_LOG(LogTemp, Log, TEXT("Equip Flishlight TRUE!"));
 		isFlashlightEquiped = true;
 	}
 	else if (isFlashlightEquiped && isFlashlightInInventory)
 	{
-		//FlashlightMesh->bHiddenInGame = true;
 		UE_LOG(LogTemp, Log, TEXT("Equip Flashlight FALSE!"));
 		isFlashlightEquiped = false;
 	}

@@ -1,0 +1,26 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "d:\\github-ekenlof-games\\itl-2.0\\into_the_light\\intermediate\\build\\win64\\unrealeditor\\inc\\into_the_light\\uht\\actorsoundsystem.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "d:\\github-ekenlof-games\\itl-2.0\\into_the_light\\intermediate\\build\\win64\\x64\\into_the_lighteditor\\debuggame\\unrealed\\sharedpch.unrealed.project.nonoptimized.novalfmtstr.valapi.cpp20.inclorderunreal5_3.h.pch",
+        "Includes": [
+            "d:\\github-ekenlof-games\\itl-2.0\\into_the_light\\intermediate\\build\\win64\\x64\\unrealeditor\\debuggame\\into_the_light\\definitions.into_the_light.h",
+            "d:\\github-ekenlof-games\\itl-2.0\\into_the_light\\source\\into_the_light\\public\\audio\\actorsoundsystem.h",
+            "d:\\dokument\\ue_5.5\\engine\\source\\runtime\\engine\\classes\\components\\audiocomponent.h",
+            "d:\\dokument\\ue_5.5\\engine\\source\\runtime\\engine\\public\\audio\\soundparametercontrollerinterface.h",
+            "d:\\dokument\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\soundparametercontrollerinterface.generated.h",
+            "d:\\dokument\\ue_5.5\\engine\\source\\runtime\\audioextensions\\public\\iaudioparametertransmitter.h",
+            "d:\\dokument\\ue_5.5\\engine\\source\\runtime\\audiomixer\\public\\quartz\\audiomixerquantizedcommands.h",
+            "d:\\dokument\\ue_5.5\\engine\\source\\runtime\\audiomixer\\public\\quartz\\audiomixerclock.h",
+            "d:\\dokument\\ue_5.5\\engine\\source\\runtime\\audiomixer\\public\\quartz\\quartzmetronome.h",
+            "d:\\dokument\\ue_5.5\\engine\\source\\runtime\\engine\\classes\\sound\\quartzsubscription.h",
+            "d:\\dokument\\ue_5.5\\engine\\source\\runtime\\engine\\classes\\sound\\quartzsubscriptiontoken.h",
+            "d:\\dokument\\ue_5.5\\engine\\source\\runtime\\engine\\classes\\sound\\quartzinterfaces.h",
+            "d:\\dokument\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\audiocomponent.generated.h",
+            "d:\\github-ekenlof-games\\itl-2.0\\into_the_light\\intermediate\\build\\win64\\unrealeditor\\inc\\into_the_light\\uht\\actorsoundsystem.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

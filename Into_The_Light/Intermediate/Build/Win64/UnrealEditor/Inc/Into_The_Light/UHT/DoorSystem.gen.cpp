@@ -79,10 +79,10 @@ ADoorSystem::~ADoorSystem() {}
 struct Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Doors_Objects_DoorSystem_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ADoorSystem, ADoorSystem::StaticClass, TEXT("ADoorSystem"), &Z_Registration_Info_UClass_ADoorSystem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ADoorSystem), 3287409138U) },
+		{ Z_Construct_UClass_ADoorSystem, ADoorSystem::StaticClass, TEXT("ADoorSystem"), &Z_Registration_Info_UClass_ADoorSystem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ADoorSystem), 773719880U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Doors_Objects_DoorSystem_h_1819696501(TEXT("/Script/Into_The_Light"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Doors_Objects_DoorSystem_h_1379349790(TEXT("/Script/Into_The_Light"),
 	Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Doors_Objects_DoorSystem_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Doors_Objects_DoorSystem_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

@@ -75,10 +75,7 @@ void AGameplayEvents::UpdateVaribleState(AActor*& ActorReference, const FName& T
 	{
 		if (!IsValid(ActorReference))
 		{
-			//ActorReference = nullptr;
-
 			TArray<AActor*> FoundActors;
-
 			UGameplayStatics::GetAllActorsWithTag(World, TagName, FoundActors);
 
 			if (FoundActors.Num() > 0)
@@ -157,8 +154,6 @@ void AGameplayEvents::UnloadSublevel(FName LevelName)
 		}
 		else UE_LOG(LogTemp, Warning, TEXT("LevelName is None"));
 	}
-
-	//UGameplayStatics::UnloadStreamLevel(this, LevelName, FLatentActionInfo(), true); // Change to 'false' if you want non-blocking
 }
 
 

@@ -36,33 +36,33 @@
     <ClCompile Include="..\..\Source\Into_The_Light\Into_The_Light.cpp">
       <Filter>Source\Into_The_Light</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Source\Into_The_Light\Into_The_Light.h">
+    <ClCompile Include="..\..\Source\Into_The_Light\Into_The_Light.h">
       <Filter>Source\Into_The_Light</Filter>
-    </ClInclude>
+    </ClCompile>
     <Filter Include="Source\Into_The_Light\Data">
       <UniqueIdentifier>{28E55D5E-A757-37B2-8434-1343246818EF}</UniqueIdentifier>
     </Filter>
-    <ClInclude Include="..\..\Source\Into_The_Light\Data\ItemDataSystem.h">
+    <ClCompile Include="..\..\Source\Into_The_Light\Data\ItemDataSystem.h">
       <Filter>Source\Into_The_Light\Data</Filter>
-    </ClInclude>
+    </ClCompile>
     <Filter Include="Source\Into_The_Light\Doors_Objects">
       <UniqueIdentifier>{D7334750-F9B6-3F14-97CE-AE4C788D5FF5}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\Into_The_Light\Doors_Objects\DoorSystem.cpp">
       <Filter>Source\Into_The_Light\Doors_Objects</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Source\Into_The_Light\Doors_Objects\DoorSystem.h">
+    <ClCompile Include="..\..\Source\Into_The_Light\Doors_Objects\DoorSystem.h">
       <Filter>Source\Into_The_Light\Doors_Objects</Filter>
-    </ClInclude>
+    </ClCompile>
     <Filter Include="Source\Into_The_Light\Player">
       <UniqueIdentifier>{43B103EA-9971-3332-B214-FA4F05EFACAA}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\Into_The_Light\Player\FirstPersonCharacter.cpp">
       <Filter>Source\Into_The_Light\Player</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Source\Into_The_Light\Player\FirstPersonCharacter.h">
+    <ClCompile Include="..\..\Source\Into_The_Light\Player\FirstPersonCharacter.h">
       <Filter>Source\Into_The_Light\Player</Filter>
-    </ClInclude>
+    </ClCompile>
     <Filter Include="Source\Into_The_Light\Private">
       <UniqueIdentifier>{4BC6348E-E192-39F4-8DFA-468EE1A8C86C}</UniqueIdentifier>
     </Filter>
@@ -168,98 +168,98 @@
     <Filter Include="Source\Into_The_Light\Public\Audio">
       <UniqueIdentifier>{6AA1B42C-0FCF-343F-B355-5B66F3466F71}</UniqueIdentifier>
     </Filter>
-    <ClInclude Include="..\..\Source\Into_The_Light\Public\Audio\ActorSoundSystem.h">
+    <ClCompile Include="..\..\Source\Into_The_Light\Public\Audio\ActorSoundSystem.h">
       <Filter>Source\Into_The_Light\Public\Audio</Filter>
-    </ClInclude>
+    </ClCompile>
     <Filter Include="Source\Into_The_Light\Public\Characters">
       <UniqueIdentifier>{1E5E9EA8-DEB1-3993-8966-B433F6D93F20}</UniqueIdentifier>
     </Filter>
-    <ClInclude Include="..\..\Source\Into_The_Light\Public\Characters\Cole.h">
+    <ClCompile Include="..\..\Source\Into_The_Light\Public\Characters\Cole.h">
       <Filter>Source\Into_The_Light\Public\Characters</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Into_The_Light\Public\Characters\WhiteFace.h">
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Into_The_Light\Public\Characters\WhiteFace.h">
       <Filter>Source\Into_The_Light\Public\Characters</Filter>
-    </ClInclude>
+    </ClCompile>
     <Filter Include="Source\Into_The_Light\Public\Components">
       <UniqueIdentifier>{484C4C21-4E03-3186-B044-DCE3BC0B9EC1}</UniqueIdentifier>
     </Filter>
-    <ClInclude Include="..\..\Source\Into_The_Light\Public\Components\InventoryComponent.h">
+    <ClCompile Include="..\..\Source\Into_The_Light\Public\Components\InventoryComponent.h">
       <Filter>Source\Into_The_Light\Public\Components</Filter>
-    </ClInclude>
+    </ClCompile>
     <Filter Include="Source\Into_The_Light\Public\Gameplay">
       <UniqueIdentifier>{ED60F363-BC38-31BD-A011-67848F8553E8}</UniqueIdentifier>
     </Filter>
-    <ClInclude Include="..\..\Source\Into_The_Light\Public\Gameplay\Elevator_System.h">
+    <ClCompile Include="..\..\Source\Into_The_Light\Public\Gameplay\Elevator_System.h">
       <Filter>Source\Into_The_Light\Public\Gameplay</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Into_The_Light\Public\Gameplay\GameplayEvents.h">
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Into_The_Light\Public\Gameplay\GameplayEvents.h">
       <Filter>Source\Into_The_Light\Public\Gameplay</Filter>
-    </ClInclude>
+    </ClCompile>
     <Filter Include="Source\Into_The_Light\Public\Interfaces">
       <UniqueIdentifier>{66CDA4EE-40DE-33F3-AAE4-E4CB65D8CEA5}</UniqueIdentifier>
     </Filter>
-    <ClInclude Include="..\..\Source\Into_The_Light\Public\Interfaces\InteractionInterface.h">
+    <ClCompile Include="..\..\Source\Into_The_Light\Public\Interfaces\InteractionInterface.h">
       <Filter>Source\Into_The_Light\Public\Interfaces</Filter>
-    </ClInclude>
+    </ClCompile>
     <Filter Include="Source\Into_The_Light\Public\Items">
       <UniqueIdentifier>{B62E647C-6E9A-3AEF-A86C-D214A72D2167}</UniqueIdentifier>
     </Filter>
-    <ClInclude Include="..\..\Source\Into_The_Light\Public\Items\ItemBase.h">
+    <ClCompile Include="..\..\Source\Into_The_Light\Public\Items\ItemBase.h">
       <Filter>Source\Into_The_Light\Public\Items</Filter>
-    </ClInclude>
+    </ClCompile>
     <Filter Include="Source\Into_The_Light\Public\Triggers">
       <UniqueIdentifier>{2E5E2580-E385-339E-88D5-C6733749E302}</UniqueIdentifier>
     </Filter>
-    <ClInclude Include="..\..\Source\Into_The_Light\Public\Triggers\BoxCollider.h">
+    <ClCompile Include="..\..\Source\Into_The_Light\Public\Triggers\BoxCollider.h">
       <Filter>Source\Into_The_Light\Public\Triggers</Filter>
-    </ClInclude>
+    </ClCompile>
     <Filter Include="Source\Into_The_Light\Public\UserInterface">
       <UniqueIdentifier>{4DAE104B-2021-3F5E-B695-272BFD983D57}</UniqueIdentifier>
     </Filter>
-    <ClInclude Include="..\..\Source\Into_The_Light\Public\UserInterface\MainHUD.h">
+    <ClCompile Include="..\..\Source\Into_The_Light\Public\UserInterface\MainHUD.h">
       <Filter>Source\Into_The_Light\Public\UserInterface</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Into_The_Light\Public\UserInterface\MainMenu.h">
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Into_The_Light\Public\UserInterface\MainMenu.h">
       <Filter>Source\Into_The_Light\Public\UserInterface</Filter>
-    </ClInclude>
+    </ClCompile>
     <Filter Include="Source\Into_The_Light\Public\UserInterface\Interaction">
       <UniqueIdentifier>{E8863859-D76F-3244-828C-78E3BFD46C8C}</UniqueIdentifier>
     </Filter>
-    <ClInclude Include="..\..\Source\Into_The_Light\Public\UserInterface\Interaction\InteractionWidget.h">
+    <ClCompile Include="..\..\Source\Into_The_Light\Public\UserInterface\Interaction\InteractionWidget.h">
       <Filter>Source\Into_The_Light\Public\UserInterface\Interaction</Filter>
-    </ClInclude>
+    </ClCompile>
     <Filter Include="Source\Into_The_Light\Public\UserInterface\Inventory">
       <UniqueIdentifier>{C3FB3BAF-6CD6-3941-9545-37AED182A166}</UniqueIdentifier>
     </Filter>
-    <ClInclude Include="..\..\Source\Into_The_Light\Public\UserInterface\Inventory\DragItemVisual.h">
+    <ClCompile Include="..\..\Source\Into_The_Light\Public\UserInterface\Inventory\DragItemVisual.h">
       <Filter>Source\Into_The_Light\Public\UserInterface\Inventory</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Into_The_Light\Public\UserInterface\Inventory\InventoryItemSlot.h">
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Into_The_Light\Public\UserInterface\Inventory\InventoryItemSlot.h">
       <Filter>Source\Into_The_Light\Public\UserInterface\Inventory</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Into_The_Light\Public\UserInterface\Inventory\InventoryPanel.h">
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Into_The_Light\Public\UserInterface\Inventory\InventoryPanel.h">
       <Filter>Source\Into_The_Light\Public\UserInterface\Inventory</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Into_The_Light\Public\UserInterface\Inventory\InventoryTooltip.h">
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Into_The_Light\Public\UserInterface\Inventory\InventoryTooltip.h">
       <Filter>Source\Into_The_Light\Public\UserInterface\Inventory</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Into_The_Light\Public\UserInterface\Inventory\ItemDragDropOperation.h">
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Into_The_Light\Public\UserInterface\Inventory\ItemDragDropOperation.h">
       <Filter>Source\Into_The_Light\Public\UserInterface\Inventory</Filter>
-    </ClInclude>
+    </ClCompile>
     <Filter Include="Source\Into_The_Light\Public\UserInterface\Objective">
       <UniqueIdentifier>{3B88652E-944D-32AC-8193-E82E20C23E73}</UniqueIdentifier>
     </Filter>
-    <ClInclude Include="..\..\Source\Into_The_Light\Public\UserInterface\Objective\ObjectivePanel.h">
+    <ClCompile Include="..\..\Source\Into_The_Light\Public\UserInterface\Objective\ObjectivePanel.h">
       <Filter>Source\Into_The_Light\Public\UserInterface\Objective</Filter>
-    </ClInclude>
+    </ClCompile>
     <Filter Include="Source\Into_The_Light\Public\World">
       <UniqueIdentifier>{8331D2D5-CCF6-3B1B-84A8-5AB0ABB9C809}</UniqueIdentifier>
     </Filter>
-    <ClInclude Include="..\..\Source\Into_The_Light\Public\World\InterfaceActorT.h">
+    <ClCompile Include="..\..\Source\Into_The_Light\Public\World\InterfaceActorT.h">
       <Filter>Source\Into_The_Light\Public\World</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Into_The_Light\Public\World\PickUp.h">
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Into_The_Light\Public\World\PickUp.h">
       <Filter>Source\Into_The_Light\Public\World</Filter>
-    </ClInclude>
+    </ClCompile>
   </ItemGroup>
 </Project>

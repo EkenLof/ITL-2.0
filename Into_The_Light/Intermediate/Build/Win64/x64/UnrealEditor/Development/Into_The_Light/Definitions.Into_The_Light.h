@@ -3,13 +3,14 @@
 #include "D:/Github-EkenLof-Games/ITL-2.0/Into_The_Light/Intermediate/Build/Win64/x64/Into_The_LightEditor/Development/UnrealEd/SharedDefinitions.UnrealEd.Project.NoValFmtStr.ValApi.Cpp20.InclOrderUnreal5_3.h"
 #undef INTO_THE_LIGHT_API
 #define UE_IS_ENGINE_MODULE 0
-#define DEPRECATED_FORGAME DEPRECATED
 #define UE_DEPRECATED_FORGAME UE_DEPRECATED
+#define UE_DEPRECATED_FORENGINE UE_DEPRECATED
 #define UE_VALIDATE_FORMAT_STRINGS 0
 #define UE_VALIDATE_INTERNAL_API 1
 #define UE_ENABLE_INCLUDE_ORDER_DEPRECATED_IN_5_2 0
 #define UE_ENABLE_INCLUDE_ORDER_DEPRECATED_IN_5_3 0
 #define UE_ENABLE_INCLUDE_ORDER_DEPRECATED_IN_5_4 1
+#define UE_ENABLE_INCLUDE_ORDER_DEPRECATED_IN_5_5 1
 #define UE_PROJECT_NAME Into_The_Light
 #define UE_TARGET_NAME Into_The_LightEditor
 #define UE_MODULE_NAME "Into_The_Light"

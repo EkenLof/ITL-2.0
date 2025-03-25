@@ -150,10 +150,10 @@ AActorSoundSystem::~AActorSoundSystem() {}
 struct Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Audio_ActorSoundSystem_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AActorSoundSystem, AActorSoundSystem::StaticClass, TEXT("AActorSoundSystem"), &Z_Registration_Info_UClass_AActorSoundSystem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AActorSoundSystem), 4118613353U) },
+		{ Z_Construct_UClass_AActorSoundSystem, AActorSoundSystem::StaticClass, TEXT("AActorSoundSystem"), &Z_Registration_Info_UClass_AActorSoundSystem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AActorSoundSystem), 590354764U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Audio_ActorSoundSystem_h_3119168267(TEXT("/Script/Into_The_Light"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Audio_ActorSoundSystem_h_836111725(TEXT("/Script/Into_The_Light"),
 	Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Audio_ActorSoundSystem_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_Audio_ActorSoundSystem_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

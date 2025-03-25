@@ -1,0 +1,15 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "d:\\github-ekenlof-games\\itl-2.0\\into_the_light\\intermediate\\build\\win64\\unrealeditor\\inc\\into_the_light\\uht\\doorsystem.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "d:\\github-ekenlof-games\\itl-2.0\\into_the_light\\intermediate\\build\\win64\\x64\\into_the_lighteditor\\debuggame\\unrealed\\sharedpch.unrealed.project.nonoptimized.novalfmtstr.valapi.cpp20.inclorderunreal5_3.h.pch",
+        "Includes": [
+            "d:\\github-ekenlof-games\\itl-2.0\\into_the_light\\intermediate\\build\\win64\\x64\\unrealeditor\\debuggame\\into_the_light\\definitions.into_the_light.h",
+            "d:\\github-ekenlof-games\\itl-2.0\\into_the_light\\source\\into_the_light\\doors_objects\\doorsystem.h",
+            "d:\\github-ekenlof-games\\itl-2.0\\into_the_light\\intermediate\\build\\win64\\unrealeditor\\inc\\into_the_light\\uht\\doorsystem.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

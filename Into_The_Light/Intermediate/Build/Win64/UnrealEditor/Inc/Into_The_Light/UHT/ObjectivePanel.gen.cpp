@@ -196,10 +196,10 @@ UObjectivePanel::~UObjectivePanel() {}
 struct Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_UserInterface_Objective_ObjectivePanel_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UObjectivePanel, UObjectivePanel::StaticClass, TEXT("UObjectivePanel"), &Z_Registration_Info_UClass_UObjectivePanel, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UObjectivePanel), 271838115U) },
+		{ Z_Construct_UClass_UObjectivePanel, UObjectivePanel::StaticClass, TEXT("UObjectivePanel"), &Z_Registration_Info_UClass_UObjectivePanel, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UObjectivePanel), 2004623445U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_UserInterface_Objective_ObjectivePanel_h_2338248127(TEXT("/Script/Into_The_Light"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_UserInterface_Objective_ObjectivePanel_h_2319571508(TEXT("/Script/Into_The_Light"),
 	Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_UserInterface_Objective_ObjectivePanel_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_UserInterface_Objective_ObjectivePanel_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
