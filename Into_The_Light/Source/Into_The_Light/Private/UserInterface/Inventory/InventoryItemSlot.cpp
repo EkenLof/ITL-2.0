@@ -109,7 +109,10 @@ FReply UInventoryItemSlot::NativeOnMouseButtonDown(const FGeometry& InGeometry, 
 	{
 		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---UI R_Interact---"));
 
-		if (ItemClickOrDragTemp == Fuse10aText && !bIsFuse10a)
+		//----------------------------------------------------------------------------------
+		//********************************------ Equp ------********************************
+		//----------------------------------------------------------------------------------
+		if (ItemClickOrDragTemp == Fuse10aText && !bIsFuse10a) 
 		{
 			bIsFuse10a = true;
 			bIsElectricKey = false;
@@ -220,6 +223,9 @@ FReply UInventoryItemSlot::NativeOnMouseButtonDown(const FGeometry& InGeometry, 
 			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---UI Item_Unselected---"));
 
 			return FReply::Handled();
+			//----------------------------------------------------------------------------------
+			//********************************------ Equp ------********************************
+			//----------------------------------------------------------------------------------
 		}
 		else
 		{
