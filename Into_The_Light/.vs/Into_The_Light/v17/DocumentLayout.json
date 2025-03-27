@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "D:\\Github-EkenLof-Games\\ITL-2.0\\Into_The_Light\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{89A48678-3687-36E5-9C55-D0F4F8E7024F}|Intermediate\\ProjectFiles\\Into_The_Light.vcxproj|D:\\Github-EkenLof-Games\\ITL-2.0\\Into_The_Light\\Source\\Into_The_Light\\Player\\FirstPersonCharacter.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{89A48678-3687-36E5-9C55-D0F4F8E7024F}|Intermediate\\ProjectFiles\\Into_The_Light.vcxproj|solutionrelative:Source\\Into_The_Light\\Player\\FirstPersonCharacter.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{89A48678-3687-36E5-9C55-D0F4F8E7024F}|Intermediate\\ProjectFiles\\Into_The_Light.vcxproj|D:\\Github-EkenLof-Games\\ITL-2.0\\Into_The_Light\\Source\\Into_The_Light\\Private\\UserInterface\\MainHUD.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{89A48678-3687-36E5-9C55-D0F4F8E7024F}|Intermediate\\ProjectFiles\\Into_The_Light.vcxproj|solutionrelative:Source\\Into_The_Light\\Private\\UserInterface\\MainHUD.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89A48678-3687-36E5-9C55-D0F4F8E7024F}|Intermediate\\ProjectFiles\\Into_The_Light.vcxproj|D:\\Github-EkenLof-Games\\ITL-2.0\\Into_The_Light\\Source\\Into_The_Light\\Player\\FirstPersonCharacter.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{89A48678-3687-36E5-9C55-D0F4F8E7024F}|Intermediate\\ProjectFiles\\Into_The_Light.vcxproj|solutionrelative:Source\\Into_The_Light\\Player\\FirstPersonCharacter.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{89A48678-3687-36E5-9C55-D0F4F8E7024F}|Intermediate\\ProjectFiles\\Into_The_Light.vcxproj|D:\\Github-EkenLof-Games\\ITL-2.0\\Into_The_Light\\Source\\Into_The_Light\\Private\\UserInterface\\Objective\\ObjectivePanel.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -162,7 +162,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Bookmark",
@@ -170,13 +170,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "FirstPersonCharacter.cpp",
               "DocumentMoniker": "D:\\Github-EkenLof-Games\\ITL-2.0\\Into_The_Light\\Source\\Into_The_Light\\Player\\FirstPersonCharacter.cpp",
               "RelativeDocumentMoniker": "Source\\Into_The_Light\\Player\\FirstPersonCharacter.cpp",
               "ToolTip": "D:\\Github-EkenLof-Games\\ITL-2.0\\Into_The_Light\\Source\\Into_The_Light\\Player\\FirstPersonCharacter.cpp",
               "RelativeToolTip": "Source\\Into_The_Light\\Player\\FirstPersonCharacter.cpp",
-              "ViewState": "AgIAAJwDAAAAAAAAAAAnwOYDAAAEAAAAAAAAAA==",
+              "ViewState": "AgIAAJgDAAAAAAAAAAAYwOYDAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-03-25T21:40:52.636Z",
               "EditorCaption": ""
@@ -195,8 +195,7 @@
               "RelativeToolTip": "Source\\Into_The_Light\\Private\\Components\\InventoryComponent.cpp",
               "ViewState": "AgIAABUAAAAAAAAAAAAAAC4AAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-25T21:40:52.645Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-25T21:40:52.645Z"
             },
             {
               "$type": "Document",
@@ -208,8 +207,7 @@
               "RelativeToolTip": "Source\\Into_The_Light\\Private\\UserInterface\\Objective\\ObjectivePanel.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAIUAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-25T21:40:52.709Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-25T21:40:52.709Z"
             },
             {
               "$type": "Document",
@@ -221,8 +219,7 @@
               "RelativeToolTip": "Source\\Into_The_Light\\Private\\UserInterface\\Inventory\\InventoryPanel.cpp",
               "ViewState": "AgIAAAwAAAAAAAAAAAAAADsAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-25T21:40:52.681Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-25T21:40:52.681Z"
             },
             {
               "$type": "Document",
@@ -234,8 +231,7 @@
               "RelativeToolTip": "Source\\Into_The_Light\\Private\\Interfaces\\InteractionInterface.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-25T21:40:52.746Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-25T21:40:52.746Z"
             },
             {
               "$type": "Document",
@@ -247,8 +243,7 @@
               "RelativeToolTip": "Source\\Into_The_Light\\Private\\World\\PickUp.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAADoAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-25T21:40:52.728Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-25T21:40:52.728Z"
             },
             {
               "$type": "Document",
@@ -260,8 +255,7 @@
               "RelativeToolTip": "Source\\Into_The_Light\\Private\\UserInterface\\Interaction\\InteractionWidget.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-25T21:40:52.738Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-25T21:40:52.738Z"
             },
             {
               "$type": "Document",
@@ -273,18 +267,17 @@
               "RelativeToolTip": "Source\\Into_The_Light\\Private\\UserInterface\\Inventory\\InventoryItemSlot.cpp",
               "ViewState": "AgIAAGMAAAAAAAAAAAAnwHEAAABWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-25T21:40:52.755Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-25T21:40:52.755Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "MainHUD.cpp",
               "DocumentMoniker": "D:\\Github-EkenLof-Games\\ITL-2.0\\Into_The_Light\\Source\\Into_The_Light\\Private\\UserInterface\\MainHUD.cpp",
               "RelativeDocumentMoniker": "Source\\Into_The_Light\\Private\\UserInterface\\MainHUD.cpp",
               "ToolTip": "D:\\Github-EkenLof-Games\\ITL-2.0\\Into_The_Light\\Source\\Into_The_Light\\Private\\UserInterface\\MainHUD.cpp",
               "RelativeToolTip": "Source\\Into_The_Light\\Private\\UserInterface\\MainHUD.cpp",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAAEUAAAAOAAAAAAAAAA==",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAACYAAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-03-25T21:40:52.691Z",
               "EditorCaption": ""
