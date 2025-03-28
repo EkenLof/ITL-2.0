@@ -169,6 +169,72 @@ DEFINE_FUNCTION(AFirstPersonCharacter::execOnSublevelLoaded)
 }
 // End Class AFirstPersonCharacter Function OnSublevelLoaded
 
+// Begin Class AFirstPersonCharacter Function ToggleMenu
+struct Z_Construct_UFunction_AFirstPersonCharacter_ToggleMenu_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "Menu | PauseMenu" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// --- FUNCTIONS ---\n" },
+#endif
+		{ "ModuleRelativePath", "Player/FirstPersonCharacter.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "--- FUNCTIONS ---" },
+#endif
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AFirstPersonCharacter_ToggleMenu_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AFirstPersonCharacter, nullptr, "ToggleMenu", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AFirstPersonCharacter_ToggleMenu_Statics::Function_MetaDataParams), Z_Construct_UFunction_AFirstPersonCharacter_ToggleMenu_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_AFirstPersonCharacter_ToggleMenu()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AFirstPersonCharacter_ToggleMenu_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(AFirstPersonCharacter::execToggleMenu)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->ToggleMenu();
+	P_NATIVE_END;
+}
+// End Class AFirstPersonCharacter Function ToggleMenu
+
+// Begin Class AFirstPersonCharacter Function TogglePauseMenu
+struct Z_Construct_UFunction_AFirstPersonCharacter_TogglePauseMenu_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "Menu | PauseMenu" },
+		{ "ModuleRelativePath", "Player/FirstPersonCharacter.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AFirstPersonCharacter_TogglePauseMenu_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AFirstPersonCharacter, nullptr, "TogglePauseMenu", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AFirstPersonCharacter_TogglePauseMenu_Statics::Function_MetaDataParams), Z_Construct_UFunction_AFirstPersonCharacter_TogglePauseMenu_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_AFirstPersonCharacter_TogglePauseMenu()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AFirstPersonCharacter_TogglePauseMenu_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(AFirstPersonCharacter::execTogglePauseMenu)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->TogglePauseMenu();
+	P_NATIVE_END;
+}
+// End Class AFirstPersonCharacter Function TogglePauseMenu
+
 // Begin Class AFirstPersonCharacter Function UnloadSublevel
 struct Z_Construct_UFunction_AFirstPersonCharacter_UnloadSublevel_Statics
 {
@@ -219,6 +285,8 @@ void AFirstPersonCharacter::StaticRegisterNativesAFirstPersonCharacter()
 	static const FNameNativePtrPair Funcs[] = {
 		{ "LoadSublevel", &AFirstPersonCharacter::execLoadSublevel },
 		{ "OnSublevelLoaded", &AFirstPersonCharacter::execOnSublevelLoaded },
+		{ "ToggleMenu", &AFirstPersonCharacter::execToggleMenu },
+		{ "TogglePauseMenu", &AFirstPersonCharacter::execTogglePauseMenu },
 		{ "UnloadSublevel", &AFirstPersonCharacter::execUnloadSublevel },
 	};
 	FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
@@ -629,6 +697,8 @@ struct Z_Construct_UClass_AFirstPersonCharacter_Statics
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
 		{ &Z_Construct_UFunction_AFirstPersonCharacter_LoadSublevel, "LoadSublevel" }, // 2075827994
 		{ &Z_Construct_UFunction_AFirstPersonCharacter_OnSublevelLoaded, "OnSublevelLoaded" }, // 1179316234
+		{ &Z_Construct_UFunction_AFirstPersonCharacter_ToggleMenu, "ToggleMenu" }, // 988792732
+		{ &Z_Construct_UFunction_AFirstPersonCharacter_TogglePauseMenu, "TogglePauseMenu" }, // 1351570354
 		{ &Z_Construct_UFunction_AFirstPersonCharacter_UnloadSublevel, "UnloadSublevel" }, // 320830652
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
@@ -913,10 +983,10 @@ struct Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Sou
 		{ FInteractionData::StaticStruct, Z_Construct_UScriptStruct_FInteractionData_Statics::NewStructOps, TEXT("InteractionData"), &Z_Registration_Info_UScriptStruct_InteractionData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FInteractionData), 2377451553U) },
 	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AFirstPersonCharacter, AFirstPersonCharacter::StaticClass, TEXT("AFirstPersonCharacter"), &Z_Registration_Info_UClass_AFirstPersonCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFirstPersonCharacter), 2309302670U) },
+		{ Z_Construct_UClass_AFirstPersonCharacter, AFirstPersonCharacter::StaticClass, TEXT("AFirstPersonCharacter"), &Z_Registration_Info_UClass_AFirstPersonCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFirstPersonCharacter), 652566340U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Player_FirstPersonCharacter_h_373481223(TEXT("/Script/Into_The_Light"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Player_FirstPersonCharacter_h_3902715603(TEXT("/Script/Into_The_Light"),
 	Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Player_FirstPersonCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Player_FirstPersonCharacter_h_Statics::ClassInfo),
 	Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Player_FirstPersonCharacter_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Player_FirstPersonCharacter_h_Statics::ScriptStructInfo),
 	nullptr, 0);

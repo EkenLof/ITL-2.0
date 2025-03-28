@@ -62,8 +62,8 @@ public:
 	// --- Actors --- //	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")
 	AActor* ReceptionPhoneActor;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")
-	AActor* ReceptionPhoneKeyActor;
+	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")
+	//AActor* ReceptionPhoneKeyActor;
 	// --- Actors --- //
 
 	// --- SubLevels --- //
@@ -86,7 +86,7 @@ protected:
 	FName F1StorageRoomLightsTagName;
 
 	FName ReceptionPhoneTagName;
-	FName ReceptionPhoneKeyTagName;
+	//FName ReceptionPhoneKeyTagName;
 
 	virtual void BeginPlay() override;
 	virtual void Tick(float DeltaTime) override;

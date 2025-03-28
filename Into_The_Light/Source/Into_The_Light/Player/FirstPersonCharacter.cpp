@@ -41,7 +41,6 @@
 
 #include "Sound/SoundCue.h"
 
-#include "UserInterface/Inventory/InventoryItemSlot.h" // TEST 23-08-2024
 #include "Components/TextBlock.h" // TEST 23-08-2024
 #include "Components/Border.h" // TEST 23-08-2024
 #include "Components/Image.h" // TEST 23-08-2024
@@ -349,9 +348,9 @@ void AFirstPersonCharacter::Tick(float DeltaTime)
 		bIsEndStepPartOne = true;
 	}
 
-	///////////////////////////////////////////---TEMP---/////////////////////////////////////////////
-
-	/////////////////////////////////---Looking On or Off---////////////////////////////////////
+	//////////////////////////////////////---TEMP---//////////////////////////////////////
+	
+	////////////////////////////////---Looking On or Off---///////////////////////////////
 	////////////////////////////*********** Fuse 10A **********///////////////////////////
 	// Looking & Visable
 	if (bIsLookingAtFuseBox_Interactible && bIsFuseBox_Interactible 
@@ -1001,7 +1000,7 @@ void AFirstPersonCharacter::ToggleMenu()
 
 void AFirstPersonCharacter::TogglePauseMenu()
 {
-	return;
+	HUD->TogglePauseMenu();
 }
 
 void AFirstPersonCharacter::DropItem(UItemBase* ItemToDrop, const int32 QuantityToDrop)

@@ -23,6 +23,8 @@ template<> INTO_THE_LIGHT_API UScriptStruct* StaticStruct<struct FInteractionDat
 
 #define FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Player_FirstPersonCharacter_h_43_RPC_WRAPPERS_NO_PURE_DECLS \
 	DECLARE_FUNCTION(execOnSublevelLoaded); \
+	DECLARE_FUNCTION(execTogglePauseMenu); \
+	DECLARE_FUNCTION(execToggleMenu); \
 	DECLARE_FUNCTION(execUnloadSublevel); \
 	DECLARE_FUNCTION(execLoadSublevel);
 

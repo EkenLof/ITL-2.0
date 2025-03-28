@@ -1,5 +1,5 @@
-// Fill out your copyright notice in the Description page of Project Settings.
 #pragma once
+
 
 #include "CoreMinimal.h"
 #include "GameFramework/HUD.h"
@@ -7,6 +7,7 @@
 
 struct FInteractableData;
 class UMainMenu;
+class UPauseMenu;
 class UInteractionWidget;
 
 UCLASS()
@@ -17,17 +18,32 @@ class INTO_THE_LIGHT_API AMainHUD : public AHUD
 public:
 	UPROPERTY(EditDefaultsOnly,Category = "Widgets")
 	TSubclassOf<UMainMenu> MainMenuClass;
+	UPROPERTY(EditDefaultsOnly, Category = "Widgets")
+	TSubclassOf<UPauseMenu> PauseMenuClass;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Widgets")
 	TSubclassOf<UInteractionWidget> InteractionWidgetClass;
 
 	bool bIsMenuVisible;
 
+	bool bIsPauseMenuVisible;
+
+	//bool bIsMapMenuVisable;
+
 	AMainHUD();
 
+	// INVENTORY MENU
 	void DisplayMenu();
 	void HideMenu();
 	void ToggleMenu();
+
+	// PAUSE MENU
+	void DisplayPauseMenu();
+	void HidePauseMenu();
+	void TogglePauseMenu();
+
+	//void DisplayMapMenu();
+	//void HideMapMenu();
 
 	void ShowInteractionWidget() const;
 	void HideInteractionWidget() const;
@@ -36,6 +52,9 @@ public:
 protected:
 	UPROPERTY()
 	UMainMenu* MainMenuWidget;
+	UPROPERTY()
+	UPauseMenu* PauseMenuWidget;
+
 
 	UPROPERTY()
 	UInteractionWidget* InteractionWidget;

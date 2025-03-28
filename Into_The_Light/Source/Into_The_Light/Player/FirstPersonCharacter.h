@@ -151,6 +151,12 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	class UStaticMeshComponent* RightHandMesh;
 
+	// --- FUNCTIONS ---
+	UFUNCTION(BlueprintCallable, Category = "Menu | PauseMenu")
+	void ToggleMenu();
+	UFUNCTION(BlueprintCallable, Category = "Menu | PauseMenu")
+	void TogglePauseMenu();
+
 protected:
 	virtual void BeginPlay() override;
 
@@ -292,9 +298,6 @@ protected:
 	FInteractionData InteractionData;
 
 	// --- FUNCTIONS ---
-	void ToggleMenu();
-	void TogglePauseMenu();
-
 	void PerformInteractionCheck();
 	void FoundInteractable(AActor* NewInteractable);
 	void NoInteractableFound();

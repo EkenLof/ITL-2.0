@@ -123,6 +123,9 @@
     <ClCompile Include="..\..\Source\Into_The_Light\Private\UserInterface\MainMenu.cpp">
       <Filter>Source\Into_The_Light\Private\UserInterface</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\Into_The_Light\Private\UserInterface\PauseMenu.cpp">
+      <Filter>Source\Into_The_Light\Private\UserInterface</Filter>
+    </ClCompile>
     <Filter Include="Source\Into_The_Light\Private\UserInterface\Interaction">
       <UniqueIdentifier>{AF918806-DA3E-3242-9214-CDFCA5FE42BB}</UniqueIdentifier>
     </Filter>
@@ -220,6 +223,9 @@
       <Filter>Source\Into_The_Light\Public\UserInterface</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Into_The_Light\Public\UserInterface\MainMenu.h">
+      <Filter>Source\Into_The_Light\Public\UserInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Into_The_Light\Public\UserInterface\PauseMenu.h">
       <Filter>Source\Into_The_Light\Public\UserInterface</Filter>
     </ClCompile>
     <Filter Include="Source\Into_The_Light\Public\UserInterface\Interaction">

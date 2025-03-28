@@ -2,6 +2,7 @@
 
 #include "UserInterface/MainHUD.h"
 #include "UserInterface/MainMenu.h"
+#include "UserInterface/PauseMenu.h"
 #include "UserInterface/Interaction/InteractionWidget.h"
 
 #include "GameFramework/WorldSettings.h"
@@ -9,7 +10,27 @@
 
 AMainHUD::AMainHUD()
 {
+	/*// Assign
+	static ConstructorHelpers::FClassFinder<UPauseMenu> PauseMenuBPClass(TEXT("/Script/UMGEditor.WidgetBlueprint'/Game/UI/WBP_PauseMenuPanel.WBP_PauseMenuPanel'")); // /Script/UMGEditor.WidgetBlueprint'/Game/UI/WBP_PauseMenuPanel.WBP_PauseMenuPanel'
+	if (PauseMenuBPClass.Succeeded()) // /Game/UI/WBP_PauseMenuPanel.WBP_PauseMenuPanel
+	{
+		PauseMenuClass = PauseMenuBPClass.Class;
 
+		UE_LOG(LogTemp, Warning, TEXT("PauseMenuClass successfully assigned"));
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("PauseMenuClass not assigned"));
+	}
+
+	
+	static ConstructorHelpers::FClassFinder<UPauseMenu> PauseMenuBPClass(TEXT("/Game/UI/WBP_PauseMenuPanel.WBP_PauseMenuPanel"));
+	if (PauseMenuBPClass.Succeeded())
+	if (PauseMenuBPClass.Class != nullptr)
+	{
+		PauseMenuClass = PauseMenuBPClass.Class;
+	}
+	*/
 }
 
 void AMainHUD::BeginPlay()
@@ -21,6 +42,20 @@ void AMainHUD::BeginPlay()
 		MainMenuWidget = CreateWidget<UMainMenu>(GetWorld(), MainMenuClass);
 		MainMenuWidget->AddToViewport(5); // Layer in depth visability / interaction
 		MainMenuWidget->SetVisibility(ESlateVisibility::Collapsed);
+		UE_LOG(LogTemp, Warning, TEXT("MenuClass is assigned!"));
+	}
+
+	if (PauseMenuClass)
+	{
+		PauseMenuWidget = CreateWidget<UPauseMenu>(GetWorld(), PauseMenuClass);
+		PauseMenuWidget->AddToViewport(50); // Layer in depth visability / interaction
+		PauseMenuWidget->SetVisibility(ESlateVisibility::Collapsed);
+
+		UE_LOG(LogTemp, Warning, TEXT("PauseMenuClass is assigned!"));
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("PauseMenuClass is not assigned!"));
 	}
 
 	if (InteractionWidgetClass)
@@ -30,7 +65,7 @@ void AMainHUD::BeginPlay()
 		InteractionWidget->SetVisibility(ESlateVisibility::Collapsed);
 	}
 }
-
+/////////////////////////////////////************ INVENTORY MENU ************/////////////////////////////////////
 void AMainHUD::DisplayMenu()
 {
 	if (MainMenuWidget)
@@ -77,6 +112,60 @@ void AMainHUD::ToggleMenu()
 		}
 	}	
 }
+/////////////////////////////////////************ INVENTORY MENU ************/////////////////////////////////////
+
+/////////////////////////////////////************** PAUSE MENU **************/////////////////////////////////////
+void AMainHUD::DisplayPauseMenu()
+{
+	if (PauseMenuWidget)
+	{
+		bIsPauseMenuVisible = true;
+		PauseMenuWidget->SetVisibility(ESlateVisibility::Visible);
+
+		UE_LOG(LogTemp, Warning, TEXT("Pause menu is now visible"));
+	}
+}
+
+void AMainHUD::HidePauseMenu()
+{
+	if (PauseMenuWidget)
+	{
+		bIsPauseMenuVisible = false;
+		PauseMenuWidget->SetVisibility(ESlateVisibility::Collapsed);
+
+		UE_LOG(LogTemp, Warning, TEXT("Pause menu is not visible"));
+	}
+}
+
+void AMainHUD::TogglePauseMenu()
+{
+	UWorld* World = GetWorld();
+
+	if (World)
+	{
+		if (bIsPauseMenuVisible) // In Game & No visable Menu...
+		{
+			HidePauseMenu();
+
+			const FInputModeGameOnly InputMode;
+			GetOwningPlayerController()->SetInputMode(InputMode);
+			GetOwningPlayerController()->SetShowMouseCursor(false);
+
+			World->GetWorldSettings()->SetTimeDilation(1.0f);
+		}
+		else // Menu Open (set pause function...)
+		{
+			DisplayPauseMenu();
+
+			const FInputModeGameAndUI InputMode;
+			GetOwningPlayerController()->SetInputMode(InputMode);
+			GetOwningPlayerController()->SetShowMouseCursor(true);
+
+			World->GetWorldSettings()->SetTimeDilation(0.0f);
+		}
+	}
+}
+/////////////////////////////////////************** PAUSE MENU **************/////////////////////////////////////
 
 void AMainHUD::ShowInteractionWidget() const
 {
