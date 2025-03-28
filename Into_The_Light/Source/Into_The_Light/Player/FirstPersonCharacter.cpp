@@ -997,10 +997,13 @@ void AFirstPersonCharacter::ToggleMenu()
 {
 	HUD->ToggleMenu();
 }
-
 void AFirstPersonCharacter::TogglePauseMenu()
 {
 	HUD->TogglePauseMenu();
+}
+void AFirstPersonCharacter::ToggleOptionsMenu()
+{
+	HUD->ToggleOptionsMenu();
 }
 
 void AFirstPersonCharacter::DropItem(UItemBase* ItemToDrop, const int32 QuantityToDrop)

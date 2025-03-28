@@ -1,5 +1,5 @@
 #include "UserInterface/PauseMenu.h"
-#include "UserInterface/MainHUD.h"
+//#include "UserInterface/MainHUD.h"
 
 #include "..\Player/FirstPersonCharacter.h"
 

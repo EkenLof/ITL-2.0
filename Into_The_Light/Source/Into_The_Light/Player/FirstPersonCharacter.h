@@ -156,6 +156,8 @@ public:
 	void ToggleMenu();
 	UFUNCTION(BlueprintCallable, Category = "Menu | PauseMenu")
 	void TogglePauseMenu();
+	UFUNCTION(BlueprintCallable, Category = "Menu | PauseMenu")
+	void ToggleOptionsMenu();
 
 protected:
 	virtual void BeginPlay() override;

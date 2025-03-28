@@ -8,6 +8,7 @@
 struct FInteractableData;
 class UMainMenu;
 class UPauseMenu;
+class UOptionsMenu;
 class UInteractionWidget;
 
 UCLASS()
@@ -20,13 +21,15 @@ public:
 	TSubclassOf<UMainMenu> MainMenuClass;
 	UPROPERTY(EditDefaultsOnly, Category = "Widgets")
 	TSubclassOf<UPauseMenu> PauseMenuClass;
+	UPROPERTY(EditDefaultsOnly, Category = "Widgets")
+	TSubclassOf<UOptionsMenu> OptionsMenuClass;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Widgets")
 	TSubclassOf<UInteractionWidget> InteractionWidgetClass;
 
 	bool bIsMenuVisible;
-
 	bool bIsPauseMenuVisible;
+	bool bIsOptionsMenuVisible;
 
 	//bool bIsMapMenuVisable;
 
@@ -42,6 +45,11 @@ public:
 	void HidePauseMenu();
 	void TogglePauseMenu();
 
+	// OPTIONS MENU
+	void DisplayOptionsMenu();
+	void HideOptionsMenu();
+	void ToggleOptionsMenu();
+
 	//void DisplayMapMenu();
 	//void HideMapMenu();
 
@@ -54,6 +62,8 @@ protected:
 	UMainMenu* MainMenuWidget;
 	UPROPERTY()
 	UPauseMenu* PauseMenuWidget;
+	UPROPERTY()
+	UOptionsMenu* OptionsMenuWidget;
 
 
 	UPROPERTY()

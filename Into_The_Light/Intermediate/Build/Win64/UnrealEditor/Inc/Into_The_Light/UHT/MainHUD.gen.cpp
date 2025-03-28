@@ -16,6 +16,7 @@ INTO_THE_LIGHT_API UClass* Z_Construct_UClass_AMainHUD();
 INTO_THE_LIGHT_API UClass* Z_Construct_UClass_AMainHUD_NoRegister();
 INTO_THE_LIGHT_API UClass* Z_Construct_UClass_UInteractionWidget_NoRegister();
 INTO_THE_LIGHT_API UClass* Z_Construct_UClass_UMainMenu_NoRegister();
+INTO_THE_LIGHT_API UClass* Z_Construct_UClass_UOptionsMenu_NoRegister();
 INTO_THE_LIGHT_API UClass* Z_Construct_UClass_UPauseMenu_NoRegister();
 UPackage* Z_Construct_UPackage__Script_Into_The_Light();
 // End Cross Module References
@@ -46,6 +47,10 @@ struct Z_Construct_UClass_AMainHUD_Statics
 		{ "Category", "Widgets" },
 		{ "ModuleRelativePath", "Public/UserInterface/MainHUD.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_OptionsMenuClass_MetaData[] = {
+		{ "Category", "Widgets" },
+		{ "ModuleRelativePath", "Public/UserInterface/MainHUD.h" },
+	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_InteractionWidgetClass_MetaData[] = {
 		{ "Category", "Widgets" },
 		{ "ModuleRelativePath", "Public/UserInterface/MainHUD.h" },
@@ -58,6 +63,10 @@ struct Z_Construct_UClass_AMainHUD_Statics
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Public/UserInterface/MainHUD.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_OptionsMenuWidget_MetaData[] = {
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Public/UserInterface/MainHUD.h" },
+	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_InteractionWidget_MetaData[] = {
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Public/UserInterface/MainHUD.h" },
@@ -65,9 +74,11 @@ struct Z_Construct_UClass_AMainHUD_Statics
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FClassPropertyParams NewProp_MainMenuClass;
 	static const UECodeGen_Private::FClassPropertyParams NewProp_PauseMenuClass;
+	static const UECodeGen_Private::FClassPropertyParams NewProp_OptionsMenuClass;
 	static const UECodeGen_Private::FClassPropertyParams NewProp_InteractionWidgetClass;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_MainMenuWidget;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_PauseMenuWidget;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_OptionsMenuWidget;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_InteractionWidget;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
@@ -78,16 +89,20 @@ struct Z_Construct_UClass_AMainHUD_Statics
 };
 const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_AMainHUD_Statics::NewProp_MainMenuClass = { "MainMenuClass", nullptr, (EPropertyFlags)0x0014000000010001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMainHUD, MainMenuClass), Z_Construct_UClass_UClass, Z_Construct_UClass_UMainMenu_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_MainMenuClass_MetaData), NewProp_MainMenuClass_MetaData) };
 const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_AMainHUD_Statics::NewProp_PauseMenuClass = { "PauseMenuClass", nullptr, (EPropertyFlags)0x0014000000010001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMainHUD, PauseMenuClass), Z_Construct_UClass_UClass, Z_Construct_UClass_UPauseMenu_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_PauseMenuClass_MetaData), NewProp_PauseMenuClass_MetaData) };
+const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_AMainHUD_Statics::NewProp_OptionsMenuClass = { "OptionsMenuClass", nullptr, (EPropertyFlags)0x0014000000010001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMainHUD, OptionsMenuClass), Z_Construct_UClass_UClass, Z_Construct_UClass_UOptionsMenu_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_OptionsMenuClass_MetaData), NewProp_OptionsMenuClass_MetaData) };
 const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_AMainHUD_Statics::NewProp_InteractionWidgetClass = { "InteractionWidgetClass", nullptr, (EPropertyFlags)0x0014000000010001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMainHUD, InteractionWidgetClass), Z_Construct_UClass_UClass, Z_Construct_UClass_UInteractionWidget_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_InteractionWidgetClass_MetaData), NewProp_InteractionWidgetClass_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMainHUD_Statics::NewProp_MainMenuWidget = { "MainMenuWidget", nullptr, (EPropertyFlags)0x0020080000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMainHUD, MainMenuWidget), Z_Construct_UClass_UMainMenu_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_MainMenuWidget_MetaData), NewProp_MainMenuWidget_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMainHUD_Statics::NewProp_PauseMenuWidget = { "PauseMenuWidget", nullptr, (EPropertyFlags)0x0020080000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMainHUD, PauseMenuWidget), Z_Construct_UClass_UPauseMenu_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_PauseMenuWidget_MetaData), NewProp_PauseMenuWidget_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMainHUD_Statics::NewProp_OptionsMenuWidget = { "OptionsMenuWidget", nullptr, (EPropertyFlags)0x0020080000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMainHUD, OptionsMenuWidget), Z_Construct_UClass_UOptionsMenu_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_OptionsMenuWidget_MetaData), NewProp_OptionsMenuWidget_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMainHUD_Statics::NewProp_InteractionWidget = { "InteractionWidget", nullptr, (EPropertyFlags)0x0020080000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMainHUD, InteractionWidget), Z_Construct_UClass_UInteractionWidget_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_InteractionWidget_MetaData), NewProp_InteractionWidget_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AMainHUD_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMainHUD_Statics::NewProp_MainMenuClass,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMainHUD_Statics::NewProp_PauseMenuClass,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMainHUD_Statics::NewProp_OptionsMenuClass,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMainHUD_Statics::NewProp_InteractionWidgetClass,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMainHUD_Statics::NewProp_MainMenuWidget,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMainHUD_Statics::NewProp_PauseMenuWidget,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMainHUD_Statics::NewProp_OptionsMenuWidget,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMainHUD_Statics::NewProp_InteractionWidget,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AMainHUD_Statics::PropPointers) < 2048);
@@ -131,10 +146,10 @@ AMainHUD::~AMainHUD() {}
 struct Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_UserInterface_MainHUD_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AMainHUD, AMainHUD::StaticClass, TEXT("AMainHUD"), &Z_Registration_Info_UClass_AMainHUD, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMainHUD), 194967617U) },
+		{ Z_Construct_UClass_AMainHUD, AMainHUD::StaticClass, TEXT("AMainHUD"), &Z_Registration_Info_UClass_AMainHUD, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMainHUD), 3529922323U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_UserInterface_MainHUD_h_1491156634(TEXT("/Script/Into_The_Light"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_UserInterface_MainHUD_h_976113393(TEXT("/Script/Into_The_Light"),
 	Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_UserInterface_MainHUD_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Public_UserInterface_MainHUD_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

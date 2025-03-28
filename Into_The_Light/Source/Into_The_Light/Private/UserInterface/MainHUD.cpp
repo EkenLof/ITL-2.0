@@ -3,6 +3,7 @@
 #include "UserInterface/MainHUD.h"
 #include "UserInterface/MainMenu.h"
 #include "UserInterface/PauseMenu.h"
+#include "UserInterface/OptionsMenu.h"
 #include "UserInterface/Interaction/InteractionWidget.h"
 
 #include "GameFramework/WorldSettings.h"
@@ -56,6 +57,19 @@ void AMainHUD::BeginPlay()
 	else
 	{
 		UE_LOG(LogTemp, Warning, TEXT("PauseMenuClass is not assigned!"));
+	}
+
+	if (OptionsMenuClass)
+	{
+		OptionsMenuWidget = CreateWidget<UOptionsMenu>(GetWorld(), OptionsMenuClass);
+		OptionsMenuWidget->AddToViewport(55); // Layer in depth visability / interaction
+		OptionsMenuWidget->SetVisibility(ESlateVisibility::Collapsed);
+
+		UE_LOG(LogTemp, Warning, TEXT("OptionsMenuClass is assigned!"));
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("OptionsMenuClass is not assigned!"));
 	}
 
 	if (InteractionWidgetClass)
@@ -166,6 +180,59 @@ void AMainHUD::TogglePauseMenu()
 	}
 }
 /////////////////////////////////////************** PAUSE MENU **************/////////////////////////////////////
+
+/////////////////////////////////////************* OPTIONS MENU *************/////////////////////////////////////
+void AMainHUD::DisplayOptionsMenu()
+{
+	if (OptionsMenuWidget)
+	{
+		bIsOptionsMenuVisible = true;
+		OptionsMenuWidget->SetVisibility(ESlateVisibility::Visible);
+
+		UE_LOG(LogTemp, Warning, TEXT("Options menu is now visible"));
+	}
+}
+
+void AMainHUD::HideOptionsMenu()
+{
+	if (OptionsMenuWidget)
+	{
+		bIsOptionsMenuVisible = false;
+		OptionsMenuWidget->SetVisibility(ESlateVisibility::Collapsed);
+
+		UE_LOG(LogTemp, Warning, TEXT("Options menu is not visible"));
+	}
+}
+
+void AMainHUD::ToggleOptionsMenu()
+{
+	UWorld* World = GetWorld();
+
+	if (World)
+	{
+		if (bIsOptionsMenuVisible) // In Game & No visable Menu...
+		{
+			HideOptionsMenu();
+
+			//const FInputModeGameOnly InputMode;
+			//GetOwningPlayerController()->SetInputMode(InputMode);
+			//GetOwningPlayerController()->SetShowMouseCursor(false);
+
+			//World->GetWorldSettings()->SetTimeDilation(1.0f);
+		}
+		else // Menu Open (set pause function...)
+		{
+			DisplayOptionsMenu();
+
+			//const FInputModeGameAndUI InputMode;
+			//GetOwningPlayerController()->SetInputMode(InputMode);
+			//GetOwningPlayerController()->SetShowMouseCursor(true);
+
+			//World->GetWorldSettings()->SetTimeDilation(0.0f);
+		}
+	}
+}
+/////////////////////////////////////************* OPTIONS MENU *************/////////////////////////////////////
 
 void AMainHUD::ShowInteractionWidget() const
 {
