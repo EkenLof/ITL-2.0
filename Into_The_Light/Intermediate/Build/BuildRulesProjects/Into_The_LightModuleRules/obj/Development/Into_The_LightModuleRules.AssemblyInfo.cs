@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Into_The_LightModuleRules")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Development")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dc7be4d3d4bdb26635a600e944b96d0d33212376")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+85494d769eca6f384213179aa198d6c1e05abbc1")]
 [assembly: System.Reflection.AssemblyProductAttribute("Into_The_LightModuleRules")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Into_The_LightModuleRules")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
