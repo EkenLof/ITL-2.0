@@ -90,6 +90,12 @@ public:
 	bool bIsOfficeKey; // bIsOfficeKey Selected
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory | Items")
 	bool bIsKeycard; // bIsKeycard Selected
+
+	// MAPS
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory | Items")
+	bool bIsMapB1; // bIsMapB1 Selected
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory | Items")
+	bool bIsMapF1; // bIsMapF1 Selected
 	////////////////////////////////////////////////////////////////////// INVENTORY SELECTED //////////////////////////////////////////////////////////////////////
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Value")
@@ -152,12 +158,16 @@ public:
 	class UStaticMeshComponent* RightHandMesh;
 
 	// --- FUNCTIONS ---
-	UFUNCTION(BlueprintCallable, Category = "Menu | PauseMenu")
+	UFUNCTION(BlueprintCallable, Category = "Menu | InventoryMenu")
 	void ToggleMenu();
 	UFUNCTION(BlueprintCallable, Category = "Menu | PauseMenu")
 	void TogglePauseMenu();
-	UFUNCTION(BlueprintCallable, Category = "Menu | PauseMenu")
+	UFUNCTION(BlueprintCallable, Category = "Menu | OptionsMenu")
 	void ToggleOptionsMenu();
+
+	//UFUNCTION(BlueprintCallable, Category = "Menu | InventoryMenu")
+	//void ToggleSellectedItem();
+	// Right Interact
 
 protected:
 	virtual void BeginPlay() override;

@@ -87,6 +87,9 @@ FReply UInventoryItemSlot::NativeOnMouseButtonDown(const FGeometry& InGeometry, 
 	FString Fuse16aText = "Fuse 16A";
 	FString ColeKeycardText = "Cole's Keycard";
 
+	FString MapB1Text = "Map B1";
+	FString MapF1Text = "Map F1";
+
 	if (InMouseEvent.GetEffectingButton() == EKeys::LeftMouseButton)
 	{
 		if (ItemClickOrDragTemp == FlashlightText || 
@@ -119,12 +122,16 @@ FReply UInventoryItemSlot::NativeOnMouseButtonDown(const FGeometry& InGeometry, 
 			bIsOfficeKey = false;
 			bIsKeycard = false;
 			bIsFuse16a = false;
+			bIsMapB1 = false;
+			bIsMapF1 = false;
 
 			OwningCharacter->bIsFuse10a = true;
 			OwningCharacter->bIsElectricKey = false;
 			OwningCharacter->bIsOfficeKey = false;
 			OwningCharacter->bIsKeycard = false;
 			OwningCharacter->bIsFuse16a = false;
+			OwningCharacter->bIsMapB1 = false;
+			OwningCharacter->bIsMapF1 = false;
 
 			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---UI Fuse10A_Selected---"));
 
@@ -137,12 +144,16 @@ FReply UInventoryItemSlot::NativeOnMouseButtonDown(const FGeometry& InGeometry, 
 			bIsOfficeKey = false;
 			bIsKeycard = false;
 			bIsFuse16a = false;
+			bIsMapB1 = false;
+			bIsMapF1 = false;
 
 			OwningCharacter->bIsElectricKey = true;
 			OwningCharacter->bIsFuse10a = false;
 			OwningCharacter->bIsOfficeKey = false;
 			OwningCharacter->bIsKeycard = false;
 			OwningCharacter->bIsFuse16a = false;
+			OwningCharacter->bIsMapB1 = false;
+			OwningCharacter->bIsMapF1 = false;
 
 
 			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---UI ElectricKey_Selected---"));
@@ -156,12 +167,16 @@ FReply UInventoryItemSlot::NativeOnMouseButtonDown(const FGeometry& InGeometry, 
 			bIsElectricKey = false;
 			bIsKeycard = false;
 			bIsFuse16a = false;
+			bIsMapB1 = false;
+			bIsMapF1 = false;
 
 			OwningCharacter->bIsOfficeKey = true;
 			OwningCharacter->bIsFuse10a = false;
 			OwningCharacter->bIsElectricKey = false;
 			OwningCharacter->bIsKeycard = false;
 			OwningCharacter->bIsFuse16a = false;
+			OwningCharacter->bIsMapB1 = false;
+			OwningCharacter->bIsMapF1 = false;
 
 			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---UI OfficeKey_Selected---"));
 
@@ -174,12 +189,16 @@ FReply UInventoryItemSlot::NativeOnMouseButtonDown(const FGeometry& InGeometry, 
 			bIsFuse10a = false;
 			bIsElectricKey = false;
 			bIsFuse16a = false;
+			bIsMapB1 = false;
+			bIsMapF1 = false;
 
 			OwningCharacter->bIsKeycard = true;
 			OwningCharacter->bIsOfficeKey = false;
 			OwningCharacter->bIsFuse10a = false;
 			OwningCharacter->bIsElectricKey = false;
 			OwningCharacter->bIsFuse16a = false;
+			OwningCharacter->bIsMapB1 = false;
+			OwningCharacter->bIsMapF1 = false;
 
 			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---UI OfficeKey_Selected---"));
 
@@ -192,17 +211,70 @@ FReply UInventoryItemSlot::NativeOnMouseButtonDown(const FGeometry& InGeometry, 
 			bIsOfficeKey = false;
 			bIsFuse10a = false;
 			bIsElectricKey = false;
+			bIsMapB1 = false;
+			bIsMapF1 = false;
 
 			OwningCharacter->bIsFuse16a = true;
 			OwningCharacter->bIsKeycard = false;
 			OwningCharacter->bIsOfficeKey = false;
 			OwningCharacter->bIsFuse10a = false;
 			OwningCharacter->bIsElectricKey = false;
+			OwningCharacter->bIsMapB1 = false;
+			OwningCharacter->bIsMapF1 = false;
 
 			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---UI Fuse16A_Selected---"));
 
 			return FReply::Handled();
 		}
+		//------------------------------------------------ *** MAPS *** ------------------------------------------------
+		// *** B1 ***
+		else if (ItemClickOrDragTemp == MapB1Text && !bIsMapB1)
+		{
+			bIsMapB1 = true;
+			bIsFuse16a = false;
+			bIsKeycard = false;
+			bIsOfficeKey = false;
+			bIsFuse10a = false;
+			bIsElectricKey = false;
+			bIsMapF1 = false;
+
+			OwningCharacter->bIsMapB1 = true;
+			OwningCharacter->bIsFuse16a = false;
+			OwningCharacter->bIsKeycard = false;
+			OwningCharacter->bIsOfficeKey = false;
+			OwningCharacter->bIsFuse10a = false;
+			OwningCharacter->bIsElectricKey = false;
+			OwningCharacter->bIsMapF1 = false;
+
+			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---UI MapB1_Selected---"));
+
+			return FReply::Handled();
+		}
+		// *** F1 ***
+		else if (ItemClickOrDragTemp == MapF1Text && !bIsMapF1)
+		{
+			bIsMapF1 = true;
+			bIsFuse16a = false;
+			bIsKeycard = false;
+			bIsOfficeKey = false;
+			bIsFuse10a = false;
+			bIsElectricKey = false;
+			bIsMapB1 = false;
+
+			OwningCharacter->bIsMapF1 = true;
+			OwningCharacter->bIsFuse16a = false;
+			OwningCharacter->bIsKeycard = false;
+			OwningCharacter->bIsOfficeKey = false;
+			OwningCharacter->bIsFuse10a = false;
+			OwningCharacter->bIsElectricKey = false;
+			OwningCharacter->bIsMapB1 = false;
+
+			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---UI MapF1_Selected---"));
+
+			return FReply::Handled();
+		}
+		//------------------------------------------------ *** MAPS *** ------------------------------------------------
+		/*
 		else if (ItemClickOrDragTemp == Fuse10aText && bIsFuse10a
 			|| ItemClickOrDragTemp == ElectricKeyText && bIsElectricKey
 			|| ItemClickOrDragTemp == OfficeKeyText && bIsOfficeKey
@@ -223,10 +295,9 @@ FReply UInventoryItemSlot::NativeOnMouseButtonDown(const FGeometry& InGeometry, 
 			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---UI Item_Unselected---"));
 
 			return FReply::Handled();
-			//----------------------------------------------------------------------------------
-			//********************************------ Equp ------********************************
-			//----------------------------------------------------------------------------------
+			
 		}
+		*/
 		else
 		{
 			bIsFuse10a = false;
@@ -234,16 +305,23 @@ FReply UInventoryItemSlot::NativeOnMouseButtonDown(const FGeometry& InGeometry, 
 			bIsOfficeKey = false;
 			bIsKeycard = false;
 			bIsFuse16a = false;
+			bIsMapB1 = false;
+			bIsMapF1 = false;
 
 			OwningCharacter->bIsFuse10a = false;
 			OwningCharacter->bIsElectricKey = false;
 			OwningCharacter->bIsOfficeKey = false;
 			OwningCharacter->bIsKeycard = false;
 			OwningCharacter->bIsFuse16a = false;
+			OwningCharacter->bIsMapB1 = false;
+			OwningCharacter->bIsMapF1 = false;
 
 			if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("---UI No_Item_Selected\nOr No_Identified_Item_Selected---"));
 
 			return FReply::Handled();
+			//----------------------------------------------------------------------------------
+			//********************************------ Equp ------********************************
+			//----------------------------------------------------------------------------------
 		}
 
 		return FReply::Handled();

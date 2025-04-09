@@ -88,6 +88,9 @@ AFirstPersonCharacter::AFirstPersonCharacter()
 	bIsOfficeKey = false;
 	bIsKeycard = false;
 
+	bIsMapB1 = false;
+	bIsMapF1 = false;
+
 	BIsStepActive = false;
 	bIsTempOnOff = false;
 	bIsTempWaitForInteractibleFuseBox = false;

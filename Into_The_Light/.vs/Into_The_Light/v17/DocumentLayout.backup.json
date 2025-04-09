@@ -3,16 +3,32 @@
   "WorkspaceRootPath": "D:\\Github-EkenLof-Games\\ITL-2.0\\Into_The_Light\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{89A48678-3687-36E5-9C55-D0F4F8E7024F}|Intermediate\\ProjectFiles\\Into_The_Light.vcxproj|D:\\Github-EkenLof-Games\\ITL-2.0\\Into_The_Light\\Source\\Into_The_Light\\Private\\UserInterface\\MainHUD.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{89A48678-3687-36E5-9C55-D0F4F8E7024F}|Intermediate\\ProjectFiles\\Into_The_Light.vcxproj|solutionrelative:Source\\Into_The_Light\\Private\\UserInterface\\MainHUD.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{89A48678-3687-36E5-9C55-D0F4F8E7024F}|Intermediate\\ProjectFiles\\Into_The_Light.vcxproj|D:\\Github-EkenLof-Games\\ITL-2.0\\Into_The_Light\\Source\\Into_The_Light\\Player\\FirstPersonCharacter.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{89A48678-3687-36E5-9C55-D0F4F8E7024F}|Intermediate\\ProjectFiles\\Into_The_Light.vcxproj|solutionrelative:Source\\Into_The_Light\\Player\\FirstPersonCharacter.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{89A48678-3687-36E5-9C55-D0F4F8E7024F}|Intermediate\\ProjectFiles\\Into_The_Light.vcxproj|D:\\Github-EkenLof-Games\\ITL-2.0\\Into_The_Light\\Source\\Into_The_Light\\Player\\FirstPersonCharacter.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{89A48678-3687-36E5-9C55-D0F4F8E7024F}|Intermediate\\ProjectFiles\\Into_The_Light.vcxproj|solutionrelative:Source\\Into_The_Light\\Player\\FirstPersonCharacter.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{89A48678-3687-36E5-9C55-D0F4F8E7024F}|Intermediate\\ProjectFiles\\Into_The_Light.vcxproj|D:\\Github-EkenLof-Games\\ITL-2.0\\Into_The_Light\\Source\\Into_The_Light\\Player\\FirstPersonCharacter.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{89A48678-3687-36E5-9C55-D0F4F8E7024F}|Intermediate\\ProjectFiles\\Into_The_Light.vcxproj|solutionrelative:Source\\Into_The_Light\\Player\\FirstPersonCharacter.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{89A48678-3687-36E5-9C55-D0F4F8E7024F}|Intermediate\\ProjectFiles\\Into_The_Light.vcxproj|D:\\Github-EkenLof-Games\\ITL-2.0\\Into_The_Light\\Source\\Into_The_Light\\Private\\UserInterface\\Inventory\\InventoryItemSlot.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{89A48678-3687-36E5-9C55-D0F4F8E7024F}|Intermediate\\ProjectFiles\\Into_The_Light.vcxproj|solutionrelative:Source\\Into_The_Light\\Private\\UserInterface\\Inventory\\InventoryItemSlot.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89A48678-3687-36E5-9C55-D0F4F8E7024F}|Intermediate\\ProjectFiles\\Into_The_Light.vcxproj|D:\\Github-EkenLof-Games\\ITL-2.0\\Into_The_Light\\Source\\Into_The_Light\\Private\\UserInterface\\MainHUD.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{89A48678-3687-36E5-9C55-D0F4F8E7024F}|Intermediate\\ProjectFiles\\Into_The_Light.vcxproj|solutionrelative:Source\\Into_The_Light\\Private\\UserInterface\\MainHUD.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89A48678-3687-36E5-9C55-D0F4F8E7024F}|Intermediate\\ProjectFiles\\Into_The_Light.vcxproj|D:\\Github-EkenLof-Games\\ITL-2.0\\Into_The_Light\\Source\\Into_The_Light\\Public\\UserInterface\\Inventory\\InventoryItemSlot.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{89A48678-3687-36E5-9C55-D0F4F8E7024F}|Intermediate\\ProjectFiles\\Into_The_Light.vcxproj|solutionrelative:Source\\Into_The_Light\\Public\\UserInterface\\Inventory\\InventoryItemSlot.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89A48678-3687-36E5-9C55-D0F4F8E7024F}|Intermediate\\ProjectFiles\\Into_The_Light.vcxproj|D:\\Github-EkenLof-Games\\ITL-2.0\\Into_The_Light\\Source\\Into_The_Light\\Private\\UserInterface\\MainMenu.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{89A48678-3687-36E5-9C55-D0F4F8E7024F}|Intermediate\\ProjectFiles\\Into_The_Light.vcxproj|solutionrelative:Source\\Into_The_Light\\Private\\UserInterface\\MainMenu.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{89A48678-3687-36E5-9C55-D0F4F8E7024F}|Intermediate\\ProjectFiles\\Into_The_Light.vcxproj|D:\\Github-EkenLof-Games\\ITL-2.0\\Into_The_Light\\Source\\Into_The_Light\\Private\\UserInterface\\Objective\\ObjectivePanel.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{89A48678-3687-36E5-9C55-D0F4F8E7024F}|Intermediate\\ProjectFiles\\Into_The_Light.vcxproj|solutionrelative:Source\\Into_The_Light\\Private\\UserInterface\\Objective\\ObjectivePanel.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{89A48678-3687-36E5-9C55-D0F4F8E7024F}|Intermediate\\ProjectFiles\\Into_The_Light.vcxproj|D:\\Github-EkenLof-Games\\ITL-2.0\\Into_The_Light\\Source\\Into_The_Light\\Public\\UserInterface\\MainHUD.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -33,10 +49,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{89A48678-3687-36E5-9C55-D0F4F8E7024F}|Intermediate\\ProjectFiles\\Into_The_Light.vcxproj|D:\\Github-EkenLof-Games\\ITL-2.0\\Into_The_Light\\Source\\Into_The_Light\\Private\\UserInterface\\PauseMenu.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{89A48678-3687-36E5-9C55-D0F4F8E7024F}|Intermediate\\ProjectFiles\\Into_The_Light.vcxproj|solutionrelative:Source\\Into_The_Light\\Private\\UserInterface\\PauseMenu.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{89A48678-3687-36E5-9C55-D0F4F8E7024F}|Intermediate\\ProjectFiles\\Into_The_Light.vcxproj|D:\\Github-EkenLof-Games\\ITL-2.0\\Into_The_Light\\Source\\Into_The_Light\\Private\\UserInterface\\MainMenu.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{89A48678-3687-36E5-9C55-D0F4F8E7024F}|Intermediate\\ProjectFiles\\Into_The_Light.vcxproj|solutionrelative:Source\\Into_The_Light\\Private\\UserInterface\\MainMenu.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{89A48678-3687-36E5-9C55-D0F4F8E7024F}|Intermediate\\ProjectFiles\\Into_The_Light.vcxproj|D:\\Github-EkenLof-Games\\ITL-2.0\\Into_The_Light\\Source\\Into_The_Light\\Public\\UserInterface\\MainMenu.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -65,18 +77,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{89A48678-3687-36E5-9C55-D0F4F8E7024F}|Intermediate\\ProjectFiles\\Into_The_Light.vcxproj|D:\\Github-EkenLof-Games\\ITL-2.0\\Into_The_Light\\Source\\Into_The_Light\\Private\\UserInterface\\Interaction\\InteractionWidget.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{89A48678-3687-36E5-9C55-D0F4F8E7024F}|Intermediate\\ProjectFiles\\Into_The_Light.vcxproj|solutionrelative:Source\\Into_The_Light\\Private\\UserInterface\\Interaction\\InteractionWidget.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{89A48678-3687-36E5-9C55-D0F4F8E7024F}|Intermediate\\ProjectFiles\\Into_The_Light.vcxproj|D:\\Github-EkenLof-Games\\ITL-2.0\\Into_The_Light\\Source\\Into_The_Light\\Private\\UserInterface\\Objective\\ObjectivePanel.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{89A48678-3687-36E5-9C55-D0F4F8E7024F}|Intermediate\\ProjectFiles\\Into_The_Light.vcxproj|solutionrelative:Source\\Into_The_Light\\Private\\UserInterface\\Objective\\ObjectivePanel.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{89A48678-3687-36E5-9C55-D0F4F8E7024F}|Intermediate\\ProjectFiles\\Into_The_Light.vcxproj|D:\\Github-EkenLof-Games\\ITL-2.0\\Into_The_Light\\Source\\Into_The_Light\\Private\\UserInterface\\Inventory\\InventoryItemSlot.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{89A48678-3687-36E5-9C55-D0F4F8E7024F}|Intermediate\\ProjectFiles\\Into_The_Light.vcxproj|solutionrelative:Source\\Into_The_Light\\Private\\UserInterface\\Inventory\\InventoryItemSlot.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{89A48678-3687-36E5-9C55-D0F4F8E7024F}|Intermediate\\ProjectFiles\\Into_The_Light.vcxproj|D:\\Github-EkenLof-Games\\ITL-2.0\\Into_The_Light\\Source\\Into_The_Light\\Public\\UserInterface\\Inventory\\InventoryItemSlot.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{89A48678-3687-36E5-9C55-D0F4F8E7024F}|Intermediate\\ProjectFiles\\Into_The_Light.vcxproj|solutionrelative:Source\\Into_The_Light\\Public\\UserInterface\\Inventory\\InventoryItemSlot.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{89A48678-3687-36E5-9C55-D0F4F8E7024F}|Intermediate\\ProjectFiles\\Into_The_Light.vcxproj|D:\\Github-EkenLof-Games\\ITL-2.0\\Into_The_Light\\Source\\Into_The_Light\\Private\\World\\PickUp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -178,11 +178,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "MainHUD.h",
               "DocumentMoniker": "D:\\Github-EkenLof-Games\\ITL-2.0\\Into_The_Light\\Source\\Into_The_Light\\Public\\UserInterface\\MainHUD.h",
               "RelativeDocumentMoniker": "Source\\Into_The_Light\\Public\\UserInterface\\MainHUD.h",
@@ -195,7 +195,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "MainHUD.cpp",
               "DocumentMoniker": "D:\\Github-EkenLof-Games\\ITL-2.0\\Into_The_Light\\Source\\Into_The_Light\\Private\\UserInterface\\MainHUD.cpp",
               "RelativeDocumentMoniker": "Source\\Into_The_Light\\Private\\UserInterface\\MainHUD.cpp",
@@ -204,8 +204,7 @@
               "ViewState": "AgIAACcAAAAAAAAAAAAAAEcAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-03-25T21:40:52.691Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -215,53 +214,54 @@
               "RelativeDocumentMoniker": "Source\\Into_The_Light\\Player\\FirstPersonCharacter.h",
               "ToolTip": "D:\\Github-EkenLof-Games\\ITL-2.0\\Into_The_Light\\Source\\Into_The_Light\\Player\\FirstPersonCharacter.h",
               "RelativeToolTip": "Source\\Into_The_Light\\Player\\FirstPersonCharacter.h",
-              "ViewState": "AgIAAHkAAAAAAAAAAAAIwJ8AAAAaAAAAAAAAAA==",
+              "ViewState": "AgIAAI4AAAAAAAAAAAAmwKUAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-03-25T21:40:52.632Z",
               "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "FirstPersonCharacter.cpp",
               "DocumentMoniker": "D:\\Github-EkenLof-Games\\ITL-2.0\\Into_The_Light\\Source\\Into_The_Light\\Player\\FirstPersonCharacter.cpp",
               "RelativeDocumentMoniker": "Source\\Into_The_Light\\Player\\FirstPersonCharacter.cpp",
               "ToolTip": "D:\\Github-EkenLof-Games\\ITL-2.0\\Into_The_Light\\Source\\Into_The_Light\\Player\\FirstPersonCharacter.cpp",
               "RelativeToolTip": "Source\\Into_The_Light\\Player\\FirstPersonCharacter.cpp",
-              "ViewState": "AgIAAKoDAAAAAAAAAAAAAOwDAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAkBAAAAAAAAAIAwwCIBAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-03-25T21:40:52.636Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 2,
               "Title": "InventoryItemSlot.cpp",
               "DocumentMoniker": "D:\\Github-EkenLof-Games\\ITL-2.0\\Into_The_Light\\Source\\Into_The_Light\\Private\\UserInterface\\Inventory\\InventoryItemSlot.cpp",
               "RelativeDocumentMoniker": "Source\\Into_The_Light\\Private\\UserInterface\\Inventory\\InventoryItemSlot.cpp",
               "ToolTip": "D:\\Github-EkenLof-Games\\ITL-2.0\\Into_The_Light\\Source\\Into_The_Light\\Private\\UserInterface\\Inventory\\InventoryItemSlot.cpp",
               "RelativeToolTip": "Source\\Into_The_Light\\Private\\UserInterface\\Inventory\\InventoryItemSlot.cpp",
-              "ViewState": "AgIAAGMAAAAAAAAAAAAnwHEAAABWAAAAAAAAAA==",
+              "ViewState": "AgIAAN4AAAAAAAAAAAAAAOYAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-03-25T21:40:52.755Z",
               "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 4,
               "Title": "InventoryItemSlot.h",
               "DocumentMoniker": "D:\\Github-EkenLof-Games\\ITL-2.0\\Into_The_Light\\Source\\Into_The_Light\\Public\\UserInterface\\Inventory\\InventoryItemSlot.h",
               "RelativeDocumentMoniker": "Source\\Into_The_Light\\Public\\UserInterface\\Inventory\\InventoryItemSlot.h",
               "ToolTip": "D:\\Github-EkenLof-Games\\ITL-2.0\\Into_The_Light\\Source\\Into_The_Light\\Public\\UserInterface\\Inventory\\InventoryItemSlot.h",
               "RelativeToolTip": "Source\\Into_The_Light\\Public\\UserInterface\\Inventory\\InventoryItemSlot.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAABEAAAAAAAAAAAAQwCAAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-03-25T21:40:52.751Z",
               "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 6,
               "Title": "ObjectivePanel.cpp",
               "DocumentMoniker": "D:\\Github-EkenLof-Games\\ITL-2.0\\Into_The_Light\\Source\\Into_The_Light\\Private\\UserInterface\\Objective\\ObjectivePanel.cpp",
               "RelativeDocumentMoniker": "Source\\Into_The_Light\\Private\\UserInterface\\Objective\\ObjectivePanel.cpp",
@@ -274,7 +274,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 13,
               "Title": "ObjectivePanel.h",
               "DocumentMoniker": "D:\\Github-EkenLof-Games\\ITL-2.0\\Into_The_Light\\Source\\Into_The_Light\\Public\\UserInterface\\Objective\\ObjectivePanel.h",
               "RelativeDocumentMoniker": "Source\\Into_The_Light\\Public\\UserInterface\\Objective\\ObjectivePanel.h",
@@ -287,7 +287,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 5,
               "Title": "MainMenu.cpp",
               "DocumentMoniker": "D:\\Github-EkenLof-Games\\ITL-2.0\\Into_The_Light\\Source\\Into_The_Light\\Private\\UserInterface\\MainMenu.cpp",
               "RelativeDocumentMoniker": "Source\\Into_The_Light\\Private\\UserInterface\\MainMenu.cpp",
@@ -300,7 +300,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 12,
               "Title": "MainMenu.h",
               "DocumentMoniker": "D:\\Github-EkenLof-Games\\ITL-2.0\\Into_The_Light\\Source\\Into_The_Light\\Public\\UserInterface\\MainMenu.h",
               "RelativeDocumentMoniker": "Source\\Into_The_Light\\Public\\UserInterface\\MainMenu.h",
@@ -313,7 +313,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 11,
               "Title": "PauseMenu.cpp",
               "DocumentMoniker": "D:\\Github-EkenLof-Games\\ITL-2.0\\Into_The_Light\\Source\\Into_The_Light\\Private\\UserInterface\\PauseMenu.cpp",
               "RelativeDocumentMoniker": "Source\\Into_The_Light\\Private\\UserInterface\\PauseMenu.cpp",
@@ -326,7 +326,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 10,
               "Title": "PauseMenu.h",
               "DocumentMoniker": "D:\\Github-EkenLof-Games\\ITL-2.0\\Into_The_Light\\Source\\Into_The_Light\\Public\\UserInterface\\PauseMenu.h",
               "RelativeDocumentMoniker": "Source\\Into_The_Light\\Public\\UserInterface\\PauseMenu.h",
@@ -339,7 +339,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 8,
               "Title": "OptionsMenu.h",
               "DocumentMoniker": "D:\\Github-EkenLof-Games\\ITL-2.0\\Into_The_Light\\Source\\Into_The_Light\\Public\\UserInterface\\OptionsMenu.h",
               "RelativeDocumentMoniker": "Source\\Into_The_Light\\Public\\UserInterface\\OptionsMenu.h",
@@ -352,7 +352,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 9,
               "Title": "OptionsMenu.cpp",
               "DocumentMoniker": "D:\\Github-EkenLof-Games\\ITL-2.0\\Into_The_Light\\Source\\Into_The_Light\\Private\\UserInterface\\OptionsMenu.cpp",
               "RelativeDocumentMoniker": "Source\\Into_The_Light\\Private\\UserInterface\\OptionsMenu.cpp",
@@ -373,7 +373,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 18,
               "Title": "InteractionWidget.cpp",
               "DocumentMoniker": "D:\\Github-EkenLof-Games\\ITL-2.0\\Into_The_Light\\Source\\Into_The_Light\\Private\\UserInterface\\Interaction\\InteractionWidget.cpp",
               "RelativeDocumentMoniker": "Source\\Into_The_Light\\Private\\UserInterface\\Interaction\\InteractionWidget.cpp",
@@ -397,7 +397,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 17,
               "Title": "InteractionInterface.cpp",
               "DocumentMoniker": "D:\\Github-EkenLof-Games\\ITL-2.0\\Into_The_Light\\Source\\Into_The_Light\\Private\\Interfaces\\InteractionInterface.cpp",
               "RelativeDocumentMoniker": "Source\\Into_The_Light\\Private\\Interfaces\\InteractionInterface.cpp",
@@ -421,7 +421,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 16,
               "Title": "InventoryComponent.cpp",
               "DocumentMoniker": "D:\\Github-EkenLof-Games\\ITL-2.0\\Into_The_Light\\Source\\Into_The_Light\\Private\\Components\\InventoryComponent.cpp",
               "RelativeDocumentMoniker": "Source\\Into_The_Light\\Private\\Components\\InventoryComponent.cpp",
@@ -433,7 +433,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 15,
               "Title": "GameplayEvents.cpp",
               "DocumentMoniker": "D:\\Github-EkenLof-Games\\ITL-2.0\\Into_The_Light\\Source\\Into_The_Light\\Private\\Gameplay\\GameplayEvents.cpp",
               "RelativeDocumentMoniker": "Source\\Into_The_Light\\Private\\Gameplay\\GameplayEvents.cpp",
@@ -445,7 +445,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 14,
               "Title": "GameplayEvents.h",
               "DocumentMoniker": "D:\\Github-EkenLof-Games\\ITL-2.0\\Into_The_Light\\Source\\Into_The_Light\\Public\\Gameplay\\GameplayEvents.h",
               "RelativeDocumentMoniker": "Source\\Into_The_Light\\Public\\Gameplay\\GameplayEvents.h",

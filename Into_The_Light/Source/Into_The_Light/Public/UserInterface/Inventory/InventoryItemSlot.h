@@ -31,6 +31,12 @@ public:
 	bool bIsOfficeKey = false;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory | Items")
 	bool bIsKeycard = false;
+
+	// MAPS
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory | Items")
+	bool bIsMapB1 = false;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory | Items")
+	bool bIsMapF1 = false;
 	
 
 protected:

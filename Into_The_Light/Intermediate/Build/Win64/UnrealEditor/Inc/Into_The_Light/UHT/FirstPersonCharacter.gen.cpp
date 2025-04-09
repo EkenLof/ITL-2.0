@@ -174,7 +174,7 @@ struct Z_Construct_UFunction_AFirstPersonCharacter_ToggleMenu_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "Category", "Menu | PauseMenu" },
+		{ "Category", "Menu | InventoryMenu" },
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// --- FUNCTIONS ---\n" },
 #endif
@@ -210,7 +210,7 @@ struct Z_Construct_UFunction_AFirstPersonCharacter_ToggleOptionsMenu_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "Category", "Menu | PauseMenu" },
+		{ "Category", "Menu | OptionsMenu" },
 		{ "ModuleRelativePath", "Player/FirstPersonCharacter.h" },
 	};
 #endif // WITH_METADATA
@@ -385,14 +385,34 @@ struct Z_Construct_UClass_AFirstPersonCharacter_Statics
 		{ "ToolTip", "bIsOfficeKey Selected" },
 #endif
 	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bIsObjectiveFlashlight_MetaData[] = {
-		{ "Category", "Event | Value" },
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bIsMapB1_MetaData[] = {
+		{ "Category", "Inventory | Items" },
 #if !UE_BUILD_SHIPPING
-		{ "Comment", "// bIsKeycard Selected\n////////////////////////////////////////////////////////////////////// INVENTORY SELECTED //////////////////////////////////////////////////////////////////////\n" },
+		{ "Comment", "// MAPS\n" },
 #endif
 		{ "ModuleRelativePath", "Player/FirstPersonCharacter.h" },
 #if !UE_BUILD_SHIPPING
-		{ "ToolTip", "bIsKeycard Selected\n/ INVENTORY SELECTED /" },
+		{ "ToolTip", "MAPS" },
+#endif
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bIsMapF1_MetaData[] = {
+		{ "Category", "Inventory | Items" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// bIsMapB1 Selected\n" },
+#endif
+		{ "ModuleRelativePath", "Player/FirstPersonCharacter.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "bIsMapB1 Selected" },
+#endif
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bIsObjectiveFlashlight_MetaData[] = {
+		{ "Category", "Event | Value" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// bIsMapF1 Selected\n////////////////////////////////////////////////////////////////////// INVENTORY SELECTED //////////////////////////////////////////////////////////////////////\n" },
+#endif
+		{ "ModuleRelativePath", "Player/FirstPersonCharacter.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "bIsMapF1 Selected\n/ INVENTORY SELECTED /" },
 #endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bIsObjectiveLighter_MetaData[] = {
@@ -648,6 +668,10 @@ struct Z_Construct_UClass_AFirstPersonCharacter_Statics
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsOfficeKey;
 	static void NewProp_bIsKeycard_SetBit(void* Obj);
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsKeycard;
+	static void NewProp_bIsMapB1_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsMapB1;
+	static void NewProp_bIsMapF1_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsMapF1;
 	static void NewProp_bIsObjectiveFlashlight_SetBit(void* Obj);
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsObjectiveFlashlight;
 	static void NewProp_bIsObjectiveLighter_SetBit(void* Obj);
@@ -728,8 +752,8 @@ struct Z_Construct_UClass_AFirstPersonCharacter_Statics
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
 		{ &Z_Construct_UFunction_AFirstPersonCharacter_LoadSublevel, "LoadSublevel" }, // 2075827994
 		{ &Z_Construct_UFunction_AFirstPersonCharacter_OnSublevelLoaded, "OnSublevelLoaded" }, // 1179316234
-		{ &Z_Construct_UFunction_AFirstPersonCharacter_ToggleMenu, "ToggleMenu" }, // 988792732
-		{ &Z_Construct_UFunction_AFirstPersonCharacter_ToggleOptionsMenu, "ToggleOptionsMenu" }, // 3435370679
+		{ &Z_Construct_UFunction_AFirstPersonCharacter_ToggleMenu, "ToggleMenu" }, // 3260197165
+		{ &Z_Construct_UFunction_AFirstPersonCharacter_ToggleOptionsMenu, "ToggleOptionsMenu" }, // 4282977179
 		{ &Z_Construct_UFunction_AFirstPersonCharacter_TogglePauseMenu, "TogglePauseMenu" }, // 1351570354
 		{ &Z_Construct_UFunction_AFirstPersonCharacter_UnloadSublevel, "UnloadSublevel" }, // 320830652
 	};
@@ -764,6 +788,16 @@ void Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsKeycard_SetBit
 	((AFirstPersonCharacter*)Obj)->bIsKeycard = 1;
 }
 const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsKeycard = { "bIsKeycard", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AFirstPersonCharacter), &Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsKeycard_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bIsKeycard_MetaData), NewProp_bIsKeycard_MetaData) };
+void Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsMapB1_SetBit(void* Obj)
+{
+	((AFirstPersonCharacter*)Obj)->bIsMapB1 = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsMapB1 = { "bIsMapB1", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AFirstPersonCharacter), &Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsMapB1_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bIsMapB1_MetaData), NewProp_bIsMapB1_MetaData) };
+void Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsMapF1_SetBit(void* Obj)
+{
+	((AFirstPersonCharacter*)Obj)->bIsMapF1 = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsMapF1 = { "bIsMapF1", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AFirstPersonCharacter), &Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsMapF1_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bIsMapF1_MetaData), NewProp_bIsMapF1_MetaData) };
 void Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsObjectiveFlashlight_SetBit(void* Obj)
 {
 	((AFirstPersonCharacter*)Obj)->bIsObjectiveFlashlight = 1;
@@ -920,6 +954,8 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AFirstPer
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsElectricKey,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsOfficeKey,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsKeycard,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsMapB1,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsMapF1,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsObjectiveFlashlight,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsObjectiveLighter,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AFirstPersonCharacter_Statics::NewProp_bIsObjectiveFuseCollected,
@@ -1015,10 +1051,10 @@ struct Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Sou
 		{ FInteractionData::StaticStruct, Z_Construct_UScriptStruct_FInteractionData_Statics::NewStructOps, TEXT("InteractionData"), &Z_Registration_Info_UScriptStruct_InteractionData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FInteractionData), 2377451553U) },
 	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AFirstPersonCharacter, AFirstPersonCharacter::StaticClass, TEXT("AFirstPersonCharacter"), &Z_Registration_Info_UClass_AFirstPersonCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFirstPersonCharacter), 1803577519U) },
+		{ Z_Construct_UClass_AFirstPersonCharacter, AFirstPersonCharacter::StaticClass, TEXT("AFirstPersonCharacter"), &Z_Registration_Info_UClass_AFirstPersonCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFirstPersonCharacter), 2566995647U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Player_FirstPersonCharacter_h_2002841026(TEXT("/Script/Into_The_Light"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Player_FirstPersonCharacter_h_2126007735(TEXT("/Script/Into_The_Light"),
 	Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Player_FirstPersonCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Player_FirstPersonCharacter_h_Statics::ClassInfo),
 	Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Player_FirstPersonCharacter_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Github_EkenLof_Games_ITL_2_0_Into_The_Light_Source_Into_The_Light_Player_FirstPersonCharacter_h_Statics::ScriptStructInfo),
 	nullptr, 0);
