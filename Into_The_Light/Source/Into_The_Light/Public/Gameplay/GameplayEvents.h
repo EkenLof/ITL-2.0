@@ -62,8 +62,6 @@ public:
 	// --- Actors --- //	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")
 	AActor* ReceptionPhoneActor;
-	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")
-	//AActor* ReceptionPhoneKeyActor;
 	// --- Actors --- //
 
 	// --- SubLevels --- //

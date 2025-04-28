@@ -42,8 +42,6 @@ AGameplayEvents::AGameplayEvents()
 	ReceptionPhoneTagName = FName(TEXT("ReceptionPhone")); // ReceptionPhone **
 
 	LightsB1Reception_SL = FName(TEXT("LightsB1Reception"));
-
-	//ReceptionPhoneKeyTagName = FName(TEXT("ReceptionPhone_Key")); // ReceptionPhone_Key
 }
 
 void AGameplayEvents::BeginPlay()
@@ -52,7 +50,6 @@ void AGameplayEvents::BeginPlay()
 	
 	// Varible Check & assign. 
 	UpdateVaribleState(ReceptionPhoneActor, ReceptionPhoneTagName);
-	//UpdateVaribleState(ReceptionPhoneKeyActor, ReceptionPhoneKeyTagName);
 
 	ToggleOff(); // Start Values
 }
@@ -166,10 +163,6 @@ void AGameplayEvents::ToggleOff()
 {
 	if (IsValid(ReceptionPhoneActor)) ReceptionPhoneActor->SetActorEnableCollision(false);
 
-	// EventActors
-
-	//if (IsValid(ReceptionPhoneKeyActor)) ReceptionPhoneKeyActor->SetActorEnableCollision(false);
-	//else UE_LOG(LogTemp, Warning, TEXT("ReceptionPhoneKeyActor is NOT Valid"));
 }
 
 /*

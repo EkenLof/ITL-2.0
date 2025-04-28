@@ -34,10 +34,9 @@ ABoxCollider::ABoxCollider()
 	ColeState = CreateDefaultSubobject<ACole>(TEXT("ColeState"));
 
 	MichaelTagName = FName(TEXT("Michael"));
-	//ReceptionPhoneTagName = FName(TEXT("ReceptionPhone")); // ReceptionPhone
 
 	LanternTagName = FName(TEXT("Lantern"));
-	LanternBrokenTagName = FName(TEXT("LanternBroken"));
+
 	ElectricKeyTagName = FName(TEXT("ElectricKey"));
 	ElectricKey_KeyTagName = FName(TEXT("ElectricKey_Key"));
 
@@ -111,14 +110,6 @@ void ABoxCollider::HandleBeforeMeetCole()
 	UE_LOG(LogTemp, Log, TEXT("HandleBeforeMeetCole Overlaped"));
 
 	// Actors OFF
-	UpdateVaribleState(LanternBrokenActor, LanternBrokenTagName);
-	if (IsValid(LanternBrokenActor)) // LanternBroken
-	{
-		LanternBrokenActor->SetActorHiddenInGame(true);
-		LanternBrokenActor->SetActorEnableCollision(false);
-	}
-	else UE_LOG(LogTemp, Warning, TEXT("LanternBrockenActor is NOT Valid"));
-
 	UpdateVaribleState(ElectricKeyActor, ElectricKeyTagName);
 	UpdateVaribleState(ElectricKey_KeyActor, ElectricKey_KeyTagName);
 	if (IsValid(ElectricKeyActor) && IsValid(ElectricKey_KeyActor)) // ElectricKey
@@ -142,7 +133,6 @@ void ABoxCollider::HandlebGoingToMissingCole()
 	UE_LOG(LogTemp, Log, TEXT("HandlebGoingToMissingCole Overlaped"));
 
 	UpdateVaribleState(LanternActor, LanternTagName);
-	UpdateVaribleState(LanternBrokenActor, LanternBrokenTagName);
 	UpdateVaribleState(ColeStorageRoomActor, ColeStorageTagName);
 	UpdateVaribleState(ElectricKeyActor, ElectricKeyTagName);
 	UpdateVaribleState(ElectricKey_KeyActor, ElectricKey_KeyTagName);
@@ -155,13 +145,6 @@ void ABoxCollider::HandlebGoingToMissingCole()
 		LanternActor->SetActorEnableCollision(false);
 	}
 	else UE_LOG(LogTemp, Warning, TEXT("---*Lantern ON* NOT POSSIBLE---"));
-
-	if (IsValid(LanternBrokenActor)) // LanternBroken
-	{
-		LanternBrokenActor->SetActorHiddenInGame(false);
-		LanternBrokenActor->SetActorEnableCollision(true);
-	}
-	else UE_LOG(LogTemp, Warning, TEXT("---*LanternBroken ON* NOT POSSIBLE---"));
 
 	if (IsValid(ColeStorageRoomActor)) // Cole
 	{

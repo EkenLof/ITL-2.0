@@ -54,8 +54,7 @@ public:
 	//ACTORS
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")
 	AActor* LanternActor;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")
-	AActor* LanternBrokenActor;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")
 	AActor* ColeStorageRoomActor;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Event | Assign | Actors")
@@ -82,7 +81,7 @@ protected:
 
 	FName ColeStorageTagName;
 	FName LanternTagName;
-	FName LanternBrokenTagName;
+
 	FName ElectricKeyTagName;
 	FName ElectricKey_KeyTagName;
 
